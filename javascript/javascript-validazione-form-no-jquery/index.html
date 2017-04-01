@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JavaScript: validazione dei form senza jQuery</title>
+<meta charset="utf-8" />
+<style>
+body {
+	width: 50%;
+	margin: 0 auto;
+	padding: 2em 0;
+	font: 100% Arial, sans-serif;
+	background: #f1f1f1;
+	color: #333;
+}
+
+form {
+	height: 100%;
+	padding: 1em;
+	margin: 0;
+	background: #fff;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	list-style: none;
+}
+
+li {
+	margin-bottom: 0.5em;
+}
+
+input {
+	font: 1em Arial, sans-serif;
+}
+
+li input {
+	display: block;
+	background: #fff;
+	border: 1px solid #999;
+	width: 180px;
+}
+
+li label {
+	display: block;
+	padding-bottom: 2px;
+	font-weight: bold;
+	color: #666;
+}
+
+p input {
+	background: #d24836;
+	color: #fff;
+	font-weight: bold;
+	padding: 5px;
+	border: none;
+	display: block;
+	width: 100px;
+}
+
+div.error {
+	color: #d24836;
+	font-weight: bold;
+	margin: 4px 0;
+}
+</style>
+<script type="text/javascript">
+window.onload = function() {
+  var Validator = function(form) {
+  
+    this.form = document.getElementById(form) ||
+                document.forms[0];
+                
+    
+    var validation = {
+    
+      name: {
+      
+        pattern: /^[a-z]+$/i,
+        message: 'Nome non valido',
+        check: function(value) {
+        
+          if(this.pattern.test(value)) {
+          
+            return true;
+          
+          }
+          
+          return false;
+        
+        }
+      
+      },
+      
+      email: {
+      
+        pattern: /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/,
+        message: 'Email non valida',
+        check: function(value) {
+        
+          if(this.pattern.test(value)) {
+          
+            return true;
+          
+          }
+          
+          return false;
+        
+        }
+      
+      
+      }
+    
+    
+    };
+    
+    var getRequiredFields = function() {
+    
+      var required = [];
+      var inputs = this.form.getElementsByTagName('input');
+      var i, len = inputs.length;
+      
+      for(i = 0; i < len; i += 1) {
+      
+        var input = inputs[i];
+        
+        if(input.hasAttribute('class')) {
+        
+        
+          var clName = input.getAttribute('class');
+          
+          if(clName == 'required') {
+          
+            required.push(input);
+          
+          }
+        
+        
+        }
+      
+      
+      }
+      
+      return required;
+      
+    };
+    
+    var createErrorMessage = function(text, element) {
+    
+      text = text || 'Errore';
+      element = element || null;
+    
+      var message = document.createElement('div');
+      message.className = 'error';
+      message.innerHTML = text;
+      
+      element.parentNode.appendChild(message);
+      
+    
+    
+    
+    };
+    
+    this.validate = function() {
+    
+    
+      var inputs = getRequiredFields();
+      var valid = true;
+      var i, len = inputs.length;
+      
+      for(i = 0; i < len; i += 1) {
+      
+        var input = inputs[i];
+        var value = input.value;
+        var type = input.getAttribute('name');
+        
+        if(type == 'nome') {
+        
+          if(!validation.name.check(value)) {
+          
+            createErrorMessage(validation.name.message, input);
+            
+            valid = false;
+          
+          
+          }
+        
+        
+        }
+        
+        if(type == 'email') {
+        
+          if(!validation.email.check(value)) {
+          
+            createErrorMessage(validation.email.message, input);
+            
+            valid = false;
+          
+          }
+        
+        }
+      
+        
+
+      
+      }
+      
+      return valid;
+    
+  };
+  
+};
+    
+
+
+var form = document.getElementById('form');
+var validator = new Validator('form');
+form.onsubmit = function() {
+
+  var isValid = validator.validate();
+  
+  return isValid;
+
+};
+
+};
+
+</script>
+</head>
+
+<body>
+
+<form action="javascript:alert('Form inviato con successo!');" method="post" id="form">
+
+  <ul>
+    <li>
+      <label for="nome">Nome</label>
+      <input type="text" name="nome" id="nome" class="required" />
+    </li>
+    <li>
+      <label for="email">E-mail</label>
+      <input type="text" name="email" id="email" class="required" />
+    </li>
+    <li>
+      <label for="web">Sito web</label>
+      <input type="text" name="web" id="web" />
+    </li>
+
+
+  </ul>
+  
+  <p><input type="submit" value="Invia" id="invia" name="invia" /></p>
+
+
+</form>
+
+</body>
+</html>

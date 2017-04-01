@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: gestire le celle di tabella con colspan</title>
+<meta charset="utf-8" />
+<style type="text/css">
+table {
+	margin: 2em auto;
+	width: 440px;
+	border-collapse: collapse;
+	table-layout: fixed;
+	border: 2px solid #bbb;
+	font: 100% Georgia, serif;
+}
+
+caption {
+	text-align: left;
+	font: 1.4em Arial, sans-serif;
+	color: #444;
+	padding-bottom: 4px;
+	text-transform: uppercase;
+}
+
+thead {
+	background: #eee;
+}
+
+th {
+	padding: 5px;
+	border-bottom: 1px solid #bbb;
+	vertical-align: middle;
+	width: 110px;
+}
+
+tbody {
+	background: #ddd;
+}
+
+td {
+	width: 110px;
+	border-bottom: 1px solid #bbb;
+	padding: 5px;
+	vertical-align: middle;
+	border-right: 1px solid #bbb;
+}
+
+td[colspan="2"] {
+	width: 220px;
+	text-align: center;
+}
+</style>
+</head>
+
+<body>
+
+<table summary="Tabella di esempio">
+	<caption>Tabella</caption>
+	<thead>
+		<tr>
+			<th scope="col">Intestazione 1</th>
+			<th scope="col">Intestazione 2</th>
+			<th scope="col">Intestazione 3</th>
+			<th scope="col">Intestazione 4</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Cella</td>
+			<td>Cella</td>
+			<td>Cella</td>
+			<td>Cella</td>
+		</tr>
+		<tr>
+			<td colspan="2">Cella</td>
+			<td colspan="2">Cella</td>
+		</tr>
+		<tr>
+			<td>Cella</td>
+			<td>Cella</td>
+			<td>Cella</td>
+			<td>Cella</td>
+		</tr>
+		<tr>
+			<td colspan="2">Cella</td>
+			<td colspan="2">Cella</td>
+		</tr>
+    </tbody>
+</table>
+
+</body>
+</html>

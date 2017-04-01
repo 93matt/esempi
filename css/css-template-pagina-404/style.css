@@ -1,0 +1,31 @@
+@import url(fonts/league-gothic/league-gothic.css);
+
+body {
+	background: #eee;
+	font: 2em Arial, sans-serif;
+}
+
+#error-404 {
+	width: 600px;
+	padding: 1em;
+	margin: 3em auto;
+	background: #fff;
+	border: 1px solid #ccc;
+}
+
+#error-404 h1 {
+	text-align: center;
+	margin: 0;
+	font: 4em LeagueGothicRegular, sans-serif;
+	color: #333;
+	padding-bottom: 32px;
+}
+
+#error-404 #img {
+	width: 500px;
+	margin: 0 auto 1em auto;
+}
+
+#error-404 p {
+	line-height: 1.3em;
+}

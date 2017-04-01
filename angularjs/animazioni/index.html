@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Animazioni</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" media="screen" />
+<style type="text/css" media="screen">
+body {
+	margin: 2em auto;
+	max-width: 400px;
+}
+
+.contacts {
+	margin: 1em 0;
+	list-style: none;
+	padding: 0;
+}
+
+.contacts li {
+	display: block;
+	margin-bottom: 1em;
+	padding-bottom: 6px;
+	border-bottom: 1px dashed #ccc;
+}
+
+.contacts li h4 {
+	font-size: 14px;
+	margin-bottom: 5px;
+}
+
+.contacts li div {
+	color: #888;
+}
+
+.contact-item.ng-enter,
+.contact-item.ng-move {
+	opacity: 0;
+	transition: all 800ms ease-in;
+}
+
+.contact-item.ng-enter.ng-enter-active,
+.contact-item.ng-move.ng-move-active {
+  opacity:1;
+}
+
+@keyframes leave {
+	from {
+		opacity: 1;
+	}
+
+	to {
+		opacity: 0;
+	}
+}
+
+.contact-item.ng-leave {
+	animation: leave 800ms;
+}
+	
+</style>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-animate.min.js"></script>
+<script type="text/javascript">
+var app = angular.module('MyApp', ['ngAnimate']);
+
+app.controller('DataCtrl', ['$scope', function($scope) {
+	$scope.data = [
+		{
+			name: 'Louisa Newman',
+			phone: '+1 (935) 582-3513'
+		},
+		{
+			name: 'Irene Lindsey',
+			phone: '+1 (871) 573-3578'
+		},
+		{
+			name: 'Case Bright',
+			phone: '+1 (917) 457-3358'
+		},
+		{
+			name: 'Davidson Clarke',
+			phone: '+1 (850) 526-2418'
+		},
+		{
+			name: 'Nolan Stevenson',
+			phone: '+1 (894) 584-3227'
+		},
+		{
+			name: 'Sonia Ferguson',
+			phone: '+1 (815) 447-2996'
+		}
+	];
+
+
+	$scope.addContact = function(name, phone) {
+		if($scope.dataForm.$valid) {
+			$scope.data.push({
+				name: name,
+				phone: phone
+			});
+		}
+	};
+
+	$scope.removeContact = function(name) {
+		for(var i = 0; i < $scope.data.length; ++i) {
+			if($scope.data[i].name == name) {
+				$scope.data.splice(i, 1);
+			}
+		}
+	};
+}]);
+</script>
+</head>
+<body ng-app="MyApp">
+	<div ng-controller="DataCtrl">
+		<ul class="contacts" ng-if="data.length > 0">
+			<li ng-repeat="item in data" class="contact-item">
+				<h4><i class="glyphicon glyphicon-user"></i> {{item.name}} <a href="" ng-click="removeContact(item.name)"><i class="glyphicon glyphicon-remove"></i></a></h4>
+				<div>{{item.phone}}</div>
+			</li>
+		</ul>
+		<form novalidate name="dataForm" ng-submit="addContact(name, phone)">
+			<p><input type="text" name="name" class="form-control" ng-model="name" placeholder="Name" required /></p>
+			<p><input type="text" name="phone" class="form-control" ng-model="phone" placeholder="Phone" required /></p>
+			<p><input type="submit" class="btn btn-primary" value="Add contact" /></p>	
+		</form>
+	</div>	
+</body>
+</html>

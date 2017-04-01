@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: cornice dinamica delle immagini</title>
+<meta charset="utf-8" />
+<style type="text/css">
+#gallery {
+	width: 80%;
+	margin: 0 auto;
+	padding: 2em 0;
+	overflow: auto;
+	position: relative;
+}
+
+#gallery img {
+	float: left;
+	width: 200px;
+	height: 150px;
+	margin-right: 5px;
+	cursor: pointer;
+	padding: 10px;
+}
+
+#cursor {
+	background: #888;
+	height: 150px;
+	width: 200px;
+	position: absolute;
+	top: 30px;
+	z-index: -1;
+	display: none;
+	padding: 10px;
+	border-radius: 5px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="gallery">
+	<img src="1.jpg" alt="" />
+	<img src="2.jpg" alt="" />
+	<img src="3.jpg" alt="" />
+	<img src="4.jpg" alt="" />
+	
+	<div id="cursor"></div>
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+
+  $('img', '#gallery').each(function() {
+  
+    var $img = $(this);
+    var left = $img.position().left;    
+    $img.hover(function() {
+    
+      $('#cursor').stop(true, true).animate({
+      
+        visibility: 'show',
+        left: left
+        
+      }, 'slow');
+    
+    }, function() {
+    
+      $('#cursor').stop(true, true).animate({
+       visibility: 'hide'
+      }, 'slow');
+    
+    
+    });
+  
+  });
+
+});
+</script>
+</body>
+</html>

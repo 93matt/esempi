@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Custom Events</title>
+<meta charset="utf-8" />
+<style>
+#test {
+	background: green;
+	width: 100px;
+	height: 100px;
+	cursor: pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<p><button id="ns">Custom Events</button></p>
+
+<div id="test"></div>
+
+
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script>
+$(function() {
+
+    
+
+	
+	
+	
+	$('#ns').click(function() {
+	
+		var clicked = 0;
+		
+		$('#test').on('single', function() {
+		
+		    alert('Single');
+		});
+		
+		$('#test').on('double', function() {
+		
+		    alert('Double');
+		});
+		
+		$('#test').on('click', function() {
+		
+		    clicked++;
+		    
+		    if(clicked == 1) {
+	
+				$(this).triggerHandler('single');
+			
+			}
+			
+			if(clicked == 2) {
+	
+				$(this).triggerHandler('double');	
+			
+			}
+		    
+		});
+
+	
+	});
+
+});
+</script>
+</body>
+</html>

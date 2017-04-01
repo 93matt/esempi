@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: slideshow full screen</title>
+<meta charset="utf-8" />
+<style>
+html, body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	min-height: 100%;
+	overflow: hidden;
+}
+
+body {
+	position: relative;
+}
+
+#slider {
+	width: 100%;
+	height: 400px;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	margin-top: -200px;
+}
+
+#slider ul {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	list-style: none;
+	z-index: 2;
+}
+
+#slider ul li {
+	position: absolute;
+	top: 0;
+	width: 450px;
+	height: 100%;
+}
+
+#slider ul li img {
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+
+#slider #slide-center {
+	left: 50%;
+	margin-left: -225px;
+}
+
+
+#slider #slide-prev {
+	left: -225px;
+}
+
+
+#slider #slide-next {
+	right: -225px;
+}
+
+#controls {
+	width: 530px;
+	height: 48px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -24px 0 0 -265px;
+	z-index: 3;
+}
+
+#controls a {
+	display: block;
+	width: 50px;
+	height: 50px;
+	text-indent: -1000em;
+	position: relative;
+}
+
+#controls #prev {
+	float: left;
+	background: url(prev.png) no-repeat;
+	left: -10px;
+}
+
+#controls #next {
+	float: right;
+	background: url(next.png) no-repeat;
+	right: -10px;
+} 
+</style>
+</head>
+
+<body>
+
+<div id="slider">
+
+	<ul id="slider-wp">
+	
+		<li id="slide-prev"><img src="slide-2.jpg" alt="" /></li>
+		<li id="slide-center"><img src="slide-3.jpg" alt="" /></li>
+		
+		<li id="slide-next"><img src="slide-4.jpg" alt="" /></li>	
+	</ul>
+	
+	<div id="controls">
+		<a href="#" id="prev">Previous</a>
+		<a href="#" id="next">Next</a>
+	</div>
+
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+
+   
+  var positions = {
+    prev: $('li#slide-prev').position().left,
+    main: $('li#slide-center').position().left,
+    next: $('li#slide-next').position().left,
+    slider: $('#slider-wp').position().left
+    
+  };
+  
+  var offsetValues = {
+  
+    prev: 0,
+    main: 0,
+    next: 0,
+    slider: 0
+  
+  
+  
+  };
+  
+  $('#prev').click(function(e) {
+  
+  
+    var prevPos = $('li#slide-prev').position().left;
+    var sliderPos = $('#slider-wp').position().left;
+    
+    if(prevPos == positions.prev && sliderPos == positions.slider) {
+    
+    
+      $('#slider-wp').animate({
+        left: positions.main
+      }, 'slow');
+    
+    } else {
+    
+    
+      $('#slider-wp').animate({
+        left: offsetValues.slider
+      }, 'slow');
+    
+    }
+  
+  
+    e.preventDefault();
+  });
+  
+  $('#next').click(function(e) {
+  
+    var nextPos = $('li#slide-next').position().left;
+    var sliderPos = $('#slider-wp').position().left;
+    
+    if(nextPos == positions.next && sliderPos == positions.slider) {
+    
+      $('#slider-wp').animate({
+        left: - positions.main
+        
+      }, 'slow');
+    
+    } else {
+    
+      $('#slider-wp').animate({
+        left: offsetValues.slider
+      }, 'slow');
+    
+    
+    }
+    
+    
+    e.preventDefault();
+  
+  });
+
+
+  
+});
+</script>
+
+</body>
+</html>

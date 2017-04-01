@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Event Namespace</title>
+<meta charset="utf-8" />
+<style>
+#test {
+	background: green;
+	width: 100px;
+	height: 100px;
+	cursor: pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<p><button id="ns">Event namespace</button></p>
+
+<div id="test"></div>
+
+
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script>
+$(function() {
+
+    
+
+	
+	
+	
+	$('#ns').click(function() {
+	
+	
+	    $('#test').on('click', function(event) {
+		
+		    
+		    alert('Normal');
+		    console.log(event);   
+		
+		    
+	
+		});
+
+	
+		
+		
+		$('#test').on('click.single', function(event) {
+		
+		    alert('Single');
+		    
+		    console.log(event);
+		});
+		
+		$('#test').on('click.double', function(event) {
+		
+		    alert('Double');
+		    
+		    console.log(event);
+		    
+		});
+		
+			});
+
+});
+</script>
+</body>
+</html>

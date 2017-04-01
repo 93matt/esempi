@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: bottoni dell'interfaccia di Facebook</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	margin: 2em auto;
+	width: 30em;
+}
+
+/* Demo */
+
+a.fb-button { 
+    position: relative; 
+    z-index: 1;
+    overflow: visible; 
+    display: inline-block; 
+    padding: 0.3em 0.6em 0.375em; 
+    border: 1px solid #999; 
+    border-bottom-color: #888;
+    margin: 0;
+    text-decoration: none; 
+    text-align: center;
+    font: bold 11px/normal 'lucida grande', tahoma, verdana, arial, sans-serif; 
+    white-space: nowrap; 
+    cursor: pointer; 
+    color: #333; 
+    background-color: #eee;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f5f6f6), to(#e4e4e3));
+    background-image: -moz-linear-gradient(#f5f6f6, #e4e4e3);
+    background-image: -o-linear-gradient(#f5f6f6, #e4e4e3);
+    background-image: linear-gradient(#f5f6f6, #e4e4e3);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#f5f6f6', EndColorStr='#e4e4e3');
+    -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #fff;
+    -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #fff;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #fff;
+    /* IE */
+    zoom: 1; 
+    *display: inline; 
+}
+
+a.fb-button:hover,
+a.fb-button:focus,
+a.fb-button:active {
+    border-color: #777 #777 #666;
+}
+
+a.fb-button:active {
+    border-color: #aaa;
+    background: #ddd;
+    filter: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+/* Firefox */
+a.fb-button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+
+a.fb-button.icon:before {
+    content: '';
+    position: relative; 
+    top: 1px; 
+    float:left;
+    width: 10px; 
+    height: 12px; 
+    margin: 0 0.5em 0 0; 
+    background: url(fb-icons.png) 99px 99px no-repeat;
+}
+
+a.fb-button.edit:before  { background-position: 0 0; }
+a.fb-button.add:before  { background-position: -10px 0; }
+a.fb-button.secure:before  { background-position: -20px 0; }
+a.fb-button.prev:before  { background-position: -30px 0; }
+a.fb-button.next:before  { float:right; margin: 0 -0.25em 0 0.5em; background-position: -40px 0; }
+</style>
+</head>
+
+<body>
+
+<p><a class="fb-button icon edit" href="#">Edit post</a></p>
+<p><a class="fb-button icon add" href="#">Add a photo</a></p>
+<p><a class="fb-button icon secure" href="#">Private account</a></p>
+<p><a class="fb-button icon prev" href="#">Back to messages</a></p>
+<p><a class="fb-button icon next" href="#">Get more info</a></p>
+</body>
+</html>

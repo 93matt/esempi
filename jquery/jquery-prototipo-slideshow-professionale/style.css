@@ -1,0 +1,88 @@
+/** @license Copyright (C) 2011 Gabriele Romanato
+  *  You cannot reuse this code or any part of it
+  *  without an explicit permission from the author. */
+
+#slideshow-container {
+	width: 650px;
+	margin: 2em auto;
+	position: relative;
+}
+
+#slideshow {
+	width: 100%;
+	height: 440px;
+	position: relative;	
+	z-index: 1;
+	overflow: hidden;
+}
+
+#slideshow-wrapper {
+	width: 7800px;
+	height: 440px;
+	position: relative;
+}
+
+#slideshow-wrapper img {
+	width: 650px;
+	height: 440px;
+	float: left;
+}
+
+#controls {
+	width: 679px;
+	height: 78px;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	margin-top: -39px;
+	z-index: 0;
+}
+
+#controls a {
+	display: block;
+	width: 29px;
+	height: 78px;
+	text-indent: -1000em;
+	background-repeat: no-repeat;
+}
+
+#controls #previous {
+	background-image: url(arrow-left.png);
+	float: left;
+	position: relative;
+	left: -29px;
+}
+
+#controls #previous:hover {
+	background-position: 0 -78px;
+}
+
+#controls #next {
+	background-image: url(arrow-right.png);
+	float: right;
+	position: relative;
+	right: 0;
+}
+
+#controls #next:hover {
+	background-position: 0 -78px;
+}
+
+#slideshow-thumbs {
+	margin-top: 1em;
+	width: 100%;
+	height: 50px;
+}
+
+#slideshow-thumbs a {
+	float: left;
+	width: 54px;
+	height: 100%;
+}
+
+#slideshow-thumbs a img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	border: none;
+}

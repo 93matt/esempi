@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>slideDown() - slideUp() - slideToggle()</title>
+<meta charset="utf-8" />
+<style type="text/css">
+#test {
+    padding: 0.5em;
+    margin: 1.5em;
+    background: #fafafa;
+    border: thin solid gray;
+    line-height: 1.4;
+}​
+</style>
+</head>
+
+<body>
+
+<p><button id="down">slideDown()</button>
+<button id="up">slideUp()</button>
+<button id="toggle">slideToggle()</button></p>
+
+<div id="test">
+    Aliquam quis tortor diam dis, mid augue est magnis in pid montes. Est urna penatibus et facilisis in, dictumst nec ac duis odio mauris? Purus mus montes non aenean placerat tempor mus? Tincidunt aliquet nunc tristique tristique augue adipiscing natoque urna sit natoque in? Non elit? Duis eros porta amet scelerisque odio natoque natoque!
+</div>​
+
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script>
+$(function() {
+			
+	 
+	 var test = $('#test'),
+    down = $('#down'),
+    up = $('#up'),
+    toggle = $('#toggle');
+
+
+down.click(function() {
+    test.slideDown(1000, function() {
+        alert('Complete');
+    });
+});
+    
+up.click(function() {
+    test.slideUp(1000, function() {
+        alert('Complete');
+    });
+});
+
+toggle.click(function() {
+    test.slideToggle(1000, function() {
+        alert('Complete');
+    });
+});
+	 
+	 		
+});
+</script>
+</body>
+</html>

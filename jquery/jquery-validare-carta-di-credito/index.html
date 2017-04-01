@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: validare una carta di credito</title>
+<meta charset="utf-8" />
+</head>
+
+<body>
+
+<form id="test" action="#" method="post">
+	<div>
+		<input type="text" name="card" id="card" />
+		<input type="submit" name="submit" id="submit" value="Test" />
+	</div>
+</form>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+(function($) {
+
+	$.fn.isValidCreditCard = function() {
+	
+		var that = this;
+		
+		if(!that.is('input')) {
+		
+			throw new Error('Only input elements are supported.');
+			
+			return;
+		
+		}
+		
+		var value = that.val();
+		
+		var checkLuhn = function(input) {
+  			var sum = 0;
+  			var numdigits = input.length;
+  			var parity = numdigits % 2;
+  			for(var i=0; i < numdigits; i++) {
+    			var digit = parseInt(input.charAt(i));
+    			if(i % 2 == parity) digit *= 2;
+    			if(digit > 9) digit -= 9;
+    			sum += digit;
+  			}
+  			return (sum % 10) == 0;
+		}
+
+		var test = checkLuhn(value);
+		
+		return test;
+	
+	};
+
+})(jQuery);
+
+$(function() {
+
+	$('#test').submit(function(event) {
+	
+	    $(this).find('span').remove();
+	
+		var valid = $('#card', $(this)).isValidCreditCard();
+		var card = $('#card', $(this)).val();
+		
+		var messages = {
+		
+			success: '<span style="color:green">Carta di credito valida</span>',
+			error:  '<span style="color: red">Carta di credito non valida</span>'
+		
+		
+		};
+		
+		if(!/^\d+$/.test(card) || !valid) {
+		
+			$(messages.error).insertAfter('#submit');
+		} else {
+		
+			$(messages.success).insertAfter('#submit');
+		
+		}
+		
+		
+		event.preventDefault();
+	
+	});
+
+});
+</script>
+
+</body>
+</html>

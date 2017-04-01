@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>CSS: codice a barre</title>
+  <meta charset="utf-8" />
+<style type="text/css">
+#codice {
+margin: 0;
+width: 200px;
+height: 150px;
+}
+
+span.barra {
+	float: left;
+	width: 15px;
+	height: 150px;
+	background: #000;
+	margin: 0 2px 0 0;
+}
+
+span.row {
+	float: right;
+	width: 5px;
+	background: #fff;
+	height: 150px;
+	margin: 0;
+}
+
+span.odd {
+	float: left;
+	width: 13px;
+	height: 150px;
+	margin: 0;
+	background: #fff;
+}
+
+#numeri {
+	margin: 0;
+	width: 200px;
+	letter-spacing: 6px;
+	font-family: Courier, monospace;
+}
+</style>
+ </head>
+ <body>
+ <div id="codice">
+<span class="barra"><span class="row"></span></span>
+<span class="barra"></span>
+<span class="barra"><span class="row"></span></span>
+<span class="barra"><span class="odd"></span></span>
+<span class="barra"><span class="row"></span></span>
+<span class="barra"></span>
+<span class="barra"><span class="row"></span></span>
+<span class="barra"><span class="odd"></span></span>
+<span class="barra"><span class="row"></span></span>
+<span class="barra"></span>
+</div>
+<p id="numeri">03477365208</p>
+
+ 
+ </body>
+</html>

@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: clonazione di una pagina del Download Center di Microsoft</title>
+<meta charset="utf-8" />
+<style type="text/css" media="screen">
+body {
+margin: 0;
+padding: 0;
+font: 65% Verdana, sans-serif;
+color: #000;
+background: #fff;
+}
+
+a:link, a:visited {color: #00c;}
+a:hover {color: #e00;}
+
+#masthead {
+width: 100%;
+height: 22px;
+line-height: 22px;
+background: #1e77d3 url("img/ms/gradient_002.jpg") no-repeat top left;
+color: #fff;
+}
+#masthead ul {
+margin: 0;
+padding-right: 77px;
+text-align: right;
+list-style: none;
+}
+#masthead li {
+display: inline;
+padding: 0;
+margin: 0;
+}
+#masthead li span {padding: 0 4px;}
+#masthead a:link,
+#masthead a:visited,
+#masthead a:hover {
+color: #fff;
+background: transparent;
+text-decoration: none;
+}
+
+#banner {
+width: 100%;
+height: 42px;
+background: #fff url("img/ms/ms_masthead_ltr.gif") no-repeat top left;
+color: #000;
+}
+#banner h1 {
+height: 42px;
+width: 250px;
+margin: 0 0 0 136px;
+padding: 0;
+float: left;
+display: inline;
+background: #fff url("img/ms/gradient.jpg") no-repeat top left;
+}
+#banner h1 span {position: absolute; top: -1000em;}
+
+#banner form {
+text-align: right;
+margin: 0;
+padding-right: 10px;
+padding-top: 2px;
+float: right;
+width: 284px;
+}
+#banner input {margin: 0; padding: 0;}
+#banner input.text {width: 230px; margin: 0; padding: 0;}
+#banner input.but {font: 110% Verdana, sans-serif;}
+#banner label {margin: 0; padding-left: 18px; display: block; text-align: left;}
+#banner form p {margin: 0; padding: 0;}
+
+
+#subbanner {
+width: 100%;
+height: 26px;
+background: #039 url("img/ms/subbanner.jpg") no-repeat top left;
+margin: 0;
+padding: 0;
+}
+#subbanner span {position: absolute; top: -1000em;}
+
+#content {margin: 0 15px 0 195px; padding: 0; font-size: 110%;}
+#content h2 {margin: 8px 0 0 0; font: 200% Arial, sans-serif;}
+#content p {margin: 0 0 13px 0;}
+#content h4 {font-size: 115%; margin: 0 0 6px 0;}
+#content h4.post {margin: 30px 0 0 0;}
+#content h4.instruction {padding-top: 4px; border-top: 1px solid #ccc; margin-top: 34px; }
+
+#quickinfo {
+border-collapse: collapse;
+border-spacing: 0;
+width: 300px;
+background: #fff;
+color: #000;
+margin: 0 0 20px 0;
+padding: 0;
+}
+#quickinfo caption {
+background: #ebcf70;
+color: #000;
+padding: 6px 0 8px 3px;
+font-weight: bold;
+text-align: left;
+}
+#quickinfo td, #quickinfo th {
+text-align: left;
+border-bottom: 1px solid #ccc;
+padding: 6px 0;
+vertical-align: middle;
+}
+
+#validation {
+margin: 0;
+padding: 0;
+background: #fcf4b5;
+color: #000;
+}
+#validation h3 {
+font-weight: bold;
+font-size: 1em;
+margin: 0;
+padding: 2px 0 2px 16px;
+background: #deb031 url("img/ms/11x11_arrow2.gif") no-repeat 0 50%;
+color: #ffc;
+}
+
+#validation form {
+float: right;
+width: 78px;
+margin: 0 24px 0 0;
+display: inline;
+padding: 0;
+}
+#validation input.bot {font: bold 100% Verdana, sans-serif;}
+#validation form p {margin: 10px 0 4px 0;}
+
+#validation p {margin: 6px 90px 6px 28px; padding-bottom: 6px;
+}
+
+#details {
+width: 165px;
+border-top: 2px solid #039;
+border-bottom: 2px solid #039;
+background: #f1f1f1;
+color: #000;
+float: right;
+margin: 15px 0 0 25px;
+padding-bottom: 14px;
+}
+#details h3 {
+font-weight: bold;
+font-size: 100%;
+margin: 10px 0 14px 5px;
+padding: 0;
+}
+#details ul {
+margin: 0 0 0 20px;
+padding: 0;
+color: #ccc;
+background: transparent;
+line-height: 1.5;
+}
+
+#language {
+margin: 0;
+padding: 0;
+font: 100% Verdana, sans-serif;
+}
+#language select {
+width: 130px;
+padding: 0;
+margin: 0;
+font: 100% Verdana, sans-serif;
+}
+#language input {
+font-family: Tahoma, sans-serif;
+font-size: 100%;
+margin-left: 4px;
+}
+#language p {
+margin: 0 0 4px 0;
+}
+#language div {margin: 0; padding: 0;}
+
+.support {padding: 0; margin: 12px 0 0 30px;}
+
+#col-sx {
+width: 181px;
+border-right: 1px solid #999;
+margin: 0;
+padding: 0;
+background: #f1f1f1;
+color: #000;
+position: absolute;
+top: 90px;
+left: 0;
+}
+
+#col-sx a:link,
+#col-sx a:visited,
+#col-sx a:hover {
+color: #000;
+text-decoration: none;
+}
+
+#col-sx a img {border: none;}
+
+#col-sx h3 {
+font-size: 100%;
+font-weight: normal;
+margin: 0;
+padding: 5px 0 5px 4px;
+border-bottom: 1px solid #999;
+}
+
+#col-sx h4 {
+font-size: 100%;
+font-weight: bold;
+margin: 5px 0 0 4px;
+}
+
+#search-download {
+background: #ccc;
+padding: 4px 0 5px 3px;
+margin: 0;
+color: #000;
+}
+#search-download form {
+margin: 0;
+padding: 0;
+}
+#search-download input.testo {
+width: 137px;
+margin: 0;
+padding: 0;
+}
+#search-download input.bottone {
+margin: 0 0 0 3px;
+padding: 0;
+font: 110% Tahoma, sans-serif;
+}
+#search-download label {
+display: block;
+width: 137px;
+margin: 0;
+padding: 0;
+font-size: 100%;
+}
+#searc-download div {margin: 0; padding: 0;}
+
+.categories {
+list-style: none;
+margin: 0;
+padding: 8px 0 5px 8px;
+border-bottom: 1px solid #999;
+line-height: 1.5;
+}
+
+#box-img {
+margin: 15px 0 15px 0;
+padding: 0;
+text-align: center;
+}
+
+#footer {
+margin: 0;
+padding: 6px 4px;
+border-top: 1px solid #003499;
+}
+
+
+#footer p {
+margin: 0;
+padding: 0;
+line-height: 1.8;
+}
+#footer a {padding: 0 5px;}
+#footer span.copy {padding: 0 5px;}
+
+</style>
+</head>
+
+<body>
+<div id="masthead">
+<ul>
+<li><a href="http://www.microsoft.com/">Microsoft.com Home</a><span>|</span></li>
+<li><a href="#">Site Map</a></li>
+</ul>
+</div>
+
+<div id="banner">
+<h1><span>Microsoft.com</span></h1>
+<form action="#">
+<p>
+<label>Search Microsoft.com for:</label>
+<input name="View" value="en-us" type="hidden" id="View" />
+<input name="charset" value="utf-8" type="hidden" id="charset" />
+<input name="query" type="text"  maxlength="255" class="text" id="query" />
+<input id="msviGoButton" value="Go" type="submit" class="but" name="msviGoButton" /></p>
+</form>
+</div>
+
+<h2 id="subbanner"><span>Download Center</span></h2>
+
+<div id="content">
+<h2>Windows Script 5.6 for Windows 2000 and XP</h2>
+<p>This
+download installs Microsoft Windows Script containing Visual Basic
+Script Edition (VBScript.) Version 5.6, JScript Version 5.6, Windows
+Script Components, Windows Script Host 5.6, and Windows Script Runtime
+Version 5.6.</p>
+
+<table id="quickinfo" summary="Quick info about the download">
+<caption>Quick Info</caption>
+<tr>
+<th scope="row"><strong>File Name:</strong></th>
+<td>scripten.exe</td>
+</tr>
+
+<tr>
+<th scope="row"><strong>Download Size:</strong></th>
+<td>661 KB</td>
+</tr>
+
+<tr>
+<th scope="row"><strong>Date Published:</strong></th>
+<td>9/18/2004</td>
+</tr>
+
+<tr>
+<th scope="row"><strong>Version:</strong></th>
+<td>5.6.0.8825</td>
+</tr>
+</table>
+
+<div id="validation">
+<h3>Validation Recommended</h3>
+
+<form action="">
+<p>
+<input name="FamilyID" value="c717d943-7e4b-4622-86eb-95a22b832caa" type="hidden" />
+<input name="displaylang" value="en" type="hidden" />
+<input id="btnDownload"  value="Continue" type="submit" class="bot" />
+</p>
+</form>
+
+<p>This download is available to customers running 
+<a href="#">genuine Microsoft Windows</a>. 
+Please click <strong>Continue</strong> to begin Windows validation.</p>
+</div>
+
+<div id="details">
+<h3>Related Resources</h3>
+<ul>
+<li><a href="#">Scripting Webcasts</a></li>
+<li><a href="#">Developer Resources for Windows Script</a></li>
+<li><a href="#">Discuss in Newsgroups</a></li>
+<li><a href="#">Advance Your Technical Career with Microsoft Certifications</a></li>
+</ul>
+</div>
+
+<h4>Overview</h4>
+<p>This
+download installs Microsoft Windows Script containing Visual Basic
+Script Edition (VBScript.) Version 5.6, JScript Version 5.6, Windows
+Script Components, Windows Script Host 5.6, and Windows Script Runtime
+Version 5.6.</p>
+
+<form action="#" id="language">
+<p><strong>Change language</strong></p>
+<div><select name="displaylang" id="displaylang">
+<option value="ar">Arabic</option>
+<option value="zh-cn">Chinese (Simplified)</option>
+<option value="zh-tw">Chinese (Traditional)</option>
+<option value="cs">Czech</option>
+<option value="da">Danish</option>
+<option value="nl">Dutch</option>
+<option value="en" selected="selected">English</option>
+<option value="fi">Finnish</option>
+<option value="fr">French</option>
+<option value="de">German</option>
+<option value="el">Greek</option>
+<option value="he">Hebrew</option>
+<option value="hu">Hungarian</option>
+<option value="it">Italian</option>
+<option value="ja">Japanese</option>
+<option value="ko">Korean</option>
+<option value="no">Norwegian (Bokmål)</option>
+<option value="pl">Polish</option>
+<option value="pt-br">Portuguese (Brazil)</option>
+<option value="pt-pt">Portuguese (Portugal)</option>
+<option value="ru">Russian</option>
+<option value="sk">Slovak</option>
+<option value="sl">Slovenian</option>
+<option value="es">Spanish</option>
+<option value="sv">Swedish</option>
+<option value="tr">Turkish</option>
+</select>
+<input value="Go" type="submit" id="submit" name="submit" />
+<input name="FamilyID" value="c717d943-7e4b-4622-86eb-95a22b832caa" type="hidden" id="FamilyID" /></div>
+</form>
+
+<h4 class="post">System Requirements</h4>
+
+<ul class="support">
+<li><strong>Supported Operating Systems:</strong>
+Windows 2000, Windows XP</li>
+</ul>
+
+<h4 class="instruction">Instructions</h4>
+
+<p>This download is available running 
+<a href="#">genuine Microsoft Windows</a>.  Click <strong>Continue</strong>
+in the section above to begin the short validation process. Once
+validated, you will be returned to this page with specific instructions
+for obtaining the download.</p>
+<p>If you want to access this download in a different language, 
+select the language from the drop-down list above and click <strong>Go</strong>.</p>
+</div>
+
+<div id="col-sx">
+
+<div id="search-download">
+<form action="#">
+<div><label>Search for a download:</label>
+<input class="testo" id="qu" name="qu" maxlength="255" type="text" />
+<input class="bottone" value="Go" type="submit" id="bot" name="bot" /></div>
+</form>
+</div>
+
+<h3><a href="#">Download Center Home</a></h3>
+<h4>Download Categories</h4>
+<ul class="categories">
+<li><a href="#">Games</a></li>
+<li><a href="#">DirectX</a></li>
+<li><a href="#">Internet</a></li>
+<li><a href="#">Windows (Security &amp; Updates)</a></li>
+<li><a href="#">Windows Media</a></li>
+<li><a href="#">Drivers</a></li>
+<li><a href="#">Office and Home Applications</a></li>
+<li><a href="#">Mobile Devices</a></li>
+<li><a href="#">Macintosh &amp; Other Platforms</a></li>
+<li><a href="#">Server Applications</a></li>
+<li><a href="#">System Management Tools</a></li>
+<li><a href="#">Development Resources</a></li>
+</ul>
+
+<h4>Download Resources</h4>
+<ul class="categories">
+<li><a href="#">Download Center Help</a></li>
+<li><a href="#">Related Download Sites</a></li>
+<li><a href="#">Update Services</a></li>
+<li><a href="#">Download Notifications</a></li>
+<li><a href="#">Worldwide Downloads</a></li>
+</ul>
+
+<p id="box-img">
+<a href="#"><img src="img/ms/WinGenAdv-120x240_F.jpg" alt="Microsoft Genuine Advantage" title="Microsoft Genuine Advantage" /></a>
+</p>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: trasformare una lista in una tabella</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css" media="screen">
+body {
+
+  margin: 0 auto;
+  width: 620px;
+  padding: 2em 0;
+  font: small Arial, sans-serif;
+  background: #fff;
+  color: #555;
+
+}
+
+#gallery {
+
+    width: 456px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    table-layout: fixed;
+
+}
+
+#gallery td {
+
+    width: 147px;
+    padding-right: 5px;
+
+}
+
+#gallery td img {
+
+    display: block;
+    width: 100%;
+
+}
+
+#gallery td p {
+
+    margin: 0;
+    padding: 0.3em 0;
+    text-align: center;
+    text-transform: uppercase;
+
+}
+
+</style>
+</head>
+
+<body>
+
+<ul id="gallery">
+
+<li><img src="img/1.jpg" alt="Immagine" />
+<p>Didascalia</p></li>
+
+<li><img src="img/2.png" alt="Immagine" />
+<p>Didascalia</p></li>
+
+<li><img src="img/3.jpg" alt="Immagine" />
+<p>Didascalia</p></li>
+
+</ul>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+
+$(function(){
+
+    var html = '';
+    html += '<table id="gallery">';
+    html += '<tr>';
+    
+    $('li', '#gallery').each(function() {
+    
+        var $li = $(this);
+        var imgSrc = $li.find('img').attr('src');
+        var imgAlt = $li.find('img').attr('alt');
+        var caption = $li.find('p').text();
+        
+        html += '<td><img src="'+imgSrc+ '" alt="'+imgAlt+ '"/>'+'<p>'+caption+'</p></td>';
+    
+    });
+    html += '</tr>';
+    html += '</table>';
+    
+    $('#gallery').replaceWith(html);
+    
+
+});
+
+</script>
+</body>
+</html>
+

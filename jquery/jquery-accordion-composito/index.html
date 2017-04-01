@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: accordion composito</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	width: 420px;
+	margin: 0 auto;
+	padding: 2em 0;
+	font: 76% Arial, sans-serif;
+}
+
+div.accordion {
+	overflow: hidden;
+	font-size: 1.2em;
+}
+
+div.accordion h3 {
+	background: rgb(254,255,232); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(254,255,232,1) 0%, rgba(214,219,191,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(254,255,232,1)), color-stop(100%,rgba(214,219,191,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(254,255,232,1) 0%,rgba(214,219,191,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(254,255,232,1) 0%,rgba(214,219,191,1) 100%); /* Opera11.10+ */
+background: -ms-linear-gradient(top, rgba(254,255,232,1) 0%,rgba(214,219,191,1) 100%); /* IE10+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffe8', endColorstr='#d6dbbf',GradientType=0 ); /* IE6-9 */
+background: linear-gradient(top, rgba(254,255,232,1) 0%,rgba(214,219,191,1) 100%); /* W3C */
+    height: 2em;
+    line-height: 2;
+    text-indent: 20px;
+    font-size: 1.4em;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+div.accordion-content {
+	background: #ccc;
+	margin: 1em 0;
+	line-height: 1.4;
+	border-radius: 12px;
+	display: none;	
+}
+
+div.accordion-content p {
+	margin: 0;
+	padding: 1em;
+	display: none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="accordion">
+	<h3>Titolo</h3>
+	<div class="accordion-content">
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	</div>
+</div>
+<div class="accordion">
+	<h3>Titolo</h3>
+	<div class="accordion-content">
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	</div>
+</div>
+<div class="accordion">
+	<h3>Titolo</h3>
+	<div class="accordion-content">
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	</div>
+</div>
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+
+	$('div.accordion', 'body').each(function() {
+	
+		var $div = $(this);
+		var $h3 = $('h3', $div);
+		var next = $h3.next();
+		var $p = $('p', next);
+		
+		$h3.click(function() {
+		
+			if(next.is(':hidden')) {
+			
+				next.animate({
+					visibility: 'show',
+					height: 200
+				}, 'slow', function() {
+				
+					$p.slideDown('slow');
+				
+				});
+			
+			} else {
+			
+				$p.slideUp('slow', function() {
+				
+					next.animate({
+						height: 0,
+						visibility: 'hide'
+					}, 'slow');
+				
+				});
+			
+			}
+		
+		});
+		
+			
+	});
+
+});
+</script>
+</body>
+</html>

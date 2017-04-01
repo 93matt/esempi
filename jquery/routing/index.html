@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Routing in jQuery</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" media="screen" />
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+var routes = [
+	{
+		url: "#!/",
+		template: "partials/home.html",
+		text: "Home"
+	},
+	{
+		url: "#!/contacts",
+		template: "partials/contacts.html",
+		text: "Contacts"
+	},
+	{
+		url: "#!/portfolio",
+		template: "partials/portfolio.html",
+		text: "Portfolio"
+	}
+
+
+];
+
+var getCurrentRoute = function( url ) {
+	var route = {};
+	for( var i = 0; i < routes.length; ++i ) {
+		if( routes[i].url == url ) {
+			route = routes[i];
+			break;
+		}
+	}
+	return route;
+};
+
+$(function() {
+	$( "a", ".nav" ).on( "click", function( e ) {
+		e.preventDefault();
+
+		var $a = $( this );
+		var $ul = $a.parents( ".nav" );
+
+		$ul.find( "li" ).removeClass( "active" );
+		$a.parent().addClass( "active" );
+
+		var url = $a.attr( "href" );
+		var currentRoute = getCurrentRoute( url );
+		
+		$( "#view" ).load( currentRoute.template, function() {
+			$( "#view" ).find( "h1" ).text( currentRoute.text );
+			history.pushState( currentRoute, currentRoute.text, currentRoute.url );
+		});
+	});
+	$( "a", ".nav" ).eq( 0 ).trigger( "click" );
+});
+</script>
+</head>
+<body>
+	<nav class="navbar navbar-default">
+		<ul class="nav navbar-nav">
+			<li><a href="#!/">Home</a></li>
+			<li><a href="#!/contacts">Contacts</a></li>
+			<li><a href="#!/portfolio">Portfolio</a></li>
+		</ul>
+	</nav>
+	<div id="view"></div>	
+</body>
+</html>

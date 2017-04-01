@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: grafico di livello</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css" media="screen">
+
+body {
+	font-size: 100.01%;
+}
+
+#box {
+width: 19em;
+margin: 0;
+font-size: 80%;
+}
+
+#box h4 {
+margin: 0;
+font: bold 1.2em/normal Tahoma, sans-serif;
+letter-spacing: 2.5em;
+color: orange;
+background: transparent;
+text-transform: uppercase;
+text-align: center;
+text-indent: 1.5em;
+}
+
+#graph {
+	width: 100%;
+	background: #eee;
+	color: #000;
+	border: 3px outset #000;
+	height: 4em;
+}
+
+#graph p {
+	width: 16em;
+	height: 15px;
+	background: #ccc;
+	color: #000;
+	border: 3px inset;
+	margin: 15px auto;
+}
+
+#bar {
+	display: block;
+	background: orange;
+	width: 5em;
+	height: 15px;
+}
+
+#end {
+	margin: 0;
+	padding-top: 0.2em;
+	font-family: Tahoma, sans-serif;
+	font-weight: bold;
+}
+
+#beginner {
+	color: orange;
+	padding: 0 0 0 1.5em;
+}
+
+#intermediate {
+	padding-left: 0.5em;
+}
+
+#expert {
+	padding-left: 0.7em;
+}
+
+</style>
+<!--[if lt IE 8]>
+<style type="text/css">
+#box h4 {letter-spacing: 2.4em;}
+</style>
+<![endif]-->
+</head>
+
+<body>
+
+
+<div id="box">
+<h4>Level</h4>
+<div id="graph">
+<p><span id="bar"></span></p>
+</div>
+<p id="end"><span id="beginner">Beginner</span> <span id="intermediate">Intermediate</span> <span id="expert">Expert</span></p>
+</div>
+
+
+</body>
+</html>

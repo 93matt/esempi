@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: tooltip sticky</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	padding: 2em 0;
+	width: 40%;
+	margin: 0 auto;
+	line-height: 1.5;
+	font: 85% Arial, sans-serif;
+}
+
+.tooltip {
+	cursor: default;
+}
+
+a.tooltip {
+	cursor: pointer;
+	color: #06c;
+}
+
+#tooltip,
+#tooltip_inner {
+	border: 1px solid;
+	border-radius: 5px;
+}
+
+#tooltip {
+	background: #fff;
+	border-color: #666;
+	display: none;
+	font-size: 12px;
+	padding: 1px;
+	position: absolute;
+	left: -9999px;
+	width: 200px;
+	z-index: 9999;
+}
+
+#tooltip_inner {
+	background: #f9f9f9;
+	border-color: #ccc;
+	padding: 10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<p><span class="tooltip" title="Ideo auteem aquis concupiscentia huius mundi comparatur.">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</span></p>
+
+<p><a href="#" class="tooltip" title="Ibam forte via sacra sicut meus est mos">Lorem ipsum dolor</a> sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+function createTooltip() {
+
+	if (!$('.tooltip').length) {
+
+		return;
+	}
+
+	$('body').append('<div id="tooltip"><div id="tooltip_inner"></div></div>');
+
+	var $tt_title, $tt_alt;
+
+	var $tt = $('#tooltip');
+	var $tt_i = $('#tooltip_inner');
+
+	$('.tooltip').hover(function() {
+
+
+		if ($(this).attr('title')) {
+			$tt_title = $(this).attr('title');
+			$(this).attr('title', '');
+		}
+
+		if ($(this).attr('alt')) {
+			$tt_alt = $(this).attr('alt');
+			$(this).attr('alt', '');
+		}
+
+		$tt_i.html($tt_title);
+
+		$tt.show();
+	},
+	function() {
+
+		$tt.hide();
+
+		$tt_i.html('');
+
+		if ($tt_title) {
+			$(this).attr('title', $tt_title);
+		}
+
+		if ($tt_alt) {
+			$(this).attr('alt', $tt_alt);
+		}
+
+	}).mousemove(function(ev) {
+
+		var $ev_x = ev.pageX;
+		var $ev_y = ev.pageY;
+
+		var $tt_x = $tt.outerWidth();
+		var $tt_y = $tt.outerHeight();
+
+		var $bd_x = $('body').outerWidth();
+		var $bd_y = $('body').outerHeight();
+
+		$tt.css({
+			'top': $ev_y + $tt_y > $bd_y ? $ev_y - $tt_y : $ev_y,
+			'left': $ev_x + $tt_x + 20 > $bd_x ? $ev_x - $tt_x - 10 : $ev_x + 15
+		});
+	});
+}
+
+$(function() {
+	createTooltip();
+});
+
+</script>
+</body>
+</html>

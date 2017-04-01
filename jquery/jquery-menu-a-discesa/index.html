@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: menu a discesa</title>
+<meta charset="utf-8" />
+<style>
+body {
+	margin: 0;
+	padding: 0;
+	font: 100% Arial, sans-serif;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#navigation {
+	height: 2em;
+	background: #333 url(gradient.png) repeat-x;
+	width: 100%;
+}
+
+#navigation li {
+	float: left;
+	height: 100%;
+	margin-right: 0.5em;
+	line-height: 2;
+	width: 9em;
+	text-align: center;
+}
+
+#navigation a {
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #fff;
+	text-decoration: none;
+}
+
+#navigation a:hover {
+	text-decoration: underline;
+}
+
+#navigation li ul {
+	width: 100%;
+	background: #444;
+	display: none;
+}
+
+#navigation li ul li {
+	float: none;
+	margin: 0 0 0.3em 0;
+	line-height: normal;
+	text-align: left;
+	width: 100%;
+}
+
+#navigation li ul li a {
+	display: block;
+	width: 100%;
+	padding: 1em 0;
+	text-indent: 1em;
+}
+
+#navigation li ul li a:hover {
+	background: #000;
+}
+</style>
+</head>
+
+<body>
+
+<ul id="navigation">
+	<li><a href="#">Home</a></li>
+	<li class="submenu"><a href="#">Articoli</a>
+	
+		<ul>
+			<li><a href="#">Articolo 1</a></li>
+			<li><a href="#">Articolo 2</a></li>
+			<li><a href="#">Articolo 3</a></li>
+		</ul>
+	
+	</li>
+	<li><a href="#">Contatti</a></li>
+</ul>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+
+  $('li.submenu', '#navigation').each(function() {
+  
+    var $li = $(this);
+    var $a = $li.find('a:first');
+    var $ul = $li.find('ul');
+    
+    $a.mouseover(function() {
+    
+      $ul.slideDown('slow');
+    
+    
+    });
+    
+    $ul.mouseleave(function() {
+    
+      $ul.slideUp('slow');
+    
+    });
+  
+  
+  });
+
+
+});
+</script>
+
+</body>
+</html>

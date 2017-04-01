@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: contatori negativi</title>
+<meta charset="utf-8" />
+<style type="text/css">
+#test {counter-reset: third -1;}
+#test li {display: block;}
+#test li:before {counter-increment: third 2; content: counter(third)". "; color: green;}
+</style>
+</head>
+
+<body>
+
+<ol id="test">
+<li>Voce</li>
+<li>Voce</li>
+<li>Voce</li>
+<li>Voce</li>
+<li>Voce</li>
+<li>Voce</li>
+</ol>
+
+
+</body>
+</html>

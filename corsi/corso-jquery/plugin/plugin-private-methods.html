@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Plugin: private methods</title>
+<meta charset="utf-8" />
+<style>
+#gallery {
+	overflow: hidden;
+}
+
+#gallery img {
+	float: left;
+	margin-right: 1em;
+}
+</style>
+</head>
+
+<body>
+
+<p><button id="resize">Resize</button></p>
+
+<div id="gallery">
+	<img src="img/1.jpg" alt=""/>
+	<img src="img/2.jpg" alt=""/>
+	<img src="img/3.jpg" alt=""/>
+</div>
+	
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="jquery.imageResize.js"></script>
+<script>
+$(function() {
+
+	$('#resize').click(function() {
+	
+		$('img', '#gallery').imageResize({
+			width: 100,
+			height: 100
+		});
+	
+	});	
+
+
+});
+</script>
+
+</body>
+</html>

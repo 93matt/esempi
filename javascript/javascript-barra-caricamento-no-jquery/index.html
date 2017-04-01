@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JavaScript: barra di caricamento senza jQuery</title>
+<meta charset="utf-8" />
+<style type="text/css">
+
+#container {
+    width: 500px;
+    height: 50px;
+    background: silver;
+    overflow: hidden;
+    text-align: right;
+    
+}
+
+#bar {
+    
+    width: 0px;
+    height: 50px;
+    background: orange;
+}
+
+</style>
+<script type="text/javascript">
+window.onload = function() {
+    
+    var Animator = new function() {
+  
+        var parent = document.getElementById('container');
+        var element = document.getElementById('bar');
+        var target = document.getElementById('message');
+     
+    
+        this.run = function() {
+            
+                var i = 0;
+                var width = 0;
+            
+                var timer = setTimeout(function() {
+                
+                    i += 1;
+                
+                    element.style.width = width + i + 'px';
+                    
+                    
+                    setTimeout(arguments.callee, 25);
+                    
+                    
+                    if(i == 50 ) {
+                        
+                        target.innerHTML = '10% completed';
+                        
+                    }
+                    
+                    if(i == 100 ) {
+                        
+                        target.innerHTML = '20% completed';
+                        
+                    }
+                    
+                    if(i == 150 ) {
+                        
+                        target.innerHTML = '30% completed';
+                        
+                    }
+                    
+                    if(i == 200 ) {
+                        
+                        target.innerHTML = '40% completed';
+                        
+                    }
+                    
+                    if(i == 250 ) {
+                        
+                        target.innerHTML = '50% completed';
+                        
+                    }
+                    
+                    if(i == 300 ) {
+                        
+                        target.innerHTML = '60% completed';
+                        
+                    }
+                    
+                    if(i == 350 ) {
+                        
+                        target.innerHTML = '70% completed';
+                        
+                    }
+                    
+                    if(i == 400 ) {
+                        
+                        target.innerHTML = '80% completed';
+                        
+                    }
+                    
+                    if(i == 450) {
+                        
+                        target.innerHTML = '90% completed';
+                        
+                    }
+                    
+                       
+                   if(i == 500) {
+                    
+                      target.innerHTML = '100% completed';
+                    
+                      clearTimeout(timer);
+                    
+                   }
+                
+               
+                
+               }, 25);
+            
+            
+            
+            
+        };
+        
+    };
+    
+    
+ Animator.run(); 
+    
+};
+</script>
+</head>
+
+<body>
+    
+<div id="container">
+    
+    <div id="bar"></div>
+    
+</div>
+
+<div id="message"></div>
+
+
+
+
+
+</body>
+</html>
+

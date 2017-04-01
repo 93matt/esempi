@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: effetto di esplosione sui box</title>
+<meta charset="utf-8" />
+<style type="text/css">
+#test {width: 100px; height: 100px; background: #c30;}
+</style>
+</head>
+<body>
+
+<p><a href="#" id="run">Fai esplodere il box</a></p>
+
+<div id="test"></div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+(function($) {
+	
+	$.fn.explode = function() {
+		
+		var self = this;
+		
+	    return this.each(function() {
+		
+		    var winWidth = $(window).width();
+		    var winHeight = $(window).height();
+		
+		    self.animate({
+			    
+			    display: 'block',
+			    width: winWidth,
+			    height: winHeight,
+			    opacity: '0'
+			
+			
+		    }, 'fast', function() {self.remove();});
+		
+	    });	
+		
+	};
+	
+})(jQuery);
+
+$(document).ready(function() {
+
+    $('#run').click(function(e) {
+    
+        $('#test').explode();
+        
+        e.preventDefault();
+    
+    });
+
+});
+
+</script>
+</body>
+</html>
+

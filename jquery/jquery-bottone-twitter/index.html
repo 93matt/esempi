@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: creare un bottone per Twitter</title>
+<meta charset="utf-8" />
+<style type="text/css">
+a.twitter {
+	width: 90px;
+	height: 30px;
+	background: url(tweet-button.png) no-repeat;
+	line-height: 30px;
+	display: block;
+	text-align: center;
+	color: #338;
+	border: 1px solid;
+	border-radius: 6px;
+	text-decoration: none;
+	font-family: Arial, sans-serif;
+	font-size: 85%;
+}
+	
+</style>
+</head>
+
+<body>
+
+<p id="test"></p>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+(function($) {
+
+  $.fn.tweetButton = function(options) {
+  
+    var that = this;
+    var settings = {
+    
+      url: location.href,
+      via: 'gabromanato',
+      text: document.title,
+      linkText: 'Tweet',
+      linkClass: 'twitter'
+      
+      
+    
+    };
+    
+    options = $.extend(settings, options);
+    
+    return that.each(function() {
+    
+      var html = '<a class="' + options.linkClass + '"';
+      html += ' href="http://twitter.com/share?' + 'url=' +
+              encodeURIComponent(options.url) + '&via=' +
+              options.via + '&text=' + options.text + '">' + options.linkText + '</a>';
+              
+      that.html(html);
+    
+    
+    });
+  
+  
+  };
+
+})(jQuery);
+
+$(function() {
+
+  $('#test').tweetButton();
+
+});
+</script>
+</body>
+</html>

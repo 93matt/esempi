@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: dividere le immagini</title>
+<meta charset="utf-8" />
+<style type="text/css">
+#image {
+	width: 600px;
+	height: 450px;
+	position: relative;
+	margin: 2em auto;
+}
+
+#image img {
+	display: block;
+	cursor: pointer;
+}
+
+#divide {
+	font: 100% Arial, sans-serif;
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+	margin: 1em;
+	padding: 0.5em 1em;
+	background: #d34545;
+	border-radius: 6px;
+}
+</style>
+</head>
+
+<body>
+
+<p><a href="#" id="divide">Dividi l'immagine</a></p>
+
+<div id="image">
+	<img src="image.jpg" alt="" />
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+(function($) {
+
+	$.fn.divide = function(options) {
+	
+		var that = this;
+		
+		var settings = {
+		
+			parts: 4,
+			speed: 1000,
+			partWidth: 300,
+			partHeight: 225,
+			positions: ['0px 0px', '-150px 0px', '0px -150px', '-150px -150px']
+		
+		};
+		
+		options = $.extend(settings, options);
+		
+		var img = $('img', that);
+		var imgWidth = img.width();
+		var imgHeight = img.height();
+		var imgSrc = img.attr('src');
+		
+		var wrapper = $('<div id="wrapper"></div>');
+		wrapper.css({
+			width: imgWidth,
+			height: imgHeight,
+			position: 'absolute',
+			zIndex: 100,
+			overflow: 'hidden',
+			top: 0,
+			left: 0
+		}).appendTo(that);
+		
+		
+
+				
+		return that.each(function() {
+		
+		    var index = -1;
+		
+			for(var i = 0; i < options.parts; i += 1) {
+			
+			index++;
+					
+					
+		    $('<div class="block"></div>').css({
+				width: options.partWidth - 4,
+				height: options.partHeight - 4,
+		  	   'float': 'left',
+			    backgroundImage: 'url(' + imgSrc + ')',
+			    backgroundRepeat: 'no-repeat',
+			    backgroundPosition: options.positions[index],
+			    border: '2px solid #fff',
+			    cursor: 'pointer'
+			}).appendTo('#wrapper').hide();
+					
+					
+		   }
+		   
+		  setTimeout(function() {
+		
+		   img.animate({
+		   		width: '+=50px',
+		   		height: '+=50px',
+		   		opacity: 'hide'
+		   }, options.speed, function() {
+		   
+		   		$('div.block').show();
+		   		
+		   		$('div.block').each(function(i) {
+		   		
+		   			var $div = $(this);
+		   			$div.attr('title', 'Parte ' + (i + 1));
+		   			
+		   			$div.hover(function() {
+		   			
+		   			  $div.stop(true, true).
+		   			  animate({
+		   			  	opacity: 0.7
+		   			  }, options.speed);
+		   			
+		   			
+		   			
+		   			}, function() {
+		   			
+		   			   $div.stop(true, true).
+		   			  animate({
+		   			  	opacity: 1
+		   			  }, options.speed);
+		   			
+
+		   			
+		   			
+		   			});
+		   		
+		   		
+		   		});
+		   
+		   });
+		   
+		   }, options.speed);
+					
+		});
+		
+		
+	
+	};
+
+})(jQuery);
+
+$(function() {
+
+  $('#divide').one('click', function(event) {
+
+	$('#image').divide({speed: 500});
+	
+	event.preventDefault();
+	
+  });
+
+});
+</script>
+</body>
+</html>

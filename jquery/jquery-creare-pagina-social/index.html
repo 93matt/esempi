@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: creare una pagina social</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	margin: 0;
+	padding: 0;
+	background: #fff url(code.jpg) no-repeat;
+	font: 95% Arial, sans-serif;
+	color: #333;
+}
+
+a {
+	color: #242424;
+	text-decoration: none;
+	border-bottom: 1px dotted;
+}
+
+a:hover {
+	color: #545454;
+	border-bottom-style: solid;
+}
+
+#page {
+	width: 50%;
+	padding: 2em;
+	border: 1px solid #bbb;
+	border-radius: 5px;
+	box-shadow: 1px 1px 1px #ddd;
+	margin: 2em auto;
+	overflow: hidden;
+	background: rgba(255, 255, 255, 0.7);
+}
+
+#flickr {
+	float: left;
+	width: 44%;
+}
+
+#twitter {
+	float: right;
+	width: 44%;
+	padding-left: 1em;
+	border-left: 1px solid #ccc;
+}
+</style>
+</head>
+
+<body>
+
+<div id="page">
+	<div id="flickr"></div>
+	<div id="twitter"></div>
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+var SocialPage = new function() {
+
+	var page = document.getElementById('page'),
+		flickr = $('#flickr', page),
+		twitter = $('#twitter', page),
+		flickrFeed = 'http://api.flickr.com/services/feeds/photos_public.gne?ids=31968388@N02&lang=en-us&format=json&jsoncallback=?',
+		twitterFeed = 'http://twitter.com/status/user_timeline/gabromanato.json?count=10&callback=?';
+		
+	String.prototype.linkify = function() {
+		return this.replace(/[A-Za-z]+:\/\/[A-Za-z0-9-_]+\.[A-Za-z0-9-_:%&\?\/.=]+/, function(m) {
+			return m.link(m);
+		});
+	};
+	
+	var relativeTime = function(time_value) {
+	
+	  var values = time_value.split(" ");
+	  time_value = values[1] + " " + values[2] + ", " + values[5] + " " + values[3];
+	  var parsed_date = Date.parse(time_value);
+	  var relative_to = (arguments.length > 1) ? arguments[1] : new Date();
+	  var delta = parseInt((relative_to.getTime() - parsed_date) / 1000);
+	  delta = delta + (relative_to.getTimezoneOffset() * 60);
+	  
+	  var r = '';
+	  if (delta < 60) {
+		r = '1 minuto fa';
+	  } else if(delta < 120) {
+		r = 'alcuni minuti fa';
+	  } else if(delta < (45*60)) {
+		r = (parseInt(delta / 60)).toString() + ' minuti fa';
+	  } else if(delta < (90*60)) {
+		r = '1 ora fa';
+	  } else if(delta < (24*60*60)) {
+		r = '' + (parseInt(delta / 3600)).toString() + ' ore fa';
+	  } else if(delta < (48*60*60)) {
+		r = '1 giorno fa';
+	  } else {
+		r = (parseInt(delta / 86400)).toString() + ' giorni fa';
+	  }
+	  
+	  return r;
+	}
+	
+	this.init = function() {
+	
+		$.getJSON(flickrFeed, function(data){
+	  		$.each(data.items, function(index, item){
+				$("<img/>").attr("src", item.media.m).appendTo(flickr)
+		  		.wrap("<a href='" + item.link + "'></a>");
+		  		
+		  		return (index < 4);
+	  		});
+		});
+	
+		$.getJSON(twitterFeed, function(data){
+			$.each(data, function(index, item){
+				twitter.append('<div class="tweet"><p>' + item.text.linkify() + '</p><p><strong>' + relativeTime(item.created_at) + '</strong></p></div>');
+			});
+	
+		});
+
+	
+	};
+
+
+}();
+
+$(function() {
+
+	SocialPage.init();
+
+});
+</script>
+</body>
+</html>

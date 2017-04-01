@@ -1,0 +1,38 @@
+body {
+	max-width: 800px;
+	margin: 2em auto;
+}
+
+.products {
+	margin: 1em 0;
+	list-style: none;
+	padding: 0;
+}
+
+
+.products li {
+	text-align: center;
+	padding: 0 15px 0 0;
+}
+
+.products > li:last-child {
+	padding: 0;
+}
+
+.products li h4 {
+	font-size: 14px;
+	margin-bottom: 5px;
+}
+
+.products li div {
+	color: #888;
+}
+
+.products li figure {
+	max-height: 280px;
+	overflow: hidden;
+}
+
+.products li div {
+	margin-bottom: 12px;
+}

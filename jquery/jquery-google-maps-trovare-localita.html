@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: trovare una località con Google Maps</title>
+<meta charset="utf-8"/>
+<style>
+#map {
+    width: 500px;
+    height: 400px;
+    margin-top: 1em;
+}
+</style>
+</head>
+
+<body>
+
+<form id="locationForm" action="/" method="get">
+    <div>
+      <label for="location">Località:</label>
+      <input type="text" name="location" id="location" />
+      <input type="submit" id="addressButton" value="Trova" />					
+    </div>
+</form>
+  
+<div id="map"></div>
+  
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+
+    var map, geocoder, marker, infowindow;
+    
+    var options = {  
+      zoom: 6,  
+      center: new google.maps.LatLng(42.50, 12.50),  
+      mapTypeId: google.maps.MapTypeId.ROADMAP  
+    };  
+
+    map = new google.maps.Map($('#map')[0], options);
+    
+    $('#locationForm').submit(function(e) {
+    
+        var location = $('#location').val();
+        
+        getLocation(location);
+        
+        e.preventDefault();
+    
+    
+    });
+    
+    function getLocation(location) {
+    
+       if(!geocoder) {
+          geocoder = new google.maps.Geocoder();	
+        }
+        
+        var geocoderRequest = {
+          address: location
+        }
+        
+        geocoder.geocode(geocoderRequest, function(results, status) {
+        
+        
+            if (status == google.maps.GeocoderStatus.OK) {
+
+            
+                map.setCenter(results[0].geometry.location);
+
+        
+                if (!marker) {
+         
+                  marker = new google.maps.Marker({
+                  map: map
+                 });
+               }
+        
+        
+        marker.setPosition(results[0].geometry.location);
+
+       
+        if (!infowindow) {
+       
+          infowindow = new google.maps.InfoWindow();
+        }
+
+        
+        var content = '<strong>' + results[0].formatted_address + '</strong><br />';
+        
+
+        
+        infowindow.setContent(content);
+
+       
+        infowindow.open(map, marker);
+
+
+        }
+        
+        
+        });
+    
+    }
+
+
+});
+
+
+</script>
+
+</body>
+
+</html>

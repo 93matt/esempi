@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: effetto neve TV</title>
+<meta charset="utf-8" />
+<style>
+body {
+	margin: 0;
+	padding: 2em 0;
+}
+
+#tv {
+	width: 750px;
+	height: 505px;
+	background: url(monitor.jpg) no-repeat;
+	margin: 0 auto;
+}
+
+div.noise {
+	background: url(noise1.png) no-repeat;
+	width: 688px;
+	height: 388px;
+	margin: 0 auto;
+	position: relative;
+	top: 33px;
+}
+
+div.noise2 {
+	background: url(noise2.png) no-repeat;
+	width: 688px;
+	height: 388px;
+	margin: 0 auto;
+	position: relative;
+	top: 33px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="tv">
+
+  <div class="noise"></div>
+
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+
+  var interval = setInterval(function() {
+  
+    $('div.noise').toggleClass('noise2');
+  
+  
+  }, 50);
+
+});
+</script>
+
+</body>
+</html>

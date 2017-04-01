@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: immagini di sfondo multiple</title>
+<meta charset="utf-8" />
+<style>
+body {
+	margin: 0;
+	padding: 0;
+	background: #666;
+}
+
+#branding {
+	height: 220px;
+	background: url(header.jpg) repeat-x;
+}
+
+#branding h1 {
+	height: 100%;
+	margin: 0 auto;
+	width: 80%;
+	background: url(header_left.jpg) no-repeat 0 0,
+	            url(header_right.jpg) no-repeat 100% 0,
+	            url(balloons.gif) no-repeat 50% 50%;
+	font: normal 2em "Trebuchet MS", Trebuchet, sans-serif;
+	color: #fff;
+	text-indent: 1.5em;
+	text-transform: uppercase;
+}
+
+#branding h1 span {
+	position: relative;
+	top: 0.5em;
+}
+</style>
+</head>
+
+<body>
+
+<div id="branding">
+	<h1><span>Sito</span></h1>
+</div>
+
+</body>
+</html>

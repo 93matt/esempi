@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Test on CSS  rules</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="author" content="Gabriele Romanato" />
+<meta name="description" content="Only CSS rules are matched here. Bug: we have some problems with declarations
+that span multiple lines." />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/CSSParser.js"></script>
+<script type="text/javascript">
+
+<!--
+
+$(document).ready(function() {
+
+    var parser = new CSSParser();
+     var rules = parser.CSSRules();
+     
+     $('<ul></ul>').insertAfter('h2');
+     
+     for(var i=0; i<rules.length; i++) {
+     
+        $('<li></li>').html(rules[i]).appendTo('ul');
+     
+     }
+     
+
+
+
+
+});
+
+-->
+
+
+</script>
+</head>
+
+<body>
+
+<h1>Test on CSS rules</h1>
+
+<pre>
+p strong {
+    font-size: 1em;
+}
+
+h1 {
+    padding: 5%;
+}
+
+div {
+    width: 200px;
+}
+</pre>
+
+<hr />
+
+<h2>List of CSS rules in the code above</h2>
+
+
+
+</body>
+</html>

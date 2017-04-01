@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Slideshow CSS3</title>
+<meta charset="utf-8" />
+<style type="text/css">
+#slideshow {
+	width: 500px;
+	height: 330px;
+	margin: 2em auto;
+	overflow: hidden;
+	position: relative;
+	background: #ccc;
+	border: 1px solid #000;
+}
+
+#slideshow div.slide {
+	width: 500px;
+	height: 330px;
+	position: absolute;
+	top: 0;
+	cursor: pointer;
+	z-index: 1;
+	-moz-transition: all 1s ease-out;
+	-webkit-transition: all 1s ease-out;
+	-o-transition: all 1s ease-out;
+	-ms-transition: all 1s ease-out;
+	transition: all 1s ease-out;
+}
+
+#slideshow div.slide img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 500px;
+	height: 330px;
+}
+
+#slideshow div.slide div.caption {
+	height: 2em;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	line-height: 2;
+	text-indent: 0.5em;
+}
+
+#slideshow div.s1 {
+	left: 100px;
+}
+#slideshow div.s2 {
+	left: 200px;
+}
+#slideshow div.s3 {
+	left: 300px;
+}
+#slideshow div.s4 {
+	left: 400px;
+}
+
+#slideshow div.slide:hover {
+	left: 0;
+	z-index: 2;
+}
+</style>
+</head>
+
+<body>
+
+<div id="slideshow">
+	<div class="slide s1">
+		<img src="img/1.jpg" alt="" />
+		<div class="caption">1. Lorem ipsum dolor sit amet</div>
+	</div>
+	<div class="slide s2">
+		<img src="img/2.jpg" alt="" />
+		<div class="caption">2. Lorem ipsum dolor sit amet</div>
+	</div>
+	<div class="slide s3">
+		<img src="img/3.jpg" alt="" />
+		<div class="caption">3. Lorem ipsum dolor sit amet</div>
+	</div>
+	<div class="slide s4">
+		<img src="img/4.jpg" alt="" />
+		<div class="caption">4. Lorem ipsum dolor sit amet</div>
+	</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: anteprima di un sito in stile Flash</title>
+<meta charset="utf-8" />
+<style type="text/css">
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+#cube {
+	width: 400px;
+	height: 400px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -200px 0 0 -200px;
+	overflow: hidden;
+}
+
+h1 {
+	height: 2em;
+	font: normal 10em Arial, sans-serif;
+	text-align: center;
+	margin: 0;
+	position: absolute;
+	top: 50%;
+	margin-top: -1em;
+	color: #c30;
+	left: -1000em;
+	width: 100%;
+	text-transform: uppercase;
+	text-shadow: 2px 2px 2px #ccc;
+}
+
+#tagline {
+	margin: 0;
+	width: 100%;
+	height: 3em;
+	line-height: 3;
+	text-align: center;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: #222;
+	display: none;
+}
+
+#tagline span {
+	font: 2em Arial, sans-serif;
+	color: #fff;
+	padding-right: 0.5em;
+	text-transform: uppercase;
+	display: none;
+}
+
+#top-left,
+#top-right,
+#bottom-left,
+#bottom-right {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+}
+
+#top-left {
+	background: gray;
+	left: 0;
+	top: 0;
+	display: none;
+}
+#top-right {
+	background: orange;
+	right: 0;
+	top: 0;
+	display: none;
+}
+#bottom-left {
+	bottom: 0;
+	left: 0;
+	background: fuchsia;
+	display: none;
+}
+
+#bottom-right {
+	bottom: 0;
+	right: 0;
+	background: black;
+	display: none;
+}
+
+#loader {
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -50px 0 0 -50px;
+	display: none;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Il mio sito</h1>
+
+<p id="tagline"><span class="tagline1">Il mio</span>
+<span class="tagline2">slogan</span></p>
+
+<div id="cube">
+
+	<div id="top-left"></div>
+	<div id="top-right"></div>
+	<div id="bottom-left"></div>
+	<div id="bottom-right"></div>
+
+</div>
+
+<img src="http://dev.css-zibaldone.com/onwebdev/post/ajax-loader.gif" id="loader" alt="" />
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+
+<script type="text/javascript">
+(function($) {
+
+  $.fn.changeBgColor = function(options) {
+  
+    var settings = {
+    
+      endColor: 'white',
+      speed: 800
+    
+    
+    };
+    
+    options = $.extend(settings, options);
+    
+    
+    return this.each(function() {
+    
+    
+      $(this).animate({
+        backgroundColor: options.endColor
+      }, options.speed);    
+    
+    });
+     
+  
+  
+  
+  };
+
+
+})(jQuery);
+
+$(document).ready(function() {
+var counter = -1;
+
+
+
+$('#top-left').fadeIn(1000, function() {
+
+	$(this).next().fadeIn(1000, function() {
+	
+		$(this).next().fadeIn(1000, function() {
+		
+			$(this).next().fadeIn(1000, function() {
+			
+			
+				var interval = setInterval(function() {
+
+  counter += 1;
+  
+  if(counter == 4) {
+  
+    clearInterval(interval);
+    
+    $('#cube').animate({
+    	height: 0,
+    	width: 0
+    }, 1000, function() {
+    
+    
+       $(this).hide();
+       $('#loader').show();
+       $('h1').animate({
+         left: 0
+       }, 1000, function() {
+       
+         $('#loader').hide();
+       
+         $('#tagline').slideDown(1000, function() {
+         
+         
+           $(this).find('span.tagline1').show(1000, function() {
+           
+             $(this).next().show(1000);
+           
+           
+           });
+         
+         
+         });
+       
+       
+       });
+    
+    });
+  
+  
+  } 
+  
+
+  
+  $('#cube div').eq(counter).changeBgColor({
+    endColor: 'yellow',
+    speed: 500
+  }); 
+  
+    
+  
+}, 500);  
+			
+			
+			
+			});
+		
+		});
+	
+	});
+
+});
+
+
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: far pulsare gli elementi</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	font-family: Arial, sans-serif;
+}
+
+#run {
+	width: 100px;
+	padding: 7px;
+	background: #c30;
+	color: #fff;
+	font-weight: bold;
+	cursor: pointer;
+	border-radius: 5px;
+	border: 1px inset #900;
+	text-align: center;
+}
+
+#test {
+	width: 108px;
+	height: 108px;
+	background: #d34545;
+}
+</style>
+</head>
+
+<body>
+<p id="run">PULSA!</p>
+
+<div id="test"></div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+(function($) {
+
+	$.fn.pulse = function(options) {
+	
+		var that = this;
+		
+		var defaults = {
+		
+			speed: 'slow',
+  			pulses: 2,
+  			fadeLow: 0.2,
+  			fadeHigh: 1
+		
+		};
+		
+		options = $.extend(defaults, options);
+		
+		return that.each(function() {
+		
+    		for(var i = 0; i < options.pulses; i++) {
+    		
+      			$(this).fadeTo(options.speed, options.fadeLow).fadeTo(options.speed, options.fadeHigh);
+    		}
+
+    
+    		$(this).fadeTo(options.speed, 1);
+    		
+  		});
+
+	
+	};
+
+})(jQuery);
+
+$(function() {
+
+	$('#run').click(function() {
+	
+		$('#test').pulse();
+	
+	});
+
+});
+</script>
+</body>
+</html>

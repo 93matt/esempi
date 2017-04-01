@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: ritardare la chiusura dei menu dropdown</title>
+<meta charset="utf-8" />
+<style type="text/css" media="screen">
+body {
+	margin: 0;
+	padding: 0;
+	font: 100% Georgia, serif;
+	border-top: 5px solid #c30;
+}
+
+#navigation {
+	margin: 0;
+	padding: 0 1em;
+	height: 2em;
+	list-style: none;
+	background: #222;
+}
+
+#navigation > li {
+	float: left;
+	height: 2em;
+	width: 9em;
+	margin-right: 1em;
+}
+
+#navigation > li > a {
+	float: left;
+	display: block;
+	width: 100%;
+	height: 100%;
+	line-height: 2;
+	text-align: center;
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+#navigation > li > a:hover {
+	background: #c30;
+}
+
+#navigation > li ul {
+	width: 100%;
+	margin: 0;
+	padding: 1em 0;
+	background: #222;
+	list-style: none;
+	clear: both;
+	display: none;
+	border-radius: 0 0 8px 8px;
+}
+
+#navigation > li ul li {
+	margin: 0 0 0.3em 0;
+	width: 100%;
+}
+
+#navigation > li ul li a {
+	color: #fff;
+	text-decoration: none;
+	display: block;
+	padding: 0.4em;
+}
+
+#navigation > li ul li a:hover {
+	background: #545454;
+}
+	
+</style>
+</head>
+<body>
+
+<ul id="navigation">
+	<li><a href="#">Home</a></li>
+	<li class="sub"><a href="#">Articoli</a>
+		<ul>
+			<li><a href="#">Lorem ipsum</a></li>
+			<li><a href="#">Lorem ipsum</a></li>
+			<li><a href="#">Lorem ipsum</a></li>
+			<li><a href="#">Lorem ipsum</a></li>
+			<li><a href="#">Lorem ipsum</a></li>
+		</ul>
+	</li>
+	<li><a href="#">About</a></li>
+</ul>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+(function($) {
+
+	$.fn.dropdown = function(options) {
+	
+		var that = this;
+		var settings = {
+			speed: 800,
+			delay: 400
+		};
+		
+		options = $.extend(settings, options);
+		
+		return that.each(function() {
+		
+			$('li.sub', that).each(function() {
+			
+				var $li = $(this);
+				var $a = $('a:first', $li);
+				var subMenu = $('ul', $li);
+				
+				$a.mouseover(function() {
+				
+					subMenu.stop(true, true).
+					slideDown(options.speed);
+				
+				}); 
+				
+				
+				subMenu.mouseleave(function() {
+				
+					setTimeout(function() {
+					
+						subMenu.stop(true, true).
+						slideUp(options.speed);
+					
+					}, options.delay);
+				
+				});
+				
+			
+			});
+		
+		});
+	
+	};
+
+})(jQuery);
+
+$(function() {
+
+	$('#navigation').dropdown({speed: 500, delay: 800});
+
+});
+
+</script>
+</body>
+</html>

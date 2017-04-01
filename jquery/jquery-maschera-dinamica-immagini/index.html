@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: maschera delle immagini dinamica</title>
+<meta charset="utf-8" />
+<style type="text/css">
+
+#gallery {
+    
+    margin: 0 auto;
+    padding: 2em 0;
+    width: 70%;
+    height: 100%;
+    overflow: hidden;
+    list-style: none;
+    
+}
+
+#gallery li {
+    
+    float: left;
+    height: 250px;
+    margin-right: 0.5em;
+    width: 32%;
+    position: relative;
+    
+}
+
+#gallery li img {
+    
+    display: block;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+}
+
+#gallery li p {
+    
+    width: 100%;
+    height: 0px;
+    background: #c0c0c0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    text-align: center;
+    font: bold 1.2em Arial, sans-serif;
+    text-transform: uppercase;
+    z-index: 1;
+    margin: 0;
+    line-height: 250px;
+}
+
+</style>
+</head>
+
+<body>
+    
+
+<ul id="gallery">
+    
+    <li>
+        <img src="http://dev.css-zibaldone.com/onwebdev/post/star-rating/1.jpg" alt="" />
+        <p>Lorem ipsum dolor sit amet.</p>
+    </li>
+    
+    <li>
+        <img src="http://dev.css-zibaldone.com/onwebdev/post/star-rating/2.jpg" alt="" />
+        <p>Lorem ipsum dolor sit amet.</p>
+    </li>
+    
+    <li>
+        <img src="http://dev.css-zibaldone.com/onwebdev/post/star-rating/3.jpg" alt="" />
+        <p>Lorem ipsum dolor sit amet.</p>
+    </li>
+    
+</ul>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+
+$(function() {
+    
+    
+   $('li', '#gallery').each(function() {
+    
+       var $li = $(this);
+       var $img = $('img', $li);
+       var $p = $('p', $li);
+              
+       $img.click(function() {
+       
+       		$img.next().stop(true, true).animate({
+            
+            	height: '100%',
+            	opacity: '0.7'
+            
+            
+          	}, 'slow');
+
+       
+       });
+       
+       $p.click(function() {
+       
+       		$p.stop(true, true).animate({
+       			height: 0,
+       			opacity: 0
+       		}, 'slow');
+       
+       });    
+    
+   });
+    
+    
+});
+
+
+</script>
+</body>
+</html>
+

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: cercare ed evidenziare parole nel testo</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	margin: 0 auto;
+	padding: 2em 0;
+	background: #fff;
+	color: #333;
+	font: 85%/1 Arial, sans-serif;
+	width: 40%;
+}
+
+form {
+	margin: 0;
+	height: 100%;
+	font-size: 1.2em;
+	text-align: center;
+}
+
+form input {
+	font: 1em Arial, sans-serif;
+	vertical-align: middle;
+}
+
+form #q {
+	width: 150px;
+	border: 1px solid;
+}
+
+p {
+	font-size: 1.1em;
+	line-height: 1.4;
+}
+
+.highlight {background: yellow; font-weight: bold;}
+
+#highlight, #reset {
+	background: #d34545;
+	color: #fff;
+	font-weight: bold;
+	padding: 0.3em 1em;
+	border: none;
+	margin-right: 0.5em;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<form action="#" method="get" id="search">
+<div>
+    <input type="text" name="q" id="q" />
+    <input type="submit" name="highlight" id="highlight" value="Evidenzia" />
+    <input type="reset" name="reset" id="reset" value="Resetta" />
+</div>
+</form>
+
+<div id="content">
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<p>But where the ideas are vivid, and there exists an endless power of combining and modifying them, the feelings and affections blend more easily and intimately with these ideal creations than with the objects of the senses; the mind is affected by thoughts, rather than by things; and only then feels the requisite interest even for the most important events and accidents, when by means of meditation they have passed into thoughts.</p>
+
+<p>The sanity of the mind is between superstition with fanaticism on the one hand, and enthusiasm with indifference and a diseased slowness to action on the other. For the conceptions of the mind may be so vivid and adequate, as to preclude that impulse to the realizing of them, which is strongest and most restless in those, who possess more than mere talent, (or the faculty of appropriating and applying the knowledge of others,)--yet still want something of the creative and self-sufficing power of absolute genius.</p>
+
+<p>For this reason therefore, they are men of commanding genius. While the former rest content between thought and reality, as it were in an intermundium of which their own living spirit supplies the substance, and their imagination the ever-varying form; the latter must impress their preconceptions on the world without, in order to present them back to their own view with the satisfying degree of clearness, distinctness, and individuality,</p>
+</div>
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+
+function highlight () {
+
+$('#search').submit(function(event) {
+    
+        var $query = $('#search #q').val();
+        var re = new RegExp($query, 'gi');
+        var targetHtml = $('#content').html();
+
+       if(re.test(targetHtml)) {
+       
+           var matches = targetHtml.match(re);
+           
+           var no = (matches.length == 1) ? 'corrispondenza' : 'corrispondenze';
+           var finds = (matches.length == 1) ? 'trovata' : 'trovate';
+           
+           $('<p/>').text(matches.length +  ' ' + no + ' ' + finds + '.').appendTo($(this));
+           
+           $('#content').html(targetHtml.replace(re, '<span class="highlight">'+matches[0]+'</span>'));          
+       
+       } else {
+       
+           $('<p/>').text('Termine non trovato.').appendTo($(this));
+       
+       }
+    
+       event.preventDefault();
+       
+       
+    });
+
+
+}
+
+$('#search').bind('reset', function() {
+
+  $('p', '#search').remove();
+
+  $('span.highlight', '#content').each(function() {
+  
+    $(this).removeClass('highlight');
+  
+  });
+  
+
+});
+
+$(document).ready(function() {
+
+    highlight();
+    
+
+
+});
+
+</script>
+
+
+</body>
+</html>

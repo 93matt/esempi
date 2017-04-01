@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: disegnare circonferenze con i bordi</title>
+<meta charset="utf-8" />
+<style type="text/css">
+#circle {
+	width: 100px;
+	height: 100px;
+	border: 75px solid #000;
+	background: #000;
+	border-radius: 100%;
+	margin: 2em auto;
+	position: relative;
+}
+
+#circle-inner {
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -50px 0 0 -50px;
+	background: #000;
+	font-size: 3em;
+	color: #fff;
+	line-height: 100px;
+	text-transform: uppercase;
+	text-indent: -4px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="circle">
+	<div id="circle-inner">Test</div>
+</div>
+
+</body>
+</html>

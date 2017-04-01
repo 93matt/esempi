@@ -1,0 +1,7 @@
+html, body {overflow-x: hidden;}
+html, body {overflow-y: scroll;}
+
+.example pre {
+	margin: 0;
+	padding: 0;
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: manipolazione avanzata del DOM</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	margin: 0 auto;
+	padding: 2em 0;
+	font: 76% Arial, sans-serif;
+	width: 45em;
+}
+
+h2, h3 {
+	color: #d34545;
+	margin: 0;
+}
+
+h2 {
+	font-size: 2em;
+	font-weight: normal;
+}
+
+h3 {
+	text-transform: uppercase;
+	font-size: 1.2em;
+}
+
+p {
+	line-height: 1.4;
+	font-size: 1.2em;
+	margin-top: 0.4em;
+}
+
+div.sticky {
+	padding: 1em;
+	border-top: 0.3em solid #999;
+	border-bottom: 0.3em solid #999;
+	background: #f1f1f1;
+	margin-bottom: 1em;
+}
+
+div.accordion {
+	background: #ffc;
+	padding: 1em;
+	display: none;
+}
+
+</style>
+</head>
+
+<body>
+
+<h2>Titolo 1</h2>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<h3>Titolo 1.1</h3>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<h2>Titolo 2</h2>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<h3>Titolo 2.1</h3>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+
+
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+<script type="text/javascript">
+$(function() {
+
+  var sticky = '<div class="sticky"></div>';
+  var accordion = '<div class="accordion"></div>';
+  
+  $('h2:first', 'body').nextUntil('h2').andSelf().
+  wrapAll(sticky);
+  
+  $('h2', 'div.sticky').css('cursor', 'pointer');
+  
+  $('h3, p', 'div.sticky').wrapAll(accordion);
+  
+  $('h2', 'div.sticky').click(function() {
+  
+    var $h2 = $(this);
+    var next = $h2.next();
+    
+    if(next.is(':hidden')) {
+    
+      next.slideDown('slow');
+    
+    
+    } else {
+    
+      next.slideUp('slow');
+    
+    
+    }
+  
+  
+  });
+    
+});
+</script>
+</body>
+</html>

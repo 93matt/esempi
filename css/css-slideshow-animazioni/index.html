@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: slideshow con animazioni CSS3</title>
+<meta charset="utf-8" />
+<style>
+body {
+	margin: 0;
+	padding: 0;
+	font: 100% Arial, sans-serif;
+	background: #fff;
+}
+
+#controls {
+	width: 400px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+#controls span {
+	margin-right:2em;
+	cursor:pointer;
+	color: #fff;
+	padding: 1em;
+	background: #333;
+	border-radius: 6px;
+}
+#slideshow {
+	width:400px;
+	height:300px;
+	overflow:hidden;
+	position:relative;
+	margin: 2em auto;
+}
+#slideshow-wrapper {
+	position:absolute;
+	left:0;
+	width:1600px;
+	height: 300px;
+	-webkit-transition:all 1.0s ease-in-out;
+	-moz-transition:all 1.0s ease-in-out;
+	-o-transition:all 1.0s ease-in-out;
+	-ms-transition:all 1.0s ease-in-out;	
+	transition:all 1.0s ease-in-out;
+}
+#slideshow-wrapper div.slide {
+	padding:0;
+	margin:0;
+	float:left;
+	width: 400px;
+	height: 300px;
+	background: #d34545;
+	color: #fff;
+	text-align: center;
+	line-height: 300px;
+	font-weight: bold;
+	font-size: 2em;
+	text-transform: uppercase;
+}
+
+#slideshow-wrapper div.intro {
+	background: #333;
+}
+
+div.slide p {
+	display: inline;
+}
+</style>
+</head>
+
+<body>
+
+<div id="slideshow">
+	<div id="slideshow-wrapper">
+	    <div class="slide intro">
+	    	<p>Slideshow</p>
+	    </div>
+		<div class="slide">
+			<p>Slide 1</p>
+		</div>
+		<div class="slide">
+			<p>Slide 2</p>
+		</div>
+		<div class="slide">
+			<p>Slide 3</p>
+		</div>	
+	</div>
+</div>
+<p id="controls">
+	<span id="slide-1">Slide 1</span>
+	<span id="slide-2">Slide 2</span>
+	<span id="slide-3">Slide 3</span>
+</p>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+<script type="text/javascript">
+$(function() {
+
+  var wrapper = $('#slideshow-wrapper', '#slideshow');
+
+  $('#slide-1').click(function() {
+		wrapper.css('left', -400);
+	});
+  $('#slide-2').click(function() {
+		wrapper.css('left', - 800);
+	});
+	
+	$('#slide-3').click(function() {
+		wrapper.css('left', - 1200);
+	});
+	
+
+});
+</script>	
+
+</body>
+</html>

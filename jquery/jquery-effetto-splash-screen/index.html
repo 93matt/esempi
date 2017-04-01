@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: effetto splash screen</title>
+<meta charset="utf-8" />
+<style type="text/css">
+#test {
+    
+    background: #d34545;
+    width: 0px;
+    position: absolute;
+    overflow: hidden;
+    font-size: 7em;
+    text-align: center;
+    color: #fff;
+    font-family: Impact, sans-serif;
+    letter-spacing: 0.1em;
+    border-radius: 20px;
+    cursor: pointer;
+    
+}
+
+#test span {
+    position: absolute;
+    top: 50%;
+    margin-top: -0.5em;
+    width: 100%;
+}
+
+</style>
+</head>
+
+<body>
+    
+<div id="test"><span>Splash!</span></div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+    
+    
+    var docWidth = $(document).width();
+    var docHeight = $(document).height();
+    
+    var divWidth = Math.round(docWidth / 2);
+    var divHeight = Math.round(docHeight / 2);
+    
+    var offsetLeft = '50%';
+    var offsetTop = '50%';
+    
+    $('#test').animate(
+                   {
+                   width: divWidth,
+                   height: divHeight,
+                   top: offsetTop,
+                   left: offsetLeft,
+                   marginTop: -(divHeight / 2),
+                   marginLeft: -(divWidth / 2)
+                   
+                   
+                   
+                   }, 'slow').click(function() {
+                   
+                   
+                     $(this).animate({
+                       left: '-9999px'                       
+                    }, 'slow');
+              
+              
+                   });
+    
+    
+    
+});
+</script>
+</body>
+</html>

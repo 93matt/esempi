@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: lista di definizione tabellare</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	width: 35em;
+	margin: 0 auto;
+	padding: 2em 0;
+	font: 100% Arial, sans-serif;
+}
+
+dl {
+	border-width: 1px; 
+	border-style: solid;
+}
+
+dt {  
+	float: left;
+	clear: left;
+	margin: 0;
+	padding: 0;
+	width: 17em;
+}
+
+dt a {
+	display: block;
+	border-bottom: 1px solid #000;
+	padding: 1em;
+	height: 100%;
+	background: #ffffe0;
+}
+
+dt a.top {
+	border-top: 1px solid #000;
+}
+
+dd {
+	margin: 0 0 0 17em;
+	padding: 1em;
+	border-left: 1px solid #000;
+	background: #f1f1f1;
+	color: #000;
+}
+
+</style>
+<!--[if lt IE 7]>
+<style type="text/css">
+	dl {height: 100%}
+	dd {margin-left: -3px; height: 1%;}
+</style>
+<![endif]-->
+</head>
+
+<body>
+
+<dl>
+	<dt><a href="#">Link</a></dt>
+	<dd><strong>Descrizione</strong>
+	<ul>
+		<li><a href="#">Link</a></li>
+		<li><a href="#">Link</a></li>
+		<li><a href="#">Link</a></li>
+		<li><a href="#">Link</a></li>
+		<li><a href="#">Link</a></li>
+    </ul>
+	</dd>
+	<dt><a href="#" class="top">Link</a></dt>
+	<dd><strong>Descrizione</strong>
+	<ul>
+		<li><a href="#">Link</a></li>
+		<li><a href="#">Link</a></li>
+		<li><a href="#">Link</a></li>
+		<li><a href="#">Link</a></li>
+		<li><a href="#">Link</a></li>
+    </ul>
+	</dd>
+	<dt><a href="#" class="top">Link</a></dt>
+	<dd><strong>Descrizione</strong>
+	<ul>
+		<li><a href="#">Link</a></li>
+		<li><a href="#">Link</a></li>
+		<li><a href="#">Link</a></li>
+		<li><a href="#">Link</a></li>
+		<li><a href="#">Link</a></li>
+    </ul>
+	</dd>
+
+</dl>
+
+
+</body>
+</html>

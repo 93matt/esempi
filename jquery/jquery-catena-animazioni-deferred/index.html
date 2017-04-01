@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: gestire la catena di animazioni con i deferred objects</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	margin: 0 auto;
+	padding: 20px 0;
+	width: 580px;
+	font: 80%/120% Arial, Helvetica, sans-serif;
+}
+
+a {
+	color: #008;
+}
+
+
+#test {
+	background: #c30;
+	height: 100px;
+	width: 100px;
+	position: relative;
+}
+</style>
+</head>
+
+<body>
+
+<p><a href="#" id="run">Esegui</a></p>
+<div id="test"></div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+var Chainable = {
+
+	
+	moveLeft: function() {
+	
+		$('#test').animate({
+			opacity: '0.1',
+			left: '+=400'
+		}, 1200);	
+	
+	
+	},
+	
+	moveTop: function() {
+	
+		$('#test').animate({
+			opacity: '0.4',
+			top: '+=160',
+			height: 20,
+			width: 20
+		}, 'slow');
+	
+	
+	},
+	
+	moveRight: function() {
+	
+		$('#test').animate({
+			opacity: '1',
+			left: 0,
+			height: 100,
+			width: 100
+		}, 'slow');
+	
+	
+	},
+	
+	replace: function() {
+	
+		$('#test').animate({
+			top: 0
+		}, 'fast').
+		slideUp().
+		slideDown('slow');
+	
+	
+	},
+	
+	expand: function() {
+	
+		$('#test').animate({
+			width: 300,
+			height: 300
+		}, 600);
+	
+	},
+	
+	run: function() {
+	
+		$.Deferred(function(def) {
+		
+			def.pipe(function() {
+			
+				Chainable.moveLeft();
+			
+			}).
+			pipe(function() {
+			
+				Chainable.moveTop();
+			
+			}).
+			pipe(function() {
+			
+				Chainable.moveRight();
+			
+			}).
+			pipe(function() {
+			
+				Chainable.replace();
+			
+			}).
+			pipe(function() {
+			
+				Chainable.expand();
+			
+			
+			});
+		
+		
+		
+		}).resolve();
+	
+	
+	}
+
+
+};
+
+$(function(){
+
+
+	$('#run').click(function(event){
+	
+		Chainable.run();
+	
+		event.preventDefault();
+	
+		
+	
+	});
+
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: esempio di animazione ciclica con i timer</title>
+<meta charset="utf-8" />
+<style type="text/css" media="screen">
+#container {
+	width: 600px;
+	height: 600px;
+	position: relative; /* In questo modo #animated sarà posizionato rispetto a #container, non body */
+	border: 2px solid gray;
+}
+
+#animated {
+	width: 100px;
+	height: 100px;
+	font: 20px Arial, sans-serif;
+	text-align: center;
+	background: silver;
+	position: absolute; /* Senza il posizionamento l'elemento non può essere spostato */
+	top: 0;
+	left: 0;
+}
+
+#animated span {
+	display: block;
+	height: 100%;
+	line-height: 100px; /* line-height = height: centra il testo in verticale */
+}
+</style>
+</head>
+
+<body>
+
+<p><a href="#" id="run">Esegui l'animazione</a></p>
+
+<div id="container">
+	<div id="animated"><span>Test</span></div>
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<!--usiamo jQuery UI per l'animazione sui colori-->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+
+  var timer = 0; // contatore per il timer
+
+  $('#run').one('click', function(e) { // con one() basta 1 solo clic
+  
+  var interval = setTimeout(function() { // interval è il timer principale
+  
+  
+  timer += 1;  // incrementa il contatore di 1 a ogni esecuzione del timer (anche con timer++)
+  
+  if(timer == 5) {
+  
+  	timer = 0; // ricomincia da 0
+  
+  }
+  
+  
+      
+  $('#animated span').text(timer); // inserisce il contatore come testo dell'elemento
+  
+  // 1. Muove l'elemento al centro del contenitore
+  
+  $('#animated').animate({
+    left: '50%',
+    marginLeft: '-50px'
+  }, 1000, function() {
+  
+  
+    // 2. Centra l'elemento verticalmente e orizzontalmente
+    
+    $(this).animate({
+    
+      top: '50%',
+      marginTop: '-50px'
+    
+    
+    }, 1000, function() {
+    
+    
+      // 3. Cambia la larghezza dell'elemento
+      
+      $(this).animate({
+      
+        width: '100%',
+        left: 0,
+        marginLeft: 0
+      
+      }, 1000, function() {
+      
+      
+        // 4. Cambia l'opacità e il colore di sfondo
+        
+        $(this).animate({
+          backgroundColor: 'yellow',
+          opacity: '0.5'
+        }, 1000, function() {
+        
+        
+          // 5. Ripristina l'opacità, il colore di sfondo, la larghezza e aumenta la dimensione del font
+          
+          
+          $(this).animate({
+          
+            opacity: '1',
+            backgroundColor: 'silver',
+            width: '100px',
+            fontSize: '30px'
+          
+          
+          }, 1000, function() {
+          
+          
+          
+            // 6. Ripristina la posizione originale e la dimensione del font
+            
+            $(this).animate({
+            
+              top: 0,
+              left: 0,
+              fontSize: '20px',
+              margin: 0
+            
+            
+            }, 1000);
+          
+          
+          
+          });
+        
+        
+        
+        });
+      
+      
+      
+      
+      });
+    
+    
+    
+    });
+  
+  
+  });
+  
+  // arguments.callee richiama interval, creando il loop/ciclo
+  
+  setTimeout(arguments.callee, 6000); // 6000 ms è la durata complessiva delle 6 animazioni
+  
+  
+
+  
+  }, 25); // interval si ripete ogni 25 ms, ma dura 6000 ms
+  
+  e.preventDefault();  // impedisce l'azione predefinita del link
+  
+  
+  });
+  
+  
+});
+</script>
+
+</body>
+</html>

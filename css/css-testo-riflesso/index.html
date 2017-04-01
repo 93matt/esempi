@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: testo riflesso</title>
+<meta charset="utf-8" />
+<style type="text/css">
+h1 {
+	font: normal 6em Impact, sans-serif;
+	width: 400px;
+	height: 250px;
+	margin: 10px auto 0 auto;
+	color: #333;
+}
+
+h1 span {
+    color: #bbb;
+	display: block;
+	width: 170px;
+	-webkit-transform: rotate(-180deg);
+	-moz-transform: rotate(-180deg);
+	-o-transform: rotate(-180deg);
+	transform: rotate(-180deg);
+	opacity: 0.3;
+	position: relative;
+	top: -37px;
+	left: -3px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Test <span>tseT</span></h1>
+
+</body>
+</html>

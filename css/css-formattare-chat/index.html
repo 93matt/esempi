@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: formattare una chat</title>
+<meta charset="utf-8" />
+<style type="text/css" media="screen">
+	
+body {
+	
+	margin: 0 auto;
+	width: 50%;
+	padding: 2em 0;
+	background: gray;
+	color: #333;
+	font: 62.5% Arial, Helvetica, sans-serif;
+	
+}
+
+#chat {
+	
+	margin: 0;
+	padding: 1em;
+	background: #fff;
+	border: 2px solid silver;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	font-size: 1.3em;
+	overflow: hidden;
+	height: 100%;
+}
+
+#chat dt {
+	
+	float: left;
+	width: 110px;
+	height: 110px;
+	margin-right: 2em;
+	clear: left;
+	padding-bottom: 0.5em;
+	text-indent: -1000em;
+	background-repeat: no-repeat;
+	
+}
+
+#chat .neo {
+	background-image: url(2.jpg);
+}
+
+#chat .trinity {
+	background-image: url(1.jpg);
+}
+
+
+#chat dd {
+	
+	float: left;
+	width: 70%;
+	background: #eee;
+	margin: 0;
+	padding: 0.5em;
+	border-radius: 6px;
+}
+	
+</style>
+</head>
+
+<body>
+
+<dl id="chat">
+	
+	<dt class="trinity">Trinity</dt>
+	<dd>Ciao Neo!</dd>
+	
+	<dt class="neo">Neo</dt>
+	
+	<dd>Ciao Trinity!</dd>
+	
+	<dt class="trinity">Trinity</dt>
+	<dd>Come stai?</dd>
+	
+	<dt class="neo">Neo</dt>
+	
+	<dd>Bene.</dd>
+	
+</dl>
+
+</body>
+</html>
+

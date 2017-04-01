@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: clear degli elementi posizionati</title>
+<meta charset="utf-8" />
+<style type="text/css" media="screen">
+body {
+	font: 100% Arial, sans-serif;
+	line-height: 1.4;
+}
+
+#content {
+	width: 40em;
+	margin: 2em auto;
+	position: relative;
+}
+
+#left {
+	width: 50%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: #ccc;
+}
+#right {
+	width: 50%;
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: #ffffd0;
+}
+
+#bottom {
+	width: 100%;
+	padding: 0.5em 0;
+	text-align: center;
+	background: #c0c0c0;
+	position: absolute;
+	left: 0;
+}
+</style>
+</head>
+
+<body>
+
+<div id="content">
+
+	<div id="left">
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	</div>
+	<div id="right">
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	</div>
+	<div id="bottom">Piè di pagina</div>
+
+
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+
+	var leftHeight = $('#left').outerHeight();
+	var rightHeight = $('#right').outerHeight();
+	var top = Math.max(leftHeight, rightHeight);
+	
+	$('#bottom').css('top', top);
+	
+
+});
+</script>
+</body>
+</html>

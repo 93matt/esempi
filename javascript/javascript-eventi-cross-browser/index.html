@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JavaScript: gestione eventi cross-browser</title>
+<meta charset="utf-8" />
+<style>
+body { margin: 2em;}
+
+#test {
+    
+    background: silver;
+    border: medium solid gray;
+    width: 100px;
+    height: 100px;
+    
+}
+
+div.btn {
+    
+    margin-bottom: 1em;
+}
+
+div.btn a {
+    
+    padding: 0.3em;
+    text-decoration: none;
+    background: #d84a38;
+    color: #fff;
+    font-family: sans-serif;
+}
+
+div.btn a:hover {
+    
+    background: #4a8cf7;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="btn"><a href="#" id="enlarge">Espandi</a></div>
+
+<div id="test"></div>
+
+<script type="text/javascript">
+
+var EventUtil = {
+
+  addEvent: function(element, eventType, callback, useCapture) {
+  
+  
+    if (element.addEventListener){
+      element.addEventListener(eventType, callback, useCapture);
+      return true;
+    } else if (element.attachEvent) {
+      var r = element.attachEvent('on'+ eventType, callback);
+      return r;
+    } else {
+      alert('Impossibile generare evento');
+    }
+
+  
+  
+  },
+  
+  removeEvent: function(element, eventType, callback, useCapture) {
+  
+    if (element.removeEventListener){
+      element.removeEventListener(eventType, callback, useCapture);
+      return true;
+    } else if (element.detachEvent) {
+      var r = element.detachEvent('on'+ eventType, callback);
+      return r;
+    } else {
+      alert('Impossibile rimuovere evento');
+    }
+
+
+  
+   },
+   
+   
+   preventDefault: function(event) {
+   
+   
+     event = event || window.event;
+     
+     if(event.preventDefault()) {
+     
+       event.preventDefault();
+     
+     } else {
+     
+       event.returnValue = false;
+     
+     }
+
+   
+   
+   }
+
+
+
+};
+
+var element = document.getElementById('test');
+var button = document.getElementById('enlarge');
+
+
+function expandElement() {
+
+  var widthCounter = 100;
+  var heightCounter = 100;
+  
+  var timer = setInterval(function() {
+
+    widthCounter++;
+    heightCounter++;
+    
+    if(widthCounter == 200 && heightCounter == 200) {
+    
+      clearInterval(timer);
+    
+    
+    }
+    
+    element.style.width = widthCounter + 'px';
+    element.style.height = heightCounter + 'px';
+
+
+  }, 25);
+  
+  EventUtil.preventDefault();
+}
+
+EventUtil.addEvent(enlarge, 'click', expandElement, true);
+
+</script>
+
+</body>
+</html>

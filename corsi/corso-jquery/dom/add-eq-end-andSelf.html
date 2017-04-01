@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>add() - eq() - end() - andSelf()</title>
+<meta charset="utf-8" />
+<style type="text/css">
+.add {
+    background: yellow;
+}
+
+.eq {
+    background: orange;
+}
+
+.end {
+    background: silver;
+}
+
+.andself {
+    background: aqua;
+}​
+​</style>
+</head>
+
+<body>
+
+<div><button id="add">add()</button><button id="eq">eq()</button>
+    <button id="end">end()</button><button id="andself">andSelf()</button></div>
+
+<h1>Lorem</h1>
+<p>Ipsum dolor sit.</p>
+<p>Ipsum dolor sit.</p>
+<h2>Ipsum</h2>
+
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script>
+$(function() {
+	
+	var reset = function() {
+  
+    $('h1,h2,p').removeClass();    
+    
+};
+
+$('#add').click(function() {
+    reset();
+    $('h1').add('h2').addClass('add');
+});
+    
+$('#eq').click(function() {
+    reset();
+    $('p').eq(1).addClass('eq');
+});
+
+$('#end').click(function() {
+    reset();
+    $('h1').next().addClass('end').end().addClass('end');
+});
+
+$('#andself').click(function() {
+    reset();
+    $('p').eq(0).next().addClass('andself').andSelf().addClass('andself');
+});
+});
+</script>
+</body>
+</html>

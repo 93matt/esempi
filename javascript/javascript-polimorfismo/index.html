@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+ <html> 
+<head> 
+<meta charset="utf-8" />
+<title>JavaScript polimorfismo</title>
+<script type="text/javascript"> 
+ 
+function Message(subject) {
+ 
+    this.subject = subject;
+    this.send = function() {
+    
+      alert('Message sent!');
+    
+    }
+ 
+}
+ 
+ 
+function SMS (){};
+ 
+ 
+SMS.prototype = new Message('Test');
+SMS.prototype.constructor = SMS;
+ 
+SMS.prototype.send = function() {
+ 
+ 
+  alert('SMS sent!');
+ 
+}
+ 
+ 
+function Email(to) {
+ 
+    this.to = to;
+ 
+}
+ 
+ 
+Email.prototype.send = function() {
+ 
+    alert('Email sent');
+ 
+}
+ 
+ 
+function HTMLEmail () {};
+ 
+HTMLEmail.prototype = new Email('test@localhost');
+HTMLEmail.constructor.prototype = HTMLEmail;
+ 
+HTMLEmail.prototype.send = function() {
+ 
+    alert('[Content-Type: text/html] ');
+    
+    this.constructor.prototype.send.call(this); // this.constructor.prototype points to Email
+    
+ 
+ 
+}
+ 
+ 
+ 
+window.onload = function() {
+ 
+    var myMessage = new Message('Test');
+    var mySMS = new SMS();
+    var myEmail = new Email('test@localhost');
+    var myHTMLEmail = new HTMLEmail();
+    
+    var btn1 = document.getElementById('test1');
+    var btn2 = document.getElementById('test2');
+ 
+    
+    btn1.onclick = function() {
+    
+        myMessage.send();
+        mySMS.send();
+        
+        return false;
+    
+    };
+    
+    btn2.onclick = function() {
+    
+        myEmail.send();
+        myHTMLEmail.send();
+        
+        return false;
+    
+    
+    };
+};
+ 
+ 
+</script> 
+</head> 
+ 
+<body> 
+ 
+<p><a href="#" id="test1">Test 1</a></p> 
+<p><a href="#" id="test2">Test 2</a></p> 
+ 
+ 
+ 
+ 
+</body> 
+</html> 

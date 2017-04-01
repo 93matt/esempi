@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: pannelli dinamici scorrevoli (sliding)</title>
+<meta charset="utf-8" />
+<style type="text/css">
+#panels-container {
+	width: 900px;
+	margin: 2em auto;
+	font: 100% Arial, sans-serif;
+}
+
+.panels {
+	margin: 0;
+	padding: 0;
+}
+
+.panels,
+.panels a,
+.panels li {
+	height: 200px;
+	overflow: hidden;
+}
+
+.panels {
+	background: #ddd;
+	margin: 0 0 20px;
+	position: relative;
+	width: 900px;
+}
+
+.panels li {
+	float: left;
+	font-size: 100px;
+	line-height: 200px;
+	list-style: none;
+	text-align: center;
+	width: 180px;
+}
+
+.panels li.last,
+.panels li:last-child {
+	border: 0;
+	float: none;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.panels a {
+	background: #ccc;
+	color: #666;
+	display: block;
+	text-decoration: none;
+	width: 100%;
+}
+
+.panels a:hover {
+	background: #bbb;
+	color: #000;
+	font-weight: bold;
+	text-shadow: #fff 0 5px 5px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="panels-container">
+	<ul class="panels">
+		<li>
+			<a href="#">1</a>
+		</li>
+		<li>
+			<a href="#">2</a>
+		</li>
+		<li>
+			<a href="#">3</a>
+		</li>
+		<li>
+			<a href="#">4</a>
+		</li>
+		<li>
+			<a href="#">5</a>
+		</li>
+	</ul>
+	<ul class="panels">
+		<li>
+			<a href="#">A</a>
+		</li>
+		<li>
+			<a href="#">B</a>
+		</li>
+		<li>
+			<a href="#">C</a>
+		</li>
+		<li>
+			<a href="#">D</a>
+		</li>
+		<li>
+			<a href="#">E</a>
+		</li>
+	</ul>
+</div>
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+var Panels = {
+	
+	exists: function() {
+	
+		if(!$('ul.panels').length) {
+		 
+			return false;
+			
+		}
+
+		return true;
+	},
+	
+	init: function() {
+	
+	    var speed = 200;
+	
+		if(this.exists()) {
+		
+			
+			$('li', 'ul.panels').hover(function() {
+
+				$(this).stop().animate({
+					width: '360px',
+					fontSize: '150px'
+
+		
+				}, speed)
+
+				.siblings('li').stop().animate({
+					width: '135px',
+					fontSize: '50px'
+
+				}, speed);
+			},
+
+			function() {
+
+				$(this).stop().animate({
+					width: '180px',
+					fontSize: '100px'
+
+				}, speed)
+
+				.siblings('li').stop().animate({
+					width: '180px',
+					fontSize: '100px'
+
+			}, speed);
+		});
+
+		
+		
+		} else {
+		
+			return;
+		
+		}
+	
+	
+	}
+
+};
+
+$(function() {
+
+	Panels.init();
+
+});
+</script>
+</body>
+</html>

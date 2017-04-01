@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: gestire i post dei blog con i tab</title>
+<meta charset="utf-8" />
+<style type="text/css">
+#post-tabs {
+	width: 30em;
+	margin: 2em auto;
+	font: 95% Georgia, serif;
+}
+
+#post-tabs-nav {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	height: 2em;
+}
+
+#post-tabs-nav li {
+	float: left;
+	height: 100%;
+	margin: 0 0.4em 0 0;
+}
+
+#post-tabs-nav a {
+	float: left;
+	height: 100%;
+	line-height: 2;
+	padding: 0 1em;
+	font-weight: bold;
+	background: #222;
+	color: #fff;
+	text-decoration: none;
+}
+
+#post-tabs-nav a:hover {
+	background: #c30;
+}
+
+#post-tabs-nav a.current {
+	background: #c30;
+}
+
+#post-tabs div.tab {
+	background: #eee;
+	padding: 1em;
+}
+
+#post-tabs div.tab ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#post-tabs div.tab ul li {
+	display: block;
+	margin-bottom: 0.4em;
+}
+
+#post-tabs div.tab ul li a {
+	display: block;
+	padding: 0.3em;
+	height: 100%;
+	color: #222;
+	text-decoration: none;
+	border-bottom: 1px dotted;
+}
+
+#post-tabs div.tab ul li a:hover {
+	background: #ccc;
+	border-bottom: 1px solid;
+}
+
+#post-tabs #recent,
+#post-tabs #popular {
+	display: none;
+}
+</style>
+</head>
+
+<body>
+
+<div id="post-tabs">
+	<ul id="post-tabs-nav">
+		<li><a href="#featured" class="current">In evidenza</a></li>
+		<li><a href="#recent">Recenti</a></li>
+		<li><a href="#popular">Pi&ugrave; commentati</a></li>
+	</ul>
+	<div class="tab" id="featured">
+		<ul>
+			<li><a href="#">1. Lorem ipsum dolor sit amet</a></li>
+			<li><a href="#">Ipsum dolor sit amet</a></li>
+			<li><a href="#">Et ideo autem aquis</a></li>
+			<li><a href="#">Lorem ipsum dolor sit amet</a></li>
+			<li><a href="#">Ipsum dolor sit amet</a></li>
+			<li><a href="#">Et ideo autem aquis</a></li>
+		</ul>
+	</div>
+	<div class="tab" id="recent">
+		<ul>
+			<li><a href="#">2. Lorem ipsum dolor sit amet</a></li>
+			<li><a href="#">Ipsum dolor sit amet</a></li>
+			<li><a href="#">Et ideo autem aquis</a></li>
+			<li><a href="#">Lorem ipsum dolor sit amet</a></li>
+			<li><a href="#">Ipsum dolor sit amet</a></li>
+			<li><a href="#">Et ideo autem aquis</a></li>
+		</ul>
+	</div>
+	<div class="tab" id="popular">
+		<ul>
+			<li><a href="#">3. Lorem ipsum dolor sit amet</a></li>
+			<li><a href="#">Ipsum dolor sit amet</a></li>
+			<li><a href="#">Et ideo autem aquis</a></li>
+			<li><a href="#">Lorem ipsum dolor sit amet</a></li>
+			<li><a href="#">Ipsum dolor sit amet</a></li>
+			<li><a href="#">Et ideo autem aquis</a></li>
+		</ul>
+	</div>
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+(function($) {
+
+	$.fn.postTabs = function(options) {
+	
+		var that = this;
+		var defaults = {
+			current: 'current',
+			nav: '#post-tabs-nav',
+			speed: 'slow'
+		};
+		
+		options = $.extend(defaults, options);
+		
+		return that.each(function() {
+		
+			$('a', options.nav).click(function(event) {
+			
+				var $a = $(this);
+				var tabId = $($a.attr('href'));
+				
+				tabId.fadeIn(options.speed)
+				.siblings('div.tab')
+				.hide();
+				
+				$a.addClass(options.current)
+				.parents(options.nav)
+				.find('a')
+				.not($a)
+				.removeClass(options.current);
+				
+				event.preventDefault();
+			
+			
+			});	
+		
+		
+		});
+	
+	
+	};
+
+})(jQuery);
+
+$(function() {
+
+	$('#post-tabs').postTabs();
+
+});
+</script>
+</body>
+</html>

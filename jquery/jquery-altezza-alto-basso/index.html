@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: animare l'altezza di un elemento dall'alto in basso</title>
+<meta charset="utf-8" />
+<style type="text/css" media="screen">
+#container {
+	margin: 2em auto;
+	width: 500px;
+	border-bottom: 1em solid #333;
+}
+
+#test {
+	width: 200px;
+	height: 200px;
+	background: #d34545;
+	cursor: pointer;
+}
+
+span.line {
+	width: 200px;
+	height: 1px;
+	display: block;
+	background: #fff;
+}
+</style>
+</head>
+
+<body>
+
+<div id="container">
+	<div id="test"></div>
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+
+  $('#test').click(function() {
+  
+    var $div = $(this);
+    var height = $div.height();
+    var index = 0;
+    
+    var timer = setInterval(function() {
+    
+      index++;
+      
+      if(index == parseInt(height / 2)) {
+      
+        clearInterval(timer);
+      
+      }
+      
+      $('<span class="line"/>').appendTo($div);
+    
+    
+    }, 10);
+      
+  });
+
+});
+</script>
+</body>
+</html>

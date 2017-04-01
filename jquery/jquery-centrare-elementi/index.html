@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC>
+<html>
+<head>
+<title>jQuery: centrare gli elementi</title>
+<meta charset="utf-8" />
+<style type="text/css" media="screen">
+.box {
+    
+    width: 100px;
+    height: 100px;
+    background: yellow;
+    border: 1px solid orange;
+    line-height: 100px;
+    text-align: center;
+    float: left;
+    margin-right: 5px;
+
+}
+
+.innerwrapper {
+
+    width: 322px;
+    overflow: hidden;
+    margin: 0 auto;
+    padding: 0;
+
+}
+
+.outerwrapper {
+
+    width: 600px;
+    margin: 2em auto;
+    padding: 2em 0;
+    border: 2px solid green;
+    overflow: hidden;
+
+}
+
+.normargin {
+
+    margin-right: 0 !important;
+
+}
+
+</style>
+</head>
+<body>
+
+<div id="wrapper">
+
+    <div class="box">Test box</div>
+    <div class="box">Test box</div>
+    <div class="box">Test box</div>
+
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+<script type="text/javascript">
+$(function() {
+
+    $('div.box:last', '#wrapper').addClass('nomargin');
+
+    var outerWrapper = $('<div class="outerwrapper"></div>');
+    
+    $('#wrapper').wrap(outerWrapper).addClass('innerwrapper');
+
+
+});
+</script>
+
+</body>
+</html>

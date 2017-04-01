@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: slideshow con anteprima</title>
+<meta charset="utf-8" />
+<style>
+body {
+	margin: 0;
+	padding: 2em 0;
+}
+
+#slideshow {
+	width: 550px;
+	height: 400px;
+	margin: 0 auto;
+	border: 5px solid #444;
+	position: relative;
+	overflow: hidden;
+}
+
+#slideshow-wrapper {
+	width: 2200px;
+	height: 400px;
+	position: relative;
+
+}
+
+#slideshow img {
+	width: 550px;
+	height: 400px;
+	float: left;
+}
+
+#slideshow-preview {
+	width: 330px;
+	margin: 0.5em auto;
+	height: 100px;
+}
+
+#slideshow-preview a {
+	width: 100px;
+	height: 100px;
+	float: left;
+	margin-right: 5px;
+}
+
+#slideshow-preview a img {
+	border: none;
+	width: 100px;
+	height: 100px;
+	display: block;
+}
+</style>
+</head>
+
+<body>
+
+<div id="slideshow">
+
+  <div id="slideshow-wrapper">
+
+	<img src="1.jpg" alt="" />
+	<img src="2.jpg" alt="" />
+	<img src="3.jpg" alt="" />
+	
+  </div>
+
+</div>
+
+<div id="slideshow-preview">
+	<a href="#"><img src="1-thumb.jpg" alt="" /></a>
+	<a href="#"><img src="2-thumb.jpg" alt="" /></a>
+	<a href="#"><img src="3-thumb.jpg" alt="" /></a>
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+var Slideshow = new function() {
+
+  var wrapper = $('#slideshow-wrapper', '#slideshow');
+  var images = $('img', wrapper);
+  var len = images.length;
+  var links = $('a', '#slideshow-preview');
+  var index = -1;
+  
+  var getSlidePositions = function() {
+  
+    var positions = [];
+    
+    images.each(function(i) {
+    
+      var left = $(this).position().left;
+      
+      positions[i] = left;
+    
+    
+    });
+  
+    return positions;
+  };
+  
+  this.slide = function() {
+  
+    links.each(function() {
+      
+       index++;
+       
+       $(this).attr('rel', index);
+    
+    });
+    
+    var offsets = getSlidePositions();
+    
+    links.each(function() {
+    
+      var $a = $(this);
+      var i = $a.attr('rel');
+      
+      $a.click(function(event) {
+      
+        wrapper.animate({
+          left: - offsets[i]
+        }, 'slow');
+      
+        event.preventDefault();
+      
+      });
+    
+    
+    });
+  
+  };
+
+}();
+
+$(function() {
+
+  Slideshow.slide();
+
+});
+</script>
+
+</body>
+</html>

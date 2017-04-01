@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>addClass() - removeClass() - toggleClass() - hasClass()</title>
+<meta charset="utf-8" />
+<style type="text/css">
+.test {
+	background: yellow;
+}
+</style>
+</head>
+
+<body>
+
+<p><button id="add">addClass()</button><button id="remove">removeClass()</button><button id="toggle">toggleClass()</button>
+<button id="has">hasClass()</button></p>
+
+<p id="test">Maecenas sed diam eget risus varius blandit sit amet non magna. Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auctor fringilla. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
+
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script>
+$(function() {
+
+	$('#add').click(function() {
+	
+		$('#test').addClass('test');
+	
+	
+	});
+	
+	$('#remove').click(function() {
+	
+		$('#test').removeClass('test');
+	
+	
+	});
+	
+	$('#toggle').click(function() {
+	
+		$('#test').toggleClass('test');
+	
+	
+	});
+	
+	$('#has').click(function() {
+	
+		alert($('#test').hasClass('test'));
+	
+	
+	});
+			
+});
+</script>
+</body>
+</html>

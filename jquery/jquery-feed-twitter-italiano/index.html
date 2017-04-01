@@ -1,0 +1,235 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<title>jQuery: formattazione di un feed di Twitter in italiano</title> 
+<meta charset="utf-8" /> 
+<style type="text/css"> 
+body {
+	margin: 0;
+	padding: 2em 0;
+	font: 62.5% Arial, sans-serif;
+}
+ 
+#twitter {
+	margin: 0 auto;
+	width: 40em;
+	padding-top: 185px;
+	background: url(https://lh3.googleusercontent.com/_rhuioznu6Us/TXEphFOFjaI/AAAAAAAAAUI/xVFxUrDap6s/twitter_bird.gif) no-repeat 50% 0;
+	font-size: 1.3em;
+}
+ 
+#twitter ul {
+	height: 100%;
+	padding: 1em;
+	margin: 0;
+	list-style: none;
+	color: #333;
+	border: 1px solid #d34545;
+	border-radius: 16px;
+	box-shadow: 3px 3px 4px #ccc;
+}
+ 
+#twitter li {
+	height: 100%;
+	overflow: hidden;
+	margin-bottom: 0.4em;
+	padding: 5px 0;
+	border-bottom: 1px dotted #ccc;
+	line-height: 1.4;
+	font-size: 1.1em;
+}
+ 
+#twitter li img {
+	float: left;
+	margin: 0 5px 0 0;
+}
+ 
+#twitter li a {
+	color: #d34545;
+}
+ 
+#twitter li a:hover {
+	color: #f34545;
+}
+
+#twitter li small {
+	display: block;
+	padding: 4px 0 0 5px;
+	font-size: 0.9em;
+	font-style: italic;
+	color: #666;
+}
+</style> 
+</head> 
+ 
+<body> 
+ 
+<div id="twitter"></div> 
+ 
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script> 
+<script type="text/javascript"> 
+(function($) {
+ 
+ 
+    $.toLink = function(text) {
+    
+    
+     
+        var urlRegExp = /((ftp|https?):\/\/([-\w\.]+)+(:\d+)?(\/([\w\/_\.]*(\?\S+)?)?)?)/gm;
+        
+              
+        var newText = text.replace(urlRegExp, '<a href="$1">$1</a>');
+        
+        
+        return newText;
+    
+    
+    };
+    
+    $.toItalianDateTime = function(ts) {
+    
+    
+      // formato: Tue Aug 09 10:16:05 +0000 2011
+      
+      var rawDateTime = ts.replace('+0000', '');
+      var timeChunks = rawDateTime.split(/\s/);
+      
+      var day = timeChunks[0];
+      var month = timeChunks[1];
+      var dayNo = timeChunks[2];
+      var hms = timeChunks[3];
+      var year = timeChunks[5];
+      
+      var hmsChunks = hms.split(':');
+      var hour = new Number(hmsChunks[0]) + 2; // Roma, GMT + 2
+      var minutes = hmsChunks[1];
+      var seconds = hmsChunks[2];
+      
+      var itDay, itMonth, itDayNo;
+      
+      switch(day) {
+      
+        case 'Mon':
+          itDay = 'Lun';
+          break;
+        case 'Tue':
+          itDay = 'Mar';
+          break;
+        case 'Wed':
+          itDay = 'Mer';
+          break;
+        case 'Thu':
+          itDay = 'Gio';
+          break;
+        case 'Fri':
+          itDay = 'Ven';
+          break;
+        case 'Sat':
+          itDay = 'Sab';
+          break;
+        case 'Sun':
+          itDay = 'Dom';
+          break;
+        default:
+          break;
+      
+       }
+       
+       switch(month) {
+      
+        case 'Sep':
+          itMonth = 'Set';
+          break;
+        case 'Oct':
+          itMonth = 'Ott';
+          break;
+        case 'Nov':
+          itMonth = 'Nov';
+          break;
+        case 'Dec':
+          itMonth = 'Dic';
+          break;
+        case 'Jan':
+          itMonth = 'Gen';
+          break;
+        case 'Feb':
+          itMonth = 'Feb';
+          break;
+        case 'Mar':
+          itMonth = 'Mar';
+          break;
+        case 'Apr':
+          itMonth = 'Apr';
+          break;
+        case 'May':
+          itMonth = 'Mag';
+          break;
+        case 'Jun':
+          itMonth = 'Giu';
+          break;
+        case 'Jul':
+          itMonth = 'Lug';
+          break;
+        case 'Aug':
+          itMonth = 'Ago';
+          break;
+        
+        
+        default:
+          break;
+      
+       }
+
+       
+       itDayNo = dayNo.replace(/^0/, '');
+       
+       var italianTS = itDay + ' ' + itDayNo + ' ' + itMonth + ' ' + year + ' ' + hour + ':' + minutes + ':' + seconds;
+       
+       return italianTS;
+    
+    
+    
+    };
+ 
+ 
+ 
+})(jQuery);
+ 
+$(function() {
+ 
+var twitterBaseURL = 'http://twitter.com/status/user_timeline/gabromanato.json?count=5&callback=?';
+var html = '';
+ 
+$('<ul />').appendTo('#twitter');
+ 
+$.getJSON(twitterBaseURL, function(json) {
+ 
+  
+   
+   $.each(json, function(i, item) {
+   
+   
+     var text = $.toLink(item.text);
+     var profileImageURL = item.user.profile_image_url;
+     var ts = item.created_at;
+     
+    
+     
+     html += '<li><p><img src="' + profileImageURL + '" />' + text + '<small>' +  $.toItalianDateTime(ts) + '</small></p></li>';
+   
+   
+   
+   });
+   
+   
+   $('ul', '#twitter').html(html);
+ 
+ 
+ 
+ 
+});
+});
+</script> 
+ 
+</body> 
+</html>

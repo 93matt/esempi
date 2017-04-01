@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: effetto sull'altezza delle immagini in uno slideshow</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	padding: 2em 0;
+}
+
+#slideshow {
+	width: 550px;
+	height: 167px;
+	background: #eee;
+	position: relative;
+	overflow: hidden;
+	margin: 0 auto;
+	padding-left: 50px;
+}
+
+#slide-wrapper {
+	width: 1000px;
+	height: 167px;
+	overflow: hidden;
+	position: relative;
+	left: 550px;
+}
+
+#slide-wrapper img {
+	float: left;
+	position: relative;
+	top: 110px;
+	margin-right: 10px;
+}
+
+#controls {
+	width: 600px;
+	margin: 0 auto;
+	text-align: center;
+	padding-top: 1em;
+}
+
+#controls a {
+	color: #000;
+	text-decoration: none;
+	font: bold 1em Arial, sans-serif;
+	padding: 0.4em 0.8em;
+	background: #eee;
+	border: 1px solid #ccc;
+}
+
+#controls a:hover {
+	color: #545454;
+	background: #f9f9f9;
+}
+</style>
+</head>
+
+<body>
+
+<div id="slideshow">
+	<div id="slide-wrapper">
+		<img src="1.jpg" alt="" />
+		<img src="2.jpg" alt="" />
+		<img src="3.jpg" alt="" />
+	</div>
+</div>
+<div id="controls">
+	<a href="#" id="control">Scorri</a>
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+var Slideshow = new function() {
+
+	var slideshow = $('#slideshow');
+	var slideWrapper = $('#slide-wrapper', slideshow);
+	var images = $('img', slideWrapper);
+	var control = $('#control', '#controls');
+	
+	this.slide = function() {
+	
+		var index = -1;
+		var left = '';
+		
+		control.click(function(event) {
+		
+		    index++;
+		    
+		    
+		    
+		    if(index == 3) {
+		    
+		        index = 0;
+		    
+		        left = 0;
+		        
+		        images.css('top', 110);
+		    
+		    
+		    } else {
+		    
+		    	left = '-=300px';
+		    
+		    }
+		
+			var img = images.eq(index);
+		
+			slideWrapper.animate({
+				left: left
+			}, 'slow', function() {
+			
+				img.animate({
+					top: 0
+				}, 'slow');
+			
+			});
+		
+			event.preventDefault();
+		});
+	
+	};
+
+}();
+
+$(function() {
+
+	Slideshow.slide();
+
+});
+
+</script>
+
+</body>
+</html>

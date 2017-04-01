@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: pannelli animati con i CSS3</title>
+<meta charset="utf-8" />
+<style type="text/css" media="screen">
+* {
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	font-weight: normal;
+}
+
+body {
+	background: #e4e4e4;
+	padding: 2em 0;
+	font-family: Arial, sans-serif;
+}
+
+#panel {
+	width: 35em;
+	padding: 2em;
+	background-color: #fff;
+	background-image: url(img/tag.png);
+	background-repeat: no-repeat;
+	background-position: 120% 0;
+	border: 1px solid #c4c4c4;
+	margin: 0 auto;
+	-moz-transition: all 500ms ease-in-out;
+	-webkit-transition: all 500ms ease-in-out;
+	-o-transition: all 500ms ease-in-out;
+	-ms-transition: all 500ms ease-in-out;
+	transition: all 500ms ease-in-out;
+}
+
+#panel h2, #panel p {
+	margin-right: 110px;
+}
+
+#panel h2 {
+	font: 2em 'Arial Black', Arial, sans-serif;
+	color: #252525;
+	padding-bottom: 5px;
+}
+
+#panel:hover {
+	background-color: #c4c4c4;
+	background-position: 100% 0;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="panel">
+	<h2>Lorem ipsum dolor</h2>
+	<p>Ideo autem aquis consectetur elit set diam nonnummi.</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: immagini come tooltip</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	margin: 0;
+	padding: 2em 0;
+	background: #fff;
+}
+
+#gallery {
+	width: 525px;
+	height: 90px;
+	margin: 0 auto;
+}
+
+#gallery ul {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#gallery li {
+	float: left;
+	width: 100px;
+	margin-right: 5px;
+	height: 100%;
+	position: relative;
+}
+
+#gallery li img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+}
+
+div.img-tip {
+
+    width: 500px;
+    height: 400px;
+    background: url(img-tip.png) no-repeat;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    margin-left: -200px;
+
+}
+
+#gallery li div.img-tip img {
+	display: block;
+	width: 380px;
+	height: 240px;
+	margin: 0 auto;
+	padding: 100px 0 0 0;
+}
+</style>
+</head>
+
+<body>
+
+<div id="gallery">
+
+	<ul>
+	
+		<li><img src="http://dev.css-zibaldone.com/onwebdev/post/img/slides/slide-1.jpg" alt="" /></li>
+		<li><img src="http://dev.css-zibaldone.com/onwebdev/post/img/slides/slide-2.jpg" alt="" /></li>
+		<li><img src="http://dev.css-zibaldone.com/onwebdev/post/img/slides/slide-3.jpg" alt="" /></li>
+		<li><img src="http://dev.css-zibaldone.com/onwebdev/post/img/slides/slide-4.jpg" alt="" /></li>
+		<li><img src="http://dev.css-zibaldone.com/onwebdev/post/img/slides/slide-5.jpg" alt="" /></li>
+	
+	</ul>
+
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+<script type="text/javascript">
+$(function() {
+
+  var tooltip = '<div class="img-tip"></div>';
+
+  $('li', '#gallery').each(function() {
+  
+    var $li = $(this);
+    var src = $li.find('img').attr('src');
+    
+    $(tooltip).html('<img src="' + src + '"/>').
+    appendTo($li).hide();
+  
+  });
+  
+  $('li', '#gallery').each(function() {
+  
+    var $li = $(this);
+    var $img = $li.find('img');
+    
+    $img.hover(function() {
+    
+    
+      $img.next().
+      stop(true, true).
+      fadeIn('slow');
+    
+    
+    }, function() {
+    
+    
+      $img.next().
+      stop(true, true).
+      fadeOut('slow');
+    
+    
+    
+    });
+  
+  
+  
+  });
+
+});
+</script>
+
+</body>
+</html>

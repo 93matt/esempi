@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: menu a discesa accessibile</title>
+<meta charset="utf-8" />
+<style>
+body {
+	margin: 0;
+	padding: 0;
+	font: 100% Arial, sans-serif;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#navigation {
+	height: 3em;
+	background: #000;
+	padding: 0 1em;
+}
+
+#navigation > li {
+	float: left;
+	margin-right: 0.5em;
+	height: 100%;
+	width: 9em;
+}
+
+#navigation > li > a {
+	float: left;
+	padding: 0;
+	text-align: center;
+	width: 100%;
+	text-decoration: none;
+	height: 100%;
+	line-height: 3;
+	font-weight: bold;
+	color: #fff;
+	text-transform: uppercase;
+	display: block;
+}
+
+#navigation > li > a:hover {
+	background: #d00;
+}
+
+#navigation li ul {
+	width: 100%;
+	background: #000;
+	clear: both;
+	position: absolute;
+	top: -1000em;
+}
+
+#navigation li ul li {
+	width: 100%;
+	display: block;
+	margin: 0.5em 0;
+}
+
+#navigation li ul li a {
+	display: block;
+	height: 100%;
+	padding: 1em;
+	font-weight: bold;
+	color: #fff;
+	text-decoration: none;
+	text-align: center;
+}
+
+#navigation li ul li a:hover {
+	background: #666;
+}
+
+#navigation li.submenu:hover ul {
+	position: static;
+}
+</style>
+</head>
+
+<body>
+
+<ul id="navigation">
+
+	<li><a href="#">Home</a></li>
+	<li class="submenu"><a href="#">Articoli</a>
+	
+	  <ul>
+	  
+	    <li><a href="#">Articolo 1</a></li>
+	    <li><a href="#">Articolo 2</a></li>
+	    <li><a href="#">Articolo 3</a></li>
+	  
+	  </ul>
+	
+	</li>
+	<li><a href="#">About</a></li>
+
+</ul>
+
+</body>
+</html>

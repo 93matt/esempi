@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: validazione dei form object-oriented</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+
+  margin: 0 auto;
+  padding: 2em 0;
+  width: 40%;
+  font: 100% Arial, sans-serif;
+
+}
+
+form {
+
+  width: 100%;
+  margin: 0;
+
+}
+
+form ul {
+
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+}
+
+form ul li {
+
+  height: 100%;
+  overflow: hidden;
+  padding-bottom: 5px;
+
+}
+
+form ul li label, form ul li input, form ul li div.error {
+
+    float: left;
+    display: block;
+
+}
+
+form ul li label {
+
+  width: 6.5em;
+  margin-right: 5px;
+  font-weight: bold;
+  padding-top: 4px;
+
+}
+
+
+form ul li input {
+
+  width: 180px;
+  border: 1px solid #999;
+  margin-right: 5px;
+  font: 1em Arial, sans-serif;
+
+}
+
+form ul li div.error {
+
+    color: red;
+}
+
+form p {
+
+  margin: 0;
+  padding: 0.5em 0;
+
+}
+
+form p input {
+
+  background: #d34545;
+  color: #fff;
+  font-weight: bold;
+  padding: 0.3em 1em;
+  font: 1em Arial, sans-serif;
+  border: none;
+
+}
+
+</style>
+</head>
+
+<body>
+
+<form action="#" method="post" id="signup">
+<ul>
+
+<li><label for="username">Username:</label>
+<input type="text" name="username" id="username" />
+</li>
+
+<li><label for="email">E-mail:</label>
+<input type="text" name="email" id="email" />
+
+</ul>
+
+<p><input type="submit" name="submit" id="submit" value="Login" /></p>
+</form>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+var Validator = function(form) {
+
+  this.form = $(form) || $('form').eq(0);
+  
+  var rules = {};
+  var messages = {};
+  var elements = {};
+  
+  var addRule = function(property, value) {
+  
+    rules[property] = value;
+  
+  };
+  
+  var addMessage = function(message, value) {
+  
+    messages[message] = '<div class="error">' + value + '</div>';
+  
+  
+  };
+  
+  var addElement = function(element, value) {
+  
+    elements[element] = value;
+  
+  };
+  
+  var showMessage = function(message, element) {
+  
+    $(message).insertAfter(element);
+  
+  };
+
+  var validate = function() {
+  
+    addRule('email', /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/);
+    addRule('username', /^[a-z0-9]+$/);
+    addMessage('email', 'E-mail non valida');
+    addMessage('username', 'Il nome utente deve essere alfanumerico');
+    addElement('email', '#email');
+    addElement('username', '#username');
+    
+      var valid = true;
+      
+      var emailValue = $(elements['email']).val();
+      var usernameValue = $(elements['username']).val();
+      
+      if(!rules['email'].test(emailValue)) {
+      
+         showMessage(messages['email'], elements['email']);
+         
+         valid = false;
+         
+      }
+      
+      if(!rules['username'].test(usernameValue)) {
+      
+        showMessage(messages['username'], elements['username']);
+        
+        valid = false;
+        
+      }
+      
+      return valid;
+               
+  };
+  
+  this.init = function() {
+  
+    this.form.bind('submit', validate);
+  
+  };
+  
+  
+};
+
+$(function() {
+
+  var validator = new Validator('#signup');
+  validator.init();
+  
+
+});
+</script>
+</body>
+</html>

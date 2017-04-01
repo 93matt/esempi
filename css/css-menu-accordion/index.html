@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: menu accordion</title>
+<meta charset="utf-8" />
+<style type="text/css" media="screen">
+body
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 90%;
+	color: #333;
+	background-color: #eee;
+	margin: 10px;
+	z-index: 0;
+}
+
+h1
+{
+	font-size: 1.5em;
+	font-weight: normal;
+	margin: 0;
+}
+
+h2
+{
+	font-size: 1.3em;
+	font-weight: normal;
+	margin: 2em 0 0 0;
+}
+
+p
+{
+	margin: 0.6em 0;
+}
+
+p.accnav
+{
+	font-size: 1.1em;
+	text-transform: uppercase;
+	text-align: right;
+}
+
+p.accnav a
+{
+	text-decoration: none;
+	color: #999;
+}
+
+div.accordion
+{
+	display: block;
+	width: 30em;
+	padding: 0.5em 0.5em 1px 0.5em;
+	margin: 0 auto;
+	background-color: #666;
+	border-radius: 5px;
+	box-shadow: 0 3px 3px rgba(0,0,0,0.3);
+}
+
+div.accordion div
+{
+	display: block;
+	width: 28em;
+	height: 2em;
+	padding: 0 1em;
+	margin: 0 0 0.5em 0;
+	color: #333;
+	background-color: #333;
+	overflow: hidden;
+	border-radius: 3px;
+}
+
+div.accordion div h2
+{
+	font-size: 1em;
+	font-weight: bold;
+	width: 100%;
+	line-height: 2em;
+	padding: 0;
+	margin: 0;
+	color: #ddd;
+}
+
+div.accordion div h2 a
+{
+	display: block;
+	width: 100%;
+	line-height: 2em;
+	text-decoration: none;
+	color: inherit;
+	outline: 0 none;
+}
+
+div.accordion div,
+div.accordion div h2
+{
+	-webkit-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	-ms-transition: all 1s ease;
+	-o-transition: all 1s ease;
+	transition: all 1s ease;
+}
+
+div.accordion div:target
+{
+	height: 15em;
+	background-color: #fff;
+}
+
+div.accordion div:target h2
+{
+	font-size: 1.6em;
+	color: #333;
+}
+</style>
+</head>
+
+<body>
+
+<div class="accordion">
+
+	<div id="acc1">
+		<h2><a href="#acc1">Uno</a></h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum lacinia elit nec mi ornare et viverra massa pharetra. Phasellus mollis, massa sed suscipit pharetra.</p>
+		<p class="accnav"><a href="#acc2">Successivo &#10151;</a></p>
+	</div>
+	
+	<div id="acc2">
+		<h2><a href="#acc2">Due</a></h2>
+		<p>Fusce ullamcorper orci vel turpis vestibulum eu congue nisl euismod. Maecenas euismod, orci non tempus fermentum, leo metus lacinia lacus, nec ultrices quam ligula ac leo.</p>
+		<p class="accnav"><a href="#acc3">Successivo &#10151;</a></p>
+	</div>
+	
+	<div id="acc3">
+		<h2><a href="#acc3">Tre</a></h2>
+		<p>Sed et diam eu ipsum scelerisque laoreet quis in nibh. Proin sodales augue lectus. Maecenas a lorem a mi congue pharetra. Sed sed risus in nisi venenatis condimentum. Donec ac consectetur arcu.</p>
+		<p class="accnav"><a href="#acc4">Successivo &#10151;</a></p>
+	</div>
+	
+	<div id="acc4">
+		<h2><a href="#acc4">Quattro</a></h2>
+		<p>Fusce ullamcorper orci vel turpis vestibulum eu congue nisl euismod. Maecenas euismod, orci non tempus fermentum, leo metus lacinia lacus, nec ultrices quam ligula ac leo.</p>
+		<p class="accnav"><a href="#acc5">Successivo &#10151;</a></p>
+	</div>
+	
+	<div id="acc5">
+		<h2><a href="#acc5">Cinque</a></h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum lacinia elit nec mi ornare et viverra massa pharetra. Phasellus mollis, massa sed suscipit pharetra.</p>
+		<p class="accnav"><a href="#acc1">Successivo &#10151;</a></p>
+	</div>
+
+</div>
+
+
+</body>
+</html>

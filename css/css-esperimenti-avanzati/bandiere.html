@@ -1,0 +1,203 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Bandiere con i CSS</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style type="text/css">
+body {margin: 2em; padding: 0; background: #fff; color: #000; font: 80%/1.6 Verdana, sans-serif;}
+h1 {font-size: 1.4em;}
+h2 {font-size: 1.2em;}
+
+/* demo */
+
+.flag {
+width: 450px;
+height: 210px;
+margin: 0;
+padding: 0;
+background: #fff;
+color: #000;
+border-style: solid;
+}
+.usa {height: 225px;}
+
+.horband {
+height: 70px;
+margin: 0;
+padding: 0;
+}
+
+.vertband {
+width: 150px;
+height: 210px;
+margin: 0;
+padding: 0;
+float: left;
+} 
+
+.red {background: #d00;}
+.white {background: #fff;}
+.yellow {background: #ff3;}
+.blue {background: #36c;}
+.green {background: #4fbe7d;}
+.black {background: #000;}
+
+.japan {
+margin: 0;
+padding: 0;
+height: 210px;
+line-height: 200px;
+text-align: center;
+color: #d00;
+background: #fff;
+font-size: 300px;
+}
+
+div[class*="foo"] {line-height: 180px;}
+
+.stars {
+color: #fff;
+padding: 0 3px;
+width: 180px;
+height: 120px;
+float: left;
+text-align: center;
+line-height: 1.1em;
+}
+
+.star {
+padding: 0 16px 0 0;
+font-size: 1.5em;
+}
+
+.line {margin: 0; padding: 8px 0 0 10px;}
+.stripe {height: 15px; margin: 0; padding: 0;}
+
+</style>
+<!--[if lt IE 7]>
+<style type="text/css">
+.stars {margin-right: -3px;}
+</style>
+<![endif]-->
+</head>
+
+<body>
+<h1>Flags</h1>
+
+<h2>Austria</h2>
+
+<div class="flag">
+<div class="horband red"></div>
+<div class="horband white"></div>
+<div class="horband red"></div>
+</div>
+
+<h2>Belgio</h2>
+
+<div class="flag">
+<div class="vertband black"></div>
+<div class="vertband yellow"></div>
+<div class="vertband red"></div>
+</div>
+
+<h2>Francia</h2>
+
+<div class="flag">
+<div class="vertband blue"></div>
+<div class="vertband white"></div>
+<div class="vertband red"></div>
+</div>
+
+<h2>Germania</h2>
+
+<div class="flag">
+<div class="horband black"></div>
+<div class="horband red"></div>
+<div class="horband yellow"></div>
+</div>
+
+<h2>Olanda</h2>
+
+<div class="flag">
+<div class="horband red"></div>
+<div class="horband white"></div>
+<div class="horband blue"></div>
+</div>
+
+<h2>Italia</h2>
+
+<div class="flag">
+<div class="vertband green"></div>
+<div class="vertband white"></div>
+<div class="vertband red"></div>
+</div>
+
+<h2>Giappone</h2>
+
+<div class="flag">
+<div class="japan foo">&bull;</div>
+</div>
+
+<h2>USA</h2>
+
+<div class="flag usa">
+<div class="stars blue">
+<p class="line">
+<span class="star">*</span>
+<span class="star">*</span>
+<span class="star">*</span>
+<span class="star">*</span>
+<span class="star">*</span>
+</p>
+<p class="line">
+<span class="star">*</span>
+<span class="star">*</span>
+<span class="star">*</span>
+<span class="star">*</span>
+<span class="star">*</span>
+</p>
+<p class="line">
+<span class="star">*</span>
+<span class="star">*</span>
+<span class="star">*</span>
+<span class="star">*</span>
+<span class="star">*</span>
+</p>
+<p class="line">
+<span class="star">*</span>
+<span class="star">*</span>
+<span class="star">*</span>
+<span class="star">*</span>
+<span class="star">*</span>
+</p>
+<p class="line">
+<span class="star">*</span>
+<span class="star">*</span>
+<span class="star">*</span>
+<span class="star">*</span>
+<span class="star">*</span>
+</p>
+</div>
+
+<p class="stripe red"></p>
+<p class="stripe white"></p>
+<p class="stripe red"></p>
+<p class="stripe white"></p>
+<p class="stripe red"></p>
+<p class="stripe white"></p>
+<p class="stripe red"></p>
+<p class="stripe white"></p>
+<p class="stripe red"></p>
+<p class="stripe white"></p>
+<p class="stripe red"></p>
+<p class="stripe white"></p>
+<p class="stripe red"></p>
+<p class="stripe white"></p>
+<p class="stripe red"></p>
+</div>
+
+
+
+</body>
+</html>

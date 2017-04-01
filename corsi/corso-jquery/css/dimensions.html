@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>width() - height() - innerWidth() - innerHeight() - outerWidth() - outerHeight()</title>
+<meta charset="utf-8" />
+<style type="text/css">
+#test {
+    width: 100px;
+    height: 100px;
+    padding: 16px;
+    border: 5px solid black;
+    background: gray;
+    margin: 0 auto;
+}
+
+#output {
+    text-align: center;
+}​
+​</style>
+</head>
+
+<body>
+<p><button id="width">width()</button><button id="height">height()</button>
+    <button id="innerwidth">innerWidth()</button>
+    <button id="innerheight">innerHeight()</button>
+    <button id="outerwidth">outerWidth()</button>
+    <button id="outerheight">outerHeight()</button></p>
+
+
+<div id="test"></div>
+
+<p id="output"></p>
+
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script>
+$(function() {
+
+	$('#width').click(function() {
+    $('#output').text($('#test').width());
+});
+    
+$('#height').click(function() {
+    $('#output').text($('#test').height());
+});
+
+$('#innerwidth').click(function() {
+    $('#output').text($('#test').innerWidth());
+});
+
+$('#innerheight').click(function() {
+    $('#output').text($('#test').innerHeight());
+});
+
+$('#outerwidth').click(function() {
+    $('#output').text($('#test').outerWidth());
+});
+
+$('#outerheight').click(function() {
+    $('#output').text($('#test').outerHeight());
+});
+
+	
+});
+</script>
+</body>
+</html>

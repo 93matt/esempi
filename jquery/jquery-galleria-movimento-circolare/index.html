@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: galleria con movimento circolare</title>
+<meta charset="utf-8" />
+<style type="text/css" media="screen">
+body {
+	padding: 2em 0;
+	margin: 0;
+}
+
+#gallery {
+	width: 90%;
+	max-width: 1070px;
+	margin: 1em auto;
+	height: 188px;
+}
+
+#gallery div.img {
+	float: left;
+	width: 250px;
+	padding: 5px;
+	background: #ccc;
+	border: 1px solid #999;
+	border-radius: 6px;
+	margin-right: 5px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="gallery">
+	<div class="img">
+		<img src="img/1.jpg" alt="" />
+	</div>
+	<div class="img">
+		<img src="img/2.jpg" alt="" />
+	</div>
+	<div class="img">
+		<img src="img/3.jpg" alt="" />
+	</div>
+	<div class="img">
+		<img src="img/4.jpg" alt="" />
+	</div>
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.easing.js"></script>
+<script type="text/javascript" src="js/jquery.circulate.js"></script>
+<script type="text/javascript">
+var Gallery = {
+
+	gallery: document.getElementById('gallery'),
+	timer: null,
+	index: -1,
+	
+	
+	move: function() {
+	
+		var context = this.gallery;
+		var current = this.index;
+		var images = $('div.img', context);
+		
+		this.timer = setInterval(function() {
+		
+			current++;
+			
+			if(current == (images.length - 1)) {
+			
+				current = -1;
+			
+			}
+			
+			images.eq(current).circulate({speed: 2000, loop: false});	
+		
+		
+		
+		}, 2000);
+	
+	
+	},
+	
+	init: function() {
+	
+		this.move();
+	
+	}
+	
+
+
+};
+
+$(function() {
+
+	Gallery.init();
+
+});
+</script>
+</body>
+</html>

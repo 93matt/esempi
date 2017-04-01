@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: video trailer</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	margin: 2em 0;
+	font: 120% Arial, sans-serif;
+}
+
+#trailer {
+	width: 650px;
+	height: 500px;
+	margin: 0 auto;
+	position: relative;
+}
+
+div.slide {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #0f1923;
+	color: #fff;
+}
+
+.s1 {
+	z-index: 5;
+}
+.s2 {
+	z-index: 4;
+}
+.s3 {
+	z-index: 3;
+}
+.s4 {
+	z-index: 2;
+}
+.s5 {
+	z-index: 1;
+}
+
+.s1 #counter {
+	width: 100px;
+	height: 100px;
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -50px 0 0 -50px;
+	text-align: center;
+	line-height: 100px;
+	font-size: 4em;
+}
+
+#logo {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 268px;
+	height: 268px;
+	margin: -134px 0 0 -134px;
+	display: none;
+}
+
+.s3 p {
+	font-size: 2em;
+	text-align: center;
+	margin: 0;
+	padding: 20px 0 10px 0;
+	display: none;
+}
+
+.s3 img {
+	width: 486px;
+	height: 275px;
+	margin: 30px auto 0 auto;
+	display: block;
+	border-radius: 10px;
+	display: none;
+}
+
+.s4 p {
+	font-size: 2em;
+	text-transform: uppercase;
+	margin: -0.5em 0 0 0;
+	position: absolute;
+	width: 100%;
+	top: 50%;
+	height: 1em;
+	text-align: center;
+}
+
+.s5 #video {
+	display: block;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="trailer">
+
+	<div class="slide s1">
+		<span id="counter"></span>
+	</div>
+	
+	<div class="slide s2">
+		<img src="jquery.png" alt="" id="logo" />
+	</div>
+	
+	<div class="slide s3">
+	
+	  <p>Are you tired of this?</p>
+	  
+	  <img src="dom.gif" alt="DOM" id="dom" />
+	
+	</div>
+	
+	<div class="slide s4">
+	
+	  <p>Then watch this:</p>
+	
+	</div>
+	
+	<div class="slide s5">
+	
+		<iframe width="650" height="500" id="video" src="http://www.youtube.com/embed/7eQI90xYez0?rel=0" frameborder="0" allowfullscreen></iframe>
+	
+	</div>
+
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+<script type="text/javascript">
+$(function() {
+
+  var slides = $('div.slide', '#trailer');
+  var counter = 4;
+  var counterElement = $('#counter');
+  var logo = $('#logo');
+  
+  var timer = setInterval(function() {
+  
+    counter--;
+    
+    if(counter == 1) {
+    
+      clearInterval(timer);
+      
+      slides.eq(0).fadeOut('slow', function() {
+      
+        logo.fadeIn('slow').
+        delay(2000).
+        hide('puff', {}, 1000, function() {
+        
+          slides.eq(1).fadeOut('slow', function() {
+          
+            var slideContext1 = $(this).next();
+          
+            $('p', slideContext1).show('blind', {}, 1000, function() {
+            
+            
+              $(this).next().show('blind', {direction: 'horizontal'}, 1000, function() {
+              
+                var $img = $(this);
+              
+                $img.animate({
+                  marginLeft: 70
+                }, 'slow', function() {
+                
+                  setTimeout(function() {
+                  
+                    $img.parent().fadeOut('slow', function() {
+                    
+                      var slideContext2 = $(this);
+                      var slideNext = slideContext2.next();
+                      
+                      setTimeout(function() {
+                      
+                      
+                        slideNext.fadeOut('slow');
+                      
+                      
+                      }, 2000);
+                    
+                    
+                    
+                    });
+                  
+                  
+                  }, 2000);
+                
+                
+                
+                });
+              
+              
+              });
+            
+            
+            });
+          
+          
+          });
+        
+        
+        });
+      
+      
+      });
+    
+    }
+   
+    counterElement.text(counter);
+  
+  }, 1000);
+
+});
+</script>
+</body>
+</html>

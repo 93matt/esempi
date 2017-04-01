@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: creare drop caps senza :first-letter</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	margin: 2em auto;
+	width: 40%;
+	font: 95% Arial, sans-serif;
+	line-height: 1.4;
+}
+
+.alignright {
+	float: right;
+	margin: 0 0 5px 5px;
+	width: 100px;
+	height: 100px;
+}
+
+.cap {
+	float: left;
+	font: 5em Georgia, serif;
+	color: #545454;
+	padding: 5px 10px 5px 0;
+	line-height: 0.8;
+}
+</style>
+</head>
+
+<body>
+
+<p id="first"><img src="image.png" alt="" class="alignright" />Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+
+	var $p = $('#first');
+	var text = $p.text();
+	var firstLetter = text.charAt(0);
+	var html = $p.html();
+	
+	$p.html(html.replace(firstLetter, '<span class="cap">' + firstLetter + '</span>'));
+		
+
+});
+</script>
+</body>
+</html>

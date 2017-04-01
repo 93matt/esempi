@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>text()</title>
+<meta charset="utf-8" />
+</head>
+
+<body>
+
+<p><button id="text">text()</button></p>
+
+<p id="test"></p>
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script>
+$(function() {
+
+	$('#text').click(function() {
+	
+		$('#test').text('Lorem ipsum dolor sit amet &amp; dolor.');
+	
+	});		
+});
+</script>
+</body>
+</html>

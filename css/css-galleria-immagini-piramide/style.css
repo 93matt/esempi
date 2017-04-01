@@ -1,0 +1,38 @@
+#gallery {
+	margin: 2em auto;
+	width: 850px;
+	text-align: center;
+}
+
+#gallery div.row {
+	height: 150px;
+	overflow: hidden;
+	width: 850px;
+	position: relative;
+}
+
+#gallery div.r2 {
+	top: -50px;
+}
+
+#gallery div.r3 {
+	top: -100px;
+}
+
+#gallery div.row img {
+	width: 250px;
+	height: 150px;
+	position: relative;
+	top: 50px;
+	-moz-transition: all 1s ease-out;
+	-webkit-transition: all 1s ease-out;
+	-o-transition: all 1s ease-out;
+	-ms-transition: all 1s ease-out;
+	transition: all 1s ease-out;
+	cursor: pointer;
+	display: inline;
+}
+
+#gallery div.row img:hover {
+	top: 0;
+}

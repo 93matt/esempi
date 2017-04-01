@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: star rating accessibile</title>
+<meta charset="utf-8" />
+<style type="text/css">
+
+#gallery {
+    
+    margin: 0 auto;
+    padding: 2em 0 0 15%;
+    list-style: none;
+    width: 90%;
+    height: 100%;
+    overflow: hidden;
+    
+}
+
+#gallery li {
+    
+    float: left;
+    height: 100%;
+    display: block;
+    margin-right: 0.5em;
+    width: 15%;
+    
+}
+
+#gallery li img {
+    
+    display: block;
+    width: 100%;
+}
+
+#gallery li div.rating {
+    
+    width: 104px;
+    height: 16px;
+    margin: 0.4em auto;
+    text-indent: -1000em;
+    background-image: url(star-rating.png);
+    background-repeat: no-repeat;
+    
+}
+
+.five {
+    
+    background-position: 0 -77px;
+}
+
+.four {
+    
+    background-position: 0 -60px;
+}
+
+.three {
+    
+    background-position: 0 -43px;
+}
+
+.two {
+    
+    background-position: 0 -28px;
+    position: relative;
+    top: 2px;
+}
+
+.one {
+    
+    background-position: 0 -12px;
+}
+</style>
+</head>
+
+<body>
+
+<ul id="gallery">
+    
+    <li><img src="1.jpg" alt="" />
+    <div class="rating five">Voto: 5</div></li>
+    
+    <li><img src="2.jpg" alt="" />
+    <div class="rating four">Voto: 4</div></li>
+    
+    <li><img src="3.jpg" alt="" />
+    <div class="rating three">Voto: 3</div></li>
+    
+    <li><img src="4.jpg" alt="" />
+    <div class="rating two">Voto: 2</div></li>
+    
+    <li><img src="5.jpg" alt="" />
+    <div class="rating one">Voto: 1</div></li>
+    
+    
+</ul>
+
+</body>
+</html>
+

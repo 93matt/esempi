@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Test on CSS 2.1 nominal values</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="author" content="Gabriele Romanato" />
+<meta name="description" content="Only CSS 2.1 nominal values are matched here. Bug: matches occur also
+within property names." />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/CSSParser.js"></script>
+<script type="text/javascript">
+
+<!--
+
+$(document).ready(function() {
+
+     var parser = new CSSParser();
+     var values = parser.CSS21Values();
+     
+     $('<ul></ul>').insertAfter('h2');
+     
+     for(var i=0; i<values.length; i++) {
+     
+        $('<li></li>').html(values[i]).appendTo('ul');
+     
+     }
+     
+
+
+
+
+});
+
+-->
+
+
+</script>
+</head>
+
+<body>
+
+<h1>Test on CSS 2.1 values</h1>
+
+<pre>
+p {
+    color: green;
+}
+
+p strong {
+    font-weight: normal;
+}
+
+h1 {
+    text-align: center;
+}
+
+div {
+    float: left;
+}
+
+@media print {
+    h1 {page-break-after: avoid;}
+}
+</pre>
+
+<hr />
+
+<h2>List of CSS 2.1 nominal values in the code above</h2>
+
+
+
+</body>
+</html>

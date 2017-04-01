@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Test on CSS  length values</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="author" content="Gabriele Romanato" />
+<meta name="description" content="Only CSS length values are matched here. Bug: it doesn't match single unit
+values or floating-point values." />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/CSSParser.js"></script>
+<script type="text/javascript">
+
+<!--
+
+$(document).ready(function() {
+
+     var parser = new CSSParser();
+     var values = parser.CSSLengthValues();
+     
+     $('<ul></ul>').insertAfter('h2');
+     
+     for(var i=0; i<values.length; i++) {
+     
+        $('<li></li>').html(values[i]).appendTo('ul');
+     
+     }
+     
+
+
+
+
+});
+
+-->
+
+
+</script>
+</head>
+
+<body>
+
+<h1>Test on CSS length values</h1>
+
+<pre>
+p strong {
+    font-size: 1em;
+}
+
+h1 {
+    padding: 5%;
+}
+
+div {
+    width: 200px;
+}
+</pre>
+
+<hr />
+
+<h2>List of  CSS length values in the code above</h2>
+
+
+
+</body>
+</html>

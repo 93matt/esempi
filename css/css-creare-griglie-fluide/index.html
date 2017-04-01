@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: creare griglie fluide</title>
+<meta charset="utf-8" />
+<style type="text/css" media="screen">
+body {
+	margin: 0;
+	padding: 0;
+	font: 80% 'Helvetica Neue', Arial, sans-serif;
+}
+
+#site {
+	width: 70%;
+	max-width: 960px;
+	margin: 0 auto;
+}
+
+h1, h2, p {
+	margin: 0;
+	font-size: 100%;
+	font-weight: normal;
+}
+
+h1 {
+	font-size: 3em;
+	padding: 0.5em 0 5px 0;
+	border-bottom: 1px solid #bbb;
+	text-transform: uppercase;
+}
+
+#branding p {
+	color: #666;
+	font: italic 1.7em Palatino, Georgia, serif;
+	padding: 15px 0;
+	border-bottom: 1px solid #bbb;
+}
+
+#featured {
+	padding: 15px 0;
+	overflow: hidden;
+}
+
+div.featured {
+	float: left;
+	width: 30%;
+	padding: 0 5px;
+	border-right: 1px solid #bbb;
+}
+
+div.last {
+	border-right: none;
+	padding: 0 0 0 5px;
+}
+
+div.featured h2 {
+	font-size: 1.8em;
+}
+div.featured p {
+	font-size: 1.2em;
+	line-height: 1.4;
+}
+
+#content {
+	border-top: 1px solid #bbb;
+	overflow: hidden;
+}
+
+#main {
+	float: left;
+	width: 60%;
+	padding-top: 15px;
+}
+
+#main p {
+	line-height: 1.4;
+	margin-bottom: 1em;
+	font-size: 1.1em;
+}
+
+#content-sub {
+	float: right;
+	width: 35%;
+	padding-top: 15px;
+}
+
+#content-sub p {
+	padding: 0.5em;
+	background: #eee;
+	border: 1px dashed #bbb;
+	margin-bottom: 1em;
+	font-size: 1.2em;
+}
+
+#site-info {
+	color: #666;
+	font: italic 1.7em Palatino, Georgia, serif;
+	padding: 15px 0;
+	border-top: 1px solid #bbb;
+}
+</style>
+</head>
+
+<body>
+
+<div id="site">
+	<div id="branding">
+		<h1>Test</h1>
+		<p>Lorem ipsum dolor sit amet</p>
+	</div>
+	<div id="featured">
+		<div class="featured">
+			<h2>Ipsum dolor sit</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+		</div>
+		<div class="featured">
+			<h2>Ipsum dolor sit</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+		</div>
+		<div class="featured last">
+			<h2>Ipsum dolor sit</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+		</div>
+	</div>
+	<div id="content">
+		<div id="main">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+		</div>
+		<div id="content-sub">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+		</div>
+	</div>
+	<div id="site-info">
+		Lorem ipsum dolor sit amet
+	</div>
+</div>
+
+</body>
+</html>

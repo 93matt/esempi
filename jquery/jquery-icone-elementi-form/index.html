@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: aggiungere icone agli elementi dei form</title>
+<meta charset="utf-8" />
+<style type="text/css" media="screen">
+
+body {
+
+    margin: 0 auto;
+    width: 55%;
+    padding: 2em 0;
+    background: #fff;
+    color: #333;
+    font: 100% Arial, sans-serif;
+
+}
+
+
+#contact-form {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+#contact-form ul {
+	margin: 0;
+	padding: 0.4em 0 0 0;
+	list-style: none;
+	width: 100%;
+}
+#contact-form li {
+	height: 100%;
+	margin-bottom: 0.3em;
+	line-height: 1.5;
+}
+#contact-form li label {
+	display: block;
+	padding-bottom: 3px;
+	font-weight: bold;
+}
+#contact-form li input {
+	width: 180px;
+	border: 1px solid #004588;
+	display: block;
+	border-radius: 5px;
+	font: 1em Arial, sans-serif;
+}
+#contact-form li textarea {
+	display: block;
+	width: 400px;
+	height: 350px;
+	border: 1px solid #004588;
+	border-radius: 10px;
+	font: 1em Arial, sans-serif;
+}
+#contact-form p {
+	margin: 0;
+	padding-top: 0.4em;
+	padding-left: 19px;
+}
+#contact-form p input {
+	font-weight: bold;
+	background: #004588;
+	color: #fff;
+	border: none;
+	padding: 0.3em 1.5em;
+	font: 1em Arial, sans-serif;
+}
+
+
+.name, .lastname, .subject, .message, .antispam, .email {
+	padding-left: 19px;
+	background-position: 0 2px;
+	background-repeat: no-repeat;
+}
+
+.name, .lastname {
+	background-image: url("img/name.png");
+}
+.subject {
+	background-image: url("img/subject.png");
+}
+.message {
+	background-image: url("img/message.png");
+}
+.antispam {
+	background-image: url("img/warning.png");
+}
+
+.email {
+	background-image: url("img/email.png");
+}
+
+</style>
+</head>
+
+
+<body>
+
+<form action="" method="post" id="contact-form">
+
+<ul>
+    
+        <li>
+            <label for="name">Nome</label>
+            <input type="text" name="name" id="name" />
+        </li>
+        
+        <li>
+            <label for="lastname">Cognome</label>
+            <input type="text" name="lastname" id="lastname" />
+        </li>
+        
+        <li>
+            <label for="email">E-mail</label>
+            <input type="text" name="email" id="email" />
+        </li>
+        
+        <li>
+             <label for="subject">Oggetto</label>
+             <input type="text" name="subject" id="subject" />
+        
+        </li>
+        
+        <li>
+            <label for="message">Messaggio</label>
+            <textarea cols="30" rows="15" name="message" id="message"></textarea>
+        </li>
+        
+        <li>
+            <label for="antispam">2 + 7 = ?</label>
+            <input type="text" name="antispam" id="antispam" />
+        </li>
+    
+    
+    </ul>
+
+
+<p><input type="submit" name="submit" id="submit" value="Invia" /></p>
+
+
+
+</form>
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+<script type="text/javascript">
+function setFormIcons() {
+    
+	
+	    $('li', '#contact-form').each(function() {
+	    
+	        var $li = $(this);
+		    var $attrFor = $('label', $li).attr('for');
+		
+		switch($attrFor) {
+		
+		    case 'name':
+		    $li.addClass('name');
+		    break;
+		    
+		    case 'lastname':
+		    $li.addClass('lastname');
+		    break;
+		    
+		    case 'subject':
+		    $li.addClass('subject');
+		    break;
+		    
+		    case 'message':
+		    $li.addClass('message');
+		    break;
+		    
+		    case 'antispam':
+		    $li.addClass('antispam');
+		    break;
+		    
+		    case 'email':
+		    $li.addClass('email');
+		    break;
+		    
+		    default:
+		    break;
+		
+		
+		}
+		
+	    
+	    });
+	
+    
+}
+
+
+
+$(function() {
+
+    setFormIcons();
+    
+});
+
+
+
+</script>
+
+</body>
+</html>

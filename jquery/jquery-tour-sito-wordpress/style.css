@@ -1,0 +1,81 @@
+/*= Site tour */
+
+#site-tour {
+	width: 800px;
+	background: #fff;
+	padding: 1em;
+	border: 0.6em double #ccc;
+	border-radius: 6px;
+	position: absolute;
+	z-index: 2;
+	display: none;
+}
+
+#tour-button {
+	width: 50px;
+	height: 250px;
+	display: block;
+	text-indent: -1000em;
+	background: url(images/tour.png) no-repeat;
+	position: fixed;
+	left: 0;
+	top: 50%;
+	margin-top: -125px;
+}
+
+#site-tour #close-tour {
+
+	width: 100px;
+	background: #c30;
+	color: #fff;
+	text-decoration: none;
+	border: none;
+	padding: 4px 0;
+	text-align: center;
+	position: absolute;
+	top: -2.1em;
+	right: -0.5em;
+	border-radius: 4px 4px 0 0;
+	font-weight: bold;
+
+}
+
+#site-tour #main {
+	float: left;
+	width: 40%;
+	padding-left: 2em;
+	padding-top: 1em;
+}
+
+#site-tour #categories {
+	float: right;
+	width: 40%;
+	padding-right: 2em;
+	padding-top: 1em;
+}
+
+#site-tour ul ul {
+	padding-left: 2.5em;
+}
+
+#site-tour #main li,
+#site-tour #categories li {
+	margin-bottom: 0.5em;
+	padding-left: 35px;
+	background: url(images/doc.png) no-repeat 0 0;
+	font-size: 1.2em;
+	font-family: Palatino, Georgia, serif;
+	min-height: 26px;
+}
+
+#site-tour #main > li:first-child {
+	background: url(images/home.png) no-repeat 0 0;
+}
+
+#overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: #333;
+	display: none;
+}		

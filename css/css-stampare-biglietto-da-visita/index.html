@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: stampare un biglietto da visita</title>
+<meta charset="utf-8" />
+<style type="text/css" media="all">
+body {
+	margin: 2em auto;
+	width: 300px;
+	font: 100% Arial, sans-serif;
+}
+
+#card {
+	border: 1px solid #000;
+}
+
+h2 {
+	font: normal 1.5em Georgia, serif;
+	text-align: center;
+	border-bottom: 1px solid #bbb;
+	padding: 6px 6px 3px 6px;
+	margin: 0;
+}
+
+h2:before {
+	content: '\2767';
+	padding-right: 5px;
+	color: #bbb;
+}
+
+#desc {
+	text-align: center;
+	color: #545454;
+	font-family: 'Times New Roman', serif;
+	margin: 0;
+	padding: 6px 0;
+}
+
+#card ul {
+	margin: 1em 1em 1em 2.5em;
+	padding: 0;
+	list-style: none;
+}
+
+#card ul li {
+	font-size: 90%;
+	padding-bottom: 3px;
+	border-bottom: 1px dotted;
+	margin-bottom: 4px;
+}
+
+#card ul li strong {
+	font-variant: small-caps;
+}
+
+#card ul li a {
+	color: #000;
+}
+
+#card-notice {
+	margin: 0;
+	padding: 6px;
+	font-size: 80%;
+	background: #000;
+	color: #fff;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+#card-notice strong {
+	display: block;
+	padding-bottom: 4px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="card">
+	<h2>Gabriele Romanato</h2>
+	<p id="desc">Sviluppatore web</p>
+	<ul>
+		<li><strong>Tel:</strong> 0873-69598</li>
+		<li><strong>E-mail:</strong> <a href="mailto:gabriele.romanato@gmail.com">gabriele.romanato@gmail.com</a></li>
+		<li><strong>Sito web:</strong> <a href="http://gabrieleromanato.com/">gabrieleromanato.com</a></li>
+	</ul>
+	
+	<p id="card-notice"><strong>Festivi ed emergenze notturne:</strong> 347-7365208</p>
+</div>
+
+</body>
+</html>

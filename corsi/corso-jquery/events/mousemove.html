@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>mousemove()</title>
+<meta charset="utf-8" />
+<style>
+#test {
+	background: green;
+	width: 500px;
+	height: 500px;
+	cursor: pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<p><button id="mousemove">mousemove()</button><button id="on">on('mousemove')</button></p>
+
+<div id="test"></div>
+<div id="coords"></div>
+
+
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script>
+$(function() {
+
+    
+
+	
+	
+	$('#mousemove').click(function() {
+	
+		$('#test').unbind('mousemove');
+		
+		$('#test').mousemove(function(event) {
+	
+			var top = event.clientY - $(this).offset().top;
+			var left = event.clientX - $(this).offset().left;
+			
+			$('#coords').text('X: ' + left + ' Y:' + top);
+		
+		});
+	
+	
+	});	
+	
+	
+	
+	$('#on').click(function() {
+	
+		$('#test').off('mousemove');
+		
+		$('#test').on('mousemove', function(event) {
+		
+			var top = event.clientY - $(this).offset().top;
+			var left = event.clientX - $(this).offset().left;
+			
+			$('#coords').text('X: ' + left + ' Y:' + top);
+	
+			
+		});
+	
+	});
+
+});
+</script>
+</body>
+</html>

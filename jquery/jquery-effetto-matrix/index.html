@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: effetto Matrix</title>
+<meta charset="utf-8" />
+<style>
+body {
+	margin: 0;
+	padding: 0;
+	background: #000;
+	color: lime;
+	font: 80px "Courier New", Courier, monospace;
+}
+
+#matrix {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+div.stripe {
+	width: 10%;
+	float: left;
+	text-align: center;
+}
+
+div.stripe ul {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#matrix h1 {
+	font-size: 100px;
+	text-align: center;
+	width: 800px;
+	height: 300px;
+	line-height: 300px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -150px 0 0 -400px;
+	display: none;
+}
+</style>
+</head>
+
+<body>
+
+<div id="matrix"><h1>The Matrix</h1></div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+
+var chars = '!,$,%,&,?,=,&#x024E;, &#x019C;, &#x0190;, &#x0180;';
+var i = 0, len = 10;
+var symbols = chars.replace(/,+/g,'');
+var characters = chars.split(',');
+var reversed = characters.reverse();
+
+$(document).ready(function() {
+
+  for(i; i < len; i += 1) {
+  
+    $('<div>').addClass('stripe').appendTo('#matrix');
+  
+  
+  }
+  
+  $('div.stripe').each(function() {
+  
+  
+    var stripe = $(this);
+    
+    $('<ul></ul>').appendTo(stripe);
+    
+    var j = 0, len2 = reversed.length;
+  
+    for(j; j < len2; j += 1) {
+  
+      $('<li/>').html(reversed[j]).appendTo(stripe.find('ul')).hide();
+  
+  
+    }
+
+  
+  
+  });
+  
+  var counter = -1;
+  
+  var interval = window.setTimeout(function() {
+  
+    $('li').eq(counter += 1).show();
+    
+    if(counter == 100) {
+    
+      window.clearTimeout(interval);
+      
+      $('#matrix').find('ul').css('opacity', '0.5').end().find('h1').fadeIn(500).delay(100).animate({
+        fontSize: '130px',
+      }, 3000, function() {
+      
+        $(this).parent().find('ul').css('opacity', '0').end().fadeOut(500);
+      
+      });
+    
+    
+    }
+  
+    window.setTimeout(arguments.callee, 100);
+  
+  }, 50);  
+  
+});
+</script>
+</body>
+</html>

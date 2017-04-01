@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: menu di navigazione animato</title>
+<meta charset="utf-8" />
+<style type="text/css" media="screen">
+
+body {
+	margin: 0 auto;
+	width: 570px;
+	font: 75%/120% Arial, Helvetica, sans-serif;
+    padding: 10px 0;
+}
+
+#navigation {
+	margin: 100px 0 0;
+	padding: 0;
+	list-style: none;
+	height: 100%;
+}
+
+#navigation li {
+	padding: 0;
+	margin: 0 2px;
+	float: left;
+	position: relative;
+	text-align: center;
+}
+#navigation a {
+	padding: 14px 10px;
+	display: block;
+	color: #000;
+	width: 144px;
+	text-decoration: none;
+	font-weight: bold;
+	background: url(img/item.gif) no-repeat 50% 50%;
+	height: 100%;
+}
+#navigation li span {
+	background: url(img/tooltip.png) no-repeat;
+	width: 180px;
+	height: 45px;
+	position: absolute;
+	top: -85px;
+	left: -15px;
+	text-align: center;
+	padding: 20px 12px 10px;
+	z-index: 2;
+	display: none;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<ul id="navigation">
+<li><a href="#">Tutorials</a><span>I miei tutorial</span></li>
+<li><a href="#">Blog</a><span>Blog sugli standard del Web</span></li>
+<li><a href="#">Tests</a><span>Test sugli standard del Web</span></li>
+</ul>
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+<script type="text/javascript">
+$(function() {
+
+  $('a', '#navigation').hover(function() {
+  
+    
+    
+    $(this).next().stop(true, true).
+    animate({
+      opacity: 'show',
+      top: - 75
+    }, 'slow');
+  
+  }, function() {
+  
+    $(this).next().stop(true, true).
+    animate({
+      opacity: 'hide',
+      top: - 85
+    }, 'slow');
+  
+  });
+  
+
+});
+</script>
+
+</body>
+</html>

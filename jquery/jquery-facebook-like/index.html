@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: aggiungere il bottone Like di Facebook</title>
+<meta charset="utf-8" />
+</head>
+
+<body>
+
+<p id="fb-like"></p>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+(function($) {
+
+	$.fn.facebookLike = function(options) {
+	
+		var that = this;
+		var settings = {
+		
+			url: location.href,
+			width: 450,
+			height: 80
+		
+		};
+		
+		options = $.extend(settings, options);
+		
+		return that.each(function() {
+		
+			var $iframe = $('<iframe/>').attr(
+                 {
+                   src: 'http://www.facebook.com/plugins/like.php?href=' + encodeURIComponent(options.url) + 				 				  '&amp;layout=standard&amp;show_faces=true&amp;width=' + options.width + '&amp;action=like&amp;font&amp;colorscheme=light&amp;height=' + options.height,                 
+                 
+                 scrolling: 'no',
+                 frameborder: '0',
+                 allowTransparency: 'true'
+                 
+                 }).css({
+                 	border: 'none',
+                 	overflow: 'hidden',
+                 	width: options.width,
+                 	height: options.height
+                 });
+                 
+                 
+           $iframe.appendTo(that);
+
+						   	
+		
+		
+		});
+	
+	
+	};
+
+
+})(jQuery);
+
+$(function() {
+
+	$('#fb-like').facebookLike();
+
+});
+</script>
+
+</body>
+</html>

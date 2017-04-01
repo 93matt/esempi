@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: animazioni in stile Flash</title>
+<meta charset="utf-8" />
+<style type="text/css" media="screen">
+#image-wrapper {
+    
+    height: 100%;
+    overflow: hidden;
+    width: 650px;
+    margin: 2em auto;
+    
+}
+
+#image-wrapper img {
+    
+    float: left;
+    padding: 0.4em;
+    background: orange;
+    border: 1px solid maroon;
+    margin-right: 5px;
+}
+
+#image-captions {
+    
+    
+    clear: both;
+    height: 66px;
+    padding-left: 98px;
+    background: url(arrow.png) no-repeat;
+    width: 103px;
+    position: relative;
+    padding-top: 30px;
+    font: small Verdana, sans-serif;
+    text-transform: uppercase;
+}
+
+</style>
+</head>
+
+<body>
+    
+<div id="image-wrapper">
+    <img src="1.jpg" alt="Stelle" />
+    <img src="2.jpg" alt="Astratto" />
+    <img src="3.jpg" alt="Pietra" />
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="jquery.color.js"></script>
+
+<script type="text/javascript">
+
+var Animator = new function () {
+    
+   var self = this;
+    
+   this.target = $('#image-wrapper');
+   
+   this.dynamic = '<div id="image-captions"/>';
+   
+   this.titles = [this.target.find('img').eq(0).attr('alt'), 
+                  this.target.find('img').eq(1).attr('alt'),
+                  this.target.find('img').eq(2).attr('alt')];
+                  
+   this.insertDynamic = function() {
+        $(this.dynamic).appendTo('#image-wrapper').hide();
+   };
+   
+   this.runAnimation = function() {
+    
+      window.setTimeout(function() {
+        
+        $('#image-wrapper').
+        find('img').
+        animate({'backgroundColor': 'orange'})
+        .parent()
+        .find('#image-captions')
+        .css('left', 0);
+                
+        $('#image-wrapper').
+        find('img')
+        .eq(0)
+        .animate({
+            
+            backgroundColor: 'yellow'
+            
+            
+        }, 1000)
+        .parent()
+        .find('#image-captions')
+        .text(self.titles[0])
+        .show(1000);
+        
+        
+        window.setTimeout(function() {
+            
+            $('#image-wrapper').
+            find('img')
+            .eq(0)
+            .animate({'backgroundColor': 'orange'})
+            .parent()
+            .find('#image-captions')
+            .hide();
+            
+            
+            $('#image-wrapper').find('img').eq(1).animate({
+                
+                
+                backgroundColor: 'green'
+                
+                
+            }, 1000)
+            .parent()
+            .find('#image-captions')
+            .text(self.titles[1])
+            .css('left', 205)
+            .show(1000);
+            
+            
+            
+            window.setTimeout(function() {
+            
+            $('#image-wrapper').
+            find('img').
+            eq(1).
+            animate({'backgroundColor': 'orange'})
+            .parent().
+            find('#image-captions')
+            .hide();
+            
+            
+            $('#image-wrapper').find('img').eq(2).animate({
+                
+                
+                backgroundColor: 'silver'
+                
+                
+            }, 1000).
+            parent()
+            .find('#image-captions')
+            .text(self.titles[2])
+            .css('left', 405)
+            .show(1000);
+            
+            
+            
+        }, 1000);
+            
+            
+        }, 1000);
+        
+        
+        
+      }, 1000);
+    
+    
+   };
+   
+   
+   this.init = function() {
+    
+      this.insertDynamic();
+    
+      window.setTimeout(function() {
+        
+        
+        self.runAnimation();
+        
+        window.setTimeout(arguments.callee, 3000);
+        
+        
+        
+      }, 1000);
+    
+   };
+};
+
+
+$(function() {
+    
+    
+    Animator.init();
+    
+    
+    
+});
+
+
+
+</script>
+
+
+</body>
+</html>
+

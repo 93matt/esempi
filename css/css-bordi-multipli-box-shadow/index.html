@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: bordi multipli con box-shadow</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	padding: 2em 0;
+}
+
+#box {
+	width: 8em;
+	font-size: 2em;
+	font-family: Arial, sans-serif;
+	text-align: center;
+	padding: 2em 1em;
+	margin: 2em auto;
+	background: #ccc;
+	border-radius: 2px;
+	box-shadow: 
+		0 0 0 2px #000,
+		0 0 0 3px #999,
+		0 0 0 9px #aaa,
+		0 0 0 10px #666,
+		0 0 0 16px #333,
+		0 0 0 18px #000,
+		0 2px 6px 18px rgba(0,0,0,0.5);
+}
+</style>
+</head>
+
+<body>
+
+<div id="box">Test</div>
+
+</body>
+</html>

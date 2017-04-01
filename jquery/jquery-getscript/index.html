@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: il metodo $.getScript()</title>
+<meta charset="utf-8" />
+<style type="text/css">
+#log {
+	color: red;
+}
+
+p {
+	color: green;
+}
+</style>
+</head>
+
+<body>
+
+<div id="log"></div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+// @link http://api.jquery.com/jQuery.getScript/
+
+$(function() {
+
+  $('#log').ajaxError(function(e, jqxhr, settings, exception) {
+    
+    $(this).text(e + ' ' + jqxhr + ' ' + exception);
+    
+  });
+  
+  $.getScript('jquery-get-script-test.js', function() {
+  
+    Library.init();
+  
+  });
+ 
+});
+</script>
+</body>
+</html>

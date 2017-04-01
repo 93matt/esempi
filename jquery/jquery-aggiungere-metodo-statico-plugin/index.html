@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: aggiungere un metodo statico ai plugin</title>
+<meta charset="utf-8" />
+<style type="text/css">
+p a {
+	display: inline-block;
+	width: 4em;
+	height: 1.8em;
+	line-height: 1.8;
+	font-family: Arial, sans-serif;
+	color: #fff;
+	background: #222;
+	text-align: center;
+	margin-right: 0.5em;
+	font-weight: bold;
+	text-decoration: none;
+	border-radius: 6px;
+	box-shadow: inset 1px 1px 1px #aaa;
+}
+</style>
+</head>
+
+<body>
+
+<p><a href="#" id="call">Call</a> <a href="#" id="reset">Reset</a></p>
+
+<div id="test"></div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+(function($) {
+
+	$.fn.test = function(options) {
+	
+		var that = this;
+		var settings = {
+		
+			message: 'Test'
+		
+		};
+		
+		options = $.extend(settings, options);
+		
+		$.test = {};
+		
+		$.test.callback = function() {
+		
+			alert(options.message + ' called.');
+		
+		
+		};
+		
+		$.test.reset = function() {
+		
+			options.message = '';
+			that.text(options.message);
+		
+		};
+		
+		return that.each(function() {
+		
+			$(that).text(options.message);
+		
+		
+		
+		});
+	
+	
+	};
+
+
+})(jQuery);
+
+
+$(function() {
+
+	var test = $('#test');
+	var call = $('#call');
+	var reset = $('#reset');
+	
+	test.test({message: 'OK'});
+	
+	call.click(function() {
+	
+		$.test.callback();
+		
+		return false;
+	
+	});
+
+    reset.click(function() {
+    
+    	$.test.reset();
+    	
+    	return false;
+    
+    });
+
+});
+</script>
+
+</body>
+</html>

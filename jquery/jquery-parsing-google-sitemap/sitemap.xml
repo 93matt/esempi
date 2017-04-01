@@ -1,0 +1,742 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+<url>
+  <loc>http://www.css-zibaldone.com/</loc>
+  <priority>1.00</priority>
+  <lastmod>2008-08-10T06:03:54+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli.html</loc>
+  <priority>0.80</priority>
+  <lastmod>2008-08-10T06:03:53+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/traduzioni.html</loc>
+  <priority>0.80</priority>
+  <lastmod>2008-08-10T06:03:54+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/altro.html</loc>
+  <priority>0.80</priority>
+  <lastmod>2008-09-07T08:42:48+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/appunti.html</loc>
+  <priority>0.80</priority>
+  <lastmod>2007-09-02T03:37:31+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/gabriele.html</loc>
+  <priority>0.80</priority>
+  <lastmod>2007-09-02T03:37:32+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/index.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2008-08-10T06:03:54+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/sviluppare-con-i-css/index.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2007-12-22T05:01:37+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/sommario-rivista/index.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2007-12-22T05:01:32+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/pillole-css-1/index.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2007-12-22T05:01:29+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/filtri-ie/index.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2007-12-22T05:01:24+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/breve-storia-dei-css/index.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2007-12-22T05:01:21+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/logo-css/index.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2007-09-02T03:35:47+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/posizionamento-header/index.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2007-09-02T03:35:54+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/istogramma/index.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2007-09-02T03:35:44+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/header-wordpress/index.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2007-09-02T03:35:27+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/scheda-personale/index.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2007-09-02T03:35:57+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/novita-safari3/index.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2007-09-02T03:35:50+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/leggere-le-specifiche/index.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2007-09-02T03:35:45+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/ie5-spazi-selettori/index.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2007-09-02T03:35:35+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/metodologia-test/index.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2007-09-02T03:35:48+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/ragioni-ie/index.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2007-09-02T03:35:56+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/pseudo-utilita-first-letter/index.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2007-09-02T03:35:56+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/post-con-stile/index.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2007-09-02T03:35:55+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/elegia-funebre-attributo/index.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2007-09-02T03:35:24+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/banner-opera/index.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2007-09-02T03:35:13+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/css2.pdf</loc>
+  <priority>0.64</priority>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/impaginare-una-tesi-di-laurea-con-i-css/index.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2007-09-02T03:35:41+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/emulare-fieldset-con-i-css/index.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2007-09-02T03:35:25+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/i-contenuti-generati-in-dettaglio/index.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2007-09-02T03:35:34+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/traduzioni/gecko/risorse.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2008-02-21T19:05:56+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/traduzioni/doctype/index.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2008-01-07T07:31:59+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/traduzioni/rfc3236/index.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2008-01-07T07:32:05+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/traduzioni/rfc2318/index.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2008-01-07T07:32:03+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/traduzioni/rfc2119/index.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2008-01-07T07:32:02+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/traduzioni/ie6-dir-rtl/index.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2008-01-07T07:32:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/traduzioni/scrivere-test-case/index.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2008-01-07T07:32:07+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/traduzioni/acid-test-2-guida/index.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2007-12-22T05:02:02+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/traduzioni/selettori-css3/index.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2007-12-22T05:02:05+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/traduzioni/post-blog-ie7/index.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2007-12-22T05:02:04+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/traduzioni/quirksmode-ie7/index.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2007-09-02T03:37:13+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/traduzioni/quirksmode/index.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2007-09-02T03:37:12+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/traduzioni/layout-introduzione/index.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2007-09-02T03:37:11+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/traduzioni/hld-spacemanager/index.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2007-09-02T03:37:09+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/traduzioni/box-model-hack/index.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2007-09-02T03:37:05+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/traduzioni/easyclearing/index.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2007-09-02T03:37:08+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/traduzioni/xhtml-dannoso/index.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2007-09-02T03:37:14+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/traduzioni/abuso-float-dannoso/index.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2007-09-02T03:37:04+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/test/index.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2008-11-24T18:08:34+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articles/index.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2008-09-07T08:44:02+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/altro/internet-magazine/intervista/giugno-08/giugno-08.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2008-05-22T06:06:17+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/altro/wsb08/convegno.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2008-05-09T08:57:32+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/altro/clonazioni/mcgraw-hill/demo.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2007-09-02T03:34:39+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/altro/clonazioni/mcgraw-hill/originale.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2007-09-02T03:34:45+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/altro/clonazioni/mcgraw-hill/demo.txt</loc>
+  <priority>0.64</priority>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/altro/siamo-validi/index.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2007-09-02T03:34:46+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/altro/guida-ai-css/index.html</loc>
+  <priority>0.64</priority>
+  <lastmod>2007-09-02T03:34:46+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/sviluppare-con-i-css/esempio-test.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2007-12-22T05:01:36+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/sviluppare-con-i-css/esempio-test2.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2007-12-22T05:01:36+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/sommario-rivista/demo.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2007-12-22T05:01:30+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/filtri-ie/alpha.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2007-12-22T05:01:22+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/filtri-ie/blur.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2007-12-22T05:01:22+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/filtri-ie/fliph.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2007-12-22T05:01:23+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/logo-css/logo.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2007-09-02T03:35:47+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/posizionamento-header/header/header.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2007-09-02T03:35:53+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/istogramma/istogramma.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2007-09-02T03:35:45+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/header-wordpress/cms/cms.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2007-09-02T03:35:26+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/scheda-personale/scheda.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2007-09-02T03:35:57+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/novita-safari3/counter.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2007-09-02T03:35:48+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/novita-safari3/counters.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2007-09-02T03:35:49+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/novita-safari3/selettori-css3.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2007-09-02T03:35:50+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/post-con-stile/post.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2007-09-02T03:35:55+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/banner-opera/opera-banner.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2007-09-02T03:35:13+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/impaginare-una-tesi-di-laurea-con-i-css/frontespizio.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2007-09-02T03:35:36+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/impaginare-una-tesi-di-laurea-con-i-css/testo.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2007-09-02T03:35:43+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/impaginare-una-tesi-di-laurea-con-i-css/indice.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2007-09-02T03:35:41+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/impaginare-una-tesi-di-laurea-con-i-css/pagina.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2007-09-02T03:35:43+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/impaginare-una-tesi-di-laurea-con-i-css/nota.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2007-09-02T03:35:42+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/impaginare-una-tesi-di-laurea-con-i-css/typography.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2007-09-02T03:35:44+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/i-contenuti-generati-in-dettaglio/</loc>
+  <priority>0.51</priority>
+  <lastmod>2007-09-02T03:35:34+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/impaginare-una-tesi-di-laurea-con-i-css/contenuti-generati-1.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2007-09-02T03:35:36+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/impaginare-una-tesi-di-laurea-con-i-css/contenuti-generati-2.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2007-09-02T03:35:36+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/impaginare-una-tesi-di-laurea-con-i-css/w3c-core-style.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2007-09-02T03:35:44+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/emulare-fieldset-con-i-css/fieldset.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2007-09-02T03:35:24+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/emulare-fieldset-con-i-css/esempio.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2007-09-02T03:35:24+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/i-contenuti-generati-in-dettaglio/esempio1.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2007-09-02T03:35:29+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/i-contenuti-generati-in-dettaglio/esempio2.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2007-09-02T03:35:30+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/i-contenuti-generati-in-dettaglio/esempio3.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2007-09-02T03:35:30+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/i-contenuti-generati-in-dettaglio/esempio4.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2007-09-02T03:35:30+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/i-contenuti-generati-in-dettaglio/run-in.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2007-09-02T03:35:34+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/i-contenuti-generati-in-dettaglio/esempio5.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2007-09-02T03:35:31+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/i-contenuti-generati-in-dettaglio/esempio6.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2007-09-02T03:35:31+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/i-contenuti-generati-in-dettaglio/esempio7.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2007-09-02T03:35:31+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/i-contenuti-generati-in-dettaglio/esempio8.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2007-09-02T03:35:31+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/i-contenuti-generati-in-dettaglio/esempio9.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2007-09-02T03:35:32+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/i-contenuti-generati-in-dettaglio/esempio10.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2007-09-02T03:35:29+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/articoli/i-contenuti-generati-in-dettaglio/esempio11.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2007-09-02T03:35:30+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/traduzioni/gecko/adding-new-style-property/index.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2008-02-21T19:06:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/traduzioni/gecko/almost-standard-mode/index.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2008-02-21T19:05:59+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/traduzioni/gecko/block-line-cheat-sheet/index.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2008-02-21T19:06:01+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/traduzioni/gecko/frame-reflow-debug/index.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2008-02-21T19:06:02+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/traduzioni/gecko/gecko-detailed-design/index.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2008-02-21T19:06:07+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/traduzioni/gecko/gecko-overview/index.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2008-02-21T19:06:17+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/traduzioni/gecko/images-tables-gaps/index.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2008-02-21T19:06:25+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/traduzioni/gecko/mozilla-doctype-sniffing/index.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2008-02-21T19:06:28+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/traduzioni/gecko/mozilla-quirks-mode/index.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2008-02-21T19:06:27+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/traduzioni/gecko/mozilla-quirks-mode-behavior/index.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2008-02-21T19:06:28+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/traduzioni/gecko/parser/index.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2008-02-21T19:06:29+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/traduzioni/gecko/reflow/index.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2008-02-21T19:06:30+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/traduzioni/rfc3236/rfc3236.txt</loc>
+  <priority>0.51</priority>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/traduzioni/rfc2318/rfc2318.txt</loc>
+  <priority>0.51</priority>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/traduzioni/rfc2119/rfc2119.txt</loc>
+  <priority>0.51</priority>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/traduzioni/easyclearing/esempio1.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2007-09-02T03:37:07+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/traduzioni/easyclearing/esempio2.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2007-09-02T03:37:07+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/test/xml/index.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2008-11-24T18:08:44+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/test/display/ibacid.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2008-08-13T13:11:49+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/test/display/acid.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2008-08-07T10:33:14+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/test/floats/index.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2008-07-25T07:40:12+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/test/parsing/index.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2008-07-06T06:27:02+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/test/generate/index.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2008-03-13T08:30:40+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/test/tables/index.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2008-02-10T06:26:51+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/test/geometry/index.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2007-12-26T14:08:12+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.css-zibaldone.com/test/more/index.html</loc>
+  <priority>0.51</priority>
+  <lastmod>2007-12-08T14:52:08+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+</urlset>

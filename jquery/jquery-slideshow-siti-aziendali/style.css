@@ -1,0 +1,89 @@
+body {
+	background: #eee;
+}
+
+#slideshow-container {
+	width: 884px;
+	margin: 2em auto;
+}
+
+#slideshow {
+	width: 884px;
+	height: 400px;
+	position: relative;
+	overflow: hidden;
+}
+
+#slideshow-wrapper {
+	width: 3536px;
+	height: 400px;
+	position: relative;
+	background: #fff;
+}
+
+#slideshow-wrapper div.slide {
+	width: 884px;
+	height: 400px;
+	float: left;
+}
+
+#slideshow-wrapper div.slide div.content {
+	float: left;
+	width: 300px;
+	padding: 150px 0 0 20px;
+}
+
+#slideshow-wrapper div.slide div.content h4,
+#slideshow-wrapper div.slide div.content h2 {
+	margin: 0;
+	font-family: 'Arial Narrow', Arial, sans-serif;
+	font-weight: normal;
+}
+
+#slideshow-wrapper div.slide div.content h4 {
+	font-size: 1.2em;
+}
+
+#slideshow-wrapper div.slide div.content h2 {
+	font-size: 1.8em;
+	padding: 4px 0 0 0;
+	color: #06c;
+}
+
+#slideshow-wrapper div.slide a.btn {
+	display: block;
+	text-decoration: none;
+	color: #fff;
+	width: 115px;
+	height: 26px;
+	padding-top: 8px;
+	text-align: center;
+	font: 95% Arial, sans-serif;
+	background: url(img/button.png) no-repeat;
+}
+
+#slideshow-wrapper div.slide div.img {
+	float: right;
+	padding-top: 40px;
+}
+
+#slideshow-buttons {
+	width: 100%;
+	padding: 10px 0;
+	background: #fff;
+	text-align: center;
+}
+
+#slideshow-buttons span {
+	width: 15px;
+	height: 15px;
+	display: inline-block;
+	margin-right: 5px;
+	background: url(img/nav-off.png) no-repeat;
+	text-indent: -1000em;
+}
+
+#slideshow-buttons .active {
+	background: url(img/nav-on.png) no-repeat;
+}
+

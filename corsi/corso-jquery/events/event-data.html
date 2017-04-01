@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Event Data</title>
+<meta charset="utf-8" />
+<style>
+#test {
+	background: green;
+	width: 100px;
+	height: 100px;
+	cursor: pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<p><button id="data">Event Data</button></p>
+
+<div id="test"></div>
+
+
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script>
+$(function() {
+
+    
+
+	
+	
+	
+	$('#data').click(function() {
+	
+		
+		
+		$('#test').on('click', {test: 'Test'}, function(event) {
+	
+			alert(event.data.test);
+	
+		});
+	
+	});
+
+});
+</script>
+</body>
+</html>

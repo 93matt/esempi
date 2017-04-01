@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: parsing di un feed RSS</title>
+<meta charset="utf-8" />
+</head>
+
+<body>
+
+<div id="feed"></div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+(function($) {
+
+  $.fn.RSS = function(options) {
+  
+    var that = this;
+    var settings = {
+      url: 'rss.xml'
+    };
+    
+    options = $.extend(settings, options);
+    
+    return that.each(function() {
+    
+      $.ajax({
+        type: 'GET',
+        dataType: 'xml',
+        url: options.url,
+        success: function(rss) {
+        
+          var rss = $(rss);
+          var html = '';
+          var items = rss.find('item');
+          var feedTitle = $('channel > title:first-child', rss).text();
+          var feedLink = $('channel > title:first-child + link', rss).text();
+          var feedDesc = $('channel > title:first-child + link + description', rss).text();
+          
+          html += '<h1><a href="' + feedLink + '">' + feedTitle + '</a></h1>';
+          html += '<div>' + feedDesc + '</div>';
+          html += '<ul>';
+          
+          items.each(function() {
+          
+            var item = $(this);
+            var desc = item.find('description').text();
+            var link = item.find('link').text();
+            var title = item.find('title').text();
+            
+            html += '<li><a href="' + link + '">' +
+                     title + '</a>' + 
+                     '<p>' + desc + '</p></li>';
+          
+          
+          });
+          
+          html += '</ul>';
+          
+          that.html(html);
+        
+        
+        }
+        
+     });
+    
+    
+    });
+  
+  
+  };
+
+})(jQuery);
+
+
+$(function() {
+
+  $('#feed').RSS();  
+
+});
+</script>
+</body>
+</html>

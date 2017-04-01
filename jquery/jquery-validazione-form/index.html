@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: validazione dei form</title>
+<meta charset="utf-8" />
+<style>
+body {
+	margin: 0 auto;
+	padding: 2em 0;
+	width: 40%;
+	font: 100% Arial, sans-serif;
+}
+
+input {
+	font: 1em Arial, sans-serif;
+}
+
+form {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+form ul {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	list-style: none;
+}
+
+form li {
+	margin-bottom: 0.5em;
+}
+
+form label {
+	display: block;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #555;
+	padding-bottom: 3px;
+}
+
+form li input {
+	display: block;
+	width: 150px;
+	border: 1px solid #a40;
+	border-radius: 10px;
+	box-shadow: 4px 4px 4px #ccc;
+}
+
+form p input {
+	display: block;
+	background: #a40;
+	border: none;
+	color: #fff;
+	font-weight: bold;
+	border-radius: 10px;
+	box-shadow: 4px 4px 4px #ccc;
+}
+
+div.error {
+	color: red;
+}
+
+div.success {
+	color: green;
+}
+</style>
+</head>
+
+<body>
+
+<form action="#" method="post" id="form">
+
+	<ul>
+		<li><label for="nome">Nome:</label>
+		<input type="text" name="nome" id="nome" />
+		</li>
+		<li>
+		<label for="email">E-mail:</label>
+		<input type="text" name="email" id="email" />
+		</li>
+		<li>
+		<label for="mobile">Cellulare:</label>
+		<input type="text" name="mobile" id="mobile" />
+		</li>
+	</ul>
+	
+	<p><input type="submit" name="submit" id="submit" value="Invia" /></p>
+
+
+</form>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+var Validator = {
+
+  name: {
+  
+    pattern: /^[a-z]+$/i,
+    message: 'Nome non valido',
+    check: function(value) {
+    
+      if(!this.pattern.test(value)) {
+      
+        return false;
+      
+      }
+      
+      return true;
+    
+    }
+  
+  },
+  
+  email: {
+    pattern: /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/,
+    message: 'Email non valida',
+    check:  function(value) {
+    
+      if(!this.pattern.test(value)) {
+      
+        return false;
+      
+      }
+      
+      return true;
+    
+    }
+  },
+  
+  
+  mobile: {
+  
+    pattern: /^3\d+$/,
+    message: 'Cellulare non valido',
+    check: function(value) {
+    
+      if(!this.pattern.test(value)) {
+      
+        return false;
+      
+      }
+    
+      return true;
+    
+    }
+
+  },
+  
+  messages: {
+  
+    error: '<div class="error"/>',
+    success: '<div class="success">Invio effettuato con successo</div>'
+  
+  },
+  
+  
+  validate: function(form) {
+  
+    var name = $(form).find('#nome');
+    var email = $(form).find('#email');
+    var mobile = $(form).find('#mobile');
+    
+    var valid = true;
+    
+    if(!Validator.name.check(name.val())) {
+    
+      $(Validator.messages.error).
+      text(Validator.name.message).
+      appendTo(name.parent());
+      
+      valid = false;
+    
+    
+    }
+    
+    if(!Validator.email.check(email.val())) {
+    
+      $(Validator.messages.error).
+      text(Validator.email.message).
+      appendTo(email.parent());
+      
+      valid = false;
+    
+    }
+    
+    if(!Validator.mobile.check(mobile.val())) {
+    
+      $(Validator.messages.error).
+      text(Validator.mobile.message).
+      appendTo(mobile.parent());
+      
+      valid = false;
+    
+    
+    }
+    
+    if(valid) {
+    
+      $(Validator.messages.success).appendTo(form);
+    
+    } else {
+    
+      return valid;
+    
+    }
+  
+  
+  }
+  
+};
+
+$(function() {
+
+  $('#form').submit(function(event) {
+  
+    Validator.validate(this);
+    event.preventDefault();
+  
+  
+  });
+
+});
+</script>
+
+</body>
+</html>

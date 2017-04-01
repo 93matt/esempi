@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS sprite e icone dei social network</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	margin: 2em;
+}
+
+#socialize {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	width: 100px;
+	height: 32px;
+}
+
+#socialize li {
+	float: left;
+	height: 100%;
+	width: 32px;
+	margin-right: 0.5em;
+}
+
+#socialize a {
+	float: left;
+	width: 100%;
+	height: 100%;
+	background-image: url(socialize.jpg);
+	background-repeat: no-repeat;
+	text-indent: -1000em;
+}
+
+#twitter {
+	background-position: 0 -32px;
+}
+#twitter:hover {
+	background-position: 0 0;
+}
+
+#facebook {
+	background-position: -64px -32px;
+}
+
+#facebook:hover {
+	background-position: -64px 0;
+}
+</style>
+</head>
+
+<body>
+
+<ul id="socialize">
+	<li><a href="#" id="twitter">Twitter</a></li>
+	<li><a href="#" id="facebook">Facebook</a></li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: box modale per i bottoni social</title>
+<meta charset="utf-8" />
+<style type="text/css">
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	min-height: 100%;
+}
+
+body {
+	position: relative;
+	font-size: 100%;
+}
+
+#content {
+	width: 45%;
+	margin: 0 auto;
+	padding: 2em 0;
+}
+
+div.post {
+	overflow: hidden;
+	margin-bottom: 1em;
+}
+
+div.entry {
+	width: 70%;
+	float: right;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #ccc;
+}
+
+div.entry h2 {
+	font: normal 1.8em Georgia, serif;
+	margin: 0;
+}
+
+div.meta {
+	width: 25%;
+	float: left;
+	text-align: right;
+}
+
+div.meta p {
+	margin-top: 0.5em;
+}
+
+a.twitter {
+	padding: 1em;
+	background: #c30;
+	text-decoration: none;
+	color: #fff;
+	font-weight: bold;
+	font-variant: small-caps;
+	font-family: Arial, sans-serif;
+}
+
+h2 a {
+   color: #545454;
+   text-decoration: none;
+}
+
+h2 a:hover {
+	color: #000;
+}
+
+/* jQuery */
+
+#overlay {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	background: #333;
+}
+
+#tweet {
+	width: 300px;
+	height: 200px;
+	background: url(box.png) no-repeat;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -100px 0 0 -150px;
+	text-align: center;
+	z-index: 2;
+}
+
+#tweet a {
+	width: 42px;
+	height: 42px;
+	display: block;
+	position: absolute; 
+	top: -20px;
+	right: 5px;
+	background: url(close-button.png) no-repeat;
+	text-indent: -1000em;
+}
+
+#tweet iframe {
+	margin: 80px 0;
+	display: block;
+	padding-left: 120px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="content">
+
+<div class="post">
+  <div class="entry">
+	<h2><a href="http://test.it/non-esiste-1">Titolo 1</a></h2>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	</div>
+	<div class="meta">
+		<p><a href="#" class="twitter">Tweet</a></p>
+	</div>
+</div>
+
+
+<div class="post">
+  <div class="entry">
+	<h2><a href="http://test.it/non-esiste-2">Titolo 2</a></h2>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	</div>
+	<div class="meta">
+		<p><a href="#" class="twitter">Tweet</a></p>
+	</div>
+</div>
+
+
+
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+
+	$('<div id="overlay"/>').css('opacity', '0.7').appendTo('body').hide();
+	
+	$('<div id="tweet"/>').html('<a href="#">Chiudi</a>').insertAfter('#overlay').hide();
+	
+	var iframe = '<iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/tweet_button.html';
+        		  
+    $('a.twitter').each(function() {
+    
+    	var $a = $(this);
+    	var url = $a.parent().parent().prev().find('h2 > a').attr('href');
+    	var text = $a.parent().parent().prev().find('h2 > a').text();
+    	
+    	$a.click(function(event) {
+    	
+    		iframe += '?url=' + url + '&text=' + text + '&count=vertical&via=gabromanato"></iframe>';
+    		
+    		$(iframe).appendTo('#tweet');
+    		
+    		$('#overlay').show().next().show();
+    		
+    		event.preventDefault();
+    	
+    	});
+    		
+    		
+    	
+    
+    
+    });
+    
+    $('a', '#tweet').each(function() {
+    
+    	var $a = $(this);
+    	
+    	$a.click(function(event) {
+    	
+    		$a.parent().hide().prev().hide();
+    	
+    		event.preventDefault();
+    	
+    	});
+    
+    });
+
+});
+</script>
+</body>
+</html>

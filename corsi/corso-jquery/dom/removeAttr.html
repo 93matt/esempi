@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>removeAttr()</title>
+<meta charset="utf-8" />
+<style type="text/css">
+.test {
+	padding: 1em;
+	background: #e7f999;
+}
+</style>
+</head>
+
+<body>
+
+<p><button id="remove">Remove attribute</button><button id="all">Remove all attributes</button>
+<button id="has">Has attribute? (title)</button>
+</p>
+
+<p id="test" title="Test" align="justify" class="test">Maecenas sed diam eget risus varius blandit sit amet non magna. Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auctor fringilla. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
+
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script>
+(function($) {
+
+	$.fn.removeAttrs = function() {
+	
+		var element = this;
+		var domElement = element[0];
+		var attrs = domElement.attributes,
+			len = attrs.length,
+			i,
+			$attrs = [];
+		
+		for(i = 0; i < len; i++) {
+		
+		    var attr = attrs[i].name;
+		    $attrs.push(attr);
+		    
+		
+		}
+		
+		$.each($attrs, function(index, value) {
+		
+			element.removeAttr(value);
+		
+		
+		});
+	
+	};
+	
+	$.fn.hasAttr = function(value) {
+	
+		var element = this,
+			domElement = element[0],
+			attrs = domElement.attributes,
+			len = attrs.length,
+			i,
+			found = false;
+			
+		for(i = 0; i < len; i++) {
+		
+		    var attr = attrs[i].name;
+		    if(attr == value) {
+		    
+		    	found = true;
+		    
+		    }
+		    
+		
+		}
+			
+		return found;
+	
+	
+	};
+
+
+})(jQuery);
+
+$(function() {
+
+	$('#remove').click(function() {
+	
+		$('#test').removeAttr('title');
+	
+	});	
+	
+	$('#all').click(function() {
+	
+		$('#test').removeAttrs();
+	
+	});	
+	
+	$('#has').click(function() {
+	
+		alert($('#test').hasAttr('title'));
+	
+	});					
+	
+});
+</script>
+
+</body>
+</html>

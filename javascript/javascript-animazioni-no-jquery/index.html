@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JavaScript animazioni senza jQuery</title>
+<meta charset="utf-8" />
+<style type="text/css">
+#test {
+  width: 0px;
+  height: 0px;
+  background: #f90;
+  overflow: hidden;
+}
+
+</style>
+<script type="text/javascript">
+function Animator(element) {
+
+    var that = this;
+
+    this.element = document.getElementById(element) || null;
+    
+    this.animate = function() {
+    
+        var counter = 0;    
+    
+        var interval = setInterval(function() {
+        
+            counter += 10;
+            
+            that.element.style.width = counter + 'px';
+            that.element.style.height = counter + 'px';
+        
+            if(counter == 150) {
+            
+                clearInterval(interval);
+                
+                var interval2 = setInterval(function() {
+                
+                
+                    counter -= 10;
+                    
+                    that.element.style.width = counter + 'px';
+                    that.element.style.height = counter + 'px';
+                    
+                    if(counter == 0) {
+                    
+                        clearInterval(interval2);
+                    
+                    
+                    }
+                
+                
+                
+                }, 50);
+               
+            
+            }
+        
+        
+        }, 50);
+    
+    
+    
+    
+    
+    };
+
+
+
+}
+
+window.onload = function() {
+
+    var animator = new Animator('test');
+    animator.animate();
+
+
+
+};
+
+</script>
+</head>
+
+<body>
+
+<div id="test"></div>
+</body>
+</html>
+

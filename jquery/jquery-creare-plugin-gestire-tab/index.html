@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: creare un plugin per gestire i tab</title>
+<meta charset="utf-8" />
+<style type="text/css" media="screen">
+body {
+	margin: 0 auto;
+	width: 50%;
+	max-width: 600px;
+	padding: 2em 0;
+	font: 90% Arial, sans-serif;
+}
+
+#tabs {
+	width: 100%;
+}
+
+#tabs-nav {
+	height: 2em;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	border-bottom: 1px solid #bbb;
+}
+
+#tabs-nav li {
+	float: left;
+	width: 5em;
+	height: 100%;
+}
+
+#tabs-nav li a {
+	float: left;
+	width: 100%;
+	height: 99%;
+	line-height: 2;
+	background: #f0f0f0;
+	color: #333;
+	text-decoration: none;
+	text-align: center;
+	border: 1px solid #bbb;
+	border-bottom: none;
+	border-radius: 5px 5px 0 0;
+}
+
+#tabs-nav li a.active {
+	font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<div id="tabs">
+	<ul id="tabs-nav">
+		<li><a href="#tabs-1">Primo</a></li>
+		<li><a href="#tabs-2">Secondo</a></li>
+		<li><a href="#tabs-3">Terzo</a></li>
+	</ul>
+			<div class="tab" id="tabs-1"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></div>
+			<div class="tab" id="tabs-2"><p>Phasellus mattis tincidunt nibh. Cras orci urna, blandit id, pretium vel, aliquet ornare, felis. Maecenas scelerisque sem non nisl. Fusce sed lorem in enim dictum bibendum.</p></div>
+			<div class="tab" id="tabs-3"><p>Nam dui erat, auctor a, dignissim quis, sollicitudin eu, felis. Pellentesque nisi urna, interdum eget, sagittis et, consequat vestibulum, lacus. Mauris porttitor ullamcorper augue.</p></div>
+</div>
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+(function($) {
+
+	$.fn.tab = function(options) {
+	
+		var that = this;
+		var defaults = {
+		
+			menu: $('#tabs-nav', that),
+			tabs: $('div.tab', that),
+			activeClass: 'active'
+		
+		};
+		
+		options = $.extend(defaults, options);
+		
+		var Tab = {
+		
+			prepare: function() {
+				options.tabs.not(':first').hide();
+				$('a:first', options.menu).addClass(options.activeClass);
+			
+			},
+			
+			handle: function() {
+			
+				$('a', options.menu).each(function() {
+				
+					var $a = $(this);
+					var tabID = $a.attr('href');
+					var currentTab = $(tabID);
+					
+					$a.click(function(event) {
+					
+						if(currentTab.is(':hidden')) {
+						
+							currentTab.show().parent().find(options.tabs).not(currentTab).hide();
+							$a.addClass(options.activeClass).parents(options.menu).find('a').not($a).
+							removeClass(options.activeClass);						
+						}
+					
+						event.preventDefault();
+					
+					});
+				
+				});
+			
+			},
+			
+			init: function() {
+			
+				this.prepare();
+				this.handle();
+			
+			}
+		
+		};
+	
+	
+		return that.each(function() {
+		
+			Tab.init();
+		
+		
+		});
+	};
+
+})(jQuery);
+
+$(function() {
+
+	$('#tabs').tab();
+
+});
+</script>
+
+</body>
+</html>

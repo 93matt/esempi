@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: albero di directory</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	margin: 0;
+	padding: 2em 0;
+}
+
+#directory {
+	margin: 0 auto;
+	width: 15em;
+	padding: 0;
+	list-style: none;
+	font: 90% Arial, sans-serif;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
+}
+
+#directory ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#directory > li:before {
+	content: '\2013';
+	padding-right: 3px;
+	position: relative;
+	left: -1px;
+}
+
+#directory > li > ul {
+	margin-left: 1em;
+}
+
+#directory > li > ul > li {
+	border-left: 1px solid;
+}
+
+#directory > li > ul > li:before {
+	content: '\2013\2013';
+	padding-right: 3px;
+	position: relative;
+	left: -1px;
+}
+
+#directory > li > ul > li > ul {
+	margin-left: 1.8em;
+}
+
+#directory > li > ul > li > ul > li {
+	border-left: 1px solid;
+}
+
+#directory > li > ul > li > ul > li:before {
+
+	content: '\2013\2013\2013';
+	padding-right: 3px;
+	position: relative;
+	left: -1px;
+
+}
+</style>
+</head>
+
+<body>
+
+<ul id="directory">
+	<li>home</li>
+	<li>pub
+		<ul>
+			<li>temp</li>
+			<li>docs
+				<ul>
+					<li>doc1.doc</li>
+					<li>doc2.doc</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+</ul>
+
+</body>
+</html>

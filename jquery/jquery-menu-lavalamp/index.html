@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: menu LavaLamp</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	margin: 0;
+	padding: 0;
+	font: 100% Arial, sans-serif;
+}
+
+#navigation {
+	height: 2em;
+	padding: 0 1em;
+	border-bottom: 1px solid #c34545;
+	position: relative;
+}
+
+#navigation ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	height: 100%;
+}
+
+#navigation li {
+	float: left;
+	height: 100%;
+	margin-right: 0.5em;
+}
+
+#navigation a {
+	float: left;
+	height: 100%;
+	padding: 0 1em;
+	color: #d34545;
+	font-weight: bold;
+	text-transform: uppercase;
+	text-decoration: none;
+	line-height: 2;
+}
+
+#navigation a:hover {
+	color: #a34545;
+}
+
+#navigation #lava {
+	background: #e5e5e5;
+	height: 100%;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 0px;
+	z-index: -1;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="navigation">
+
+	<ul>
+	
+		<li><a href="#">Home</a></li>
+		<li><a href="#">About</a></li>
+		<li><a href="#">Contatti</a></li>
+	
+	</ul>
+
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+
+  $('<div id="lava"/>').appendTo('#navigation');
+  
+  $('li', '#navigation').each(function() {
+  
+    var $li = $(this);
+    var $a = $('a', $li);
+    var left = $a.position().left;
+    var width = $a.outerWidth();
+    
+    $a.mouseover(function() {
+    
+      $('#lava').css('width', width).
+      stop(true, true).
+      animate({
+        left: left
+      }, 'slow');
+      
+    
+    });    
+  
+  
+  });
+
+});
+</script>
+</body>
+</html>

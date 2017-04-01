@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: effetto cestino</title>
+<meta charset="utf-8" />
+<style>
+#container {
+	width: 500px;
+	height: 128px;
+}
+
+#draggable {
+	width: 128px;
+	height: 128px;
+	background: #d40;
+	color: #fff;
+	line-height: 128px;
+	text-align: center;
+	float: left;
+}
+
+#droppable {
+	width: 128px;
+	height: 128px;
+	background: url(empty.png) no-repeat;
+	float: right;
+}
+
+#container div.full {
+	background: url(full.png) no-repeat;
+}
+
+#empty {
+	padding: 0.5em;
+	background: #d60;
+	color: #fff;
+	font-weight: bold;
+	font-size: small;
+	font-family: Arial, sans-serif;
+	text-decoration: none;
+	border: 1px solid #a40;
+	border-radius: 10px;
+}
+
+#move-sound, #empty-sound {
+
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  top: -1000em;
+  overflow: hidden;
+
+
+}
+</style>
+</head>
+
+<body>
+
+<p><a href="#" id="empty">Vuota</a></p>
+
+<audio controls="controls" id="move-sound">
+  <source src="move.mp3" type="audio/mpeg" />
+  <source src="move.ogv" type="audio/ogg" />
+</audio>
+
+<audio controls="controls" id="empty-sound">
+  <source src="empty.mp3" type="audio/mpeg" />
+  <source src="empty.ogv" type="audio/ogg" />
+</audio>
+
+<div id="container">
+  <div id="draggable">Test</div>
+  <div id="droppable"></div>
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+ $('#draggable').draggable({
+ 
+   start: function() {
+   
+     $(this).animate({opacity: '0.5'}, 1000);
+   
+   },
+   
+   stop: function() {
+   
+     $(this).animate({opacity: '1'}, 1000).hide();
+   
+   }
+   
+ });
+ 
+ $('#droppable').droppable({
+   drop: function() {
+     $(this).addClass('full');
+     $('#move-sound')[0].play();
+   }
+ });
+ 
+ 
+ $('#empty').click(function(event) {
+ 
+   if($('#droppable').hasClass('full')) {
+ 
+       $('#droppable').removeClass('full').prev().remove();
+       $('#empty-sound')[0].play();
+   
+   
+   }
+ 
+   event.preventDefault();
+ 
+ });
+
+});
+</script>
+
+
+</body>
+</html>

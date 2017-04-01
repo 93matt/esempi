@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: stili dei blocchi di codice</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	width: 30em;
+	padding: 2em 0;
+	margin: 0 auto;
+}
+
+div.code {
+	background: #ccc;
+}
+
+div.code ol {
+	margin: 0 0 0 1.5em;
+	padding: 0 0 0 1em;
+	background: #fff;
+	font: 0.85em Monaco, "Courier New", Courier, monospace;
+}
+
+div.code li {
+	margin-bottom: 0.5em;
+}
+
+div.code li.indent {
+	padding-left: 2em;
+}
+
+div.code .selector {
+	color: #800;
+}
+div.code .property {
+	color: #008;
+	font-weight: bold;
+}
+
+div.code .value {
+	color: #080;
+}
+
+div.code li:nth-child(even) {
+
+	background: #eee;
+
+}
+</style>
+</head>
+
+<body>
+
+
+<div class="code">
+<ol>
+	<li>
+		<span class="selector">body</span> {
+	</li>
+	<li class="indent">
+		<span class="property">font-family</span>: <span class="value">Arial, sans-serif</span>;
+	</li>
+	<li>}</li>
+</ol>
+</div>
+
+</body>
+</html>

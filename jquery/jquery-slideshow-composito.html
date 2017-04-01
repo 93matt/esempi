@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: slideshow composito</title>
+<meta charset="utf-8" />
+<style>
+body {
+	margin: 0;
+	padding: 2em 0;
+	font: 100% 'Arial Black', Arial, sans-serif;
+}
+
+#slideshow {
+	margin: 0 auto;
+	width: 700px;
+	height: 500px;
+	position: relative;
+	overflow: hidden;
+}
+
+#slideshow-wrapper {
+	width: 2100px;
+	height: 500px;
+	position: relative;
+}
+
+div.slide {
+	width: 700px;
+	height: 500px;
+	float: left;
+	position: relative;
+	line-height: 500px;
+	text-align: center;
+	font-size: 2em;
+	color: #fff;
+}
+
+div.s1 {
+	background: #d40;
+}
+
+div.s2 {
+	background: #f60;
+}
+
+div.s3 {
+	background: #c60;
+}
+
+div.text-left {
+	width: 0px;
+	height: 250px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	line-height: 250px;
+	text-align: center;
+	background: #800;
+	font-size: 1em;
+	overflow: hidden;
+}
+
+div.text-right {
+	width: 0px;
+	height: 250px;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	line-height: 250px;
+	text-align: center;
+	background: #c00;
+	font-size: 1em;
+	overflow: hidden;
+}
+
+#slideshow-controls {
+	width: 700px;
+	margin: 0 auto;
+	padding: 1em 0;
+	text-align: center;
+}
+
+#slideshow-controls a {
+	background: #a40;
+	color: #fff;
+	padding: 0.3em 0.6em;
+	font-size: 2em;
+	text-decoration: none;
+	margin-right: 0.5em;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="slideshow">
+
+	<div id="slideshow-wrapper">
+	
+		<div class="slide s1">
+			<div class="text-left">Lorem ipsum dolor</div>
+			<div class="text-right">et ideo autem aquis</div>
+		
+		</div>
+		
+		<div class="slide s2">
+		
+			<div class="text-left">Ibam forte via sacra</div>
+			<div class="text-right">nescio quid meditans nugarum</div>
+		
+		</div>
+	
+	    <div class="slide s3">
+			<div class="text-left">Quia fluxa est et lubrica</div>
+			<div class="text-right">et ad similitudinem aquae</div>
+		
+		</div>
+
+	
+	</div>
+
+</div>
+
+<div id="slideshow-controls">
+
+	<a href="#" id="prev">&lt;</a>
+	<a href="#" id="next">&gt;</a>
+
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+var Slider = new function() {
+
+  var wrapper = $('#slideshow-wrapper', '#slideshow');
+  var slides = $('div.slide', wrapper);
+  var len = slides.length;
+  var index = 0;
+  var prevBtn = $('#prev', '#slideshow-controls');
+  var nextBtn = $('#next', '#slideshow-controls');
+
+
+  var getSlidePositions = function() {
+
+    var positions = [];
+  
+    $('div.slide', '#slideshow-wrapper').each(function(i) {
+  
+      var left = $(this).position().left;
+      positions[i] = left;
+  
+    });
+  
+  return positions;
+
+  };
+  
+  this.slide = function() {
+  
+    var offsets = getSlidePositions();
+  
+    prevBtn.click(function(event) {
+    
+      $('div.text-left').css('width', 0);
+      $('div.text-right').css('width', 0);
+    
+      index--;
+      
+      if(index == -1) {
+      
+        index = 0;
+      
+      }
+      
+      var slide = slides.eq(index);
+      var textLeft = slide.find('div.text-left');
+      var textRight = slide.find('div.text-right');
+      
+      wrapper.animate({
+        left: - offsets[index]
+      }, 'slow', function() {
+      
+        textLeft.animate({
+          width: 700
+        }, 'slow', function() {
+        
+          textRight.animate({
+            width: 700
+          }, 'slow');
+        
+        });
+      
+      });
+      
+      
+    
+      event.preventDefault();
+    
+    });
+    
+    
+    nextBtn.click(function(event) {
+    
+      $('div.text-left').css('width', 0);
+      $('div.text-right').css('width', 0);
+    
+      index++;
+      
+      if(index == len) {
+      
+        index = 0;
+      
+      }
+      
+      var slide = slides.eq(index);
+      var textLeft = slide.find('div.text-left');
+      var textRight = slide.find('div.text-right');
+      
+      wrapper.animate({
+        left: - offsets[index]
+      }, 'slow', function() {
+      
+        textLeft.animate({
+          width: 700
+        }, 'slow', function() {
+        
+          textRight.animate({
+            width: 700
+          }, 'slow');
+        
+        });
+      
+      });
+
+    
+      event.preventDefault();
+    
+    });
+  
+  
+  
+  };
+
+
+}();
+
+$(function() {
+
+  Slider.slide();
+
+  
+});
+</script>
+
+</body>
+</html>

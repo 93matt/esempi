@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: mostrare e nascondere i campi dei form</title>
+<meta charset="utf-8" />
+<style type="text/css">
+form {
+	margin: 2em auto;
+	padding: 1em;
+	background: #eee;
+	border: 1px solid #bbb;
+	border-radius: 6px;
+	font: 95% Arial, sans-serif;
+	width: 40em;
+}
+
+fieldset {
+	border: 1px solid #ddd;
+	padding: 1em;
+	background: #f6f6f6;
+	border-radius: 6px;
+}
+
+legend {
+	background: #222;
+	color: #fff;
+	padding: 0.2em;
+	font-weight: bold;
+	border-radius: 4px;
+}
+
+input {
+	font: 1em Arial, sans-serif;
+}
+
+label {
+	font-weight: bold;
+	display: block;
+	padding-bottom: 0.3em;
+}
+
+div input {
+	display: block;
+	width: 150px;
+	border: 1px solid #999;
+	margin-bottom: 0.4em;
+}
+
+#send {
+	display: block;
+	width: 100px;
+	background: #ddd;
+	border: 1px solid #999;
+	font-weight: bold;
+	padding: 0.25em;
+	border-radius: 5px;
+}
+
+</style>
+</head>
+
+<body>
+
+<form action="#" method="post" id="delivery">
+	
+	<fieldset>
+		<legend>Dati personali</legend>
+		<div>
+			<label for="nome">Nome</label>
+			<input type="text" name="nome" id="nome" />
+		</div>
+		<div>
+			<label for="cognome">Cognome</label>
+			<input type="text" name="cognome" id="cognome" />
+		</div>
+		<div>
+			<label for="indirizzo">Indirizzo</label>
+			<input type="text" name="indirizzo" id="indirizzo" />
+		</div>
+		<div>
+			<label for="citta">Citt&agrave;</label>
+			<input type="text" name="citta" id="citta" />
+		</div>
+		<div>
+			<label for="cap">CAP</label>
+			<input type="text" name="cap" id="cap" />
+		</div>
+	</fieldset>
+	
+	<p><label for="same-data"><input type="checkbox" name="same" id="same" />Stessi dati per la spedizione</label></p>
+	
+	<fieldset>
+	
+		<legend>Dati di spedizione</legend>
+		
+		<div>
+			<label for="indirizzo-sped">Indirizzo</label>
+			<input type="text" name="indirizzo-sped" id="indirizzo-sped" />
+		</div>
+		<div>
+			<label for="citta-sped">Citt&agrave;</label>
+			<input type="text" name="citta-sped" id="citta-sped" />
+		</div>
+		<div>
+			<label for="cap-sped">CAP</label>
+			<input type="text" name="cap-sped" id="cap-sped" />
+		</div>
+
+	
+	</fieldset>
+	
+	<p><input type="submit" name="send" id="send" value="Invia" /></p>
+
+</form>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+
+	$('#same', '#delivery').click(function() {
+	    
+	    var $input = $(this);
+		var $fieldset = $input.parents('p').next('fieldset');
+		
+		if($fieldset.is(':visible')) {
+		
+			$fieldset.slideUp(500);
+		
+		} else {
+		
+			$fieldset.slideDown(500);
+		
+		}
+	
+	});
+
+});
+</script>
+
+</body>
+</html>

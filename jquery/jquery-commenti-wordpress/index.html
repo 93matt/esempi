@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: gestire i commenti di Wordpress</title>
+<meta charset="utf-8" />
+<style>
+body {
+	margin: 0 auto;
+	width: 470px;
+	padding: 2em 0;
+	font: 62.5% Arial, sans-serif;
+}
+a, a:visited {
+	color: #009;
+}
+a:hover {
+	text-decoration: none;
+}
+h3 {
+	margin: 0;
+	padding: 0 0 .3em;
+}
+p {
+	margin: 0;
+	padding: 0 0 1em;
+}
+.pane {
+	background: #fff;
+	padding: 10px 20px 10px;
+	position: relative;
+	border-top: solid 1px #ccc;
+	font-size: 1.2em;
+}
+.alt {
+	background: #f5f4f4;
+}
+.spam {
+	color: #999;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="pane">
+	<h3>Nick says:</h3>
+	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi malesuada, ante at feugiat tincidunt, enim massa gravida metus, commodo lacinia massa diam vel eros. Proin eget urna. Nunc fringilla neque vitae odio. Vivamus vitae ligula.</p>
+	<p><a href="#" class="btn-delete">Delete</a> | <a href="#" class="btn-unapprove">Unapprove</a> | <a href="#" class="btn-spam">Spam</a></p>
+</div>
+<div class="pane spam">
+	<h3>John says:</h3>
+	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi malesuada, ante at feugiat tincidunt, enim massa gravida metus, commodo lacinia massa diam vel eros. Proin eget urna. Nunc fringilla neque vitae odio. Vivamus vitae ligula.</p>
+	<p><a href="#" class="btn-delete">Delete</a> | <a href="#" class="btn-approve">Approve</a> | <a href="#" class="btn-spam">Spam</a></p>
+</div>
+<div class="pane">
+	<h3>Smith says:</h3>
+	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi malesuada, ante at feugiat tincidunt, enim massa gravida metus, commodo lacinia massa diam vel eros. Proin eget urna. Nunc fringilla neque vitae odio. Vivamus vitae ligula.</p>
+	<p><a href="#" class="btn-delete">Delete</a> | <a href="#" class="btn-unapprove">Unapprove</a> | <a href="#" class="btn-spam">Spam</a></p>
+</div>
+<div class="pane">
+	<h3>Jen says:</h3>
+	<p>Morbi malesuada, ante at feugiat tincidunt, enim massa gravida metus, commodo lacinia massa diam vel eros. Proin eget urna. Nunc fringilla neque vitae odio. Vivamus vitae ligula.</p>
+	<p><a href="#" class="btn-delete">Delete</a> | <a href="#" class="btn-unapprove">Unapprove</a> | <a href="#" class="btn-spam">Spam</a></p>
+</div>
+<div class="pane">
+	<h3>Jen says:</h3>
+	<p>Morbi malesuada, ante at feugiat tincidunt, enim massa gravida metus, commodo lacinia massa diam vel eros. Proin eget urna. Nunc fringilla neque vitae odio. Vivamus vitae ligula.</p>
+	<p><a href="#" class="btn-delete">Delete</a> | <a href="#" class="btn-unapprove">Unapprove</a> | <a href="#" class="btn-spam">Spam</a></p>
+</div>
+<div class="pane spam">
+	<h3>John says:</h3>
+	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi malesuada, ante at feugiat tincidunt, enim massa gravida metus, commodo lacinia massa diam vel eros. Proin eget urna. Nunc fringilla neque vitae odio. Vivamus vitae ligula.</p>
+	<p><a href="#" class="btn-delete">Delete</a> | <a href="#" class="btn-approve">Approve</a> | <a href="#" class="btn-spam">Spam</a></p>
+</div>
+<div class="pane">
+	<h3>Smith says:</h3>
+	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi malesuada, ante at feugiat tincidunt, enim massa gravida metus, commodo lacinia massa diam vel eros. Proin eget urna. Nunc fringilla neque vitae odio. Vivamus vitae ligula.</p>
+	<p><a href="#" class="btn-delete">Delete</a> | <a href="#" class="btn-unapprove">Unapprove</a> | <a href="#" class="btn-spam">Spam</a></p>
+</div>
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="jquery.color.js"></script>
+
+<script type="text/javascript">
+$(function() {
+
+  $('div.pane', 'body').addClass('alt');
+  
+  $('a.btn-delete', 'div.pane').click(function(event) {
+  
+    var $a = $(this);
+    var comment = $a.parents('div.pane');
+    
+    var question = confirm('Sei sicuro di voler cancellare questo commento?');
+    
+    if(question) {
+    
+      comment.animate({
+        backgroundColor: '#fbc7c7'
+      }, 'slow', function() {
+      
+        $(this).animate({
+          opacity: 0
+        }, 'slow', function() {
+        
+          $(this).remove();
+        
+        });
+      
+      });
+    
+    } else {
+    
+      return false;
+    
+    }
+  
+    event.preventDefault();
+  
+  });
+  
+  $('a.btn-unapprove', 'div.pane').click(function(event) {
+  
+  
+    var $a = $(this);
+    var comment = $a.parents('div.pane');
+    
+    comment.animate({
+      backgroundColor: '#fff568'
+    }, 'slow', function() {
+    
+      $(this).animate({
+        backgroundColor: '#ffffff'
+      }, 'slow', function() {
+      
+        $(this).addClass('spam');
+      
+      });
+    
+    
+    });
+    
+    event.preventDefault();
+  
+  
+  });
+  
+  $('a.btn-approve', 'div.pane').click(function(event) {
+  
+    var $a = $(this);
+    var comment = $a.parents('div.pane');
+    
+    comment.animate({
+      backgroundColor: '#dafda5'
+    }, 'slow', function() {
+    
+      $(this).animate({
+        backgroundColor: '#ffffff'
+      }, 'slow', function() {
+      
+        $(this).removeClass('spam');
+      
+      });
+    
+    
+    });
+
+  
+    event.preventDefault();
+  
+  });
+  
+  $('a.btn-spam', 'div.pane').click(function(event) {
+  
+    var $a = $(this);
+    var comment = $a.parents('div.pane');
+    
+    comment.animate({
+      backgroundColor: '#fbc7c7'
+    }, 'slow', function() {
+    
+      $(this).animate({
+        opacity: 0
+      }, 'slow', function() {
+        
+        $(this).remove();
+      
+      });
+    
+    });
+  
+    event.preventDefault();
+  
+  });
+
+});
+</script>
+
+</body>
+</html>

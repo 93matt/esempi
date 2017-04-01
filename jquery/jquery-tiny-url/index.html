@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: creare un Tiny URL</title>
+<meta charset="utf-8" />
+</head>
+<body>
+
+<p id="test"><strong>URL completo</strong>: <a href="http://gabrieleromanato.com/articoli/jquery/">http://gabrieleromanato.com/articoli/jquery/</a></p>
+<p id="result"><strong>Tiny URL</strong>: </p>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+
+    var uri = $('a', '#test').attr('href');
+
+
+
+    $.ajax({
+        type: 'GET',
+        url: 'http://gabrieleromanato.com/adds/tinyurl.php',
+        data: 'u=' + uri,
+        success: function(tinyurl) {
+        
+            $('<a/>').
+            attr('href', tinyurl)
+            .text(tinyurl)
+            .appendTo('#result');
+        
+        
+        
+        }
+        
+   });
+
+
+
+
+
+});
+</script>
+</body>
+</html>

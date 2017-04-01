@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>contextmenu()</title>
+<meta charset="utf-8" />
+<style>
+#test {
+	background: green;
+	width: 100px;
+	height: 100px;
+	cursor: pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<p><button id="on">on('contextmenu')</button></p>
+
+<div id="test"></div>
+
+
+
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script>
+$(function() {
+	
+	
+	
+	$('#on').click(function() {
+	
+		$('#test').off('contextmenu');
+		
+		$('#test').on('contextmenu', function(event) {
+		
+			event.preventDefault();
+			
+			var data = $(this)[0].outerHTML;
+			
+			alert(data);
+				
+	
+			
+		});
+	
+	});
+
+});
+</script>
+</body>
+</html>

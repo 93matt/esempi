@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>$.getScript()</title>
+<meta charset="utf-8" />
+</head>
+
+<body>
+<p><button id="getscript">$.getScript()</button></p>
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script>
+$(function() {
+
+	$('#getscript').click(function() {
+	
+		$.getScript('script.js', function() {
+		
+			test();
+		
+		
+		});
+	
+	
+	});
+	
+});
+</script>
+
+
+</body>
+</html>

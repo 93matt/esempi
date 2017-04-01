@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: ritardare le animazioni con i deferred objects</title>
+<meta charset="utf-8" />
+<style type="text/css">
+#test {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    background: #06c;
+}
+
+#test2 {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    background: #c60;
+    margin-top: 1em;
+}
+</style>
+</head>
+
+<body>
+
+<div id="test"></div>
+<div id="test2"></div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+    
+    $.Deferred(function(def) {
+       
+        def.pipe(function() {
+            
+            return $('#test').animate({left: 100}, 1000);  
+            
+        }).pipe(function() {
+            
+            return setTimeout(function() {
+               
+                $('#test2').animate({left: 100}, 1000);
+               
+            }, 2000); 
+            
+        });
+       
+       
+    }).resolve(); 
+    
+});
+
+</script>
+</body>
+</html>

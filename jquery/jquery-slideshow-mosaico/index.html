@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: slideshow a mosaico</title>
+<meta charset="utf-8" />
+<style>
+body {
+	margin: 0;
+	padding: 2em 0;
+}
+
+#slideshow {
+	width: 600px;
+	height: 560px;
+	margin: 0 auto;
+	position: relative;
+}
+
+#slideshow .topleft,
+#slideshow .topright,
+#slideshow .bottomleft,
+#slideshow .bottomright {
+	width: 100px;
+	height: 80px;
+}
+
+#slideshow .center {
+	width: 500px;
+	height: 380px;
+}
+
+#slideshow img {
+	position: absolute;
+}
+
+#slideshow .topleft {
+	top: 0;
+	left: 0;
+}
+
+#slideshow .topright {
+	top: 0;
+	right: 0;
+}
+
+#slideshow .center {
+	top: 50%;
+	left: 50%;
+	margin: -190px 0 0 -250px;
+}
+
+#slideshow .bottomleft {
+	bottom: 0;
+	left: 0;
+}
+
+#slideshow .bottomright {
+	bottom: 0;
+	right: 0;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="slideshow">
+
+    <img src="1.jpg" alt="" class="topleft" />
+    <img src="2.jpg" alt="" class="topright" />
+    <img src="4.jpg" alt="" class="bottomleft" />
+    <img src="5.jpg" alt="" class="bottomright" />
+    <img src="3.jpg" alt="" class="center" />
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+
+   var images = $('img', '#slideshow').not('img[class=center]');
+   var origSrc = $('img.center', '#slideshow').attr('src');
+   var index = -1;
+   var len = images.length;
+
+   var getImagesSrc = function() {
+   
+     var srcs = [];
+     
+     images.each(function(i) {
+     
+       var src = $(this).attr('src');
+       
+       srcs[i] = src;
+     
+     });
+   
+     return srcs;
+   };
+
+   var srcs = getImagesSrc();
+
+   var timer = setInterval(function() {
+   
+     index++;
+     
+     if(index == len) {
+     
+       index = -1;
+       
+       $('img.center', '#slideshow').attr('src', origSrc);
+     
+     
+     }
+     
+     $('img.center', '#slideshow').attr('src', srcs[index]);
+   
+   
+   }, 1500);
+   
+});
+
+</script>
+
+</body>
+</html>

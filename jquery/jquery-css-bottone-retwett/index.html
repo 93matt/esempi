@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Creare un bottone di retweet con jQuery e CSS</title>
+<meta charset="utf-8" />
+<style type="text/css">
+a.share-on-twitter {
+	display: block;
+	height: 30px;
+	width: 100px;
+	background: #eee url(twitter.png) no-repeat 3px 50%;
+	border-radius: 10px;
+	border: 1px solid #888;
+	color: #222;
+	text-decoration: none;
+	text-indent: 45px;
+	font: 90% Tahoma, sans-serif;
+	line-height: 30px;
+	text-shadow: 1px 1px 1px #888;
+	box-shadow: inset 1px 1px 1px #ccc;
+}
+</style>
+</head>
+
+<body>
+
+<p><a href="https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Fwww.smashingmagazine.com%2F2012%2F04%2F30%2Fdesktop-wallpaper-calendar-may-2012%2F&amp;source=tweetbutton&amp;text=Desktop%20Wallpaper%20Calendar%3A%20May%202012&amp;url=http%3A%2F%2Fwww.smashingmagazine.com%2F2012%2F04%2F30%2Fdesktop-wallpaper-calendar-may-2012%2F&amp;via=smashingmag" class="share-on-twitter">Tweet</a>​</p>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+
+	$('a.share-on-twitter').each(function() {
+	
+		var $a = $(this);
+		var url = $a.attr('href');
+		
+		$a.click(function(e) {
+		
+			window.open(url, '', 'width=500,height=400');
+		
+			e.preventDefault();
+		
+		});
+	
+	});
+
+});
+</script>
+
+</body>
+</html>

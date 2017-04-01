@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: animazioni sul testo</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	margin: 0;
+	padding: 2em 0;
+}
+
+h1 {
+	font: 10em Impact, sans-serif;
+	padding: 0.5em;
+	text-transform: uppercase;
+	letter-spacing: .1em;
+	background: #000;
+	color: #fff;
+	margin: 0 auto;
+	width: 4em;
+	text-align: center;
+	
+}
+
+h1 span {
+	display: none;
+}
+	
+</style>
+</head>
+
+<body>
+
+<h1>
+	<span class="t1">T</span>
+	<span class="t2">i</span>
+	<span class="t3">t</span>
+	<span class="t4">l</span>
+	<span class="t5">e</span>
+</h1>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+<script type="text/javascript">
+$(function() {
+
+  $('h1 span.t1').fadeIn(1500, function() {
+  
+  
+    $(this).next().fadeIn(1500, function() {
+    
+    
+    
+      $(this).next().fadeIn(1500, function() {
+      
+      
+      
+        $(this).next().fadeIn(1500, function() {
+        
+        
+        
+          $(this).next().fadeIn(1500, function() {
+          
+          
+          
+            $('h1').animate({
+              backgroundColor: '#fff',
+              color: '#000',
+              fontSize: '300px'
+            }, 2000);
+          
+          
+          
+          });
+        
+        
+        
+        });
+      
+      
+      
+      });
+    
+    
+    
+    });
+  
+  
+  
+  
+  });
+
+});
+</script>
+
+</body>
+</html>

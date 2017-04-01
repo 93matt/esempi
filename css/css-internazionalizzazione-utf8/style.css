@@ -1,0 +1,11 @@
+@charset 'utf-8';
+
+#检测 {
+	background: #393;
+	padding: 1em;
+	width: 5em;
+	color: #fff;
+	font: 3em Arial, sans-serif;
+	margin: 2em auto;
+	text-align: center;
+}

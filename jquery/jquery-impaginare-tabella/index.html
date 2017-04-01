@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: impaginare una tabella</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	margin: 2em;
+	padding: 2em;
+	font: 90% Arial, sans-serif;
+}
+
+.wrapper-paging {
+	display: none;
+	padding-left: 20px;
+	width: 500px;
+	text-align: center;
+	padding-bottom: 20px;
+	margin: 0 auto;
+}
+
+.wrapper-paging ul,
+.wrapper-paging li {
+	margin: 0;
+	padding: 0;
+}
+
+.wrapper-paging ul li {
+	display: inline;
+}
+
+.wrapper-paging ul {
+	text-align: center;
+	list-style-type: none;
+}
+
+.wrapper-paging a {
+	border: 2px solid #fff;
+	border-radius: 3px;
+	display: inline-block;
+	color: #015287;
+	cursor: pointer;
+	margin-right: 3px;
+	padding: 3px 7px;
+	text-decoration: none;
+}
+
+.wrapper-paging .paging-this {
+	cursor: default;
+	padding: 3px 0;
+}
+
+.wrapper-paging a:hover {
+	background: #015287;
+	color: #FFFFFF;
+}
+
+.wrapper-paging .paging-back,
+.wrapper-paging .paging-next {
+	border-color: #015287;
+}
+
+.wrapper-paging .paging-this:hover {
+	background: #fff;
+	color: #015287;
+}
+
+.wrapper-paging .paging-this b {
+	font-weight: normal;
+}
+
+.wrapper-paging .paging-disabled,
+.wrapper-paging .paging-disabled:hover {
+	background: #fff;
+	border-color: grey;
+	color: grey;
+	cursor: default;
+}
+
+table {
+	width: 520px;
+	border: 1px solid #ddd;
+	border-collapse: collapse;
+	margin: 0 auto;
+}
+
+th {
+	background: #015287;
+	color: #fff;
+	padding: 6px;
+	text-align: left;
+}
+
+td {
+	border-bottom: 1px solid #ddd;
+	padding: 6px;
+}
+
+tbody tr:nth-child(even) {
+	background: #ddd;
+}
+
+caption {
+	font-size: 1.2em;
+	text-transform: uppercase;
+	padding-bottom: 4px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="wrapper-paging">
+          <ul>
+            <li><a class="paging-back">&lt;</a></li>
+            <li><a class="paging-this"><strong>0</strong> di <span>x</span></a></li>
+            <li><a class="paging-next">&gt;</a></li>
+          </ul>
+</div>
+
+
+<table summary="Elenco di libri sullo sviluppo Web" id="books">
+
+
+    <caption>Elenco degli ultimi libri studiati</caption>
+    
+    <thead>
+    
+    <tr>
+        <th scope="col">Titolo</th>
+        <th scope="col">Autore</th>
+        <th scope="col">ISBN</th>
+        <th scope="col">URL</th>
+    </tr>
+    
+    </thead>
+    
+ <tbody>
+    
+    <tr>
+<td>Ajax and PHP: Building Responsive Web Applications</td>
+<td>Cristian Darie, Bogdan Brinzarea,  Filip Chereches-Tosa,  Mihai Bucica</td>
+<td>978-88-203-3943-2</td>
+<td><a href="http://www.packtpub.com">http://www.packtpub.com</a></td>
+</tr>
+<tr>
+<td>Ajax. The definitive guide</td>
+<td>Anthony T. Holdener III</td>
+<td>0-596-52838-8</td>
+<td><a href="http://www.oreilly.com/catalog/9780596528386">http://www.oreilly.com/catalog/9780596528386</a></td>
+</tr>
+<tr>
+<td>Ajax hacks</td>
+<td>Bruce W. Perry</td>
+<td>88-481-1975-1</td>
+<td><a href="http://www.oreilly.com/catalog/ajaxhks">http://www.oreilly.com/catalog/ajaxhks</a></td>
+</tr>
+<tr>
+<td>Ajax in practice</td>
+<td>Dave Crane, Bear Bibeault, John Sonneveld</td>
+<td>1-932394-99-0</td>
+<td><a href="http://www.manning.com/crane2">http://www.manning.com/crane2</a></td>
+</tr>
+<tr>
+<td>Apache cookbook</td>
+<td>Ken Coar, Rich Bowen</td>
+<td>978-0-596-52994-9</td>
+<td><a href="http://www.oreilly.com/catalog/9780596529949">http://www.oreilly.com/catalog/9780596529949</a></td>
+</tr>
+<tr>
+<td>Beginning Python. From novice to professional</td>
+<td>Magnus Lie Hetland</td>
+<td>978-1-59059-982-2</td>
+<td><a href="http://www.apress.com">http://www.apress.com</a></td>
+</tr>
+<tr>
+<td>CSS cookbook</td>
+<td>Christopher Schmitt</td>
+<td>0-596-52741-1</td>
+<td><a href="http://www.oreilly.com/catalog/cssckbk2">http://www.oreilly.com/catalog/cssckbk2</a></td>
+</tr>
+<tr>
+<td>CSS. The definitive guide</td>
+<td>Eric A. Meyer</td>
+<td>88-481-1721-X</td>
+<td><a href="http://www.oreilly.com/catalog/css2">http://www.oreilly.com/catalog/css2</a></td>
+</tr>
+<tr>
+<td>Essential PHP security</td>
+<td>Chris Shiflett</td>
+<td>978-0-596-00656-3</td>
+<td><a href="http://phpsecurity.org">http://phpsecurity.org</a></td>
+</tr>
+<tr>
+<td>Google hacks</td>
+<td>Tara Calishain, Rael Dornfest</td>
+<td>88-8378-086-8</td>
+<td><a href="http://www.oreilly.com/catalog/googlehks">http://www.oreilly.com/catalog/googlehks</a></td>
+</tr>
+<tr>
+<td>High Performance JavaScript</td>
+<td>Nicholas C. Zakas</td>
+<td>978-0-596-80279-0</td>
+<td><a href="http://www.oreilly.com/catalog/9780596802790/">http://www.oreilly.com/catalog/9780596802790/</a></td>
+</tr>
+<tr>
+<td>High Performance Web Sites</td>
+<td>Steve Souders</td>
+<td>978-88-481-2089-0</td>
+<td><a href="http://www.oreilly.com/catalog/9780596529307">http://www.oreilly.com/catalog/9780596529307</a></td>
+</tr>
+<tr>
+<td>Information Architecture for the World Wide Web</td>
+<td>Louis Rosenfeld, Peter Morville</td>
+<td>88-8378-062-0</td>
+<td><a href="http://www.semanticstudios.com">http://www.semanticstudios.com</a></td>
+</tr>
+<tr>
+<td>JavaScript: the good parts</td>
+<td>Douglas Crockford</td>
+<td>978-0-596-51774-8</td>
+<td><a href="http://www.oreilly.com/catalog/9780596517748">http://www.oreilly.com/catalog/9780596517748</a></td>
+</tr>
+<tr>
+<td>JavaScript and DHTML cookbook</td>
+<td>Danny Goodman</td>
+<td>0-596-51408-5</td>
+<td><a href="http://www.oreilly.com/catalog/9780596514082">http://www.oreilly.com/catalog/9780596514082</a></td>
+</tr>
+<tr>
+<td>jQuery Cookbook</td>
+<td>jQuery Community Experts</td>
+<td>978-0-596-15977-1</td>
+<td><a href="http://www.oreilly.com/catalog/9780596159771">http://www.oreilly.com/catalog/9780596159771</a></td>
+</tr>
+<tr>
+<td>jQuery in action</td>
+<td>Bear Bibeault, Yehuda Katz</td>
+<td>1-933988-35-5</td>
+<td><a href="http://www.manning.com/bibeault">http://www.manning.com/bibeault</a></td>
+</tr>
+<tr>
+<td>Jquery. Novice to Ninja</td>
+<td>Earle Castledine, Craig Sharkie</td>
+<td>978-0-9805768-5-6</td>
+<td><a href="http://www.sitepoint.com/books/jquery1/">http://www.sitepoint.com/books/jquery1</a></td>
+</tr>
+<tr>
+<td>jQuery Recipes</td>
+<td>B.M. Harwani</td>
+<td>978-1-4302-2709-0</td>
+<td><a href="http://www.apress.com">http://www.apress.com</a></td>
+</tr>
+<tr>
+<td>Learning jQuery 1.3</td>
+<td>Jonathan Chaffer, Karl Swedberg</td>
+<td>978-1-847196-70-5</td>
+<td><a href="http://www.packtpub.com">http://www.packtpub.com</a></td>
+</tr>
+<tr>
+<td>Learning Python</td>
+<td>Mark Lutz</td>
+<td>978-88-481-2090-6</td>
+<td><a href="http://www.oreilly.com/catalog/9780596513986">http://www.oreilly.com/catalog/9780596513986</a></td>
+</tr>
+<tr>
+<td>lex and yacc</td>
+<td>John R. Levine, Tony Mason, Doug Brown</td>
+<td>1-56592-000-7</td>
+<td><a href="http://www.oreilly.com">http://www.oreilly.com</a></td>
+</tr>
+<tr>
+<td>Object-Oriented JavaScript</td>
+<td>Stoyan Stefanov</td>
+<td>978-1-847194-14-5</td>
+<td><a href="http://www.packtpub.com">http://www.packtpub.com</a></td>
+</tr>
+<tr>
+<td>PHP 5 E-commerce Development</td>
+<td>Michael Peacock</td>
+<td>978-1-847199-64-5</td>
+<td><a href="http://www.packtpub.com">http://www.packtpub.com</a></td>
+</tr>
+<tr>
+<td>PHP Cookbook</td>
+<td>David Sklar, Adam Trachtenberg</td>
+<td>978-0-596-10101-5</td>
+<td><a href="http://www.oreilly.com/catalog/phpckbk2">http://www.oreilly.com/catalog/phpckbk2</a></td>
+</tr>
+<tr>
+<td>PHP Hacks</td>
+<td>Jack D. Herrington</td>
+<td>978-88-481-1951-1</td>
+<td><a href="http://www.oreilly.com/catalog/phphks">http://www.oreilly.com/catalog/phphks</a></td>
+</tr>
+<tr>
+<td>PHP Object-Oriented Solutions</td>
+<td>David Powers</td>
+<td>978-1-4302-1011-5</td>
+<td><a href="http://www.friendsofed.com">http://www.friendsofed.com</a></td>
+</tr>
+<tr>
+<td>Pro CSS Techniques</td>
+<td>Jeff Croft, Ian Lloyd, Dan Rubin</td>
+<td>978-1-59059-732-3</td>
+<td><a href="http://www.apress.com">http://www.apress.com</a></td>
+</tr>
+<tr>
+<td>Pro JavaScript RIA Techniques</td>
+<td>Den Odell</td>
+<td>978-1-4302-1934-7</td>
+<td><a href="http://www.apress.com">http://www.apress.com</a></td>
+</tr>
+<tr>
+<td>Pro JavaScript Techniques</td>
+<td>John Resig</td>
+<td>978-1-59059-727-9</td>
+<td><a href="http://www.apress.com">http://www.apress.com</a></td>
+</tr>
+<tr>
+<td>Pro PHP</td>
+<td>Kevin McArthur</td>
+<td>978-1-59059-819-1</td>
+<td><a href="http://www.apress.com">http://www.apress.com</a></td>
+</tr>
+<tr>
+<td>Professional Ajax</td>
+<td>Joe Fawcett, Jeremy McPeak, Nicholas C. Zakas</td>
+<td>978-88-203-3923-4</td>
+<td><a href="http://www.wrox.com">http://www.wrox.com</a></td>
+</tr>
+<tr>
+<td>Professional JavaScript for web developers</td>
+<td>Nicholas C. Zakas</td>
+<td>978-0-470-22780-0</td>
+<td><a href="http://www.wrox.com">http://www.wrox.com</a></td>
+</tr>
+<tr>
+<td>Professional PHP 5</td>
+<td>Ed Lecky-Thompson, Heow Eide-Goodman, Steven D. Nowicki, Alec Cove</td>
+<td>0-7645-7282-2</td>
+<td><a href="http://www.wrox.com">http://www.wrox.com</a></td>
+</tr>
+<tr>
+<td>Professional PHP Design Patterns</td>
+<td>Aaron Saray</td>
+<td>978-0-470-49670-1</td>
+<td><a href="http://www.wrox.com">http://www.wrox.com</a></td>
+</tr>
+<tr>
+<td>Programming Firefox</td>
+<td>Kenneth C. Feldt</td>
+<td>0-596-10243-7</td>
+<td><a href="http://www.oreilly.com/catalog/9780596102432">http://www.oreilly.com/catalog/9780596102432</a></td>
+</tr>
+<tr>
+<td>Programming PHP</td>
+<td>Rasmus Lerdorf, Kevin Tatroe, Peter MacIntyre</td>
+<td>978-0-596-00681-5</td>
+<td><a href="http://www.oreilly.com/catalog/progphp2">http://www.oreilly.com/catalog/progphp2</a></td>
+</tr>
+<tr>
+<td>Programming Python</td>
+<td>Mark Lutz</td>
+<td>978-0-596-00925-0</td>
+<td><a href="http://www.oreilly.com/catalog/python3">http://www.oreilly.com/catalog/python3</a></td>
+</tr>
+<tr>
+<td>Prototype and Scriptaculous in action</td>
+<td>Dave Crane, Bear Bibeault with Tom Locke</td>
+<td>1-933988-03-7</td>
+<td><a href="http://www.manning.com/crane3">http://www.manning.com/crane3</a></td>
+</tr>
+<tr>
+<td>Python Cookbook</td>
+<td>Alex Martelli, Anna Martelli Ravenscroft, David Ascher</td>
+<td>978-0-596-00797-3</td>
+<td><a href="http://www.oreilly.com/catalog/pythoncook2">http://www.oreilly.com/catalog/pythoncook2</a></td>
+</tr>
+<tr>
+<td>Semantic web for the working ontologist</td>
+<td>Dean Allemang, Jim Hendler</td>
+<td>978-0-12-373556-0</td>
+<td><a href="http://www.mkp.com">http://www.mkp.com</a></td>
+</tr>
+<tr>
+<td>SQL in a nutshell</td>
+<td>Kevin E. Kline, Daniel Kline, Brand Hunt</td>
+<td>978-0-596-51884-4</td>
+<td><a href="http://www.oreilly.com/catalog/9780596518844">http://www.oreilly.com/catalog/9780596518844</a></td>
+</tr>
+<tr>
+<td>SVG essentials</td>
+<td>J. David Eisenberg</td>
+<td>978-0-596-00223-7</td>
+<td><a href="http://www.oreilly.com/catalog/svgess">http://www.oreilly.com/catalog/svgess</a></td>
+</tr>
+<tr>
+<td>The JavaScript Anthology. 101 Essential Tips, Tricks &amp; Hacks
+<td>James Edwards, Cameron Adams</td>
+<td>0-9752402-6-9</td>
+<td><a href="http://www.sitepoint.com/books/jsantl/">http://www.sitepoint.com/books/jsantl/</a></td>
+</tr>
+<tr>
+<td>Web database applications with PHP and MySQL</td>
+<td>Hugh E. Williams, David Lane</td>
+<td>0-596-00543-1</td>
+<td><a href="http://www.oreilly.com/catalog/webdbapps2">http://www.oreilly.com/catalog/webdbapps2</a></td>
+</tr>
+<tr>
+<td>XML pocket reference</td>
+<td>Simon St. Laurent, Michael Fitzgerald</td>
+<td>978-0-596-10050-6</td>
+<td><a href="http://www.oreilly.com">http://www.oreilly.com</a></td>
+</tr>
+<tr>
+<td>XSLT</td>
+<td>Doug Tidwell</td>
+<td>978-0-596-52721-1</td>
+<td><a href="http://www.oreilly.com/catalog/9780596527211">http://www.oreilly.com/catalog/9780596527211</a></td>
+</tr>
+
+</tbody>
+
+</table>
+
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+function paginateTable(table, pages) {
+
+	var $table = $(table);
+  	var $rows = $('tbody > tr', $table);
+  	var numPages = Math.ceil($rows.length / pages) - 1;
+  	var current = 0;
+  	
+  	var $nav = $('ul', 'div.wrapper-paging');
+  	var $back = $nav.find('li:first-child a');
+  	var $next = $nav.find('li:last-child a');
+  	
+  	$nav.find('a.paging-this strong').text(current + 1);
+  	$nav.find('a.paging-this span').text(numPages + 1);
+  	$back
+    	.addClass('paging-disabled')
+    	.click(function() {
+      		pagination('<');
+    	});
+  	$next.click(function() {
+    		pagination('>');
+  		  });
+  		  
+    $rows
+    .hide()
+    .slice(0,pages)
+    .show();
+    
+    var pagination = function (direction) {
+    var reveal = function (current){
+      $back.removeClass('paging-disabled');
+      $next.removeClass('paging-disabled');
+      
+      $rows
+        .hide()
+        .slice(current * pages, current * pages + pages)
+        .show();
+        
+      $nav.find('a.paging-this strong').text(current + 1);
+    };
+    
+  	if (direction == '<') { 
+      if (current > 1) {
+        reveal(current -= 1);
+      }
+      else if (current == 1) {
+        reveal (current -= 1);
+        $back.addClass('paging-disabled');
+      }
+    } else {
+      if (current < numPages - 1) {
+        reveal(current += 1);
+      }
+      else if (current == numPages - 1) {
+        reveal(current += 1);
+        $next.addClass('paging-disabled');
+      }
+    }
+  }
+
+
+
+}
+
+
+$(function() {
+
+  $('.wrapper-paging').show();
+  paginateTable('#books', 10);
+  
+});
+</script>
+</body>
+</html>

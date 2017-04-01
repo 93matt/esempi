@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JavaScript: ottenere il nome di una funzione in modo cross-browser</title>
+<meta charset="utf-8" />
+</head>
+
+<body>
+
+<script type="text/javascript">
+
+if(typeof Function.prototype.getFunctionName !== 'function') {
+
+
+  Function.prototype.getFunctionName = function() {
+  
+  
+    var name = '';
+    var self = this;
+    var string = self.toString();
+    
+    var sanitized = string.replace(/\s+/g, '').
+                    replace('function', '').
+                    replace('(', '').
+                    replace(')', '');
+    
+    var re = /.+\{/;
+    
+    var matches = sanitized.match(re);
+    
+               
+    name = matches[0].replace('{', '');
+    
+    return name;
+  
+  
+  };
+
+
+}
+
+window.onload = function() {
+
+	function func() {
+		alert('OK');
+	}
+
+	function funcForTest () {
+
+  		return;
+
+	}
+
+  var container = document.createElement('p');
+  container.innerHTML = func.getFunctionName() + '<br/>' + funcForTest.getFunctionName();
+  var body = document.body;
+  
+  body.appendChild(container);
+  
+
+};
+</script>
+
+</body>
+</html>

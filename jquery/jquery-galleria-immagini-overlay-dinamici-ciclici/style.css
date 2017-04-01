@@ -1,0 +1,50 @@
+#gallery {
+	width: 765px;
+	margin: 2em auto;
+	position: relative;
+}
+
+#gallery ul {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	list-style: none;
+}
+
+#gallery li {
+	display: block;
+	height: 141px;
+	margin-bottom: 5px;
+}
+
+#gallery li.three img {
+	float: left;
+	margin-right: 5px;
+	position: relative;
+}
+
+#gallery li.one img {
+	display: block;
+	margin: 0 auto;
+	position: relative;
+}
+
+#cursor-one {
+	width: 250px;
+	height: 141px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+	background: #c30;
+}
+
+#cursor-two {
+	width: 250px;
+	height: 141px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+	background: #06c;
+}

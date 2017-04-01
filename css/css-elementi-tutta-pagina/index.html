@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: elementi a tutta pagina</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	margin: 0;
+	padding: 2em 0;
+	font: 100% Arial, sans-serif;
+	background: #aaa;
+	overflow-x: hidden;
+}
+
+#content {
+	width: 60%;
+	margin: 0 auto;
+	background: #fff;
+	border: 1px solid #999;
+	padding: 0 1em;
+}
+
+h2 {
+	font-size: 1.8em;
+	font-weight: normal;
+	padding: 5px 0;
+	margin: 30px 0 10px;
+	background: #c30;
+	color: #fff;
+}
+.extendfull, .extendleft
+{
+	margin-left: -3000px;
+	padding-left: 3000px;
+}
+
+.extendfull, .extendright
+{
+	margin-right: -3000px;
+	padding-right: 3000px;
+}
+
+</style>
+<!--[if lt IE 8]>
+<style type="text/css">
+.extendfull, .extendleft, .extendright {
+	position: relative;
+	display: inline;
+	float: left;
+	width: 100%;
+}
+</style>
+<![endif]-->
+</head>
+
+<body>
+
+<div id="content">
+	<h2 class="extendfull">A tutta pagina</h2>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	<h2 class="extendleft">A sinistra</h2>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	<h2 class="extendright">A destra</h2>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>
+
+</body>
+</html>

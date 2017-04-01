@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JavaScript: testare se un browser supporta il contenuto generato CSS</title>
+<meta charset="utf-8" />
+<style type="text/css">
+.generated:before {
+	content: 'Il tuo browser supporta il contenuto generato.';
+	color: green;
+	padding-right: 5px;
+}
+</style>
+<script type="text/javascript">
+window.onload = function() {
+
+	var test = document.getElementById('test');
+	var generated = (typeof test.style.counterReset !== 'string') ? false : true;
+	
+	if(generated) {
+	
+		test.className = 'generated';
+	
+	} else {
+	
+		var span = document.createElement('span');
+		span.style.color = 'red';
+		span.innerHTML = 'Il tuo browser non supporta il contenuto generato.';
+		test.appendChild(span);
+	
+	}
+
+};
+</script>
+</head>
+
+<body>
+
+<p id="test">Test</p>
+
+</body>
+</html>

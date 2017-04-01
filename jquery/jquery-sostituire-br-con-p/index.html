@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: sostituire gli elementi br con paragrafi</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	font: 100% Arial, sans-serif;
+}
+
+#test {
+	width: 400px;
+	line-height: 1.4;
+}
+
+#replace {
+	background: #c30;
+	color: #fff;
+	padding: 4px;
+	font-weight: bold;
+	text-decoration: none;
+}
+</style>
+</head>
+
+<body>
+
+<p><a href="#" id="replace">Sostituisci con &lt;p&gt;</a></p>
+
+<div id="test">
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br/> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br/> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<br/> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+
+	function replaceWithP(html) {
+	
+		var parts = html.split('<br>'),
+			len = parts.length,
+			i;
+			
+		var newHTML = '';
+		
+		for(i = 0; i < len; i += 1) {
+		
+			newHTML += '<p>' + parts[i] + '</p>';
+		
+		}    
+		
+		return newHTML;
+	
+	}
+	
+	$('#replace').click(function(event) {
+	
+		var $html = $('#test').html();
+		
+		$('#test').html(replaceWithP($html));
+	
+		event.preventDefault();
+	
+	});
+
+});
+</script>
+</body>
+</html>

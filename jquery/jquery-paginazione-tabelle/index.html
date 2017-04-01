@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: paginazione delle tabelle</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	width: 400px;
+	margin: 0 auto;
+	padding: 2em 0;
+	font: 100% Arial, sans-serif;
+}
+
+#paginated {
+	width: 100%;
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+
+#paginated th {
+	background: #111;
+	color: #fff;
+	padding: 0.5em;
+}
+
+#paginated td {
+	padding: 0.5em;
+	border-bottom: 1px solid #ccc;
+	text-align: center;
+}
+
+#pagination {
+	margin-bottom: 1em;
+	text-align: center;
+}
+
+#pagination a {
+	color: #d34545;
+	padding-right: 0.5em;
+}
+
+.page {
+	background: #eee;
+}
+</style>
+</head>
+
+<body>
+
+<div id="pagination"></div>
+
+<table id="paginated">
+	<thead>
+	   <tr>
+		<th scope="col">A</th>
+		<th scope="col">B</th>
+		<th scope="col">C</th>
+		<th scope="col">D</th>
+	</thead>
+	</tr>
+	
+	<tbody>
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+	</tr>
+
+	
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+	</tr>
+	<tr>
+		<td>11</td>
+		<td>22</td>
+		<td>33</td>
+		<td>44</td>
+	</tr>
+	<tr>
+		<td>11</td>
+		<td>22</td>
+		<td>33</td>
+		<td>44</td>
+
+	</tr>
+	<tr>
+		<td>11</td>
+		<td>22</td>
+		<td>33</td>
+		<td>44</td>
+
+	</tr>
+	<tr>
+		<td>11</td>
+		<td>22</td>
+		<td>33</td>
+		<td>44</td>
+
+	</tr>
+	<tr>
+		<td>11</td>
+		<td>22</td>
+		<td>33</td>
+		<td>44</td>
+
+	</tr>
+	<tr>
+		<td>11</td>
+		<td>22</td>
+		<td>33</td>
+		<td>44</td>
+
+	</tr>
+	<tr>
+		<td>11</td>
+		<td>22</td>
+		<td>33</td>
+		<td>44</td>
+
+	</tr>
+	<tr>
+		<td>11</td>
+		<td>22</td>
+		<td>33</td>
+		<td>44</td>
+
+	</tr>
+	<tr>
+		<td>11</td>
+		<td>22</td>
+		<td>33</td>
+		<td>44</td>
+
+	</tr>
+	<tr>
+		<td>11</td>
+		<td>22</td>
+		<td>33</td>
+		<td>44</td>
+
+	</tr>
+	<tr>
+		<td>111</td>
+		<td>222</td>
+		<td>333</td>
+		<td>444</td>
+	</tr>
+	<tr>
+		<td>111</td>
+		<td>222</td>
+		<td>333</td>
+		<td>444</td>
+	</tr>
+	<tr>
+		<td>111</td>
+		<td>222</td>
+		<td>333</td>
+		<td>444</td>
+	</tr>
+	<tr>
+		<td>111</td>
+		<td>222</td>
+		<td>333</td>
+		<td>444</td>
+	</tr>
+	<tr>
+		<td>111</td>
+		<td>222</td>
+		<td>333</td>
+		<td>444</td>
+	</tr>
+	<tr>
+		<td>111</td>
+		<td>222</td>
+		<td>333</td>
+		<td>444</td>
+	</tr>
+	<tr>
+		<td>111</td>
+		<td>222</td>
+		<td>333</td>
+		<td>444</td>
+	</tr>
+	<tr>
+		<td>111</td>
+		<td>222</td>
+		<td>333</td>
+		<td>444</td>
+	</tr>
+	<tr>
+		<td>111</td>
+		<td>222</td>
+		<td>333</td>
+		<td>444</td>
+	</tr>
+	<tr>
+		<td>111</td>
+		<td>222</td>
+		<td>333</td>
+		<td>444</td>
+	</tr>
+	</tbody>
+
+</table>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+var Paginator = new function() {
+
+	var table = $('#paginated');
+	var numberOfPages = 3;
+	
+	var generate = function() {
+	
+		$('tbody tr', table).each(function() {
+		
+			var $tr = $(this);
+			
+			if($tr.index() % 10 == 0) {
+			
+			
+			
+				$tr.addClass('page');			   			
+			}
+		
+		
+		});
+		
+	
+	};
+	
+	var paginate = function() {
+	
+		$('tr.page', table).each(function(i) {
+		
+			var $a = $('<a/>').attr({href: '#', rel: i}).text(i+1);
+			$a.appendTo('#pagination');
+			
+			return i < (numberOfPages - 1);
+		
+		
+		});	
+				
+	    $('tbody tr', table).hide();
+	};
+	
+	var showPages = function() {
+	
+		$('a', '#pagination').each(function() {
+		
+			var $a = $(this);
+			var rel = $a.attr('rel');
+			var pages = $('tr.page', table);
+			
+			$a.click(function(event) {
+			
+			    $('tr', table).not(':first').slideUp();
+			
+				pages.eq(rel).nextUntil('tr.page').andSelf().
+				slideDown('slow');
+			
+				event.preventDefault();
+			});
+		
+		
+		});
+	
+	
+	};
+	
+	
+	this.init = function() {
+	
+		generate();
+		paginate();
+		showPages();
+	
+	};
+
+}();
+
+$(function() {
+
+	Paginator.init();
+
+});
+</script>
+</body>
+</html>

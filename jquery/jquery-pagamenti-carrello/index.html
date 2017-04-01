@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: gestione dei pagamenti in un carrello e-commerce</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	margin: 0;
+	padding: 2em 0;
+	font: 100% Arial, sans-serif;
+}
+
+#cart {
+	width: 36em;
+	margin: 0 auto;
+}
+
+#cart table {
+	width: 100%;
+	border-collapse: collapse;
+	border-bottom: 2px solid #999;
+	border-spacing: 0;
+}
+
+#cart table tr:nth-child(odd) {
+
+  background: #eee;
+
+}
+
+#cart table caption {
+	font-weight: bold;
+	text-transform: uppercase;
+	text-align: left;
+	padding-bottom: 4px;
+}
+
+#cart table th {
+	text-align: left;
+	padding: 5px;
+	background: #d34343;
+	color: #fff;
+	border-left: 1px solid;
+}
+
+#cart table td {
+	padding: 5px;
+	border-bottom: 1px solid #999;
+}
+
+#cart table td input {
+	font: 1em Arial, sans-serif;
+	border: 1px solid #ccc;
+	background: #fff;
+}
+
+#cart p a {
+	background: #d34343;
+	color: #fff;
+	text-decoration: none;
+	font-weight: bold;
+	padding: 0.4em 1.5em;
+	margin-right: 0.5em;
+}
+
+#cart p span {padding-left: 0.5em;}
+
+#cart div input {
+	background: #666;
+	color: #fff;
+	font: bold 1em Arial, sans-serif;
+	padding: 0.2em 0.5em;
+	width: 100px;
+	display: block;
+	border: none;
+}
+.add {display: none;}
+</style>
+</head>
+
+<body>
+
+<form action="#" method="post" id="cart">
+
+<table summary="Il tuo carrello">
+
+  <caption>Il tuo carrello</caption>
+  
+  <tr>
+  
+  	<th scope="col">Prodotto</th>
+  	<th scope="col">Quantit&agrave;</th>
+  	<th scope="col">Prezzo</th>
+  
+  </tr>
+  
+  <tr>
+  	<td>Prodotto 1</td>
+  	<td><input type="text" value="1" class="qty" disabled="disabled" />
+  	<a href="#" class="modify">Modifica</a> <a href="#" class="add">Ricalcola</a></td>
+  	<td>3 Euro</td>
+  </tr>
+  
+  <tr>
+  	<td>Prodotto 2</td>
+  	<td><input type="text" value="2" class="qty" disabled="disabled" />
+  	<a href="#" class="modify">Modifica</a> <a href="#" class="add">Ricalcola</a></td>
+  	<td>5 Euro</td>
+  </tr>
+  
+  <tr>
+  	<td>Prodotto 3</td>
+  	<td><input type="text" value="4" class="qty" disabled="disabled" />
+  	<a href="#" class="modify">Modifica</a><a href="#" class="add">Ricalcola</a></td>
+  	<td>2 Euro</td>
+  </tr>
+  
+
+
+</table>
+
+<p id="total"><strong>Totale (senza spese di spedizione)</strong>:</p>
+
+<div><input type="submit" value="Avanti" id="next" name="next" /></div>
+</form>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+var Cart = {
+
+
+   qtyFields: $('input.qty', '#cart'),
+   activeLinks: $('a.modify', '#cart'),
+   addLinks: $('a.add', '#cart'),
+   
+   calculate: function() {
+   
+     var total = 0;
+     
+     this.qtyFields.each(function() {
+     
+       var field = $(this);
+       var amount = field.parent().next().text();
+       var amountR = amount.replace(/\s+/g, '').replace(/Euro/, '');
+       var n1 = new Number(field.val());
+       var n2 = new Number(amountR);
+       
+       var sum = n1 * n2;
+       
+     
+       total += sum;
+     
+     });
+   
+     return (total.toString() + ' Euro');
+   },
+   
+   trigger: function() {
+   
+     
+       var subtotal = Cart.calculate();
+       
+       $('<span/>').text(subtotal).
+       appendTo('#total');
+     
+   
+   
+   },
+   
+   activate: function() {
+   
+     this.activeLinks.each(function() {
+     
+       var link = $(this);
+       var $input = link.prev();
+       var linkAdd = link.next();
+       
+       link.click(function(event) {
+       
+         $input.removeAttr('disabled');
+         linkAdd.show();
+         link.hide();
+       
+         event.preventDefault();
+       
+       });
+     
+     
+     });
+   
+   
+   },
+   
+   add: function() {
+   
+     this.addLinks.each(function() {
+     
+       var link = $(this);
+       var $input = link.prev().prev();
+       var linkActive = link.prev();
+       
+       link.click(function(event) {
+       
+         var total = Cart.calculate();
+         
+         $('span', '#total').text(total);
+         
+         $input.attr('disabled', 'disabled');
+         link.hide();
+         linkActive.show();
+          
+       
+       
+         event.preventDefault();
+       });
+     
+     
+     
+     });
+   
+   
+   },
+   
+   
+   send: function() {
+   
+     $('#cart').submit(function(event) {
+   
+       var total = $('span', '#total').text();
+       var totalN = new Number(total.replace(/\s+/, '').replace(/Euro/, ''));
+       
+       var final = totalN + 10;
+       
+       $('<p/>').html('<strong>Totale completo: </strong>' + final.toString() + ' Euro').
+       appendTo($(this));
+   
+       event.preventDefault();
+   
+     });
+   
+   },
+   
+   init: function() {
+   
+     this.trigger();
+     this.activate();
+     this.add();
+     this.send();
+     
+   
+   
+   }
+
+};
+
+$(function() {
+
+   Cart.init();
+});
+</script>
+
+</body>
+</html>

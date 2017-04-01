@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: menu animato a discesa</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	font: 100% Arial, sans-serif;
+	background: #f3f3f3;
+}
+
+#navigation {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	height: 3em;
+}
+
+#navigation li {
+	float: left;
+	height: 100%;
+	margin: 0;
+}
+
+#navigation a {
+	float: left;
+	height: 100%;
+	width: 6em;
+	text-align: center;
+	color: #fff;
+	text-decoration: none;
+	line-height: 3;
+}
+
+#navigation #home {
+	background: #6AA63B;
+}
+#navigation #home + span {
+
+  background: url(home.jpg) top left no-repeat;
+
+}
+
+#navigation #about {
+	background: #FBC700;
+
+}
+
+#navigation #about + span {
+	background: url(about.jpg) top left no-repeat;
+}
+
+#navigation #contact {
+	background: #D52100;
+
+}
+
+#navigation #contact + span {
+	background: url(contact.jpg) top left no-repeat;
+}
+
+#navigation li span {
+	display: block;
+	width: 6em;
+	height: 0px;
+	overflow: hidden;
+	clear: left;
+	color: #fff;
+	line-height: 150px;
+	text-align: center;
+}
+
+	
+</style>
+</head>
+
+<body>
+<ul id="navigation">
+  <li><a href="#" id="home">Home</a><span>Home page</span></li>
+  <li><a href="#" id="about">About</a><span>Info</span></li>
+  <li><a href="#" id="contact">Contatti</a><span>Contattaci</span></li>
+</ul>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="jquery.easing.js"></script>
+<script type="text/javascript">
+$(function() {
+
+  $('li', '#navigation').each(function() {
+  
+    var $a = $('a', $(this));
+    var $span = $a.next();
+    
+    $a.mouseover(function() {
+    
+      $span.stop(true, true).
+      animate({
+        height: 150
+      }, 600, 'easeOutBounce');
+    
+    
+    });
+    
+    $span.mouseout(function() {
+    
+      $span.stop(true, true).
+      animate({
+        height: 0
+      }, 600, 'easeOutBounce');
+    
+    
+    });
+
+  
+  
+  });
+
+});
+</script>
+</body>
+</html>

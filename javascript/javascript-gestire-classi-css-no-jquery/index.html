@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JavaScript: gestire le classi CSS senza jQuery</title>
+<meta charset="utf-8" />
+<style type="text/css">
+.test {
+	padding: 1em;
+	border: 2px solid #c00;
+	width: 200px;
+}
+
+.a {
+	color: #c00;
+}
+</style>
+<script type="text/javascript">
+function hasClass(target, theClass) {
+
+	var pattern = new RegExp("(^| )" + theClass + "( |$)");
+
+  	if (pattern.test(target.className)) {
+    	return true;
+  	}
+
+  	return false;	
+
+}
+
+function addClass(target, theClass) {
+
+    if (target.className == "") {
+      target.className = theClass;
+    }
+    else {
+      target.className += " " + theClass;
+    }
+}
+
+function removeClass(target, theClass) {
+
+  var pattern = new RegExp("(^| )" + theClass + "( |$)");
+
+  target.className = target.className.replace(pattern, "$1");
+  target.className = target.className.replace(/ $/, "");
+
+
+}
+
+window.onload = function() {
+
+	var test = document.getElementsByTagName('div')[0];
+	var a1 = document.getElementsByTagName('li')[0];
+	var a2 = document.getElementsByTagName('li')[2];
+	
+	var add = document.getElementById('add');
+	var remove = document.getElementById('remove');
+	var has = document.getElementById('has');
+	
+	remove.onclick = function() {
+	
+		removeClass(test, 'test');
+		
+		return false;
+	
+	};
+	
+	add.onclick = function() {
+	
+		addClass(a1, 'test');
+		
+		return false;
+	
+	};
+	
+	has.onclick = function() {
+	
+		alert(hasClass(a2, 'a'));
+		
+		return false;
+	
+	};
+
+};
+</script>
+</head>
+
+<body>
+
+<p><a href="#" id="add">addClass()</a> | <a href="#" id="remove">removeClass()</a> | <a href="#" id="has">hasClass()</a></p>
+
+<div class="test">
+	<ul>
+		<li class="a">Uno</li>
+		<li>Due</li>
+		<li class="a">Tre</li>
+	</ul>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+body {
+	margin: 0;
+	padding: 0;
+	background: #ddd;
+	color: #333;
+	font: 100% Arial, sans-serif;
+}
+
+#showcase-container {
+	width: 600px;
+	margin: 2em auto;
+}
+
+#showcase {
+	width: 600px;
+	height: 450px;
+	position: relative;
+	overflow: hidden;
+	border: 4px double #999;
+}
+
+#showcase-wrapper {
+	width: 2400px;
+	height: 450px;
+	position: relative;
+}
+
+div.slide {
+	width: 600px;
+	height: 450px;
+	float: left;
+	position: relative;
+	background-repeat: no-repeat;
+}
+
+div.slide h2 {
+	margin: 0;
+	padding: 0.5em;
+	font-size: 1.6em;
+	font-weight: normal;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: #fff;
+	
+}
+
+div.slide p.caption {
+	width: 100%;
+	padding: 2em 0;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.8);
+	color: #fff;
+	text-align: center;
+	margin: 0;
+	display: none;
+}
+
+#s1 {
+	background-image: url(img/1.jpg);
+}
+#s2 {
+	background-image: url(img/2.jpg);
+}
+#s3 {
+	background-image: url(img/3.jpg);
+}
+#s4 {
+	background-image: url(img/4.jpg);
+}
+
+#showcase-menu {
+	width: 220px;
+	height: 50px;
+	margin: 1em auto;
+}
+
+#showcase-menu a {
+	width: 50px;
+	height: 50px;
+	float: left;
+	text-indent: -1000em;
+	background: #999;
+	margin-right: 5px;
+}
+
+#showcase-menu a:hover {
+	background: #bbb;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AngularJS: ottenere i valori dei form</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" media="screen" />
+<style type="text/css" media="screen">
+body {
+	padding: 2em 1em;
+	margin: 0 auto;
+	max-width: 480px;
+}
+</style>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+<script type="text/javascript">
+var app = angular.module('MyApp', []);
+
+app.controller('FormCtrl', ['$scope', function($scope) {
+	$scope.formData = {};
+	$scope.submitted = false;
+	$scope.output = '';
+
+	$scope.submit = function() {
+		$scope.output = JSON.stringify($scope.formData);
+		$scope.submitted = true;
+	};
+}])
+</script>
+</head>
+<body ng-app="MyApp">
+<form novalidate method="post" ng-controller="FormCtrl" ng-submit="submit()">
+     <p>
+         <input type="text" class="form-control" name="nome" placeholder="Nome" ng-model="formData.firstname" />
+     </p>
+      <p>
+         <input type="text" class="form-control" name="cognome" placeholder="Cognome" ng-model="formData.lastname" />
+     </p>
+      <p>
+         <input type="text" class="form-control" name="email" placeholder="E-mail" ng-model="formData.email" />
+     </p>
+     <p><input type="submit" class="btn btn-primary" value="Invia" /></p>
+
+	  <p><code>{{formData}}</code></p>
+	  <pre ng-show="submitted">
+		 {{output}}
+	  </pre>
+</form>	
+</body>
+</html>

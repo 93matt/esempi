@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: galleria d'immagini con i valori delle tabelle</title>
+<meta charset="utf-8" />
+<style type="text/css" media="screen">
+body {
+    margin: 0 auto;
+    width: 500px;
+    padding: 2em 0;
+    font: 62.5%/1 Arial, sans-serif;
+}
+
+#gallery {
+    width: 490px;
+    margin: 0 auto;
+    padding: 0;
+    display: table;
+}
+
+#gallery .box-img {
+    width: 152px;
+    padding: 5px;
+    border: 1px solid #cbcbcb;
+    font-size: 1.2em;
+    display: table-cell;
+}
+
+#gallery .box-img img {
+    display: block;
+    width: 100%;
+}
+
+#gallery .box-img p {
+     text-align: center;
+     margin: 0;
+     padding: 4px 0;
+     color: #666;
+     font-variant: small-caps;
+}
+
+#gallery li {
+    list-style: none;
+    display: table-row;
+}
+</style>
+</head>
+
+<body>
+
+<ul id="gallery">
+
+<li>
+
+	<div class="box-img">
+	
+	    <img src="img/1.jpg" alt="Immagine" />
+	    <p>Didascalia</p>
+	
+	</div>
+	
+	<div class="box-img">
+	
+	    <img src="img/2.jpg" alt="Immagine" />
+	    <p>Didascalia</p>
+	
+	</div>
+	
+	<div class="box-img">
+	
+	    <img src="img/3.jpg" alt="Immagine" />
+	    <p>Didascalia</p>
+	
+	</div>
+
+</li>
+
+<li>
+
+	<div class="box-img">
+	
+	    <img src="img/3.jpg" alt="Immagine" />
+	    <p>Didascalia</p>
+	
+	</div>
+	
+	<div class="box-img">
+	
+	    <img src="img/2.jpg" alt="Immagine" />
+	    <p>Didascalia</p>
+	
+	</div>
+	
+	<div class="box-img">
+	
+	    <img src="img/1.jpg" alt="Immagine" />
+	    <p>Didascalia</p>
+	
+	</div>
+
+</li>
+
+
+
+
+
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: animazioni cicliche</title>
+<meta charset="utf-8" />
+<style type="text/css">
+#animated {
+	width: 400px;
+	height: 400px;
+	position: relative;
+	margin: 0 auto;
+}
+
+#animated #anim {
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	top: 50%;
+	margin-top: -50px;
+	left: 0;
+	display: none;
+}
+
+#animated #animline {
+	position: absolute;
+	top: 50%;
+	left: 100px;
+	width: 100px;
+	height: 100px;
+	margin-top: -50px;
+	display: none;
+}
+
+#animated #animtext {
+	position: absolute;
+	width: 150px;
+	text-align: center;
+	font: small Arial, sans-serif;
+	bottom: 133px;
+	right: 125px;
+	display: none;
+}
+	
+</style>
+</head>
+
+<body>
+
+<div id="animated">
+	<img src="anim1.png" alt="" id="anim" />
+	<img src="animline.png" alt="" id="animline" />
+	<div id="animtext"></div>
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+<script type="text/javascript">
+var images = ['anim1.png', 'anim2.png', 'anim3.png'];
+var texts = ['Lorem ipsum dolor', 'Sit Amet', 'Ideo Autem'];
+var counter = -1;
+var element = $('#animated');
+
+
+$(document).ready(function() {
+
+
+  var interval = window.setInterval(function() {
+  
+    counter += 1;
+    
+    if(counter == 3) {
+      
+      
+        counter = 0;
+      
+        
+     }
+     
+
+    
+    element.children().hide();
+    
+    element.find('#anim').attr('src', images[counter])
+     .show(1000, function() {
+     
+        $(this).next().show(1000, function() {
+        
+      
+          $(this).next().text(texts[counter]).show(1000);
+      
+      
+      });
+      
+    });
+
+}, 3000);  
+
+
+});
+</script>
+
+</body>
+</html>

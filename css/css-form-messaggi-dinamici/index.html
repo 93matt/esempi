@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: form con messaggi dinamici</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css" media="screen">
+	
+body {
+	
+	margin: 0 auto;
+	padding: 2em 0;
+	font: 100% Arial, sans-serif;
+	background: #fff;
+	color: #333;
+	width: 40em;
+	
+}
+
+
+#form {
+	
+	margin: 0;
+	height: 100%;
+	
+}
+
+#form ul {
+	
+	margin: 0;
+	list-style: none;
+	padding: 0;
+	
+}
+
+#form ul li {
+	
+	overflow: hidden;
+	padding-bottom: 0.5em;
+	
+}
+
+#form ul li label,
+#form ul li input {
+	
+	float: left;
+	margin-right: 5px;
+	
+}
+
+#form ul li label {
+	
+	
+	width: 5em;
+	font-weight: bold;
+	
+}
+
+#form ul li input {
+	
+	width: 150px;
+	border: 1px solid gray;
+	background: #fff;
+	font: 1em Arial, sans-serif;
+	margin-right: 0.5em;
+	
+}
+
+#form ul li span.info {
+	
+	float: left;
+	font-weight: bold;
+	text-transform: uppercase;
+	display: none;
+	
+}
+
+.required {
+	color: #d34545;
+}
+
+.optional {
+	color: #393;
+}
+
+#form ul li input:focus + span {
+	
+	display: block;
+	
+}
+
+#form p input {
+	
+	background: #d34545;
+	color: #fff;
+	font: bold 1em Arial, sans-serif;
+	width: 100px;
+	display: block;
+	padding: 5px;
+	border: none;
+}	
+	
+</style>
+</head>
+
+<body>
+
+<form action="#" id="form" method="post">
+	
+	<ul>
+		
+		<li>
+			
+			<label for="name">Nome</label>
+			<input type="text" name="name" id="name" />
+			<span class="info required">Campo richiesto</span>
+			
+		</li>
+		
+		<li>
+			
+			<label for="email">E-mail</label>
+			<input type="text" name="email" id="email" />
+			<span class="info required">Campo richiesto</span>
+			
+		</li>
+		
+		<li>
+			
+			<label for="url">URL</label>
+			<input type="text" name="url" id="url" />
+			<span class="info optional">Campo facoltativo</span>
+			
+		</li>
+		
+	</ul>
+	
+	<p><input type="submit" name="btn" id="btn" value="Invia" /></p>
+	
+	
+</form>
+</body>
+</html>
+

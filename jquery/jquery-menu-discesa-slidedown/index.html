@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: menu a discesa slide down</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	margin: 0;
+	padding: 0;
+	background: #f5f5f5;
+	color: #000;
+	font: 100% Arial, sans-serif;
+}
+
+#navigation {
+	background: #000;
+	height: 3em;
+	border-top: 0.3em solid #d34545;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#navigation > li {
+	float: left;
+	height: 100%;
+	margin-right: 1em;
+}
+
+#navigation > li > a {
+	float: left;
+	height: 100%;
+	line-height: 3;
+	padding: 0 1em;
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+#navigation > li > a:hover {
+	background: #d34545;
+}
+
+#navigation li ul {
+	background: #000;
+	margin: 0;
+	padding: 0.4em 2em;
+	list-style: none;
+	text-align: center;
+	border-radius: 0 0 6px 6px;
+	position: absolute;
+	display: none;
+}
+
+#navigation li ul li {
+	display: inline;
+	margin-right: 1em;
+}
+
+#navigation li ul li a {
+	color: #fff;
+	text-decoration: none;
+}
+
+</style>
+</head>
+
+<body>
+<ul id="navigation">
+	<li><a href="#">Home</a></li>
+	<li><a href="#">Articoli</a>
+	
+	  <ul>
+	  	<li><a href="#">Articolo 1</a></li>
+	  	<li><a href="#">Articolo 2</a></li>
+	  	<li><a href="#">Articolo 3</a></li>
+	  </ul>
+	
+	</li>
+	<li><a href="#">About</a></li>
+	<li><a href="#">Contatti</a></li>
+</ul>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+
+    $('li', '#navigation').each(function() {
+    
+      var $li = $(this);
+      
+      if($li.has('ul')) {
+      
+        var $a = $('a:first', $li);
+        var $ul = $a.next();
+        var left = $li.position().left;
+        var top = $('#navigation').height();
+        
+        $li.hover(function() {
+        
+          $ul.css({
+            top: top,
+            left: left
+          }).stop(true, true).
+          slideDown('slow');
+        
+        }, function() {
+        
+           $ul.stop(true, true).
+           slideUp('slow');
+        
+        
+        });
+      
+      
+      }
+    
+    });
+
+});
+</script>
+</body>
+</html>

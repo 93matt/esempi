@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>User-defined selectors</title>
+<meta charset="utf-8" />
+<style>
+#test {
+	padding: 1em;
+	background: #eee;
+	line-height: 1.5;
+}
+
+.first {
+	float: left;
+}
+
+.test {
+	font-size: 2em;
+	line-height: 0.8;
+	padding: 0.2em;
+	background: #666;
+	color: #fff;
+	margin: 0 0.3em 0.5em 0;
+}
+
+</style>
+</head>
+
+<body>
+
+<p id="test">
+	<span class="first">L</span>orem ipsum dolor sit amet. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum id ligula porta felis euismod semper. Donec ullamcorper nulla non metus auctor fringilla. Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script>
+(function($) {
+
+	$.extend($.expr[':'], {
+		floats: function(element) {
+			return $(element).css('float') !== 'none';
+		}
+	});
+	
+	$(function() {
+	
+		$(':floats', '#test').addClass('test');
+	
+	
+	});	 
+
+
+})(jQuery);
+</script>
+
+</body>
+</html>

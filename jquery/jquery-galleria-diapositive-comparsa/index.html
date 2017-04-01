@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: galleria di diapositive a comparsa</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	font: 100% Georgia, serif;
+	color: #333;
+	background: #eee;
+}
+
+#slides {
+	width: 900px;
+	height: 400px;
+	margin: 2em auto;
+	position: relative;
+	border: 0.5em solid #aaa;
+	border-radius: 15px;
+	box-shadow: 10px 10px 10px #ccc;
+}
+
+#slides div.slide {
+	width: 200px;
+	height: 200px;
+	border: 1px solid #999;
+	border-radius: 6px;
+	background: #fff;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	opacity: 0;
+	padding: 5px;
+}
+
+#slides div.slide div.slide-content {
+	width: 180px;
+	height: 180px;
+	margin: 10px auto;
+	padding: 5px;
+	border: 1px solid #bbb;
+	border-radius: 6px;
+	font-size: 2em;
+}
+
+#slides div.slide div.slide-content img {
+	display: block;
+	margin: 40px auto 0 auto;
+}
+</style>
+</head>
+
+<body>
+
+<div id="slides">
+	<div class="slide">
+		<div class="slide-content"><img src="1.jpg" alt="" /></div>
+	</div>
+	<div class="slide">
+		<div class="slide-content"><img src="2.jpg" alt="" /></div>
+	</div>
+	<div class="slide">
+		<div class="slide-content"><img src="3.jpg" alt="" /></div>
+	</div>
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="jquery.animate-enhanced.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+        $('div.slide', '#slides').each(function(count) {
+                var $slide = $(this);
+                var zoom = 10;
+                var offsetLeft = Math.floor(Math.random() * 450);
+                var offsetBottom = Math.floor(Math.random() * 30);
+                $slide.css({
+                    "left" : offsetLeft  + "px",
+                    "bottom" : offsetBottom  + "px"
+                });
+
+             
+                var degrees = Math.floor(Math.random() * 40) -20;
+                var rotations = "rotate(" + degrees + "deg)";
+                $slide.css({
+                       "transform" : rotations,
+                       "-moz-transform" : rotations,
+                       "-ms-transform" : rotations,
+                       "-o-transform" : rotations,
+                       "-webkit-transform" : rotations
+                });
+              
+                setTimeout(function() {
+                        $slide.animate({
+                               height: "+=" + zoom + "px",
+                               width: "+=" + zoom + "px",
+                               opacity: 1,
+                               leaveTransforms: true
+                           }, 4000);                           
+                }, (count*5000));
+                count++;
+         });
+         
+});
+</script>
+</body>
+</html>

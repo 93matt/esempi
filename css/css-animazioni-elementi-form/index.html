@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: animazioni sugli elementi dei form</title>
+<meta charset="utf-8" />
+<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css' />
+<style type="text/css">
+body {
+	margin: 0;
+	padding: 0;
+	background: #f5f5f5;
+	color: #222;
+	font: 100% Arial, sans-serif;
+}
+
+h1, p, form {
+	margin: 0;
+	padding: 0;
+}
+
+input {
+	font: 1em Arial, sans-serif;
+}
+
+
+#header {
+	height: 10.5em;
+	background: #000 url(header-repeat.jpg) repeat-x;
+	color: #fff;
+}
+
+#header-inner {
+	height: 100%;
+	background: transparent url(header.jpg) no-repeat;
+}
+
+#branding {
+	float: left;
+	width: 50%;
+	height: 100%;
+	position: relative;
+}
+
+#site-title {
+	font: normal 6em 'Oswald', sans-serif;
+	position: absolute;
+	top: 60px;
+	left: 1.5em;
+}
+#site-title a {
+	color: #fff;
+	text-decoration: none;
+}
+
+#site-description {
+	position: absolute;
+	bottom: 0;
+	right: 8em;
+	font-size: 2em;
+	background: #d34545;
+	padding: 16px 40px;
+	border-radius: 8px 8px 0 0;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+}
+
+#search {
+	float: right;
+	height: 100%;
+	width: 40%;
+	position: relative;
+}
+
+#search div {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	padding: 1em;
+	width: 20em;
+	background: #fff;
+	border-radius: 8px 8px 0 0;
+	text-align: center;
+}
+
+#search #q {
+	width: 190px;
+	border: 1px solid #aaa;
+	border-radius: 8px;
+	background: #fff;
+	-webkit-transition: all 1s ease-in-out;
+	-moz-transition: all 1s ease-in-out;
+	-o-transition: all 1s ease-in-out;
+	-ms-transition: all 1s ease-in-out;
+	transition: all 1s ease-in-out;
+}
+
+#search #q:focus {
+	width: 230px;
+	outline-style: none;
+	border-color: #000;
+	background: #eee;
+	font-size: 1.4em;
+}
+
+#search #s {
+	position: relative;
+	top: 1em;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<div id="site">
+
+
+	<div id="header">
+	
+	  <div id="header-inner">
+	
+		<div id="branding">
+		
+			<h1 id="site-title"><a href="#">Sito</a></h1>
+			<p id="site-description">Tagline</p>
+		
+		</div>
+		
+		<form id="search" action="#" method="get">
+		
+			<div>
+				<input type="text" id="q" name="q" />
+				<input type="image" name="s" id="s" alt="Cerca" src="search.png" />
+			</div>
+		
+		</form>
+		
+	  </div>
+	
+	</div>
+
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: parsing di una Google Sitemap</title>
+<meta charset="utf-8" />
+<style type="text/css" media="screen">
+body {
+    margin: 0 auto;
+    width: 60%;
+    padding: 2em 0;
+    background: #fff;
+    color: #333;
+    font: 76% Arial, sans-serif;
+}
+
+a:link, a:visited {color: #080;}
+
+h1 {
+    font: normal 1.6em "Trebuchet MS", Trebuchet, sans-serif;
+    color: #666;
+    margin: 5px 0;
+    padding-bottom: 3px;
+    border-bottom: 3px solid #999;
+    text-transform: uppercase;
+}
+
+#sitemap {
+    margin: 1em 0;
+    padding: 5px;
+    border: 2px solid #c4df9b;
+    background: #edf5e1;
+    list-style: none;
+    font-size: 1.1em;
+}
+
+#sitemap li {
+    margin-bottom: 6px;
+}
+
+#sitemap li div.lastmod {
+    font-family: Verdana, sans-serif;
+    font-size: small;
+    height: 100%;
+    margin-bottom: 4px;
+    padding: 3px 0;
+    border-top: 1px dashed #666;
+    border-bottom: 1px dashed #666;
+    font-style: italic;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>Sitemap di www.css-zibaldone.com</h1>
+
+
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+function formatDate(timestamp) {
+
+   var dateParts = timestamp.split('-');
+   
+   var year = dateParts[0];
+   var rawMonth = dateParts[1];
+   var month;
+   var day = dateParts[2];
+   
+   switch(rawMonth) {
+   
+       case '01':
+         month = 'Gennaio';
+         break;
+       case '02':
+         month = 'Febbraio';
+         break;
+       case '03':
+         month = 'Marzo';
+         break;
+       case '04':
+         month = 'Aprile';
+         break;
+       case '05':
+         month = 'Maggio';
+         break;
+       case '06':
+         month = 'Giugno';
+         break;
+        case '07':
+         month = 'Luglio';
+         break;
+       case '08':
+         month = 'Agosto';
+         break;
+       case '09':
+         month = 'Settembre';
+         break;
+        case '10':
+         month = 'Ottobre';
+         break;
+       case '11':
+         month = 'Novembre';
+         break;
+       case '12':
+         month = 'Dicembre';
+         break;
+       default:
+         break;
+
+   
+   
+   }
+  
+   return month + ' ' + day + ',' + ' ' + year;  
+}
+
+
+$(document).ready(function() {
+
+    $('<ul id="sitemap"></ul>').insertAfter('h1');
+
+    $.get('sitemap.xml', function(xml) {
+    
+        $(xml).find('loc').each(function() {
+	
+	var rawUrl = $(this).text();
+	var rawLastMod = $(this).parent().find('lastmod').text();
+	var $url;
+	var $lastMod;
+	var timestamp;
+	var $li = $('<li></li>');
+	
+	if(rawUrl.indexOf('index.html') != -1) {
+	
+	     $url = rawUrl.replace('index.html', '');
+	
+	} else {
+	
+	     $url = rawUrl;
+	
+	}
+	
+	timestamp = rawLastMod.replace(/T.+/g, '');
+	$lastMod = formatDate(timestamp);
+	
+	$li.html('<a href="' + $url + '">' + $url + '</a>' + '<div class="lastmod">Ultima modifica: ' + $lastMod + '</div>');
+	
+	$li.appendTo('#sitemap');
+	
+	
+	
+	
+        });
+    
+    
+    });
+
+
+});
+</script>
+
+</body>
+</html>

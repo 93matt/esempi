@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: formattare i post di un blog</title>
+<meta charset="utf-8">
+<style type="text/css">
+body {
+	margin: 2em; 
+	padding: 0; 
+	font: 100.01%/1.5 Helvetica, Arial, sans-serif;
+}
+	
+.post {
+	width: 45%;  
+	margin: 1em auto; 
+	font-size: 80%;
+}
+.post:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+.post h2 {
+	line-height: normal; 
+	margin: 0; 
+	padding-bottom: 2px; 
+	border-bottom: 1px solid #ccc; 
+	color: #323232; 
+	padding-left: 25%;
+	font-size: 1.4em;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+}
+.contents {
+	float: right; 
+	width: 75%; 
+	margin: 0; 
+	padding-top: 1em;
+}
+.contents p {
+	margin: 0 0 1em 0;
+}
+.info {
+	float: left;
+	margin: 1em 0 0 0;
+	width: 25%;
+	padding: 0;
+	list-style: none;
+}
+
+.info li.social {
+	height: 32px;
+	margin-top: 0.5em;
+}
+
+.twitter, .facebook {
+	display: block;
+	width: 32px;
+	height: 32px;
+	background-repeat: no-repeat;
+	text-indent: -1000em;
+	margin-right: 5px;
+	float: left;
+}
+
+.twitter {
+	background-image: url(twitter.png);
+}
+
+.facebook {
+	background-image: url(facebook.png);
+}
+</style>
+	</head>
+
+<body>
+<div class="post">
+<h2>Titolo</h2>
+<div class="contents">
+<p>Quel ramo del lago di Como, che volge a mezzogiorno, tra due catene
+non interrotte di monti, tutto a seni e golfi, a seconda dello
+sporgere e del rientrare di quelli, vien, quasi a un tratto,
+a ristringersi, e a prender corso e figura di fiume, tra un
+promontorio a destra, e un'ampia costiera dall'altra parte;
+e il ponte, che ivi congiunge le due rive, par che renda ancor
+pi&ugrave; sensibile all'occhio questa trasformazione, e segni
+il punto in cui il lago cessa, e l'Adda rincomincia, per ripigliar
+poi nome di lago dove le rive, allontanandosi di nuovo, lascian
+l'acqua distendersi e rallentarsi in nuovi golfi e in nuovi seni.</p>
+
+<p>Cogitanti mihi saepe numero et memoria vetera repetenti perbeati fuisse, Quinte
+frater, illi videri solent, qui in optima re publica, cum et honoribus et rerum gestarum
+gloria florerent, eum vitae cursum tenere potuerunt, ut vel in negotio sine periculo
+vel in otio cum dignitate esse possent.</p>
+
+<p>Magna nobis pueris, Quinte frater, si memoria tenes, opinio fuit
+L. Crassum non plus attigisse doctrinae, quam quantum prima illa puerili
+institutione potuisset; M. autem Antonium omnino omnis eruditionis expertem
+atque ignarum fuisse.</p>
+
+<p>Instituenti mihi, Quinte frater, eum sermonem referre et mandare huic tertio
+libro, quem post Antoni disputationem Crassus habuisset, acerba sane
+recordatio veterem animi curam molestiamque renovavit.</p>
+</div>
+
+<ul class="info">
+<li><strong>Autore:</strong> Tizio</li>
+<li><strong>Data:</strong> 16 luglio 2011</li>
+<li><strong>Categoria:</strong> Web</li>
+<li class="social"><a href="#" class="twitter">Twitter</a> <a href="#" class="facebook">Facebook</a></li>
+</ul>
+
+</div>
+
+<div class="post">
+<h2>Titolo 2</h2>
+<div class="contents">
+
+<p>Cogitanti mihi saepe numero et memoria vetera repetenti perbeati fuisse, Quinte
+frater, illi videri solent, qui in optima re publica, cum et honoribus et rerum gestarum
+gloria florerent, eum vitae cursum tenere potuerunt, ut vel in negotio sine periculo
+vel in otio cum dignitate esse possent.</p>
+
+<p>Magna nobis pueris, Quinte frater, si memoria tenes, opinio fuit
+L. Crassum non plus attigisse doctrinae, quam quantum prima illa puerili
+institutione potuisset; M. autem Antonium omnino omnis eruditionis expertem
+atque ignarum fuisse.</p>
+
+<p>Instituenti mihi, Quinte frater, eum sermonem referre et mandare huic tertio
+libro, quem post Antoni disputationem Crassus habuisset, acerba sane
+recordatio veterem animi curam molestiamque renovavit.</p>
+</div>
+
+<ul class="info">
+<li><strong>Autore:</strong> Tizio</li>
+<li><strong>Data:</strong> 14 luglio 2011</li>
+<li><strong>Categoria:</strong> SEO</li>
+<li class="social"><a href="#" class="twitter">Twitter</a> <a href="#" class="facebook">Facebook</a></li>
+</ul>
+
+</div>
+
+
+
+
+
+</body>
+</html>

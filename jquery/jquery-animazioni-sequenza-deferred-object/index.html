@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: animazioni in sequenza con i deferred objects</title>
+<meta charset="utf-8" />
+<style type="text/css">
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	min-height: 100%;
+}
+
+body {
+	position: relative;
+}
+
+#topleft, #topright,
+#bottomleft, #bottomright,
+#center {
+	position: absolute;
+}
+
+#topleft, #topright,
+#bottomleft, #bottomright {
+	width: 100px;
+	height: 100px;
+	z-index: 2;
+}
+
+#center {
+	top: 50%;
+	left: 50%;
+	margin: -100px 0 0 -100px;
+	width: 200px;
+	height: 200px;
+	background: #ccc;
+	z-index: 1;
+}
+
+#topleft {
+	top: 0;
+	left: 0;
+	background: #00f;
+}
+
+#topright {
+	top: 0;
+	right: 0;
+	background: #f00;
+}
+
+#bottomleft {
+	bottom: 0;
+	left: 0;
+	background: #800;
+}
+
+#bottomright {
+	bottom: 0;
+	right: 0;
+	background: #008;
+}
+
+</style>
+</head>
+
+<body>
+<div id="topleft"></div>
+<div id="topright"></div>
+<div id="bottomleft"></div>
+<div id="bottomright"></div>
+
+<div id="center"></div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+var Animation = new function() {
+
+	var center = $('#center');
+	var coordinates = {
+	
+		top: center.offset().top,
+		left: center.offset().left
+	
+	};
+		
+	this.run = function() {
+	
+		setTimeout(function() {
+	
+	    	$.Deferred(function(dfr) {
+	    	
+	    		
+	    		dfr.pipe(function() {
+	    		
+	    			return $('#topleft').animate({
+	    				top: coordinates.top,
+	    				left: coordinates.left
+	    			}, 'slow');
+	    		
+	    		}).
+	    		pipe(function() {
+	    		
+	    			return $('#topright').animate({
+	    				top: coordinates.top,
+	    				left: coordinates.left + 100
+	    			}, 'slow');
+	    		
+	    		}).
+	    		pipe(function() {
+	    		
+	    			return $('#bottomleft').animate({
+	    				top: coordinates.top + 100,
+	    				left: coordinates.left
+	    			}, 'slow');
+	    		
+	    		}).
+	    		pipe(function() {
+	    		
+	    			return $('#bottomright').animate({
+	    				top: coordinates.top +100,
+	    				left: coordinates.left + 100
+	    			}, 'slow');
+	    		
+	    		}).
+	    		pipe(function() {
+	    		
+	    			return center.animate({
+	    				top: 0,
+	    				left: 0,
+	    				width: '100%',
+	    				height: '100%',
+	    				margin: 0
+	    			}, 'slow');
+	    		
+	    		});
+	    	
+	    	
+	    	}).resolve();
+	    
+	    }, 2000);
+	
+	};
+	
+
+}();
+
+$(function() {
+
+	Animation.run();
+
+});
+</script>
+</body>
+</html>

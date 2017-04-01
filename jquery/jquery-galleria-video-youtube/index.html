@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: creare una galleria di video di YouTube</title>
+<meta charset="utf-8" />
+<style type="text/css" media="screen">
+#youtube {
+	width: 70%;
+	max-width: 900px;
+	margin: 2em auto;
+	font: 90% Arial, sans-serif;
+}
+
+#youtube ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	overflow: hidden;
+}
+
+#youtube li {
+	float: left;
+	margin: 0 5px 1em 0;
+	width: 32%;
+	position: relative;
+	height: 290px;
+}
+
+#youtube h3 {
+	margin: 0;
+	font-size: 1em;
+	font-weight: bold;
+	color: #b10;
+	padding-bottom: 5px;
+}
+
+#youtube iframe {
+	display: block;
+	width: 100%;
+	height: 250px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="youtube"></div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+function showVideos(data) {
+  var feed = data.feed;
+  var entries = feed.entry || [];
+  var html = ['<ul>'];
+  for (var i = 0; i < entries.length; i++) {
+    var entry = entries[i];
+    var title = '<h3>' + entry.title.$t + '</h3>';
+    var urlStr = entry.media$group.media$content[0].url;
+    var url = urlStr.substring(0, urlStr.indexOf('?'));
+    var iframe = '<iframe src="' + url + '" width="400" height="300" border="0" frameborder="0" allowFullScreen></iframe>';
+    html.push('<li>', title, iframe, '</li>');
+  }
+  html.push('</ul>');
+  document.getElementById('youtube').innerHTML = html.join('');
+}
+
+$(function() {
+
+	var url = 'http://gdata.youtube.com/feeds/users/gabrieleromanato/uploads?alt=json&max-results=6';
+	
+	$.getJSON(url, function(data) {
+	
+		showVideos(data);
+		
+		console.log(data);
+	
+	
+	});
+
+
+});
+</script>
+
+</body>
+</html>

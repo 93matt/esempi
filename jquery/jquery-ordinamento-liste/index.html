@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: ordinamento delle liste</title>
+<meta charset="utf-8" />
+<style type="text/css">
+#sortable {
+	width: 200px;
+	margin: 2em;
+	padding: 0;
+	font: 90% Arial, sans-serif;
+	list-style: none;
+}
+
+#sortable li {
+	padding-bottom: 3px;
+	margin-bottom: 0.5em;
+	border-bottom: 1px dotted #999;
+}
+
+p {
+	padding-left: 1em;
+}
+
+p a {
+	background: #c30;
+	color: #fff;
+	padding: 5px;
+	text-decoration: none;
+	margin-right: 0.5em;
+	font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<ul id="sortable">
+	<li>jQuery</li>
+	<li>CSS</li>
+	<li>WordPress</li>
+	<li>PHP</li>
+	<li>HTML5</li>
+	<li>JavaScript</li>
+</ul>
+
+<p><a href="#" id="asc">Ascendente</a> <a href="#" id="desc">Discendente</a></p>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+var Sortable = {};  
+Sortable.sort = function(which, dir) {  
+  Sortable.dir = (dir == 'desc') ? -1 : 1;  
+  $(which).each(function() {    
+    var sorted = $(this).find('> li').sort(function(a, b) {  
+      return $(a).text().toLowerCase() > $(b).text().toLowerCase() ?  
+        Sortable.dir : -Sortable.dir;  
+    });  
+    $(this).append(sorted);  
+  });  
+};  
+
+$(function() {
+
+	$('#asc').click(function() {
+	
+		Sortable.sort('#sortable', 'asc');
+		
+		return false;
+	
+	
+	});
+	
+	$('#desc').click(function() {
+	
+		Sortable.sort('#sortable', 'desc');
+		
+		return false;
+	
+	
+	});
+
+});
+</script>
+</body>
+</html>

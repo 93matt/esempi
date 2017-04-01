@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: creare colonne di uguale altezza</title>
+<meta charset="utf-8" />
+<style>
+
+* {margin: 0; padding: 0;}
+
+#site {width: 100%;}
+#branding {
+    background: black;
+    
+}
+
+#branding h1 {
+    
+    margin: 0;
+    padding: 1em;
+    color: white;
+}
+
+#content {
+    
+    height: 100%;
+    overflow: hidden;
+    width: 70%;
+    margin: 0 auto;
+}
+
+#main, #content-sub {
+    
+    float: left;
+    width: 50%;
+}
+
+#main {
+    
+    background: orange;
+}
+
+#content-sub {
+    
+    background: yellow;
+}
+
+#site-info {
+    
+    clear: both;
+    padding: 2em;
+    font-weight: bold;
+    background: black;
+    color: white;
+}
+
+</style>
+</head>
+
+<body>
+    
+<div id="site">
+    
+    <div id="branding"><h1>Test</h1></div>
+    
+    <div id="content">
+        
+        
+        <div id="main">
+            
+            Test
+            
+        </div>
+        
+        
+        <div id="content-sub">
+            
+            
+            Test
+            
+        </div>
+        
+        
+    </div>
+    
+    <div id="site-info">Test</div>
+    
+</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+
+
+$(document).ready(function() {
+    
+    
+   var docHeight = $(document).height();
+   $('#main, #content-sub').css('height', docHeight);
+    
+    
+});
+
+
+</script>
+</body>
+</html>
+

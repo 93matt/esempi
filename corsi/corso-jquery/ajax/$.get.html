@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>$.get()</title>
+<meta charset="utf-8" />
+</head>
+
+<body>
+
+<p>String: <input type="text" name="str" id="str"/> Encoding: 
+<select id="encoding" name="encoding">
+	<option>Choose</option>
+	<option value="md5">MD5</option>
+	<option value="sha1">SHA1</option>
+</select>
+<button id="send">View</button>
+</p>
+<div id="output"></div>
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script>
+$(function() {
+
+	$('#send').click(function() {
+	
+		var str = $('#str').val();
+		var encoding = $('option:selected', '#encoding').val();
+		var url = 'get.php';
+		var dataQuery = 'str=' + str + '&encoding=' + encoding;
+		
+		$.get(url, dataQuery, function(text) {
+		
+			$('#output').text(text);
+		
+		});
+	
+	});
+});
+</script>
+
+
+</body>
+</html>

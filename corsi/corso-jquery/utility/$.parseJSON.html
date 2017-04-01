@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>$.parseJSON()</title>
+<meta charset="utf-8" />
+</head>
+
+<body>
+
+<p><button id="parse">$.parseJSON()</button></p>​
+
+<div id="test">{"test": "String", "prop": 1}</div>
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script>
+$(function() {
+
+	$('#parse').click(function() {
+	
+		var jsonStr = $('#test').text();
+		alert($.parseJSON(jsonStr));
+	
+	});
+
+});
+</script>
+
+</body>
+</html>

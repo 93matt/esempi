@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: riproduzione di una scheda personale</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	margin: 2em;
+	padding: 0;
+	font-family: Helvetica, Arial, sans-serif;
+	background: #fff;
+	color: #000;
+}
+
+.scheda {
+	border: 1px solid #000; 
+	width: 30%;
+	margin: 0 auto;
+}
+.scheda:after {
+	content: ".";
+	display: block;
+	height: 0;
+	overflow: hidden;
+	clear: both;
+	visibility: hidden;
+}
+
+h2 {
+	border-bottom: 1px solid #000; 
+	text-transform: uppercase; 
+	margin: 0; 
+	padding: 0.5em;
+}
+
+p.numero {
+	font-size: 2em; 
+	float: left; 
+	margin: 0; 
+	width: 1em; 
+	padding: 0.2em 0.1em 0 0.5em;
+}
+ul.dati {
+	width: 80%; 
+	float: left; 
+	margin: 0; 
+	padding: 0;
+}
+
+ul.dati li {
+	display: block;
+	margin: 1em 0;
+	border-bottom: 1px solid;
+}
+
+ul.dati li strong {
+	padding: 0 0.2em 0.3em 0;
+	background: #fff;
+	color: #000;
+	position: relative;
+	bottom: -0.4em;
+}
+</style>
+</head>
+<body>
+
+<div class="scheda">
+  <h2>I miei dati anagrafici</h2>
+  <p class="numero">1.</p>
+  <ul class="dati">
+	<li><strong>Nome</strong></li>
+	<li><strong>Cognome</strong></li>
+	<li><strong>Luogo di nascita</strong></li>
+	<li><strong>Data di nascita</strong></li>
+	<li><strong>Nazionalit&agrave;</strong></li>
+	<li><strong>Indirizzo</strong></li>
+	<li><strong>Numero di telefono</strong></li>
+	<li><strong>Persone con cui vivo</strong></li>
+  </ul>
+</div>
+
+</body>
+</html>

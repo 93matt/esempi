@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: rotazione e animazione di immagini</title>
+<meta charset="utf-8" />
+<style>
+body {
+	margin: 0;
+	padding: 2em 0;
+}
+
+#container {
+	width: 860px;
+	height: 200px;
+	margin: 0 auto;
+	padding: 2em 0;
+}
+
+#container img {
+	float: left;
+	width: 200px;
+	height: 150px;
+	margin-right: 5px;
+	cursor: pointer;
+	position: relative;
+}
+
+img.rotated {
+	-moz-transform: rotate(-5deg);
+	-webkit-transform: rotate(-5deg);
+	-o-transform: rotate(-5deg);
+}
+</style>
+</head>
+
+<body>
+
+<div id="container">
+
+	<img src="2.jpg" alt="" />
+	<img src="3.jpg" alt="" />
+	<img src="4.jpg" alt="" />
+	<img src="5.jpg" alt="" />
+
+
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+
+  $('img', '#container').each(function() {
+  
+    var $img = $(this);
+    $img.hover(function() {
+    
+      $img.stop(true, true).animate({
+        top: - 32
+      }, 'slow', function() {
+      
+        $img.addClass('rotated');
+      
+      
+      });
+    
+    }, function() {
+    
+      $img.stop(true, true).animate({
+        top: 0
+      }, 'slow', function() {
+      
+        $img.removeClass('rotated');
+      
+      });
+    
+    });
+    
+  
+  
+  });
+
+
+});
+</script>
+
+</body>
+</html>

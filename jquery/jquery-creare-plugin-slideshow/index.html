@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: creare un plugin per slideshow</title>
+<meta charset="utf-8" />
+<style type="text/css">
+#slideshow {
+	margin: 2em auto;
+	background: #000;
+	border: 8px solid #888;
+}
+
+#controls {
+	width: 600px;
+	text-align: center;
+	margin: 1em auto;
+}
+
+#controls a {
+	color: #d34545;
+	font-size: 2em;
+	margin-right: 10px;
+	text-decoration: none;
+}
+</style>
+</head>
+
+<body>
+
+<div id="slideshow">
+  <div id="slideshow-wrapper">
+	<img src="1.jpg" alt="" />
+	<img src="2.jpg" alt="" />
+	<img src="3.jpg" alt="" />
+	<img src="4.jpg" alt="" />
+  </div>
+</div>
+<div id="controls">
+	<a href="#" id="prev">&laquo;</a>
+	<a href="#" id="next">&raquo;</a>
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+(function($) {
+
+	$.fn.slideshow = function(options) {
+	
+	
+		var that = this;
+		
+		var settings = {
+		
+			wrapper: '#slideshow-wrapper',
+			width: 600,
+			height: 400,
+			speed: 1000,
+			prevBtn: '#prev',
+			nextBtn: '#next'
+		
+		
+		};
+		
+		options = $.extend(settings, options);
+		
+		
+		var imgLength = $('img', that).length;
+		
+		that.css({
+			width: options.width,
+			height: options.height,
+			position: 'relative',
+			overflow: 'hidden'
+	    });
+	    
+	    $(options.wrapper).css({
+	    	width: options.width * imgLength,
+	    	height: options.height,
+	    	position: 'relative'
+	    });
+	    
+	    $('img', that).css({
+	    	'float': 'left',
+	    	width: options.width,
+	    	height: options.height,
+	    	position: 'relative'
+	    });
+		  
+		return that.each(function() {
+		
+			var index = 0;
+			var $wrapper = $(options.wrapper);
+		
+			$(options.prevBtn).click(function(event) {
+		  		
+		    	index--;
+		    	
+		    	if(index < 0) {
+		    	
+		    		index = (imgLength - 1);
+		    		$wrapper.css('left',  - ($('img', that).eq(index).position().left));
+		    	
+		    	    
+		    	} else {
+		    	
+		    		var img = $('img', that).eq(index);
+		    		var ratio = img.position().left;
+		    	
+		    		$wrapper.animate({
+		    			left: - ratio
+		    		}, options.speed);
+		    	
+		    	}
+		    	
+		    	
+		  
+		  
+		    	event.preventDefault();
+		  
+		  	});
+		  	
+		  	$(options.nextBtn).click(function(event) {
+		  	
+		    	index++;
+		    	
+		    	if(index > (imgLength - 1)) {
+		    	
+		    		index = 0;
+		    		$wrapper.css('left', 'auto');
+		    	
+		    	
+		    	}
+		    	
+		    	var img = $('img', that).eq(index);
+		    	var ratio = img.position().left;
+		    	
+		    	$wrapper.animate({
+		    		left: - ratio
+		    	}, options.speed);
+		    	
+		    	
+		  
+		  
+		    	event.preventDefault();
+		  
+		  	});
+
+		
+		
+		
+		});
+	
+	
+	};
+
+
+})(jQuery);
+
+$(function() {
+
+  $('#slideshow').slideshow();
+
+});
+</script>
+</body>
+</html>

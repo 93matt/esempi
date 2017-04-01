@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: menu di navigazione in stile filesystem</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	font-family: Arial, sans-serif;
+}
+
+.tree_controls {
+	background: #ccc url(img/gradient.gif) repeat-x;
+	border: 1px solid #ddd;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	color: #999;
+	font-size: 10px;
+	margin: 0;
+	overflow: hidden;
+	padding: 5px 0;
+	text-align: center;
+	width: 140px;
+}
+
+.tree_controls a {
+	color: #333;
+	text-decoration: none;
+}
+
+.tree_controls a:hover {
+	text-decoration: underline;
+}
+
+.tree {
+	clear: both;
+	margin: 0 0 20px;
+	padding: 5px 0 0;
+}
+
+.tree,
+.tree ul {
+	background: url(img/grey_line.gif) repeat-y;
+}
+
+.tree ul {
+	margin: -4px 0 0 4px;
+	padding: 5px 0 0;
+}
+
+.tree li {
+	background: url(img/tree_li.gif) no-repeat 0 11px;
+	clear: both;
+	list-style: none;
+	padding: 5px 0 0 10px;
+}
+
+.tree li.last,
+.tree li:last-child {
+	background: #fff url(img/tree_li_last.gif) no-repeat 0 -481px;
+}
+
+.tree .tree_trigger,
+.tree .tree_slug {
+	background: url(img/tree_icons.gif) no-repeat;
+	display: inline;
+	float: left;
+	font-size: 0;
+	margin: 2px 5px 0 0;
+	overflow: hidden;
+	text-decoration: none;
+	width: 9px;
+	height: 9px;
+}
+
+.tree .tree_trigger_expanded {
+	background-position: -9px 0;
+}
+
+.tree .tree_slug {
+	background-position: -18px 0;
+}
+
+.tree ul {
+	display: none;
+}
+
+.tree .tree_expanded {
+	display: block;
+}
+</style>
+</head>
+
+<body>
+<div id="container">
+	<p class="tree_controls">
+		<a href="#" class="expand_all">Espandi tutto</a> ~ <a href="#" class="collapse_all">Collassa tutto</a>
+	</p>
+	<ul class="tree">
+		<li>
+			<a href="#" class="tree_trigger">&nbsp;</a> Primo
+			<ul class="tree_expanded">
+				<li>
+					<a href="#" class="tree_trigger">&nbsp;</a> Secondo
+					<ul class="tree_expanded">
+						<li>
+							<a href="#" class="tree_trigger">&nbsp;</a> Terzo
+							<ul>
+								<li>
+									<span class="tree_slug">&nbsp;</span> Quarto
+								</li>
+								<li>
+									<span class="tree_slug">&nbsp;</span> Quarto
+								</li>
+								<li>
+									<span class="tree_slug">&nbsp;</span> Quarto
+								</li>
+								<li>
+									<span class="tree_slug">&nbsp;</span> Quarto
+								</li>
+								<li>
+									<span class="tree_slug">&nbsp;</span> Quarto
+								</li>
+							</ul>
+						</li>
+						<li>
+							<span class="tree_slug">&nbsp;</span> Terzo
+						</li>
+						<li>
+							<span class="tree_slug">&nbsp;</span> Terzo
+						</li>
+						<li>
+							<span class="tree_slug">&nbsp;</span> Terzo
+						</li>
+						<li>
+							<span class="tree_slug">&nbsp;</span> Terzo
+						</li>
+					</ul>
+				</li>
+				<li>
+					<span class="tree_slug">&nbsp;</span> Secondo
+				</li>
+				<li>
+					<span class="tree_slug">&nbsp;</span> Secondo
+				</li>
+				<li>
+					<span class="tree_slug">&nbsp;</span> Secondo
+				</li>
+				<li>
+					<span class="tree_slug">&nbsp;</span> Secondo
+				</li>
+			</ul>
+		</li>
+		<li>
+			<a href="#" class="tree_trigger">&nbsp;</a> Primo
+			<ul>
+				<li>
+					<a href="#" class="tree_trigger">&nbsp;</a> Secondo
+					<ul>
+						<li>
+							<a href="#" class="tree_trigger">&nbsp;</a> Terzo
+							<ul>
+								<li>
+									<span class="tree_slug">&nbsp;</span> Quarto
+								</li>
+								<li>
+									<span class="tree_slug">&nbsp;</span> Quarto
+								</li>
+								<li>
+									<span class="tree_slug">&nbsp;</span> Quarto
+								</li>
+								<li>
+									<span class="tree_slug">&nbsp;</span> Quarto
+								</li>
+								<li>
+									<span class="tree_slug">&nbsp;</span> Quarto
+								</li>
+							</ul>
+						</li>
+						<li>
+							<span class="tree_slug">&nbsp;</span> Terzo
+						</li>
+						<li>
+							<span class="tree_slug">&nbsp;</span> Terzo
+						</li>
+						<li>
+							<span class="tree_slug">&nbsp;</span> Terzo
+						</li>
+						<li>
+							<span class="tree_slug">&nbsp;</span> Terzo
+						</li>
+					</ul>
+				</li>
+				<li>
+					<span class="tree_slug">&nbsp;</span> Secondo
+				</li>
+				<li>
+					<span class="tree_slug">&nbsp;</span> Secondo
+				</li>
+				<li>
+					<span class="tree_slug">&nbsp;</span> Secondo
+				</li>
+				<li>
+					<span class="tree_slug">&nbsp;</span> Secondo
+				</li>
+			</ul>
+		</li>
+		<li>
+			<a href="#" class="tree_trigger">&nbsp;</a> Primo
+			<ul>
+				<li>
+					<a href="#" class="tree_trigger">&nbsp;</a> Secondo
+					<ul>
+						<li>
+							<a href="#" class="tree_trigger">&nbsp;</a> Terzo
+							<ul>
+								<li>
+									<span class="tree_slug">&nbsp;</span> Quarto
+								</li>
+								<li>
+									<span class="tree_slug">&nbsp;</span> Quarto
+								</li>
+								<li>
+									<span class="tree_slug">&nbsp;</span> Quarto
+								</li>
+								<li>
+									<span class="tree_slug">&nbsp;</span> Quarto
+								</li>
+								<li>
+									<span class="tree_slug">&nbsp;</span> Quarto
+								</li>
+							</ul>
+						</li>
+						<li>
+							<span class="tree_slug">&nbsp;</span> Terzo
+						</li>
+						<li>
+							<span class="tree_slug">&nbsp;</span> Terzo
+						</li>
+						<li>
+							<span class="tree_slug">&nbsp;</span> Terzo
+						</li>
+						<li>
+							<span class="tree_slug">&nbsp;</span> Terzo
+						</li>
+					</ul>
+				</li>
+				<li>
+					<span class="tree_slug">&nbsp;</span> Secondo
+				</li>
+				<li>
+					<span class="tree_slug">&nbsp;</span> Secondo
+				</li>
+				<li>
+					<span class="tree_slug">&nbsp;</span> Secondo
+				</li>
+				<li>
+					<span class="tree_slug">&nbsp;</span> Secondo
+				</li>
+			</ul>
+		</li>
+		<li>
+			<a href="#" class="tree_trigger">&nbsp;</a> Primo
+			<ul>
+				<li>
+					<a href="#" class="tree_trigger">&nbsp;</a> Secondo
+					<ul>
+						<li>
+							<a href="#" class="tree_trigger">&nbsp;</a> Terzo
+							<ul>
+								<li>
+									<span class="tree_slug">&nbsp;</span> Quarto
+								</li>
+								<li>
+									<span class="tree_slug">&nbsp;</span> Quarto
+								</li>
+								<li>
+									<span class="tree_slug">&nbsp;</span> Quarto
+								</li>
+								<li>
+									<span class="tree_slug">&nbsp;</span> Quarto
+								</li>
+								<li>
+									<span class="tree_slug">&nbsp;</span> Quarto
+								</li>
+							</ul>
+						</li>
+						<li>
+							<span class="tree_slug">&nbsp;</span> Terzo
+						</li>
+						<li>
+							<span class="tree_slug">&nbsp;</span> Terzo
+						</li>
+						<li>
+							<span class="tree_slug">&nbsp;</span> Terzo
+						</li>
+						<li>
+							<span class="tree_slug">&nbsp;</span> Terzo
+						</li>
+					</ul>
+				</li>
+				<li>
+					<span class="tree_slug">&nbsp;</span> Secondo
+				</li>
+				<li>
+					<span class="tree_slug">&nbsp;</span> Secondo
+				</li>
+				<li>
+					<span class="tree_slug">&nbsp;</span> Secondo
+				</li>
+				<li>
+					<span class="tree_slug">&nbsp;</span> Secondo
+				</li>
+			</ul>
+		</li>
+		<li>
+			<a href="#" class="tree_trigger">&nbsp;</a> Primo
+			<ul>
+				<li>
+					<a href="#" class="tree_trigger">&nbsp;</a> Secondo
+					<ul>
+						<li>
+							<a href="#" class="tree_trigger">&nbsp;</a> Terzo
+							<ul>
+								<li>
+									<span class="tree_slug">&nbsp;</span> Quarto
+								</li>
+								<li>
+									<span class="tree_slug">&nbsp;</span> Quarto
+								</li>
+								<li>
+									<span class="tree_slug">&nbsp;</span> Quarto
+								</li>
+								<li>
+									<span class="tree_slug">&nbsp;</span> Quarto
+								</li>
+								<li>
+									<span class="tree_slug">&nbsp;</span> Quarto
+								</li>
+							</ul>
+						</li>
+						<li>
+							<span class="tree_slug">&nbsp;</span> Terzo
+						</li>
+						<li>
+							<span class="tree_slug">&nbsp;</span> Terzo
+						</li>
+						<li>
+							<span class="tree_slug">&nbsp;</span> Terzo
+						</li>
+						<li>
+							<span class="tree_slug">&nbsp;</span> Terzo
+						</li>
+					</ul>
+				</li>
+				<li>
+					<span class="tree_slug">&nbsp;</span> Secondo
+				</li>
+				<li>
+					<span class="tree_slug">&nbsp;</span> Secondo
+				</li>
+				<li>
+					<span class="tree_slug">&nbsp;</span> Secondo
+				</li>
+				<li>
+					<span class="tree_slug">&nbsp;</span> Secondo
+				</li>
+			</ul>
+		</li>
+	</ul>
+</div>
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+function createTree() {
+
+	
+	if (!$('ul.tree').length) {
+
+	
+		return;
+	}
+
+
+	$('p.tree_controls a.expand_all, p.tree_controls a.collapse_all').click(function() {
+
+		
+		if ($(this).hasClass('expand_all')) {
+				$(this).parent('p').next('ul').find('a.tree_trigger').addClass('tree_trigger_expanded').end().find('ul').addClass('tree_expanded');
+				return false;
+		} else {
+				$(this).parent('p').next('ul').find('a.tree_trigger').removeClass('tree_trigger_expanded').end().find('ul').removeClass('tree_expanded');
+		}
+
+		
+		this.blur();
+		return false;
+	});
+
+
+	$('ul.tree a.tree_trigger').live('click', function() {
+
+		if ($(this).next('ul').is(':hidden')) {
+			$(this).addClass('tree_trigger_expanded').next('ul').addClass('tree_expanded');
+		} else {
+			$(this).removeClass('tree_trigger_expanded').next('ul').removeClass('tree_expanded');
+		}
+
+		this.blur();
+		return false;
+	});
+
+	$('ul.tree li:last-child').addClass('last');
+
+	$('ul.tree_expanded').prev('a').addClass('tree_trigger_expanded');
+}
+
+$(function() {
+	createTree();
+});
+
+</script>
+</body>
+</html>

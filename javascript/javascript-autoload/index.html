@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JavaScript: autoload e ordine automatico di esecuzione dei metodi di una classe</title>
+<meta charset="utf-8" />
+<script type="text/javascript">
+
+var Class = {
+    
+    property: 'Test',
+    
+    method1: function() {
+        
+        alert(Class.property + ' 1');
+        
+    },
+    
+    method2: function() {
+        
+        
+        alert(Class.property + ' 2');
+        
+    },
+    
+    method3: function() {
+        
+        
+        alert(Class.property + ' 3');
+        
+        
+    },
+    
+    autoload: function(methods) {
+        
+        methods = methods || [];
+     
+        var i, len = methods.length;
+        
+        if(len !== 0) {
+        
+        
+        for(i = 0; i < len; i += 1) {
+            
+            
+            methods[i]();
+            
+            
+        }
+        
+        } else {
+            
+            
+            for(var j in this) {
+                
+                
+                
+                if(typeof this[j] === 'function' && this[j] !== arguments.callee) {
+                    
+                    
+                    this[j]();
+                    
+                    
+                }
+            }
+            
+        }
+        
+    }
+    
+    
+};
+
+window.onload = function() {
+    
+  Class.autoload([Class.method3, Class.method2, Class.method1]);  
+    
+    
+};
+</script>
+</head>
+
+<body>
+
+
+</body>
+</html>
+

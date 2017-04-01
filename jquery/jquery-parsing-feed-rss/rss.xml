@@ -1,0 +1,1842 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2full.xsl"?><?xml-stylesheet type="text/css" media="screen" href="http://feeds.feedburner.com/~d/styles/itemcontent.css"?><rss xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" xmlns:slash="http://purl.org/rss/1.0/modules/slash/" version="2.0">
+
+<channel>
+	<title>Gabriele Romanato</title>
+	
+	<link>http://gabrieleromanato.com</link>
+	<description>Io, sviluppatore web</description>
+	<lastBuildDate>Wed, 20 Jul 2011 15:36:10 +0000</lastBuildDate>
+	<language>en</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.2.1</generator>
+		<atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="self" type="application/rss+xml" href="http://feeds.feedburner.com/gabrieleromanato" /><feedburner:info xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0" uri="gabrieleromanato" /><atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="hub" href="http://pubsubhubbub.appspot.com/" /><item>
+		<title>Guida alle specifiche CSS</title>
+		<link>http://gabrieleromanato.com/2011/07/guida-alle-specifiche-css/</link>
+		<comments>http://gabrieleromanato.com/2011/07/guida-alle-specifiche-css/#comments</comments>
+		<pubDate>Wed, 20 Jul 2011 15:36:10 +0000</pubDate>
+		<dc:creator>Gabriele Romanato</dc:creator>
+				<category><![CDATA[CSS]]></category>
+		<category><![CDATA[Web standards]]></category>
+		<category><![CDATA[css 2.1]]></category>
+
+		<guid isPermaLink="false">http://gabrieleromanato.com/?p=398</guid>
+		<description><![CDATA[Le specifiche CSS, secondo quanto affermano i loro autori, sono state scritte tenendo presenti due categorie di lettori: autori e sviluppatori. Gli autori possono trovarvi utili riferimenti per scrivere documenti efficienti, attraenti ed accessibili, mentre gli sviluppatori possono studiare gli utili dettagli tecnici per creare programmi utente conformi. Il problema maggiore delle specifiche &#232; che [...]]]></description>
+			<content:encoded><![CDATA[<p><img src="http://gabrieleromanato.com/images/css.png" alt="" class="alignright" />Le specifiche <abbr title="Cascading Style Sheets">CSS</abbr>, secondo quanto affermano i loro autori, sono state scritte<br />
+tenendo presenti due categorie di lettori: autori e sviluppatori. Gli autori possono trovarvi utili riferimenti per scrivere documenti<br />
+efficienti, attraenti ed accessibili, mentre gli sviluppatori possono studiare gli utili dettagli tecnici per creare programmi utente<br />
+conformi. Il problema maggiore delle specifiche &egrave; che spesso i dettagli tecnici interessano sia gli autori che gli<br />
+sviluppatori: infatti &egrave; solo conoscendo tali dettagli che gli autori possono risolvere alcuni problemi inerenti il layout dei<br />
+loro documenti. In questo articolo prenderemo come riferimento la revisione 2.1 delle specifiche<br />
+<abbr title="Cascading Style Sheets">CSS</abbr>. Per un confronto con la versione 2, si consulti la<br />
+<a href="http://www.diodati.org/w3c/css2/cover.html" title="CSS 2: traduzione italiana">traduzione italiana</a> delle medesime.</p>
+<p><span id="more-398"></span></p>
+<h3>Organizzazione delle specifiche</h3>
+<p>Le specifiche sono organizzate nelle seguenti sezioni:</p>
+<dl class="dlist">
+<dt><strong>Sezione 2: Introduzione ai CSS 2.1</strong></dt>
+<dd>L&#8217;introduzione comprende un breve tutorial sui <abbr title="Cascading Style Sheets">CSS</abbr> 2.1 e una discussione sui<br />
+principi del loro design.</dd>
+<dt><strong>Sezioni 3-20: Manuale di riferimento CSS 2.1</strong></dt>
+<dd>Questo manuale illustra la struttura dei  <abbr title="Cascading Style Sheets">CSS</abbr> 2.1 (sintassi, propriet&agrave;,<br />
+valori) e i requisiti richiesti ai programmi utente per la conformit&agrave;.</dd>
+<dt><strong>Appendici</strong></dt>
+<dd>Le appendici contengono informazioni sulle propriet&agrave; acustiche (non normative), un foglio di stile d&#8217;esempio per<br />
+l&#8217;<abbr title="HyperText Markup Language">HTML</abbr> 4, i cambiamenti rispetto ai<br />
+<abbr title="Cascading Style Sheets">CSS</abbr> 2, la grammatica dei <abbr title="Cascading Style Sheets">CSS</abbr> 2.1,<br />
+un elenco di riferimenti normativi e non normativi e due indici: uno per le propriet&agrave; e uno analitico.</dd>
+</dl>
+<h3>Definizioni delle propriet&agrave; CSS</h3>
+<p>Ogni propriet&agrave; <abbr title="Cascading Style Sheets">CSS</abbr> inizia con un sommario informativo simile al seguente:
+</p>
+<table summary="Modello di propriet&agrave; CSS">
+<caption>&#8216;nome-propriet&agrave;&#8217;</caption>
+<tr>
+<th scope="row">Valore:</th>
+<td>valori validi e sintassi</td>
+</tr>
+<tr>
+<th scope="row">Iniziale:</th>
+<td>valore iniziale</td>
+</tr>
+<tr>
+<th scope="row">Si applica a:</th>
+<td>elementi a cui si applica la propriet&agrave;</td>
+</tr>
+<tr>
+<th scope="row">Ereditata:</th>
+<td>indica se la propriet&agrave; &egrave; ereditata</td>
+</tr>
+<tr>
+<th scope="row">Percentuali:</th>
+<td>indica come vengono interpretati i valori in percentuale</td>
+</tr>
+<tr>
+<th scope="row">Media:</th>
+<td>gruppi di media a cui si applica la propriet&agrave;</td>
+</tr>
+<tr>
+<th scope="row">Valore calcolato:</th>
+<td>come calcolare questo valore</td>
+</tr>
+</table>
+<h4>Valore</h4>
+<p>Questa parte specifica l&#8217;insieme di valori validi per la propriet&agrave; il cui nome &egrave; &#8216;nome-propriet&agrave;&#8217;. Vi sono<br />
+vari tipi di valori:</p>
+<ol>
+<li>parole chiave (auto, disc, ecc.)</li>
+<li>tipi di dati fondamentali che compaiono tra &quot;&lt;&quot; e &quot;&gt;&quot; (&lt;length&gt;, &lt;percentage&gt;, ecc.)</li>
+<li>tipi che hanno lo stesso insieme di valori delle propriet&agrave; con cui condividono lo stesso nome<br />
+(&lt;&#8217;border-width&#8217;&gt;, &lt;&#8217;background-attachment&#8217;&gt;, ecc.). In tal caso il tipo di valore &egrave; il nome della propriet&agrave;<br />
+(virgolette incluse) compreso tra &quot;&lt;&quot; e &quot;&gt;&quot; (&lt;&#8217;border-width&#8217;&gt;). Questo tipo non comprende il valore<br />
+&#8216;inherit&#8217;.</li>
+<li>valori che non condividono lo stesso nome della propriet&agrave;. In questo caso il nome appare tra &quot;&lt;&quot; e<br />
+&quot;&gt;&quot;, come in &lt;border-width&gt;. Si noti la differenza tra &lt;border-width&gt; e &lt;&#8217;border-width&#8217;&gt;: il secondo<br />
+&egrave; definito nei termini del primo.</li>
+</ol>
+<p>Altri termini nelle specifiche sono parole chiave (red) che devono ricorrere senza virgolette, cos&igrave; come lo slash (/) e la<br />
+virgola (,). I valori possono essere ordinati come segue:</p>
+<ul>
+<li>Diverse parole consecutive indicano che esse devono comparire tutte nell&#8217;ordine dato.</li>
+<li>Una barra (|) separa due o pi&ugrave; alternative. Pu&ograve; ricorrerne solo una.</li>
+<li>Una doppia barra (||) separa due o pi&ugrave; opzioni. Pu&ograve; ricorrerne solo una, in qualsiasi ordine.</li>
+<li>Le parentesi quadre ([ ]) servono per il raggruppamento.</li>
+</ul>
+<p>La consecutivit&agrave; ha la precedenza sulla doppia barra, e la doppia barra sulla barra. Le righe che seguono si equivalgono:</p>
+<pre class="brush: plain; title: ; notranslate">
+a b | c || d e
+[a b] | 1]
+</pre>
+<p>Ogni tipo, parola chiave o gruppo tra parentesi quadre pu&ograve; essere seguito da uno dei seguenti modificatori:</p>
+<ul>
+<li>Un asterisco (*) indica che il precedente tipo, parola o gruppo ricorre zero o pi&ugrave; volte.</li>
+<li>Un pi&ugrave; indica che il precedente tipo, parola o gruppo ricorre una o pi&ugrave; volte.</li>
+<li>Un punto interrogativo (?) indica che il precedente tipo, parola o gruppo &egrave; facoltativo.</li>
+<li>Una coppia di numeri in parentesi graffe ({A, B}) indica che il precedente tipo, parola o gruppo ricorre almeno A volte e al massimo<br />
+B volte.</li>
+</ul>
+<p>Esempi:</p>
+<pre class="brush: plain; title: ; notranslate">
+Valore: N | NW | NE
+Valore: [&amp;lt;length&amp;gt; | thick | thin] {1,4}
+Valore: [&amp;lt;family-name&amp;gt; ,]* &amp;lt;family-name&amp;gt;
+Valore: &amp;lt;uri&amp;gt;? &amp;lt;color&amp;gt; [/&amp;lt;color&amp;gt;]?
+Valore: &amp;lt;uri&amp;gt; || &amp;lt;color&amp;gt;
+</pre>
+<p>I tipi di valore sono specificati in termini di token. Gli spazi tra i valori sono ammessi e in molti casi sono necessari.<br />
+Per esempio il valore &#8217;1em2em&#8217; verrebbe letto dal parser come un singolo token <code>DIMEN</code> con il numero &#8217;1&#8242; e<br />
+l&#8217;identificatore &#8216;em2em&#8217;, che &egrave; un&#8217;unit&agrave; non valida. In questo caso &egrave; necessario uno spazio tra &#8217;1em&#8217; e<br />
+&#8217;2em&#8217;.</p>
+<h4>Iniziale</h4>
+<p>Questa parte specifica il valore iniziale della propriet&agrave;. Se la propriet&agrave; viene ereditata, questo &egrave; il valore<br />
+dato all&#8217;elemento radice dell&#8217;albero del documento.</p>
+<h4>Si applica a</h4>
+<p>Questa parte elenca gli elementi a cui si applica la propriet&agrave;.</p>
+<h4>Ereditata</h4>
+<p>Questa parte indica se il valore della propriet&agrave; viene ereditato da un elemento antenato.</p>
+<h4>Valori in percentuale</h4>
+<p>Questa parte indica come devono essere interpretate le percentuali. Se vi &egrave; &quot;N/A&quot; significa che la propriet&agrave;<br />
+non accetta valori in percentuale.</p>
+<h4>Gruppi di media</h4>
+<p>Questa parte indica i gruppi di media a cui si applica la propriet&agrave;.</p>
+<h4>Valore calcolato</h4>
+<p>Questa parte descrive il valore calcolato per la propriet&agrave;.</p>
+<h3>Propriet&agrave; abbreviate</h3>
+<p>Alcune propriet&agrave; sono abbreviate, nel senso che permettono agli autori di specificare i valori di diverse propriet&agrave;<br />
+con una sola propriet&agrave; Per esempio la propriet&agrave; &#8216;font&#8217; inmposta in una volta le propriet&agrave;<br />
+&#8216;font-style&#8217;, &#8216;font-variant&#8217;, &#8216;font-weight&#8217;, &#8216;font-size&#8217;, &#8216;line-height&#8217; e &#8216;font-family&#8217;. Cos&igrave; il seguente codice:</p>
+<pre class="brush: css; title: ; notranslate">
+h1 {
+	font-weight: bold;
+	font-size: 2em;
+	line-height: 1;
+	font-family: Arial, sans-serif;
+	font-variant: normal;
+	font-style: normal;
+}
+</pre>
+<p>si riscrive come:</p>
+<pre class="brush: css; title: ; notranslate">
+h1 {font: bold 2em/1 Arial, sans-serif;}
+</pre>
+<p>In questo esempio &#8216;font-variant&#8217; e &#8216;font-style&#8217; assumono i loro valori iniziali.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://gabrieleromanato.com/2011/07/guida-alle-specifiche-css/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>jQuery: tooltip in stile Facebook</title>
+		<link>http://gabrieleromanato.com/2011/07/jquery-tooltip-in-stile-facebook/</link>
+		<comments>http://gabrieleromanato.com/2011/07/jquery-tooltip-in-stile-facebook/#comments</comments>
+		<pubDate>Wed, 20 Jul 2011 09:46:16 +0000</pubDate>
+		<dc:creator>Gabriele Romanato</dc:creator>
+				<category><![CDATA[jQuery]]></category>
+		<category><![CDATA[Web standards]]></category>
+		<category><![CDATA[facebook]]></category>
+
+		<guid isPermaLink="false">http://gabrieleromanato.com/?p=396</guid>
+		<description><![CDATA[Creare tooltip in stile Facebook con jQuery è semplice se si conosce il plugin Tipsy. Con questo plugin possiamo ricreare in toto l&#8217;effetto dei tooltip che compaiono nel menu superiore del nostro profilo Facebook. In questo esempio ho usato inoltre le stesse icone di Facebook e la stessa struttura HTML presente nell&#8217;originale per ottenere un [...]]]></description>
+			<content:encoded><![CDATA[<p><img src="http://gabrieleromanato.com/images/facebook.png" alt="" class="alignright" />Creare tooltip in stile Facebook con jQuery è semplice se si conosce il plugin <a href="http://onehackoranother.com/projects/jquery/tipsy/">Tipsy</a>. Con questo plugin possiamo ricreare in toto l&#8217;effetto dei tooltip che compaiono nel menu superiore del nostro profilo Facebook. In questo esempio ho usato inoltre le stesse icone di Facebook e la stessa struttura HTML presente nell&#8217;originale per ottenere un effetto il più fedele possibile a quello presente su Facebook.</p>
+<p><span id="more-396"></span></p>
+<p>La nostra marcatura:</p>
+<pre class="brush: xml; title: ; notranslate">
+&lt;ul id=&quot;fb-menu&quot;&gt;
+	&lt;li&gt;
+	  &lt;span class=&quot;home&quot;&gt;&lt;/span&gt;
+	  &lt;a href=&quot;#&quot; id=&quot;home&quot; title=&quot;Home&quot;&gt;Home&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+	  &lt;span class=&quot;profile&quot;&gt;&lt;/span&gt;
+	  &lt;a href=&quot;#&quot; id=&quot;profile&quot; title=&quot;Edit your profile&quot;&gt;Edit your profile&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+	  &lt;span class=&quot;town&quot;&gt;&lt;/span&gt;
+	  &lt;a href=&quot;#&quot; id=&quot;town&quot; title=&quot;Add your hometown&quot;&gt;Add your hometown&lt;/a&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+<p>Gli elementi vuoti andranno ad essere popolati con le nostre icone che inseriremo tramite la tecnica chiamata CSS sprite. Nel nostro foglio di stile andremo subito ad inserire gli stili del nostro plugin jQuery seguiti quindi dagli stili per il nostro menu:</p>
+<pre class="brush: css; title: ; notranslate">
+.tipsy { padding: 5px; font-size: 10px; opacity: 0.8;
+filter: alpha(opacity=80);
+background-repeat: no-repeat;
+background-image: url(tipsy.gif); }
+.tipsy-inner { padding: 5px 8px 4px 8px; background-color: black;
+color: white; max-width: 200px; text-align: center; }
+.tipsy-inner { -moz-border-radius:3px;
+-webkit-border-radius:3px; border-radius: 3px; }
+.tipsy-north { background-position: top center; }
+.tipsy-south { background-position: bottom center; }
+.tipsy-east { background-position: right center; }
+.tipsy-west { background-position: left center; }
+
+#fb-menu {
+	margin: 1em auto;
+	width: 60%;
+	font: small Tahoma, sans-serif;
+	padding: 0;
+	list-style: none;
+	height: 100%;
+	overflow: hidden;
+}
+
+#fb-menu li {
+	float: left;
+	margin-right: 0.5em;
+}
+
+#fb-menu a {
+	color: #3b5998;
+	text-decoration: none;
+	font-size: 0.9em;
+	display: block;
+	float: left;
+	padding-left: 4px;
+}
+
+#fb-menu li span {
+
+	float: left;
+	display: block;
+	width: 16px;
+	height: 16px;
+	background-image: url(sprites.png);
+	background-repeat: no-repeat;
+	cursor: pointer;
+
+}
+
+#fb-menu li span.home {
+	background-position: 100% 100%;
+}
+
+#fb-menu #home {
+	padding-left: 0;
+	position: relative;
+	left: -2px;
+}
+
+#fb-menu li span.town {
+	background-position: 100% -17px;
+}
+
+#fb-menu #town {
+	position: relative;
+	left: -2px;
+}
+</pre>
+<p>Tipsy funziona in modo predefinito utilizzando l&#8217;attributo <code>title</code> dei link. Nel nostro esempio utilizzeremo la sola opzione <code>fade</code>. Per l&#8217;elenco completo delle opzioni disponibili e per la loro descrizione vi rimando alla pagina del plugin citata sopra:</p>
+<pre class="brush: jscript; title: ; notranslate">
+$(function() {
+
+  $('li', '#fb-menu').each(function() {
+
+    var $li = $(this);
+
+    $li.find('a').tipsy({
+      fade: true
+    });
+
+  });
+});
+</pre>
+<p>Potete visionare l&#8217;esempio finale in <a href="http://gabrieleromanato.com/esempi/jquery/jquery-tooltip-facebook/">questa pagina</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://gabrieleromanato.com/2011/07/jquery-tooltip-in-stile-facebook/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>JavaScript: widget e performance</title>
+		<link>http://gabrieleromanato.com/2011/07/javascript-widget-e-performance/</link>
+		<comments>http://gabrieleromanato.com/2011/07/javascript-widget-e-performance/#comments</comments>
+		<pubDate>Wed, 20 Jul 2011 08:31:34 +0000</pubDate>
+		<dc:creator>Gabriele Romanato</dc:creator>
+				<category><![CDATA[JavaScript]]></category>
+		<category><![CDATA[Web standards]]></category>
+		<category><![CDATA[twitter]]></category>
+
+		<guid isPermaLink="false">http://gabrieleromanato.com/?p=394</guid>
+		<description><![CDATA[Nel suo talk su JavaScript e performance, Nicholas Zakas affronta tutti gli argomenti più rilevanti per quanto riguarda le migliori pratiche da seguire per ottimizzare il proprio codice JavaScript. Tuttavia questo talk, come molti altri (praticamente tutti), si concentra sul codice scritto di propria mano dallo sviluppatore, tralasciando completamente il codice di terze parti incorporato [...]]]></description>
+			<content:encoded><![CDATA[<p><img src="http://gabrieleromanato.com/images/javascript.png" alt="" class="alignright" />Nel suo <a href="http://youtu.be/mHtdZgou0qU">talk su JavaScript e performance</a>, Nicholas Zakas affronta tutti gli argomenti più rilevanti per quanto riguarda le migliori pratiche da seguire per ottimizzare il proprio codice JavaScript. Tuttavia questo talk, come molti altri (praticamente tutti), si concentra sul codice scritto di propria mano dallo sviluppatore, tralasciando completamente il codice di terze parti incorporato nel sito. Stiamo parlando di quei widget JavaScript che noi usiamo per aggiungere funzionalità alle nostre pagine. Su questo codice noi non abbiamo un completo controllo, e quindi non possiamo utilizzare quasi nessuna delle pratiche consigliate per migliorare la performance. Vediamo perchè.</p>
+<p><span id="more-394"></span></p>
+<p>Partiamo da un esempio concreto. Nel mio blog in inglese uso il seguente codice per incorporare un bottone di Twitter:</p>
+<pre class="brush: xml; title: ; notranslate">
+&lt;a href=&quot;http://twitter.com/share&quot; class=&quot;twitter-share-button&quot;
+data-count=&quot;vertical&quot; data-via=&quot;gabromanato&quot;&gt;Tweet&lt;/a&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;http://platform.twitter.com/widgets.js&quot;&gt;&lt;/script&gt;
+</pre>
+<p>Il bottone di Twitter viene popolato dal codice JavaScript contenuto nel widget caricato. Vengono letti gli attributi custom inseriti nel link ed in base a tali attributi avviene il rendering del bottone. Quando il browser incontra questo codice deve:</p>
+<ol>
+<li>generare la struttura DOM del link</li>
+<li>reperire la risorsa specificata</li>
+<li>interpretare il codice JavaScript</li>
+<li>effettuare il rendering del bottone</li>
+</ol>
+<p>Tutto questo rallenta il caricamento della pagina e non c&#8217;è modo per noi di ottimizzare tale procedura, in quanto il codice viene importato da remoto. Una pratica raccomandata è quella di inserire gli elementi <code>script</code> appena prima della chiusura dell&#8217;elemento <code>body</code>. In questo caso il codice è però posto al centro della pagina e deve essere comunque interpretato prima di poter effettuare il rendering del bottone.</p>
+<p>Questo esempio dimostra come molto spesso i widget limitino di molto la nostra volontà di seguire le pratiche raccomandate per l&#8217;ottimizzazione della performance. Il codice del widget visto sopra funziona esattamente come riportato e non c&#8217;è modo per noi di modificarlo, pena il mancato funzionamento del widget stesso.</p>
+<p>Il mio consiglio, laddove sia possibile, è quello di preferire widget lato server a widget lato client. In questo modo il browser dovrà solo effettuare il parsing della marcatura generata dal widget ed associarvi gli stili CSS e tutto questo processo avverrà unitamente al rendering dell&#8217;intera pagina, senza soste o tappe intermedie.</p>
+<p>Qualora non fosse possibile, procedete come segue:</p>
+<ol>
+<li>usate la console del vostro browser per individuare il widget che impiega più tempo a caricarsi</li>
+<li>osservate quanto tempo impiega il browser ad effettuare il rendering del widget</li>
+</ol>
+<p>Una volta individuato il widget incriminato, spostatelo in una parte della pagina che non sia immediatamente visibile all&#8217;atto del caricamento della stessa. In altre parole, dobbiamo fare in modo che i nostri visitatori abbiamo subito accesso ai contenuti principali della pagina senza inutili rallentamenti. In fondo, i widget sono abbellimenti: quello che ci interessa sono i contenuti principali.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://gabrieleromanato.com/2011/07/javascript-widget-e-performance/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>jQuery: Observer pattern e animazioni</title>
+		<link>http://gabrieleromanato.com/2011/07/jquery-observer-pattern-e-animazioni/</link>
+		<comments>http://gabrieleromanato.com/2011/07/jquery-observer-pattern-e-animazioni/#comments</comments>
+		<pubDate>Wed, 20 Jul 2011 07:15:45 +0000</pubDate>
+		<dc:creator>Gabriele Romanato</dc:creator>
+				<category><![CDATA[jQuery]]></category>
+		<category><![CDATA[Web standards]]></category>
+		<category><![CDATA[css]]></category>
+		<category><![CDATA[javascript]]></category>
+
+		<guid isPermaLink="false">http://gabrieleromanato.com/?p=390</guid>
+		<description><![CDATA[L&#8217;Observer pattern è un design pattern che, come testimonia il suo nome, tiene traccia dei cambiamenti di stato di altri oggetti, li registra ed esegue azioni all&#8217;occorrenza. In jQuery questo design pattern si rivela estremamente utile nel caso specifico delle animazioni. Inoltre questo design pattern può essere combinato con il metodo data() per ottenere una [...]]]></description>
+			<content:encoded><![CDATA[<p><img src="http://gabrieleromanato.com/images/jquery.png" alt="" class="alignright" />L&#8217;Observer pattern è un design pattern che, come testimonia il suo nome, tiene traccia dei cambiamenti di stato di altri oggetti, li registra ed esegue azioni all&#8217;occorrenza. In jQuery questo design pattern si rivela estremamente utile nel caso specifico delle animazioni. Inoltre questo design pattern può essere combinato con il metodo <code>data()</code> per ottenere una maggiore integrazione con gli oggetti di jQuery. Vediamone una semplice implementazione.</p>
+<p><span id="more-390"></span></p>
+<h3>Il nostro esempio</h3>
+<p>Abbiamo un box all&#8217;interno di un contenitore posizionato in modo contestuale. Cliccando su un link vogliamo che il box si sposti verso destra di 100 pixel, modifichi la sua altezza, torni alla posizione iniziale e riacquisti la sua altezza originale.</p>
+<p>Il nostro CSS è il seguente:</p>
+<pre class="brush: css; title: ; notranslate">
+#container {
+	width: 500px;
+	height: 100px;
+	position: relative;
+	border: 1px solid #000;
+}
+
+#animated {
+	width: 100px;
+	height: 100px;
+	background: #0084e4;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+</pre>
+<h3>L&#8217;Observer pattern</h3>
+<p>Creiamo innanzitutto un singleton che chiameremo <code>Observer</code>:</p>
+<pre class="brush: jscript; title: ; notranslate">
+var Observer = new function() {
+
+  //...
+
+}();
+</pre>
+<p>Aggiungiamo una proprietà per memorizzare la posizione corrente dell&#8217;elemento da animare:</p>
+<pre class="brush: jscript; title: ; notranslate">
+var Observer = new function() {
+
+  this.position = 0;
+
+  // continua
+
+}();
+</pre>
+<p>Il valore iniziale è ovviamente 0. Ora ci occorrono un getter ed un setter per leggere ed impostare il valore di tale posizione:</p>
+<pre class="brush: jscript; title: ; notranslate">
+// continua
+this.setPosition = function(pos) {
+
+    this.position = pos;
+
+};
+
+this.getPosition = function() {
+
+    return this.position;
+
+};
+</pre>
+<p>A questo punto possiamo creare un metodo per aggiungere un&#8217;azione di callback quando ci occorre:</p>
+<pre class="brush: jscript; title: ; notranslate">
+this.addAction = function(action) {
+
+    if(typeof action === 'function') {
+
+      action();
+
+    }
+
+    return this;
+
+};
+</pre>
+<p><code>return this</code> ci consente di utilizzare uno stile a cascata nel nostro codice, così da avere <code>Observer.metodo1().metodo2().metodoN()</code>. Ora possiamo creare il metodo principale di questo oggetto che chiameremo <code>observe()</code>:</p>
+<pre class="brush: jscript; title: ; notranslate">
+this.observe = function(element) {
+
+    element = element || this; 
+
+    console.log('Selected element: ' + element[0].tagName);  
+
+    this.setPosition(element.position().left);
+
+    console.log(this.getPosition());
+
+    return this;
+
+};
+</pre>
+<p>Questo metodo invia subito alla console JavaScript il nome del tag dell&#8217;elemento selezionato. Quindi imposta la proprietà <code>position</code> usando a sua volta la proprietà <code>left</code> dell&#8217;omonimo oggetto di jQuery. Infine, invia tale posizione alla console JavaScript.</p>
+<p>Quindi abbiamo un oggetto che:</p>
+<ol>
+<li>tiene traccia della posizione dell&#8217;elemento</li>
+<li>esegue un&#8217;azione su ogni cambiamento di posizione</li>
+</ol>
+<h3>Usare data()</h3>
+<p><code>data()</code> permette di associare ad un elemento un oggetto e di accedere ai metodi e alle proprietà di tale oggetto tramite la seguente sintassi:</p>
+<pre class="brush: jscript; title: ; notranslate">
+$(elemento).data('riferimento', oggetto);
+</pre>
+<p><code>oggetto</code> è ora associato all&#8217;elemento jQuery e possiamo accedervi tramite il riferimento specificato come primo parametro:</p>
+<pre class="brush: jscript; title: ; notranslate">
+$(elemento).data('riferimento').metodo();
+$(elemento).data('riferimento').proprieta;
+</pre>
+<p>Questo metodo è molto utile ai fini della performance: associando un&#8217;oggetto ad un elemento jQuery rendiamo i suoi metodi e proprietà immediatamente accessibili.</p>
+<p>Da notare, tuttavia, che un riferimento all&#8217;elemento corrente tramite <code>this</code> o <code>$(this)</code> all&#8217;interno dell&#8217;oggetto associato non è possibile, perchè ovviamente tali parole chiave faranno riferimento all&#8217;oggetto e non all&#8217;elemento jQuery.</p>
+<h3>L&#8217;esempio finale</h3>
+<p>Il codice finale è il seguente:</p>
+<pre class="brush: jscript; title: ; notranslate">
+$(function() {
+
+  function setHeight(element, speed, height) {
+
+    $(element).animate({
+      height: height
+    }, speed);
+
+  }
+
+  $('#animated').data('observer', Observer);
+
+  var animated = $('#animated');
+
+  $('#run').click(function(e) {
+
+    $('#animated').data('observer').observe(animated);
+
+    $('#animated').animate({
+      left: 100
+    }, 'slow', function() {
+
+      $(this).data('observer').observe(animated).
+      addAction(setHeight(animated, 'slow', 50));
+
+      $(this).animate({
+        left: 0
+      }, 'slow', function() {
+
+        $(this).data('observer').observe(animated).
+        addAction(setHeight(animated, 'slow', 100));
+
+      });
+
+    });
+
+    e.preventDefault();
+
+  });
+
+});
+</pre>
+<p>Per prima cosa associamo <code>Observer</code> al nostro elemento:</p>
+<pre class="brush: jscript; title: ; notranslate">
+$('#animated').data('observer', Observer);
+</pre>
+<p>Memorizziamo quindi l&#8217;elemento nella variabile <code>animated:</code></p>
+<pre class="brush: jscript; title: ; notranslate">
+var animated = $('#animated');
+</pre>
+<p>Usiamo <code>Observer::observe()</code> all&#8217;inizio dell&#8217;animazione:</p>
+<pre class="brush: jscript; title: ; notranslate">
+$('#animated').data('observer').observe(animated);
+</pre>
+<p>Lo usiamo di nuovo dopo il primo spostamento verso destra e gli associamo l&#8217;azione definita nella funzione <code>setHeight()</code>:</p>
+<pre class="brush: jscript; title: ; notranslate">
+$(this).data('observer').observe(animated).
+addAction(setHeight(animated, 'slow', 50));
+</pre>
+<p>Ora l&#8217;elemento tornerà di nuovo nella posizione di partenza. Usiamo di nuovo il nostro oggetto e riportiamo l&#8217;altezza dell&#8217;elemento alla dimensione originaria:</p>
+<pre class="brush: jscript; title: ; notranslate">
+$(this).data('observer').observe(animated).
+addAction(setHeight(animated, 'slow', 100));
+</pre>
+<p>Aprendo la console JavaScript del vostro browser ad animazione terminata potrete osservare i messaggi di stato generati dal nostro oggetto.</p>
+<p>Potete visionare l&#8217;esempio finale in <a href="http://gabrieleromanato.com/esempi/jquery/jquery-observer-pattern-animazioni/">questa pagina</a>. Per chi fosse interessato a questo design pattern, segnalo <a href="http://plugins.jquery.com/project/watch">questo plugin</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://gabrieleromanato.com/2011/07/jquery-observer-pattern-e-animazioni/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>IE6Fix: plugin jQuery per i bug CSS di IE6</title>
+		<link>http://gabrieleromanato.com/2011/07/ie6fix-plugin-jquery-per-i-bug-css-di-ie6/</link>
+		<comments>http://gabrieleromanato.com/2011/07/ie6fix-plugin-jquery-per-i-bug-css-di-ie6/#comments</comments>
+		<pubDate>Tue, 19 Jul 2011 18:58:03 +0000</pubDate>
+		<dc:creator>Gabriele Romanato</dc:creator>
+				<category><![CDATA[jQuery]]></category>
+		<category><![CDATA[Web standards]]></category>
+		<category><![CDATA[css]]></category>
+		<category><![CDATA[internet explorer]]></category>
+
+		<guid isPermaLink="false">http://gabrieleromanato.com/?p=387</guid>
+		<description><![CDATA[Internet Explorer 6 non è ancora morto, e a giudicare dai dati che ricevo dal mio blog in inglese, c&#8217;è ancora una non trascurabile percentuale di utenti che ancora oggi continua a navigare con questo browser. Il problema è che in molti paesi Internet Explorer è il browser di maggioranza, e quindi la situazione è [...]]]></description>
+			<content:encoded><![CDATA[<p><img src="http://gabrieleromanato.com/wp-content/uploads/2011/07/ie6.jpg" alt="" class="alignright" />Internet Explorer 6 non è ancora morto, e a giudicare dai dati che ricevo dal mio blog in inglese, c&#8217;è ancora una non trascurabile percentuale di utenti che ancora oggi continua a navigare con questo browser. Il problema è che in molti paesi Internet Explorer è il browser di maggioranza, e quindi la situazione è piuttosto delicata. IE6 ha un supporto CSS a dir poco disastroso, anche se del tutto schizofrenico: capita infatti che riesca a gestire layout complessi per poi fallire su semplici blocchi di testo. In altre parole, è assolutamente imprevedibile. Tutta la documentazione sui bug di IE6 è condensata in <a href="http://www.satzansatz.de/cssd/onhavinglayout.html">questo articolo</a>, che vi consiglio di leggere (c&#8217;è anche la mia traduzione in italiano nella pagina). Diciamo pure che IE6 ci costringe a riempire il nostro codice CSS di hack, trucchi e diavolerie varie non sempre di facile comprensione, e così oggi ho ripreso in mano una mia vecchia idea (magari inutile) e l&#8217;ho condensata in un plugin di jQuery, <strong>IE6Fix</strong>, che risolve alcuni bug di Explorer e che credo possa essere d&#8217;aiuto nel debugging.</p>
+<p><span id="more-387"></span></p>
+<p>Il plugin sistema i seguenti bug:</p>
+<h3>Margine raddoppiato nei float</h3>
+<p>Quando un float ha un margine che va nella stessa direzione del float stesso, ossia destra o sinistra, tale margine viene raddoppiato. Il plugin risolve questo problema con l&#8217;opzione <code>doubledMarginBug</code> impostata su <code>true</code>:</p>
+<pre class="brush: jscript; title: ; notranslate">
+$('#alignleft').ie6Fix({doubledMarginBug: true});
+</pre>
+<p>Ecco l&#8217;implementazione:</p>
+<pre class="brush: jscript; title: ; notranslate">
+if(options.doubledMarginBug) {
+
+  if(element.css('float') !== 'none') {
+
+	if(element.css('marginLeft') !== '0' ||
+	   element.css('marginRight') !== '0') {
+	         element.css('display', 'inline');
+	}
+  }
+}
+</pre>
+<p>In realtà il test dovrebbe anche verificare se il flottamento avviene a sinistra o a destra. Questa è una cosa che dovrò aggiungere.</p>
+<h3>Italic bug</h3>
+<p>Bug stranissimo questo, presente anche in IE7, e che coinvolge lo stile italic del testo e i box che lo racchiudono. Quando il bug è presente, potreste notare una barra di scorrimento orizzontale non voluta sulla pagina. Il plugin risolve questo problema con l&#8217;opzione <code>italicBug</code> impostata su <code>true</code>:</p>
+<pre class="brush: jscript; title: ; notranslate">
+$('p.italic').ie6Fix({italicBug: true});
+</pre>
+<p>L&#8217;implementazione:</p>
+<pre class="brush: jscript; title: ; notranslate">
+if(options.italicBug) {
+  if(element.css('fontStyle') == 'italic') {
+
+    element.css(
+      {'overflow': 'visible',
+      'height': '1%'
+      });
+
+   }
+}
+</pre>
+<p>Caso tipico è l&#8217;elemento <code>address</code> che ha lo stile italic per impostazione predefinita nel foglio di stile del browser.</p>
+<h3>Gap di 3 pixel nel testo</h3>
+<p>Questo bug si verifica quando un elemento non flottato ha un margine che supera in larghezza l&#8217;elemento flottato, facendo così visualizzare il suo contenuto accanto all&#8217;elemento flottato. Il plugin risolve questo problema impostando l&#8217;opzione <code>textJogBug</code> su <code>true</code>:</p>
+<pre class="brush: jscript; title: ; notranslate">
+$('#box-content').ie6Fix({textJogBug: true});
+</pre>
+<p>L&#8217;implementazione:</p>
+<pre class="brush: jscript; title: ; notranslate">
+if(options.textJogBug) {
+
+        var floating = null;
+
+        if(element.prev().length &gt; 0) {
+
+          floating = element.prev();
+
+        } else {
+
+          floating = element.next();
+
+        }
+
+        if(floating.css('float') == 'left') {
+	      if(element.css('marginLeft') &gt;= floating.width()) {
+	        element.css('marginLeft', '-3px');
+	      }
+	    } else if(floating.css('float') == 'right') {
+
+	      if(element.css('marginRight') &gt;= floating.width()) {
+
+	        element.css('marginRight', '-3px');
+
+	       }
+
+	    }
+
+}
+</pre>
+<p>Qui il punto è sapere quale elemento è flottato, ma soprattutto individuare con sicurezza la posizione dell&#8217;elemento flottato nel DOM. In genere questo bug si verifica quando gli elementi sono adiacenti, ma non sono molto sicuro della mia soluzione in tal senso. Aspetto vostri consigli. <img src='http://gabrieleromanato.com/wp-includes/images/smilies/icon_smile.gif' alt=':-)' class='wp-smiley' /> </p>
+<h3>Bug dell&#8217;interlinea sulle immagini inline</h3>
+<p>Prendiamo per esempio le emoticon: inserite in una riga di testo, si collocano normalmente alla stessa altezza della linea di base del testo. Ma non per IE6. Infatti in questo browser tali immagini non solo perdono il loro allineamento verticale, ma fanno anche raddoppiare l&#8217;interlinea della riga che le ospita! Il plugin usa l&#8217;opzione <code>lineHeightBug</code> in tal senso:</p>
+<pre class="brush: jscript; title: ; notranslate">
+$('img', 'p').ie6Fix({lineHeightBug: true});
+</pre>
+<p>L&#8217;implementazione:</p>
+<pre class="brush: jscript; title: ; notranslate">
+if(options.lineHeightBug) {
+
+        if(element[0].tagName.toLowerCase() != 'img') {
+
+          throw new Error('This option works only on inline images.');
+
+          return;
+
+        }
+
+        var height = element.height();
+
+        element.css({
+		    'marginTop': height / 3,
+		    'marginBottom': height / 3,
+		    'vertical-align': 'middle'
+		});
+
+}
+</pre>
+<p>In questo caso l&#8217;opzione scelta funziona solo sulle immagini, quindi devo sollevare un&#8217;eccezione se viene usata su altri elementi. Ma ho dimenticato di verificare se l&#8217;immagine è inline. Rimedio subito consigliandovi di aggiungere il seguente test:</p>
+<pre class="brush: jscript; title: ; notranslate">
+if(element.css('display') == 'inline') {
+  //...
+}
+</pre>
+<h3>Opzioni di utility</h3>
+<p>Il plugin ha anche le opzioni <code>gainLayout</code> e <code>clearFix</code> che servono rispettivamente ad impostare la proprietà di IE6 <code>hasLayout</code> su <code>true</code> e a contenere i float:</p>
+<pre class="brush: jscript; title: ; notranslate">
+if(options.gainLayout) {
+
+        if(element.css('display') == 'block') {
+	     element.css('height', '1%');
+	    } else if(element.css('display') == 'inline') {
+	     element.css('zoom', '1');
+	    }
+
+}
+
+if(options.clearFix) {
+
+        element.css({'overflow': 'hidden', 'height': '1%'});
+
+}
+</pre>
+<h3>Conclusione</h3>
+<p>Non ho ancora avuto modo di testare il plugin su IE6, quindi non so ancora se il suo funzionamento sia corretto ed efficace. Mi sono basato sulla vecchia versione che avevo testato su Explorer 6 prima che il mio Windows XP cedesse il posto a 7. Non mi fido dei risultati degli emulatori, quindi se potete farlo vi prego di testarlo. Se ci sono errori, bug, anomalie, non esitate a contattarmi o a commentare questo articolo. Grazie a tutti! <img src='http://gabrieleromanato.com/wp-includes/images/smilies/icon_smile.gif' alt=':-)' class='wp-smiley' /> </p>
+<p>Potete visionare il plugin in azione in <a href="http://gabrieleromanato.com/esempi/jquery/jquery-ie6fix/">questa pagina di test</a> e scaricarlo <a href="http://gabrieleromanato.com/esempi/jquery/jquery-ie6fix/jquery.ie6fix.js">qui</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://gabrieleromanato.com/2011/07/ie6fix-plugin-jquery-per-i-bug-css-di-ie6/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>CSS: cascata, ereditarietà e specificità</title>
+		<link>http://gabrieleromanato.com/2011/07/css-cascata-ereditarieta-e-specificita/</link>
+		<comments>http://gabrieleromanato.com/2011/07/css-cascata-ereditarieta-e-specificita/#comments</comments>
+		<pubDate>Mon, 18 Jul 2011 06:56:51 +0000</pubDate>
+		<dc:creator>Gabriele Romanato</dc:creator>
+				<category><![CDATA[CSS]]></category>
+		<category><![CDATA[Web standards]]></category>
+		<category><![CDATA[css 2.1]]></category>
+
+		<guid isPermaLink="false">http://gabrieleromanato.com/?p=384</guid>
+		<description><![CDATA[Cascata, ereditarietà e specificità sono tre concetti chiave che permettono ai browser di applicare correttamente gli stili specificati nei CSS. Scopo del presente articolo è quello di illustrare in dettaglio i concetti appena menzionati. Introduzione Una volta che un browser ha analizzato un documento e creato un albero del documento, esso assegna a ciascun elemento [...]]]></description>
+			<content:encoded><![CDATA[<p><img src="http://gabrieleromanato.com/images/css.png" alt="" class="alignright" />Cascata, ereditarietà e specificità sono tre concetti chiave che permettono ai browser di applicare correttamente gli stili specificati nei CSS. Scopo del presente articolo è quello di illustrare in dettaglio i concetti appena menzionati.</p>
+<p><span id="more-384"></span></p>
+<h3 id="intro">Introduzione</h3>
+<p>Una volta che un <dfn>browser</dfn> ha analizzato un documento e creato un <dfn>albero del documento</dfn>,<br />
+esso assegna a ciascun elemento un valore per le propriet&agrave; che si applicano al tipo di media di destinazione<br />
+(screen, print, ecc.).</p>
+<p>Il valore finale di ogni propriet&agrave; &egrave; il risultato di un calcolo suddiviso in quattro fasi:</p>
+<ol>
+<li>
+<p>Il valore viene determinato in base a quanto specificato (<dfn>valore specificato</dfn>).</p>
+</li>
+<li>
+<p>Il valore viene trasformato in un valore usato per l&#8217;ereditariet&agrave; (<dfn>valore calcolato</dfn>).</p>
+</li>
+<li>
+<p>Il valore viene convertito, se necessario, in un valore assoluto (<dfn>valore in uso</dfn>).</p>
+</li>
+<li>
+<p>Il valore viene trasformato tenendo presente i limiti dell&#8217;ambiente locale (<dfn>valore effettivo</dfn>).</p>
+</li>
+</ol>
+<h3 id="specificati">Valori specificati</h3>
+<p>I browser devono per prima cosa assegnare un valore specificato a ciascuna propriet&agrave; in base alla seguente<br />
+procedura (ordinata per precedenza):</p>
+<ol>
+<li>
+<p>Se la cascata produce un valore, viene usato quello.</p>
+</li>
+<li>
+<p>Altrimenti, se la propriet&agrave; &egrave; ereditaria e l&#8217;elemento non &egrave; l&#8217;elemento radice dell&#8217;albero del<br />
+documento, viene usato il valore calcolato dell&#8217;elemento genitore.</p>
+</li>
+<li>
+<p>Altrimenti, viene usato il <dfn>valore iniziale</dfn> della propriet&agrave;. Il valore iniziale di ciascuna propriet&agrave;<br />
+&egrave; indicato nella definizione della propriet&agrave;.</p>
+</li>
+</ol>
+<p>Tutti i browser usano i valori specificati nel loro foglio di stile predefinito in mancanza dei valori specificati nel foglio<br />
+di stile dell&#8217;autore o dell&#8217;utente. Per esempio:</p>
+<pre class="brush: css; title: ; notranslate">
+ul, ol {margin-left: 2.5em;}
+</pre>
+<p>I browser applicheranno in questo caso i loro valori predefiniti per le restanti propriet&agrave; non specificate. In<br />
+<dfn>Firefox</dfn> avremo:</p>
+<pre class="brush: css; title: ; notranslate">
+ul, ol {margin: 1em 0; -moz-padding-start: 40px;}
+</pre>
+<p>Il valore del margine sinistro si andr&agrave; quindi a sommare al padding sinistro, causando una diversa visualizzazione<br />
+nei vari browser. Dovremo quindi scrivere:</p>
+<pre class="brush: css; title: ; notranslate">
+ul, ol {margin: 1em 0 1em 2.5em; padding: 0;}
+</pre>
+<h3 id="calcolati">Valori calcolati</h3>
+<p>I valori specificati vengono trasformati durante la cascata; per esempio, gli <dfn>URI</dfn> sono resi assoluti e<br />
+l&#8217;unit&agrave; <dfn>em</dfn> viene calcolata in pixel o in misure assolute.</p>
+<p>Il valore calcolato degli URI che un browser non pu&ograve; trasformare in URI assoluti &egrave; il valore specificato.</p>
+<p>Quando il valore specificato non &egrave; <code>inherit</code>, il valore calcolato di una propriet&agrave; si determina<br />
+nel modo specificato nella riga <strong>Valore calcolato</strong> nella definizione della propriet&agrave;. Per esempio:</p>
+<table summary="Proprietà 'width'">
+<caption>&#8216;width&#8217;</caption>
+<tr>
+<th scope="row">Valore:</th>
+<td>&lt;lunghezza&gt; | &lt;percentuale&gt; | auto | inherit</td>
+</tr>
+<tr>
+<th scope="row">Iniziale:</th>
+<td>auto</td>
+</tr>
+<tr>
+<th scope="row">Si applica a:</th>
+<td>tutti gli elementi, ma non agli elementi inline non rimpiazzati, righe di tabella e gruppi di righe</td>
+</tr>
+<tr>
+<th scope="row">Ereditata:</th>
+<td>no</td>
+</tr>
+<tr>
+<th scope="row">Percentuali:</th>
+<td>in riferimento alla larghezza del blocco contenitore</td>
+</tr>
+<tr>
+<th scope="row"><strong>Valore calcolato:</strong></th>
+<td>la percentuale o &#8216;auto&#8217; come specificato o la lunghezza assoluta; &#8216;auto&#8217; se la propriet&agrave; non si applica</td>
+</tr>
+</table>
+<p>Il valore calcolato esiste anche quando la propriet&agrave; non si applica, come definito nella riga<br />
+<strong>Si applica a</strong>.</p>
+<h3 id="uso">Valori in uso</h3>
+<p>Alcuni valori possono essere determinati solo quando il documento viene elaborato. Per esempio, se la larghezza di un elemento<br />
+&egrave; impostata in percentuale rispetto al suo blocco contenitore, la larghezza non potr&agrave; essere determinata finch&egrave;<br />
+non si sar&agrave; determinata la larghezza del blocco contenitore.</p>
+<p>Il valore in uso &egrave; il risultato della trasformazione del valore calcolato in un valore assoluto.</p>
+<h3 id="effettivi">Valori effettivi</h3>
+<p>Un valore in uso di solito viene usato per il layout finale, ma a volte un browser pu&ograve; non essere in grado di usare il valore<br />
+a causa delle limitazioni imposte dal dispositivo dell&#8217;utente (schermo, colori, ecc.). Il valore effettivo &egrave; il risultato di<br />
+questi aggiustamenti.</p>
+<h3 id="ereditarieta">Ereditariet&agrave;</h3>
+<p>Alcuni valori vengono ereditati dai figli di un elemento. Ciascuna propriet&agrave; definisce se &egrave; ereditaria o no.<br />
+Per esempio:</p>
+<pre class="brush: css; title: ; notranslate">
+&amp;lt;p&amp;gt;Ibam &amp;lt;em&amp;gt;forte&amp;lt;/em&amp;gt; via sacra.&amp;lt;/p&amp;gt;
+</pre>
+<p>Se non viene assegnato nessun colore all&#8217;elemento <code>em</code>, l&#8217;elemento erediter&agrave; il colore del suo genitore.<br />
+Quindi se il colore dell&#8217;elemento <code>p</code> &egrave; il nero, l&#8217;elemento <code>em</code> sar&agrave; nero.</p>
+<p>Quando l&#8217;ereditariet&agrave; ha luogo, gli elementi ereditano i valori calcolati. Il valore calcolato per l&#8217;elemento genitore<br />
+diviene il valore specificato e calcolato per i figli. Esempio:</p>
+<pre class="brush: css; title: ; notranslate">
+body {font-size: 12px;}
+
+h1 {font-size: 200%;}
+</pre>
+<p>In questo caso il valore calcolato per la dimensione del font dell&#8217;elemento <code>h1</code> sar&agrave; del 200% superiore a<br />
+quella dell&#8217;elemento <code>body</code>, ossia 24px.</p>
+<h3 id="inherit">Il valore &#8216;inherit&#8217;</h3>
+<p>Ogni propriet&agrave; pu&ograve; anche avere come valore specificato <code>inherit</code>, che significa, per un dato elemento,<br />
+assumere come valore calcolato il valore dell&#8217;elemento genitore. Esempio:</p>
+<pre class="brush: css; title: ; notranslate">
+h1 em {color: inherit;}
+
+a {background-color: inherit;}
+</pre>
+<h3 id="import">La regola @import</h3>
+<p>La regola <code>@import</code> permette di importare regole di stile da altri fogli di stile.</p>
+<p>Ogni regola <code>@import</code> inserita in un file <kbd>.css</kbd> deve precedere tutte le altre regole<br />
+(tranne la regola <code>@charset</code>, se presente).</p>
+<p>La parola chiave <dfn>@import</dfn> deve essere seguita dall&#8217;URI del foglio di stile da includere. Si pu&ograve; usare anche<br />
+una stringa, che viene interpretata come se avesse <code>url()</code> attorno. Le seguenti regole sono equivalenti:</p>
+<pre class="brush: css; title: ; notranslate">
+@import &amp;quot;style.css&amp;quot;;
+@import url(&amp;quot;style.css&amp;quot;);
+</pre>
+<p>Per supportare tipi di media differenti e per assicurare che i browser non cerchino di interpretare media sconosciuti,<br />
+&egrave; possibile specificare il media di destinazione nella regola @import. Se ci sono pi&ugrave; tipi di media, i valori<br />
+dopo l&#8217;URI vanno separati con virgole:</p>
+<pre class="brush: css; title: ; notranslate">
+@import url(&amp;quot;style.css&amp;quot;) screen, handheld;
+</pre>
+<h3 id="cascata">Cascata</h3>
+<p>I fogli di stile hanno tre diverse origini: <dfn>autore</dfn>, <dfn>utente</dfn> e browser.</p>
+<ul>
+<li><strong>Autore.</strong>
+<p>L&#8217;autore specifica i fogli di stile per il documento secondo le convenzioni del linguaggio del documento.</p>
+</li>
+<li><strong>Utente.</strong>
+<p>L&#8217;utente pu&ograve; specificare delle informazioni di stile per un particolare documento.</p>
+</li>
+<li><strong>Browser.</strong>
+<p>I browser conformi devono applicare un foglio di stile predefinito.</p>
+</li>
+</ul>
+<h3 id="ordine-cascata">Ordine della cascata</h3>
+<p>Per trovare il valore per una combinazione elemento/propriet&agrave;, i browser devono seguire questo ordine:</p>
+<ol>
+<li>
+<p>Trovare tutte le dichiarazioni che si applicano all&#8217;elemento e alla propriet&agrave; in questione per il media di<br />
+destinazione. Le dichiarazioni si applicano se il selettore seleziona l&#8217;elemento.</p>
+</li>
+<li>
+<p>Ordinare secondo l&#8217;importanza (<dfn>normale</dfn> o <dfn>!important</dfn>) e l&#8217;origine<br />
+(autore, utente o browser), secondo un ordine crescente di precedenza:</p>
+<ol>
+<li>dichiarazioni del browser</li>
+<li>dichiarazioni normali dell&#8217;utente</li>
+<li>dichiarazioni normali dell&#8217;autore</li>
+<li>dichiarazioni <code>!important</code> dell&#8217;autore</li>
+<li>dichiarazioni <code>!important</code> dell&#8217;utente</li>
+</ol>
+</li>
+<li>
+<p>Ordinare le regole con la stessa importanza e origine per <dfn>specificit&agrave;</dfn> del selettore: selettori pi&ugrave;<br />
+specifici sovrascriveranno quelli pi&ugrave; generici.<br />
+Gli <dfn>pseudo-elementi</dfn> e le <dfn>pseudo-classi</dfn> vengono considerati rispettivamente elementi e classi<br />
+normali.</p>
+</li>
+<li>
+<p>Infine, ordinare secondo l&#8217;ordine specificato: se due dichiarazioni hanno lo stesso peso, origine e specificit&agrave;,<br />
+l&#8217;ultima specificata vince. Le dichiarazioni nei fogli di stile importati vengono prima di quelle nel foglio di stile<br />
+principale.</p>
+</li>
+</ol>
+<h3 id="important">La regola !important</h3>
+<p>La regola <code>!important</code> aumenta il peso di una dichiarazione rispetto ad una dichiarazione normale. Tale regola<br />
+segue sempre la dichiarazione:</p>
+<pre class="brush: css; title: ; notranslate">
+body {font-size: 100% !important;}
+</pre>
+<p>Le regole <code>!important</code> di un foglio di stile dell&#8217;utente vincono sempre su quelle di un foglio di stile dell&#8217;autore.</p>
+<h3 id="specificita">Specificit&agrave; dei selettori</h3>
+<p>La <dfn>specificit&agrave;</dfn> di un selettore si calcola come segue:</p>
+<ul>
+<li>
+<p>si conti 1 se il selettore &egrave; un attributo <code>style</code>, altrimenti 0 (=<strong>a</strong>).<br />
+Nell&#8217;<acronym title="HyperText Markup Language">HTML</acronym>, i valori dell&#8217;attributo <code>style</code> sono regole di<br />
+stile, cos&igrave; avremo: a=1, b=0, c=0, d=0.</p>
+</li>
+<li>
+<p>si conti il numero di attributi <code>id</code> nel selettore (=<strong>b</strong>)</p>
+</li>
+<li>
+<p>si conti il numero di altri attributi e pseudo-classi nel selettore (=<strong>c</strong>)</p>
+</li>
+<li>
+<p>si conti il numero di nomi di elemento e pseudo-elementi nel selettore (=<strong>d</strong>)</p>
+</li>
+</ul>
+<p>Concatenando i quattro numeri (a, b, c, d) in serie, in un ordine di precedenza decrescente che va da sinistra a destra e<br />
+confrontando quindi i numeri da sinistra a destra, otteniamo la specificit&agrave; di un selettore. Esempi:</p>
+<pre class="brush: css; title: ; notranslate">
+* { } /* a=0 b=0 c=0 d=0
+      specificità =  0, 0, 0, 0 */
+
+p { } /* a=0 b=0 c=0 d=1
+      specificità = 0, 0, 0, 1 */
+
+#id { } /* a=0 b=1 c=0 d=0
+      specificità = 0, 1, 0, 0 */
+
+style=&amp;quot; &amp;quot; /* a=1, b=0 c=0 d=0
+      specificità = 1, 0, 0, 0 */
+</pre>
+<p>Si tenga presente che i valori posti pi&ugrave; a sinistra vincono su quelli posti pi&ugrave; a destra, a prescindere<br />
+dal numero di valori. Quindi se anche<br />
+l&#8217;elemento <code>p</code> avesse avuto quattro valori su d (per esempio con una concatenazione di selettori del discendente come<br />
+<code>body div div p { }</code>) non sarebbe riuscito a vincere n&eacute; su <code>#id</code> n&egrave; su <code>style</code>,<br />
+i quali hanno i loro valori posti pi&ugrave; a sinistra superiori<br />
+ai corrispondenti valori dell&#8217;elemento <code>p</code> (a=1 e b=1 per i primi,<br />
+contro a=0 e b=0 per il secondo). L&#8217;attributo <code>style</code> ha una specificit&agrave; superiore agli<br />
+altri perch&eacute; &egrave; l&#8217;unico ad avere il valore posto pi&ugrave; a sinistra (a=1) superiore agli altri (a=0).</p>
+]]></content:encoded>
+			<wfw:commentRss>http://gabrieleromanato.com/2011/07/css-cascata-ereditarieta-e-specificita/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>CSS: proprietà del testo</title>
+		<link>http://gabrieleromanato.com/2011/07/css-proprieta-del-testo/</link>
+		<comments>http://gabrieleromanato.com/2011/07/css-proprieta-del-testo/#comments</comments>
+		<pubDate>Mon, 18 Jul 2011 06:40:17 +0000</pubDate>
+		<dc:creator>Gabriele Romanato</dc:creator>
+				<category><![CDATA[CSS]]></category>
+		<category><![CDATA[Web standards]]></category>
+		<category><![CDATA[css 2.1]]></category>
+
+		<guid isPermaLink="false">http://gabrieleromanato.com/?p=382</guid>
+		<description><![CDATA[Le proprietà CSS che controllano il testo regolano l&#8217;interlinea, l&#8217;allineamento verticale, l&#8217;indentazione della prima riga dei blocchi e la gestione dello spazio bianco. In questo articolo tratteremo in dettaglio queste proprietà. La propriet&#224; &#8216;line-height&#8217; &#8216;line-height&#8217; Valore: normal &#124; &#60;number&#62; &#124; &#60;length&#62; &#124; &#60;percentage&#62; &#124; inherit Iniziale: normal Si applica a: tutti gli elementi Ereditata: si [...]]]></description>
+			<content:encoded><![CDATA[<p><img src="http://gabrieleromanato.com/images/css.png" alt="" class="alignright" />Le proprietà CSS che controllano il testo regolano l&#8217;interlinea, l&#8217;allineamento verticale, l&#8217;indentazione della prima riga dei blocchi e la gestione dello spazio bianco. In questo articolo tratteremo in dettaglio queste proprietà.</p>
+<p><span id="more-382"></span></p>
+<h3 id="line-height">La propriet&agrave; &#8216;line-height&#8217;</h3>
+<table summary="Proprietà 'line-height'">
+<caption>&#8216;line-height&#8217;</caption>
+<tr>
+<th scope="row">Valore:</th>
+<td>normal | &lt;number&gt; | &lt;length&gt; | &lt;percentage&gt; | inherit</td>
+</tr>
+<tr>
+<th scope="row">Iniziale:</th>
+<td>normal</td>
+</tr>
+<tr>
+<th scope="row">Si applica a:</th>
+<td>tutti gli elementi</td>
+</tr>
+<tr>
+<th scope="row">Ereditata:</th>
+<td>si</td>
+</tr>
+<tr>
+<th scope="row">Percentuali:</th>
+<td>in riferimento alla dimensione del font dell&#8217;elemento stesso</td>
+</tr>
+<tr>
+<th scope="row">Media:</th>
+<td>visuale</td>
+</tr>
+<tr>
+<th scope="row">Valore calcolato:</th>
+<td>per &lt;length&gt; e &lt;percentage&gt; il valore assoluto; altrimenti come specificato</td>
+</tr>
+</table>
+<p>In un elemento di blocco, cella di tabella, didascalia di tabella o inline-block, il cui contenuto &egrave; composto di<br />
+elementi inline, &#8216;line-height&#8217; specifica l&#8217;altezza minima dei box di riga all&#8217;interno dell&#8217;elemento. In un elemento inline,<br />
+&#8216;line-height&#8217; specifica l&#8217;altezza usata nel calcolo dell&#8217;altezza del box di riga (tranne per gli elementi inline rimpiazzati).</p>
+<p>Poich&egrave; il valore di &#8216;line-height&#8217; pu&ograve; essere diverso dall&#8217;altezza dell&#8217;area di contenuto, pu&ograve; esserci<br />
+dello spazio sopra e sotto i caratteri. La differenza tra l&#8217;altezza del contenuto e il valore in uso di &#8216;line-height&#8217; viene<br />
+detto <dfn>interlinea</dfn>. La met&agrave; dell&#8217;interlinea viene detta <dfn>semi-interlinea</dfn>.</p>
+<p>I browser centrano i caratteri verticalmente in un box inline aggiungendo la semi-interlinea sopra e sotto i caratteri.<br />
+Per esempio, se una parte di testo &egrave; alta 12px (&#8216;font-size&#8217;) e la &#8216;line-height&#8217; &egrave; 14px, si aggiungono 2px di spazio,<br />
+1px sopra e 1px sotto i caratteri. Dunque avremo:</p>
+<p>interlinea = &#8216;line-height&#8217; &#8211; &#8216;font-size&#8217;</p>
+<p>I valori sono:</p>
+<dl>
+<dt><strong>normal</strong></dt>
+<dd>I browser usano un valore &quot;ragionevole&quot; basato sul font dell&#8217;elemento. Il valore  ha lo stesso significato di<br />
+&lt;number&gt;. Viene raccomandato un valore in uso compreso tra 1.0 e 1.2. Il valore calcolato &egrave; &#8216;normal&#8217;.</dd>
+<dt><strong>&lt;length&gt;</strong></dt>
+<dd>La lunghezza specificata viene usata nel calcolo dell&#8217;altezza del box di riga. I valori negativi non sono ammessi.</dd>
+<dt><strong>&lt;number&gt;</strong></dt>
+<dd>Il valore in uso di &#8216;line-height&#8217; &egrave; un numero moltiplicato per la dimensione del font dell&#8217;elemento.<br />
+I valori negativi non sono ammessi. Il valore calcolato coincide con quello specificato.</dd>
+<dt><strong>&lt;percentage&gt;</strong></dt>
+<dd>Il valore calcolato di &#8216;line-height&#8217; &egrave; la percentuale moltiplicata per la dimensione calcolata del font dell&#8217;elemnto.<br />
+I valori negativi non sono ammessi.</dd>
+</dl>
+<p>Gli esempi che seguono hanno tutti la stessa &#8216;line-height&#8217;:</p>
+<pre class="brush: css; title: ; notranslate">
+p {line-height: 1.2; font-size: 12px} /* numero */
+p {line-height: 1.2em; font-size: 12px} /* lunghezza */
+p {line-height: 120%; font-size: 12px} /* percentuale */
+</pre>
+<h3 id="vertical-align">La propriet&agrave; &#8216;vertical-align&#8217;</h3>
+<table summary="Proprietà 'vertical-align'">
+<caption>&#8216;vertical-align&#8217;</caption>
+<tr>
+<th scope="row">Valore:</th>
+<td>baseline | sub | super | top | text-top | middle | bottom | text-bottom | &lt;percentage&gt; | &lt;length&gt; |<br />
+inherit</td>
+</tr>
+<tr>
+<th scope="row">Iniziale:</th>
+<td>baseline</td>
+</tr>
+<tr>
+<th scope="row">Si applica a:</th>
+<td>elementi inline e &#8216;table-cell&#8217;</td>
+</tr>
+<tr>
+<th scope="row">Ereditata:</th>
+<td>no</td>
+</tr>
+<tr>
+<th scope="row">Percentuali:</th>
+<td>in riferimento alla &#8216;line-height&#8217; dell&#8217;elemento stesso</td>
+</tr>
+<tr>
+<th scope="row">Media:</th>
+<td>visuale</td>
+</tr>
+<tr>
+<th scope="row">Valore calcolato:</th>
+<td>per &lt;length&gt; e &lt;percentage&gt; la lunghezza assoluta; altrimenti come specificato</td>
+</tr>
+</table>
+<p>Questa propriet&agrave; influenza il posizionamento verticale, all&#8217;interno di un box di riga, dei box generati dagli elementi<br />
+inline. I valori sono:</p>
+<dl>
+<dt><strong>baseline</strong></dt>
+<dd>Allinea la linea di base del box con la linea di base del box genitore. Se il box non ha una linea di base, allinea<br />
+il limite del margine inferiore con la linea di base del genitore.</dd>
+<dt><strong>middle</strong></dt>
+<dd>Allinea il punto intermedio del box con la linea di base del box genitore, pi&ugrave; la met&agrave;<br />
+della x-height del genitore.</dd>
+<dt><strong>sub</strong></dt>
+<dd>Abbassa la linea di base del box fino alla giusta posizione per i pedici del box genitore (questo valore non ha effetto<br />
+sulla dimensione del font).</dd>
+<dt><strong>super</strong></dt>
+<dd>Innalza la linea di base del box fino alla giusta posizione per gli apici del box genitore (questo valore non ha effetto<br />
+sulla dimensione del font).</dd>
+<dt><strong>text-top</strong></dt>
+<dd>Allinea la parte superiore del box con la parte superiore dell&#8217;area di contenuto del genitore.</dd>
+<dt><strong>text-bottom</strong></dt>
+<dd>Allinea la parte inferiore del box con la parte inferiore dell&#8217;area di contenuto del genitore.</dd>
+<dt><strong>&lt;percentage&gt;</strong></dt>
+<dd>Innalza (valore positivo) a abbassa (valore negativo) il box di una percentuale relativa al valore di &#8216;line-height&#8217;.<br />
+&#8217;0%&#8217; &egrave; lo stesso che &#8216;baseline&#8217;.</dd>
+<dt><strong>&lt;length&gt;</strong></dt>
+<dd>Innalza (valore positivo) o abbassa (valore negativo) il box della distanza specificata. &#8217;0px&#8217; &egrave; lo stesso che<br />
+&#8216;baseline&#8217;.</dd>
+</dl>
+<p>I valori che seguono allineano l&#8217;elemento relativamente al box di riga. Poich&egrave; l&#8217;elemento pu&ograve; avere dei figli<br />
+allineati relativamente ad esso, e questi a loro volta possono avere dei discendenti allineati in relazione ad essi, questi valori<br />
+usano i confini del sottoalbero allineato.</p>
+<dl>
+<dt><strong>top</strong></dt>
+<dd>Allinea la parte superiore del sottoalbero allineato con la parte superiore del box di riga.</dd>
+<dt><strong>bottom</strong></dt>
+<dd>Allinea la parte inferiore del sottoalbero allineato con la parte inferiore del box di riga.</dd>
+</dl>
+<p>Esempi:</p>
+<pre class="brush: css; title: ; notranslate">
+sub {vertical-align: sub}
+sup {vertical-align: super}
+span {vertical-align: 50%}
+em {vertical-align: -3px}
+</pre>
+<h3 id="text-indent">La propriet&agrave; &#8216;text-indent&#8217;</h3>
+<table summary="Proprietà 'text-indent'">
+<caption>&#8216;text-indent&#8217;</caption>
+<tr>
+<th scope="row">Valore:</th>
+<td>&lt;length&gt; | &lt;percentage&gt; | inherit</td>
+</tr>
+<tr>
+<th scope="row">Iniziale:</th>
+<td>0</td>
+</tr>
+<tr>
+<th scope="row">Si applica a:</th>
+<td>elementi di blocco, celle di tabella e inline-block</td>
+</tr>
+<tr>
+<th scope="row">Ereditata:</th>
+<td>si</td>
+</tr>
+<tr>
+<th scope="row">Percentuali:</th>
+<td>in riferimento alla larghezza del blocco contenitore</td>
+</tr>
+<tr>
+<th scope="row">Media:</th>
+<td>visuale</td>
+</tr>
+<tr>
+<th scope="row">Valore calcolato:</th>
+<td>la percentuale specificata o la lunghezza assoluta</td>
+</tr>
+</table>
+<p>Questa propriet&agrave; specifica l&#8217;indentazione della prima riga di testo in un blocco (l&#8217;indentazione del primo box che fluisce<br />
+nel primo box di riga del blocco). I browser rendono l&#8217;indentazione con uno spazio vuoto. I valori sono:</p>
+<dl>
+<dt><strong>&lt;length&gt;</strong></dt>
+<dd>L&#8217;indentazione &egrave; una lunghezza fissa.</dd>
+<dt><strong>&lt;percentage&gt;</strong></dt>
+<dd>L&#8217;indentazione &egrave; una percentuale della larghezza del blocco contenitore.</dd>
+</dl>
+<p>I valori possono essere negativi, anche se ci sono limiti nell&#8217;implementazione dei browser (vedi Internet Explorer Windows<br />
+versione 6 e 7). Se un valore &egrave; negativo o supera la larghezza del blocco, il primo box fuoriesce dal blocco. Esempi:</p>
+<pre class="brush: css; title: ; notranslate">
+h2 {text-indent: -1em}
+h2 + p {text-indent: 1em}
+</pre>
+<p>Vedi <a href="test/text-indent/text-indent-negativo.html">test</a>.</p>
+<h3 id="text-align">4. La propriet&agrave; &#8216;text-align&#8217;</h3>
+<table summary="Proprietà 'text-align'">
+<caption>&#8216;text-align&#8217;</caption>
+<tr>
+<th scope="row">Valore:</th>
+<td>left | right | center | justify | inherit</td>
+</tr>
+<tr>
+<th scope="row">Iniziale:</th>
+<td>&#8216;left&#8217; se &#8216;direction&#8217; &egrave; &#8216;ltr&#8217;, altrimenti &#8216;right&#8217;</td>
+</tr>
+<tr>
+<th scope="row">Si applica a:</th>
+<td>elementi di blocco, celle di tabella e inline-block</td>
+</tr>
+<tr>
+<th scope="row">Ereditata:</th>
+<td>si</td>
+</tr>
+<tr>
+<th scope="row">Percentuali:</th>
+<td>N/A</td>
+</tr>
+<tr>
+<th scope="row">Media:</th>
+<td>visuale</td>
+</tr>
+<tr>
+<th scope="row">Valore calcolato:</th>
+<td>come specificato</td>
+</tr>
+</table>
+<p>Questa propriet&agrave; specifica l&#8217;allineamento del testo in un blocco. Il testo pu&ograve; essere allineato a sinistra<br />
+(&#8216;left&#8217;), a destra (&#8216;right&#8217;), al centro (&#8216;center&#8217;) o giustificato (&#8216;justify&#8217;). Nel caso del testo giustificato, il browser<br />
+pu&ograve; allungare i box inline oltre ad aggiustare le loro posizioni. Esempio:</p>
+<pre class="brush: css; title: ; notranslate">
+p {text-align: justify}
+</pre>
+<h3 id="text-decoration">La propriet&agrave; &#8216;text-decoration&#8217;</h3>
+<table summary="Proprietà 'text-decoration'">
+<caption>&#8216;text-decoration&#8217;</caption>
+<tr>
+<th scope="row">Valore:</th>
+<td>none | [underline || overline || line-through || blink] | inherit</td>
+</tr>
+<tr>
+<th scope="row">Iniziale:</th>
+<td>none</td>
+</tr>
+<tr>
+<th scope="row">Si applica a:</th>
+<td>tutti gli elementi</td>
+</tr>
+<tr>
+<th scope="row">Ereditata:</th>
+<td>no (vedi sotto)</td>
+</tr>
+<tr>
+<th scope="row">Percentuali:</th>
+<td>N/A</td>
+</tr>
+<tr>
+<th scope="row">Media:</th>
+<td>visuale</td>
+</tr>
+<tr>
+<th scope="row">Valore calcolato:</th>
+<td>come specificato</td>
+</tr>
+</table>
+<p>Questa propriet&agrave; descrive le decorazioni aggiunte al testo di un elemento usando il colore dell&#8217;elemento.<br />
+Se specificata su un elemento inline, influenza tutti i box generati dall&#8217;elemento; per gli altri elementi, la<br />
+decorazione si propaga ad un box inline anonimo che contiene tutti i discendenti inline dell&#8217;elemento, e ad ogni<br />
+discendente di blocco dell&#8217;elemento. Non si propaga ai discendenti flottati o posizionati in modo assoluto, n&eacute; ai<br />
+discendenti &#8216;inline-block&#8217; o &#8216;inline-table&#8217;. I valori sono:</p>
+<dl>
+<dt><strong>none</strong></dt>
+<dd>Non produce alcuna decorazione.</dd>
+<dt><strong>underline</strong></dt>
+<dd>Ogni riga di testo viene sottolineata.</dd>
+<dt><strong>overline</strong></dt>
+<dd>Ogni riga di testo ha una riga sopra di essa.</dd>
+<dt><strong>line-through</strong></dt>
+<dd>Ogni riga di testo ha una riga che la attraversa nel mezzo.</dd>
+<dt><strong>blink</strong></dt>
+<dd>Il testo lampeggia. Scarsissimo il supporto dei browser, in quanto il testo lampeggiante &egrave; sconsigliato nelle pratiche<br />
+di accessibilit&agrave; dei contenuti web.</dd>
+</dl>
+<p>Esempi:</p>
+<pre class="brush: css; title: ; notranslate">
+a:link, a:visited {text-decoration: none}
+a:hover {text-decoration: underline overline}
+del {text-decoration: line-through}
+</pre>
+<h3 id="letter-spacing">La propriet&agrave; &#8216;letter-spacing&#8217;</h3>
+<table summary="Proprietà 'letter-spacing'">
+<caption>&#8216;letter-spacing&#8217;</caption>
+<tr>
+<th scope="row">Valore:</th>
+<td>normal | &lt;length&gt; | inherit</td>
+</tr>
+<tr>
+<th scope="row">Iniziale:</th>
+<td>normal</td>
+</tr>
+<tr>
+<th scope="row">Si applica a:</th>
+<td>tutti gli elementi</td>
+</tr>
+<tr>
+<th scope="row">Ereditata:</th>
+<td>si</td>
+</tr>
+<tr>
+<th scope="row">Percentuali:</th>
+<td>N/A</td>
+</tr>
+<tr>
+<th scope="row">Media:</th>
+<td>visuale</td>
+</tr>
+<tr>
+<th scope="row">Valore calcolato:</th>
+<td>&#8216;normal&#8217; o lunghezza assoluta</td>
+</tr>
+</table>
+<p>Questa propriet&agrave; specifica la spaziatura tra i caratteri del testo. I valori sono:</p>
+<dl>
+<dt><strong>normal</strong></dt>
+<dd>La spaziatura &egrave; quella normale per il font in uso. Questo valore consente ai browser di alterare lo spazio<br />
+tra i caratteri per giustificare il testo.</dd>
+<dt><strong>&lt;length&gt;</strong></dt>
+<dd>Questo valore specifica lo spazio tra i caratteri in aggiunta allo spazio predefinito. I valori possono essere negativi.<br />
+I browser non possono alterare lo spazio per giustificare il testo.</dd>
+</dl>
+<p>Esempi:</p>
+<pre class="brush: css; title: ; notranslate">
+h1 {letter-spacing: -0.1em}
+p {text-align: justify; letter-spacing: 0.1em}
+</pre>
+<h3 id="word-spacing">La propriet&agrave; &#8216;word-spacing&#8217;</h3>
+<table summary="Proprietà 'word-spacing'">
+<caption>&#8216;word-spacing&#8217;</caption>
+<tr>
+<th scope="row">Valore:</th>
+<td>normal | &lt;length&gt; | inherit</td>
+</tr>
+<tr>
+<th scope="row">Iniziale:</th>
+<td>normal</td>
+</tr>
+<tr>
+<th scope="row">Si applica a:</th>
+<td>tutti gli elementi</td>
+</tr>
+<tr>
+<th scope="row">Ereditata:</th>
+<td>si</td>
+</tr>
+<tr>
+<th scope="row">Percentuali:</th>
+<td>N/A</td>
+</tr>
+<tr>
+<th scope="row">Media:</th>
+<td>visuale</td>
+</tr>
+<tr>
+<th scope="row">Valore calcolato:</th>
+<td>per &#8216;normal&#8217; il valore &#8217;0&#8242;; altrimenti la lunghezza assoluta</td>
+</tr>
+</table>
+<p>Questa propriet&agrave; specifica la spaziatura tra le parole. I valori sono:</p>
+<dl>
+<dt><strong>normal</strong></dt>
+<dd>La spaziatura normale tra parole, definita dal font in uso e/o dal browser.</dd>
+<dt><strong>&lt;length&gt;</strong></dt>
+<dd>Questo valore indica una spaziatura tra le parole in aggiunta allo spazio normale. I valori possono essere negativi.</dd>
+</dl>
+<p>Esempio:</p>
+<pre class="brush: css; title: ; notranslate">
+h1 {word-spacing: 0.5em}
+</pre>
+<h3 id="text-transform">La propriet&agrave; &#8216;text-transform&#8217;</h3>
+<table summary="Proprietà 'text-transform'">
+<caption>&#8216;text-transform&#8217;</caption>
+<tr>
+<th scope="row">Valore:</th>
+<td>capitalize | uppercase | lowercase | none | inherit</td>
+</tr>
+<tr>
+<th scope="row">Iniziale:</th>
+<td>none</td>
+</tr>
+<tr>
+<th scope="row">Si applica a:</th>
+<td>tutti gli elementi</td>
+</tr>
+<tr>
+<th scope="row">Ereditata:</th>
+<td>si</td>
+</tr>
+<tr>
+<th scope="row">Percentuali:</th>
+<td>N/A</td>
+</tr>
+<tr>
+<th scope="row">Media:</th>
+<td>visuale</td>
+</tr>
+<tr>
+<th scope="row">Valore calcolato:</th>
+<td>come specificato</td>
+</tr>
+</table>
+<p>Questa propriet&agrave; controlla le maiuscole e le minuscole del testo di un elemento. I valori sono:</p>
+<dl>
+<dt><strong>capitalize</strong></dt>
+<dd>Trasforma il primo carattere di ciascuna parola in maiuscolo.</dd>
+<dt><strong>uppercase</strong></dt>
+<dd>Trasforma tutti i caratteri di ciascuna parola in maiuscolo.</dd>
+<dt><strong>lowercase</strong></dt>
+<dd>Trasforma tutti i caratteri di ciascuna parola in minuscolo.</dd>
+<dt><strong>none</strong></dt>
+<dd>Nessuna trasformazione.</dd>
+</dl>
+<p>Esempi:</p>
+<pre class="brush: css; title: ; notranslate">
+acronym, abbr {text-transform: lowercase; font-variant: small-caps}
+h1 {text-transform: capitalize}
+</pre>
+<h3 id="white-space">La propriet&agrave; &#8216;white-space&#8217;</h3>
+<table summary="Proprietà 'white-space'">
+<caption>&#8216;white-space&#8217;</caption>
+<tr>
+<th scope="row">Valore:</th>
+<td>normal | pre | nowrap | pre-wrap | pre-line | inherit</td>
+</tr>
+<tr>
+<th scope="row">Iniziale:</th>
+<td>normal</td>
+</tr>
+<tr>
+<th scope="row">Si applica a:</th>
+<td>tutti gli elementi</td>
+</tr>
+<tr>
+<th scope="row">Ereditata:</th>
+<td>si</td>
+</tr>
+<tr>
+<th scope="row">Percentuali:</th>
+<td>N/A</td>
+</tr>
+<tr>
+<th scope="row">Media:</th>
+<td>visuale</td>
+</tr>
+<tr>
+<th scope="row">Valore calcolato:</th>
+<td>come specificato</td>
+</tr>
+</table>
+<p>Questa propriet&agrave; specifica il trattamento dello spazio bianco all&#8217;interno di un elemento. I valori sono:</p>
+<dl>
+<dt><strong>normal</strong></dt>
+<dd>Questo valore dice al browser di far collassare le sequenze di spazio bianco e di spezzare le righe per riempire i box<br />
+inline.</dd>
+<dt><strong>pre</strong></dt>
+<dd>Questo valore impedisce al browser di far collassare le sequenze di spazio bianco. Le righe sono interrotte solo da<br />
+nuove righe nel sorgente (create con un invio a capo) o da &quot;\A&quot; nel contenuto generato. Si veda l&#8217;elemento<br />
+<code>pre</code>.</dd>
+<dt><strong>nowrap</strong></dt>
+<dd>Questo valore funziona come &#8216;normal&#8217;, ma sopprime le interruzioni di riga all&#8217;interno del testo.</dd>
+<dt><strong>pre-wrap</strong></dt>
+<dd>Valore CSS 2.1, non supportato da IE7 e inferiori.</dd>
+<dt><strong>pre-line</strong></dt>
+<dd>Valore CSS 2.1, non supportato da IE7 e inferiori.</dd>
+</dl>
+<p>Esempi:</p>
+<pre class="brush: css; title: ; notranslate">
+pre {white-space: pre}
+a {white-space: nowrap}
+p:before {content: &amp;quot;Lorem'\A' ipsum&amp;quot;; white-space: pre}
+</pre>
+]]></content:encoded>
+			<wfw:commentRss>http://gabrieleromanato.com/2011/07/css-proprieta-del-testo/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>CSS: proprietà e layout delle tabelle</title>
+		<link>http://gabrieleromanato.com/2011/07/css-proprieta-e-layout-delle-tabelle/</link>
+		<comments>http://gabrieleromanato.com/2011/07/css-proprieta-e-layout-delle-tabelle/#comments</comments>
+		<pubDate>Mon, 18 Jul 2011 06:25:07 +0000</pubDate>
+		<dc:creator>Gabriele Romanato</dc:creator>
+				<category><![CDATA[CSS]]></category>
+		<category><![CDATA[Web standards]]></category>
+		<category><![CDATA[css 2.1]]></category>
+
+		<guid isPermaLink="false">http://gabrieleromanato.com/?p=380</guid>
+		<description><![CDATA[Le proprietà CSS per le tabelle ci permettono di definirne il layout con assoluta precisione. In questo articolo tratteremo non solo di tali proprietà, ma anche del modello di tabella CSS e del particolare tipo di layout che caratterizza le tabelle nel modello di formattazione visuale dei CSS. Il modello di tabella CSS Il modello [...]]]></description>
+			<content:encoded><![CDATA[<p><img src="http://gabrieleromanato.com/images/css.png" alt="" class="alignright" />Le proprietà CSS per le tabelle ci permettono di definirne il layout con assoluta precisione. In questo articolo tratteremo non solo di tali proprietà, ma anche del modello di tabella CSS e del particolare tipo di layout che caratterizza le tabelle nel modello di formattazione visuale dei CSS.</p>
+<p><span id="more-380"></span></p>
+<h3>Il modello di tabella CSS</h3>
+<p>Il <dfn>modello di tabella CSS</dfn> &egrave; basato sul modello di tabella HTML 4.0, in cui la struttura di una tabella<br />
+segue parallelamente il suo layout visuale. Questo modello viene detto &quot;a supremazia di riga&quot;, poich&egrave; gli<br />
+autori specificano esplicitamente delle righe nel sorgente. Il modello di tabella CSS consiste di tabelle (<code>table</code>),<br />
+didascalie (<code>caption</code>), righe (<code>tr</code>), gruppi di riga (<code>tbody</code>), colonne (<code>col</code>),<br />
+gruppi di colonna (<code>colgroup</code>) e celle (<code>td</code>, <code>th</code>).</p>
+<p>Per quei linguaggi (come XML) che non hanno elementi di tabella predefiniti, gli autori devono usare i seguenti valori della<br />
+propriet&agrave; &#8216;display&#8217;:</p>
+<dl>
+<dt><strong>table</strong></dt>
+<dd>In HTML: <code>table</code>. Specifica una tabella di blocco.</dd>
+<dt><strong>inline-table</strong></dt>
+<dd>In HTML: <code>table</code>. Specifica una tabella inline.</dd>
+<dt><strong>table-row</strong></dt>
+<dd>In HTML: <code>tr</code>. Specifica una riga di celle.</dd>
+<dt><strong>table-row-group</strong></dt>
+<dd>In HTML: <code>tbody</code>. Specifica che l&#8217;elemento raggruppa una o pi&ugrave; righe.</dd>
+<dt><strong>table-header-group</strong></dt>
+<dd>In HTML: <code>thead</code>. Specifica che l&#8217;elemento raggruppa una o pi&ugrave; righe, ma viene visualizzato prima<br />
+di tutte le altre righe, gruppi di riga e dopo ogni didascalia superiore.</dd>
+<dt><strong>table-footer-group</strong></dt>
+<dd>In HTML: <code>tfoot</code>. Specifica che l&#8217;elemento raggruppa una o pi&ugrave; righe, ma viene visualizzato dopo tutte le<br />
+altre righe, gruppi di riga e prima di ogni didascalia inferiore.</dd>
+<dt><strong>table-column</strong></dt>
+<dd>In HTML: <code>col</code>. Specifica una colonna di celle.</dd>
+<dt><strong>table-column-group</strong></dt>
+<dd>In HTML: <code>colgroup</code>. Specifica che l&#8217;elemento raggruppa una o pi&ugrave; colonne.</dd>
+<dt><strong>table-cell</strong></dt>
+<dd>In HTML: <code>td</code>, <code>th</code>. Specifica una cella di tabella.</dd>
+<dt><strong>table-caption</strong></dt>
+<dd>In HTML: <code>caption</code>. Specifica una didascalia di tabella.</dd>
+</dl>
+<h3>Colonne</h3>
+<p>Le seguenti propriet&agrave; si applicano alle colonne e ai gruppi di colonna:</p>
+<dl>
+<dt><strong>&#8216;border</strong></dt>
+<dd>Si applica solo se &#8216;border-collapse&#8217; &egrave; impostato su &#8216;collapse&#8217; per la tabella.</dd>
+<dt><strong>&#8216;background&#8217;</strong></dt>
+<dd>Si applica solo se celle e righe hanno sfondi trasparenti.</dd>
+<dt><strong>&#8216;width&#8217;</strong></dt>
+<dd>Imposta la larghezza minima per la colonna.</dd>
+<dt><strong>&#8216;visibility&#8217;</strong></dt>
+<dd>L&#8217;unico valore che ha effetto &egrave; &#8216;collapse&#8217;. In questo caso nessuna cella della colonna viene rappresentata.</dd>
+</dl>
+<h3>La propriet&agrave; &#8216;caption-side&#8217;</h3>
+<table summary="Proprietà 'caption-side'">
+<caption>&#8216;caption-side&#8217;</caption>
+<tr>
+<th scope="row">Valore:</th>
+<td>top | bottom | inherit</td>
+</tr>
+<tr>
+<th scope="row">Iniziale:</th>
+<td>top</td>
+</tr>
+<tr>
+<th scope="row">Si applica a:</th>
+<td>elementi &#8216;table-caption&#8217;</td>
+</tr>
+<tr>
+<th scope="row">Ereditata:</th>
+<td>si</td>
+</tr>
+<tr>
+<th scope="row">Percentuali:</th>
+<td>N/A</td>
+</tr>
+<tr>
+<th scope="row">Media:</th>
+<td>visuale</td>
+</tr>
+<tr>
+<th scope="row">Valore calcolato:</th>
+<td>come specificato</td>
+</tr>
+</table>
+<p>Questa propriet&agrave; specifica la posizione del box della didascalia rispetto al box della tabella. I valori sono:</p>
+<dl>
+<dt><strong>top</strong></dt>
+<dd>Posiziona il box della didascalia sopra il box della tabella.</dd>
+<dt><strong>bottom</strong></dt>
+<dd>Posiziona il box della didascalia sotto il box della tabella.</dd>
+</dl>
+<p>Questi sono i valori della revisione CSS 2.1. I CSS 2 descrivevano propriet&agrave; differenti, che saranno ampliate nei CSS 3.<br />
+Esempio:</p>
+<pre class="brush: css; title: ; notranslate">
+caption {caption-side: bottom; text-align: left}
+</pre>
+<p>Per allineare orizzontalmente il contenuto di <code>caption</code>, si usi la propriet&agrave; &#8216;text-align&#8217;.</p>
+<h3>La propriet&agrave; &#8216;table-layout&#8217;</h3>
+<table summary="Proprietà 'table-layout'">
+<caption>&#8216;table-layout&#8217;</caption>
+<tr>
+<th scope="row">Valore:</th>
+<td>auto | fixed | inherit</td>
+</tr>
+<tr>
+<th scope="row">Iniziale:</th>
+<td>auto</td>
+</tr>
+<tr>
+<th scope="row">Si applica a:</th>
+<td>elementi &#8216;table&#8217; e &#8216;inline-table&#8217;</td>
+</tr>
+<tr>
+<th scope="row">Ereditata:</th>
+<td>no</td>
+</tr>
+<tr>
+<th scope="row">Percentuali:</th>
+<td>N/A</td>
+</tr>
+<tr>
+<th scope="row">Media:</th>
+<td>visuale</td>
+</tr>
+<tr>
+<th scope="row">Valore calcolato:</th>
+<td>come specificato</td>
+</tr>
+</table>
+<p>Questa propriet&agrave; specifica il tipo di algoritmo usato per una tabella. I valori sono:</p>
+<dl>
+<dt><strong>fixed</strong></dt>
+<dd>Usa l&#8217;algoritmo fisso (1) per il layout di tabella.</dd>
+<dt><strong>auto</strong></dt>
+<dd>Usa un algoritmo automatico (2) per il layout di tabella.</dd>
+</dl>
+<p>Con l&#8217;<dfn>algoritmo fisso</dfn> (1), il layout della tabella non dipende dal contenuto delle celle,<br />
+ma solo dalla larghezza della tabella, dalla larghezza delle colonne, e dalla spaziatura tra bordi o<br />
+celle. La larghezza della tabella pu&ograve; essere specificata con la propriet&agrave; &#8216;width&#8217;.<br />
+Un valore di &#8216;auto&#8217; implica l&#8217;uso dell&#8217;algoritmo automatico. La larghezza di ciascuna colonna viene<br />
+determinata come segue:</p>
+<ol>
+<li>
+<p>Un elemento di colonna con un valore di &#8216;width&#8217; diverso da &#8216;auto&#8217; imposta la larghezza per quella<br />
+colonna.</p>
+</li>
+<li>
+<p>Altrimenti, una cella nella prima riga con larghezza diversa da &#8216;auto&#8217; determina la larghezza per<br />
+quella colonna. Se la cella di estende su pi&ugrave; di una colonna, la larghezza viene divisa tra le<br />
+colonne.</p>
+</li>
+<li>
+<p>Tutte le restanti colonne si dividono equamente lo spazio orizzontale rimanente (meno bordi o<br />
+spaziatura tra celle).</p>
+</li>
+</ol>
+<p>Con l&#8217;<dfn>algoritmo automatico</dfn> (2), la larghezza della tabella viene definita dalla larghezza<br />
+delle colonne e dei bordi. Le specifiche affermano che i browser possono usare qualsiasi altro<br />
+algoritmo, anche se i risultati sono diversi. Nella pratica, la larghezza della tabella &egrave;<br />
+determinata dalla quantit&agrave; di contenuto delle celle.</p>
+<p>Esempio:</p>
+<pre class="brush: css; title: ; notranslate">
+table {table-layout: fixed; width: 500px}
+td {width: 100px}
+</pre>
+<h3>La propriet&agrave; &#8216;border-collapse&#8217;</h3>
+<table summary="Proprietà 'border-collapse'">
+<caption>&#8216;border-collapse&#8217;</caption>
+<tr>
+<th scope="row">Valore:</th>
+<td>collapse | separate | inherit</td>
+</tr>
+<tr>
+<th scope="row">Iniziale:</th>
+<td>separate</td>
+</tr>
+<tr>
+<th scope="row">Si applica a:</th>
+<td>elementi &#8216;table&#8217; e &#8216;inline-table&#8217;</td>
+</tr>
+<tr>
+<th scope="row">Ereditata:</th>
+<td>si</td>
+</tr>
+<tr>
+<th scope="row">Percentuali:</th>
+<td>N/A</td>
+</tr>
+<tr>
+<th scope="row">Media:</th>
+<td>visuale</td>
+</tr>
+<tr>
+<th scope="row">Valore calcolato:</th>
+<td>come specificato</td>
+</tr>
+</table>
+<p>Questa propriet&agrave; seleziona un modello di bordi per la tabella. Il valore &#8216;separate&#8217; imposta il <dfn>modello<br />
+a bordi separati</dfn>, in cui le celle adiacenti sono separate tra di loro. Il valore &#8216;collapse&#8217;, invece, seleziona il<br />
+<dfn>modello a bordi collassati</dfn>, in cui le celle adiacenti non sono separate tra di loro e i loro bordi si<br />
+uniscono per formare un unico bordo. Esempio:</p>
+<pre class="brush: css; title: ; notranslate">
+table {border-collapse: collapse; border: 1px solid #000}
+</pre>
+<h3>La propriet&agrave; &#8216;border-spacing&#8217;</h3>
+<table summary="Proprietà 'border-spacing'">
+<caption>&#8216;border-spacing&#8217;</caption>
+<tr>
+<th scope="row">Valore:</th>
+<td>&lt;length&gt; &lt;length&gt;? | inherit</td>
+</tr>
+<tr>
+<th scope="row">Iniziale:</th>
+<td>0</td>
+</tr>
+<tr>
+<th scope="row">Si applica a:</th>
+<td>elementi &#8216;table&#8217; e &#8216;inline-table&#8217;</td>
+</tr>
+<tr>
+<th scope="row">Ereditata:</th>
+<td>si</td>
+</tr>
+<tr>
+<th scope="row">Percentuali:</th>
+<td>N/A</td>
+</tr>
+<tr>
+<th scope="row">Media:</th>
+<td>visuale</td>
+</tr>
+<tr>
+<th scope="row">Valore calcolato:</th>
+<td>due lunghezze assolute</td>
+</tr>
+</table>
+<p>Quando si usa il modello a bordi separati, questa propriet&agrave; specifica la distanza che separa i bordi delle celle adiacenti.<br />
+Se si specifica una sola lunghezza, questa imposta la spaziatura orizzontale e verticale. Con due lunghezze si impostano prima la<br />
+spaziatura orizzontale e poi quella verticale. I valori non possono essere negativi. Esempio:</p>
+<pre class="brush: css; title: ; notranslate">
+table {
+border-collapse: separate;
+border: 1px solid #000;
+border-spacing: 3px 4px
+}
+</pre>
+<p><strong>Nota:</strong> Come impostazione predefinita, tutti i browser applicano una spaziatura di 2px tra i bordi<br />
+delle celle. In alcuni casi, anche nel modello a bordi collassati appare un valore diverso dallo 0 iniziale, per cui<br />
+bisogna forzare i browser a non mostrare spazi con la dichiarazione &#8216;border-spacing: 0&#8242;.</p>
+<h3>La propriet&agrave; &#8216;empty-cells&#8217;</h3>
+<table summary="Proprietà 'empty-cells'">
+<caption>&#8216;empty-cells&#8217;</caption>
+<tr>
+<th scope="row">Valore:</th>
+<td>show | hide | inherit</td>
+</tr>
+<tr>
+<th scope="row">Iniziale:</th>
+<td>show</td>
+</tr>
+<tr>
+<th scope="row">Si applica a:</th>
+<td>elementi &#8216;table-cell&#8217;</td>
+</tr>
+<tr>
+<th scope="row">Ereditata:</th>
+<td>si</td>
+</tr>
+<tr>
+<th scope="row">Percentuali:</th>
+<td>N/A</td>
+</tr>
+<tr>
+<th scope="row">Media:</th>
+<td>visuale</td>
+</tr>
+<tr>
+<th scope="row">Valore calcolato:</th>
+<td>come specificato</td>
+</tr>
+</table>
+<p>Nel modello a bordi separati, &#8216;empty-cells&#8217; controlla la resa dei bordi e degli sfondi intorno alle celle prive<br />
+di contenuto visibile. Le celle vuote e le celle con &#8216;visibility: hidden&#8217; ricadono in questa categoria. Il valore<br />
+&#8216;show&#8217; mostra i bordi e gli sfondi per queste celle, mentre il valore &#8216;hide&#8217; impedisce che questo avvenga. Esempio:</p>
+<pre class="brush: css; title: ; notranslate">
+table {empty-cells: hide}
+</pre>
+<h3>Nota su Internet Explorer per Windows</h3>
+<p>Internet Explorer 7 (ed inferiori) non supporta nessuno dei valori della propriet&agrave; &#8216;display&#8217; per le tabelle, eccetto<br />
+&#8216;table-header-group&#8217;, ma solo in standard mode. Inoltre non vengono supportate le propriet&agrave; &#8216;caption-side&#8217;, &#8216;border-spacing&#8217;<br />
+ed &#8216;empty-cells&#8217;.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://gabrieleromanato.com/2011/07/css-proprieta-e-layout-delle-tabelle/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>jQuery: slideshow a fisarmonica</title>
+		<link>http://gabrieleromanato.com/2011/07/jquery-slideshow-a-fisarmonica/</link>
+		<comments>http://gabrieleromanato.com/2011/07/jquery-slideshow-a-fisarmonica/#comments</comments>
+		<pubDate>Sun, 17 Jul 2011 18:59:21 +0000</pubDate>
+		<dc:creator>Gabriele Romanato</dc:creator>
+				<category><![CDATA[jQuery]]></category>
+		<category><![CDATA[Web standards]]></category>
+		<category><![CDATA[css]]></category>
+		<category><![CDATA[internet explorer]]></category>
+
+		<guid isPermaLink="false">http://gabrieleromanato.com/?p=378</guid>
+		<description><![CDATA[Per ottenere l&#8217;effetto di uno slideshow a fisarmonica con jQuery la soluzione più semplice è quella di utilizzare i valori delle tabelle (table e table-cell) CSS, anche se questi non sono supportati da Internet Explorer 7 ed inferiori. Ma poichè noi non possiamo sempre essere costretti a scendere a patti con browser che non rispettano [...]]]></description>
+			<content:encoded><![CDATA[<p><img src="http://gabrieleromanato.com/images/jquery.png" alt="" class="alignright" />Per ottenere l&#8217;effetto di uno slideshow a fisarmonica con jQuery la soluzione più semplice è quella di utilizzare i valori delle tabelle (<code>table</code> e <code>table-cell</code>) CSS, anche se questi non sono supportati da Internet Explorer 7 ed inferiori. Ma poichè noi non possiamo sempre essere costretti a scendere a patti con browser che non rispettano gli standard, in questo esempio useremo tali valori, anche perchè le versioni inferiori di Explorer visualizzeranno semplicemente dei blocchi. Vediamo l&#8217;implementazione.</p>
+<p><span id="more-378"></span></p>
+<p>La marcatura è elementare:</p>
+<pre class="brush: xml; title: ; notranslate">
+&lt;div id=&quot;slideshow&quot;&gt;
+
+  &lt;div class=&quot;slide&quot;&gt;
+
+    &lt;p&gt;...&lt;/p&gt;
+
+  &lt;/div&gt;
+
+  &lt;!-- altre slide --&gt;
+
+&lt;/div&gt;
+</pre>
+<p>Il CSS usa appunto i valori delle tabelle citati poc&#8217;anzi:</p>
+<pre class="brush: css; title: ; notranslate">
+#slideshow {
+	width: 800px;
+	height: 400px;
+	margin: 0 auto;
+	background: #000;
+	color: #fff;
+	border: 1em solid silver;
+	display: table;
+	border-collapse: collapse;
+}
+
+div.slide {
+	width: 199px;
+	height: 400px;
+	border-left: 1px solid silver;
+	cursor: pointer;
+	display: table-cell;
+}
+
+div.slide p {
+	display: none;
+	margin: 0;
+	padding: 1em;
+}
+</pre>
+<p>Con jQuery abbiamo bisogno di tre valori per definire la larghezza delle slide durante l&#8217;animazione:</p>
+<ol>
+<li>400: slide espansa</li>
+<li>131: larghezza delle altre slide quando la slide corrente si espande</li>
+<li>199: larghezza predefinita delle slide</li>
+</ol>
+<p>Operiamo con il gestore di eventi <code>hover</code> su ciascuna slide, espandendola e mostrando il testo al suo interno e in seguito ridimensionandola e nascondendo nuovamente il testo:</p>
+<pre class="brush: jscript; title: ; notranslate">
+$(function() {
+
+  var fullWidth = 400;
+  var resizedWidth = 131;
+  var defaultWidth = 199;
+  var slides = $('div.slide', '#slideshow');
+
+  slides.each(function() {
+
+     var slide = $(this);
+     var $p = $('p', slide);
+
+     slide.hover(function() {
+
+       slide.stop(true, true).animate({
+         width: fullWidth
+       }, 'slow', function() {
+
+         $p.fadeIn('slow');
+
+       });
+
+       slides.not(slide).css('width', resizedWidth);
+
+     }, function() {
+
+       slide.stop(true, true).animate({
+         width: defaultWidth
+       }, 'slow', function() {
+
+         $p.fadeOut('slow');
+
+       });
+
+       slides.not(slide).css('width', defaultWidth);
+
+     });
+
+  });
+
+});
+</pre>
+<p>Potete visionare l&#8217;esempio finale in <a href="http://gabrieleromanato.com/esempi/jquery/jquery-slideshow-fisarmonica/">questa pagina</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://gabrieleromanato.com/2011/07/jquery-slideshow-a-fisarmonica/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>CSS: rotazioni e trasformazioni cross-browser</title>
+		<link>http://gabrieleromanato.com/2011/07/css-rotazioni-e-trasformazioni-cross-browser/</link>
+		<comments>http://gabrieleromanato.com/2011/07/css-rotazioni-e-trasformazioni-cross-browser/#comments</comments>
+		<pubDate>Sun, 17 Jul 2011 17:51:13 +0000</pubDate>
+		<dc:creator>Gabriele Romanato</dc:creator>
+				<category><![CDATA[CSS]]></category>
+		<category><![CDATA[Web standards]]></category>
+		<category><![CDATA[css3]]></category>
+
+		<guid isPermaLink="false">http://gabrieleromanato.com/?p=376</guid>
+		<description><![CDATA[Le rotazioni CSS3 possono essere finalmente cross-browser grazie all&#8217;adozione da parte di Internet Explorer della proprietà -ms-transform. Ho appena letto questo interessante post di Samuli Hakoniemi su una soluzione cross-browser per far funzionare le rotazioni anche in Internet Explorer 6. Il post è stato scritto quasi due anni fa e attualmente la versione 6 di [...]]]></description>
+			<content:encoded><![CDATA[<p><img src="http://gabrieleromanato.com/images/css.png" alt="" class="alignright" />Le rotazioni CSS3 possono essere finalmente cross-browser grazie all&#8217;adozione da parte di Internet Explorer della proprietà <code>-ms-transform</code>. Ho appena letto questo interessante <a href="http://samuli.hakoniemi.net/cross-browser-rotation-transformation-with-css/">post</a> di Samuli Hakoniemi su una soluzione cross-browser per far funzionare le rotazioni anche in Internet Explorer 6. Il post è stato scritto quasi due anni fa e attualmente la versione 6 di Explorer sta letteralmente esalando gli ultimi respiri, quindi usare il file HTC descritto nell&#8217;articolo è consigliabile solo nel caso in cui abbiate un pubblico particolarmente vasto o con una percentuale di utenti di IE6 al di sopra del 4 o 5%. Vediamo come scrivere una regola cross-browser che comprenda anche Internet Explorer.</p>
+<p><span id="more-376"></span></p>
+<p>Il codice è molto semplice:</p>
+<pre class="brush: css; title: ; notranslate">
+#box {
+	-moz-transform: rotate(5deg);
+	-webkit-transform: rotate(5deg);
+	-o-transform: rotate(5deg);
+	-ms-transform: rotate(5deg);
+}
+</pre>
+<p>A detta dell&#8217;autore dell&#8217;articolo la proprietà sopra indicata dovrebbe funzionare dalla versione 7 di Internet Explorer, ma vi consiglio di effettuare come sempre dei test. Il demo di Samuli si trova <a href="http://demo.hakoniemi.net/Cross-browserRotateTransformationwithCSS/">qui</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://gabrieleromanato.com/2011/07/css-rotazioni-e-trasformazioni-cross-browser/feed/</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+	</channel>
+</rss>

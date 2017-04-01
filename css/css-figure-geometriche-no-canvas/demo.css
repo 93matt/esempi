@@ -1,0 +1,46 @@
+body {
+margin: 2em;
+padding: 0;
+}
+
+#piramide {
+width: 400px;
+margin: 0 auto;
+}
+
+.row {
+margin: 0;
+height: 20px;
+}
+
+.float-container-1,
+.float-container-2,
+.float-container-3,
+.float-container-4,
+.float-container-5 {
+margin: 0 auto;
+height: 20px;
+}
+
+.float-container-1 {width: 80px; border-bottom: 1px solid;}
+.float-container-2 {width: 160px; border-bottom: 1px solid;}
+.float-container-3 {width: 240px; border-bottom: 1px solid;}
+.float-container-4 {width: 320px; border-bottom: 1px solid;}
+.float-container-5 {width: 400px;}
+
+.float-container-1 div {border-right: none;}
+.float-container-5 div {border-bottom: 1px solid;}
+
+
+
+.float {
+float: left;
+width: 39px;
+height: 20px;
+line-height: 20px;
+text-align: center;
+border-right: 1px solid;
+}
+
+.last {border-right: none; background: #fff; color: #000; border-bottom: none !important;}
+.first {border-bottom: none !important; background: #fff; color: #000;}

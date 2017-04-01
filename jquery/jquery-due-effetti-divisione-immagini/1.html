@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: effetto di divisione delle immagini 1</title>
+<meta charset="utf-8" />
+<style type="text/css">
+#container {
+	width: 533px;
+	height: 350px;
+	margin: 2em auto;
+	position: relative;
+}
+#test {
+	width: 533px;
+	height: 350px;
+	display: block;
+	cursor: pointer;
+}
+
+.part1 {
+	background: yellow;
+	left: 0;
+	top: 0;
+}
+.part2 {
+	background: silver;
+	top: 0;
+	right: 0;
+}
+.part3 {
+	background: #f90;
+	bottom: 0;
+	left: 0;
+}
+.part4 {
+	background: teal;
+	bottom: 0;
+	right: 0;
+}
+
+.part {
+	position: absolute;
+}
+
+.part p {
+
+   width: 100px;
+   height: 100px;
+   display: block;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   margin: -50px 0 0 -50px;
+   text-align: center;
+   line-height: 100px;
+   font: 1.5em Arial, sans-serif;
+
+}
+</style>
+</head>
+
+<body>
+
+<div id="container">
+<img src="http://dev.css-zibaldone.com/onwebdev/post/star-rating/1.jpg" alt="" id="test" />
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+
+(function($) {
+
+
+    $.fn.divide = function(options) {
+    
+       var that = this;
+       
+       var defaults = {
+       
+       		parent: that.parent(),
+       		parts: 4,
+       		speed: 500,
+       		content: '',
+       		opacity: 1
+       
+       };
+       
+       options = $.extend(defaults, options);
+    
+       return that.each(function() {
+              
+       var i = 0;
+       var width = Math.floor(that.width() / 2);
+       var height = Math.floor(that.height() / 2);
+       
+             
+       
+       do {
+       
+           i += 1;
+           
+           var part = '<div class="part part'+ i + '"/>';
+           
+           $(part).appendTo(options.parent).animate({
+               width: width,
+               height: height,
+               opacity: options.opacity
+           }, options.speed, function() {
+           
+               $(this).html(options.content);
+           
+           
+           });
+       
+       
+       } while(i < options.parts);
+       
+       
+       
+       });
+        
+    
+    
+    
+    };
+
+
+})(jQuery);
+
+$(function() {
+
+
+    $('#test').click(function() {
+    
+    
+        $(this).divide({
+        
+          speed: 700,
+          content: '<p>Test</p>',
+          opacity: '0.6'
+        });
+    
+    });
+    
+    setTimeout(function() {
+    
+    	$('#test').click();
+    
+    
+    }, 1000);
+
+
+
+});
+
+
+</script>
+</body>
+</html>

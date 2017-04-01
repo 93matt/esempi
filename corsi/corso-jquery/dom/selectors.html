@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Selectors</title>
+<meta charset="utf-8" />
+<style type="text/css">
+#wrapper {
+	width: 860px;
+	margin: 2em auto;
+	overflow: hidden;
+}
+
+#test {
+	float: left;
+	width: 400px;
+}
+
+pre {
+	float: right;
+	width: 400px;
+	white-space: pre-wrap;
+	word-break: break-word;
+	padding: 5px;
+	background: #eee;
+}
+
+#selector {
+	margin: 0 0 1.5em 0;
+	border-bottom: 1px solid;
+	padding-bottom: 0.3em;
+}
+
+#s {
+	width: 200px;
+	padding: 6px;
+	border: 1px solid #ccc;
+	background: #f6f6f6;
+	font: 1em Arial, sans-serif;
+}
+
+#select {
+	padding: 6px 12px;
+	background: #000;
+	color: #fff;
+	border: none;
+	font: bold 1em Arial, sans-serif;
+	margin-left: 1em;
+}
+.test {color: #080;}
+</style>
+</head>
+
+<body>
+
+<div id="wrapper">
+
+	<form id="selector" action="#">
+	
+		<input type="text" name="s" id="s"/>
+		<input type="submit" id="select" value="Select"/>
+	
+	</form>
+
+	<div id="test">
+	
+		<ul>
+		
+			<li>List item</li>
+			<li class="item"><strong>List item</strong></li>
+			<li>
+				<div id="inner">
+					List item
+				</div>
+			</li>
+			
+		
+		</ul>
+	
+	</div>
+	
+<pre>
+&lt;div id=&quot;test&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;List item&lt;/li&gt;
+&lt;li class=&quot;item&quot;&gt;
+ &lt;strong&gt;List item&lt;/strong&gt;
+ &lt;/li&gt;
+&lt;li&gt;
+ &lt;div id=&quot;inner&quot;&gt;
+  List item
+ &lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</pre>
+
+</div>
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script>
+$(function() {
+
+	$('#selector').submit(function(e) {
+	
+		e.preventDefault();
+		
+		$('.test').removeClass('test');
+		
+		var expr = $.trim($('#s').val());
+		$(expr).addClass('test');
+	
+	
+	});
+
+});
+</script>
+</body>
+</html>

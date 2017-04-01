@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: calendari con le liste</title>
+<meta charset="utf-8" />
+<style>
+
+#calendar {
+    width: 28em;
+    margin: 2em auto;
+    padding: 0;
+    list-style: none;
+    height: 100%;
+    overflow: hidden;
+    font: 100% Arial, sans-serif;
+    position: relative;
+}
+
+#calendar li {
+    width: 4em;
+    height: 4em;
+    float: left;
+    display: block;
+    margin: 0;
+}
+
+#calendar li.day {
+	background: #333;
+	text-align: center;
+	line-height: 4;
+	font-weight: bold;
+	font-variant: small-caps;
+	color: #fff;
+}
+
+#calendar li a {
+    display: block;
+    float: left;
+    width: 100%;
+    height: 100%;
+    line-height: 4;
+    color: #000;
+    text-align: center;
+    text-decoration: none;
+    margin: 0;
+}
+
+#calendar li a span {
+	display: block;
+	background: #d34545;
+	width: 100%;
+	text-align: center;
+	cursor: help;
+	position: absolute;
+	top: -1000em;
+	color: #fff;
+	font-weight: bold;
+}
+
+#calendar li a:hover span {
+	top: 0;
+	left: 0;
+}
+
+#calendar li.empty {background: #fff;}
+#calendar li.event {background: #ccc;}
+    
+    
+
+</style>
+</head>
+
+<body>
+
+<ul id="calendar">
+
+<li class="day">Lun</li>
+<li class="day">Mar</li>
+<li class="day">Mer</li>
+<li class="day">Gio</li>
+<li class="day">Ven</li>
+<li class="day">Sab</li>
+<li class="day">Dom</li>
+
+<li class="event"><a href="#">1<span class="todo">Evento 1</span></a></li>
+<li><a href="#">2</a></li>
+<li><a href="#">3</a></li>
+<li class="event"><a href="#">4<span class="todo">Evento 2</span></a></li>
+<li class="event"><a href="#">5<span class="todo">Evento 3</span></a></li>
+<li><a href="#">6</a></li>
+<li><a href="#">7</a></li>
+
+<li><a href="#">8</a></li>
+<li><a href="#">9</a></li>
+<li><a href="#">10</a></li>
+<li class="event"><a href="#">11<span class="todo">Evento 4</span></a></li>
+<li><a href="#">12</a></li>
+<li><a href="#">13</a></li>
+<li><a href="#">14</a></li>
+
+<li><a href="#">15</a></li>
+<li><a href="#">16</a></li>
+<li><a href="#">17</a></li>
+<li><a href="#">18</a></li>
+<li><a href="#">19</a></li>
+<li><a href="#">20</a></li>
+<li class="event"><a href="#">21<span class="todo">Evento 5</span></a></li>
+
+<li><a href="#">22</a></li>
+<li><a href="#">23</a></li>
+<li><a href="#">24</a></li>
+<li><a href="#">25</a></li>
+<li><a href="#">26</a></li>
+<li><a href="#">27</a></li>
+<li class="event"><a href="#">28<span class="todo">Evento 6</span></a></li>
+
+<li><a href="#">29</a></li>
+<li><a href="#">30</a></li>
+<li><a href="#">31</a></li>
+<li class="empty"></li>
+<li class="empty"></li>
+<li class="empty"></li>
+<li class="empty"></li>
+</ul>
+
+</body>
+</html>
+

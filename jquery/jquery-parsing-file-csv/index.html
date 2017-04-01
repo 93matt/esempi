@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: parsing di un file CSV</title>
+<meta charset="utf-8" />
+<style>
+
+table {
+    
+    margin: 0.5em;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 500px;
+    border: 1px solid gray;
+}
+
+td, th {
+    
+    padding: 0.3em;
+    vertical-align: middle;
+}
+
+th {
+    
+    background: #000;
+    color: #fff;
+    text-align: left;
+}
+
+td {
+    
+    border-bottom: 1px solid gray;
+}
+
+</style>
+</head>
+
+<body>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+
+
+$(document).ready(function() {
+
+
+    $.ajax({
+    
+       type: 'GET',
+       url: 'csv-sample.csv',
+       data: null,
+       success: function(text) {
+       
+       
+           var fields = text.split(/\n/);
+           fields.pop(fields.length-1);
+           
+           
+           var headers = fields[0].split(','), html = '<table>';
+           
+           html += '<tr>';
+           
+           for(var i = 0; i < headers.length; i += 1) {
+           
+              html += '<th scope="col">' + headers[i] + '</th>';
+              
+           }
+           
+           html += '</tr>';
+           
+           var data = fields.slice(1, fields.length);
+           
+           
+           
+           for(var j = 0; j < data.length; j += 1) {
+           
+           
+           
+              var dataFields = data[j].split(',');
+              
+              html += '<tr>';
+              html += '<td>' + dataFields[0] + '</td>';
+              html += '<td><a href="' + dataFields[1] + '">' + dataFields[1] + '</a></td>';
+              html += '<td>' + dataFields[2] + '</td>';
+              html += '</tr>';
+              
+           
+           
+           }
+           
+           html += '</table>';
+           
+           
+           $(html).appendTo('body');
+           
+           
+           
+       
+       
+       
+       }
+    
+    
+    
+    });
+
+
+
+});
+
+
+</script>
+</body>
+</html>
+

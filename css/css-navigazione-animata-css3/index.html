@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: navigazione animata CSS3</title>
+<meta charset="utf-8" />
+<style type="text/css" media="screen">
+body {
+    margin: 0;
+    background: #fff;
+}
+
+.nav {
+    position: relative;
+    width: 800px;
+    padding: 0 60px;
+    margin: 20px auto;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.nav h1 {
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 60px;   
+}
+
+
+
+.nav-item {
+    position: absolute;
+    top: 0;
+    width: 60px;
+    text-decoration: none;
+}
+
+.nav-prev {
+    left: 0;
+    padding-left: 70px; 
+}
+
+.nav-next {
+    right: 0;
+    padding-right: 70px;
+}
+
+
+
+
+.nav-item .text {
+    position: absolute;
+    z-index: 1;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 60px;
+    color: transparent;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-item:hover .text,
+.nav-item:focus .text,
+.nav-item:active .text {
+    color: #222;
+    -webkit-transition-delay: 0.2s;
+    -moz-transition-delay: 0.2s;
+    -o-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+}
+
+
+.nav-prev .text {
+    left: 0;
+}
+
+.nav-prev:hover .text,
+.nav-prev:focus .text,
+.nav-prev:active .text {
+    left: 70px;
+}
+
+
+.nav-next .text {
+    right: 0;
+}
+
+.nav-next:hover .text,
+.nav-next:focus .text,
+.nav-next:active .text {
+    right: 70px;   
+}
+
+
+
+.nav-item .icon {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    display: block;
+    overflow: hidden;
+    text-indent: -999em;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 60px;
+    height: 60px;
+    border: 3px solid #222;
+    border-radius: 9999px;
+    box-shadow: inset 0 0 0 28px #fff;
+    background: #222;
+    opacity: 0.5;
+    
+    -webkit-transition-property: box-shadow, opacity;
+    -webkit-transition-duration: 0.3s, 0s;
+    -webkit-transition-timing-function: ease-in-out, linear;
+    -webkit-transition-delay: 0.1s, 0.4s;
+    
+    -moz-transition-property: box-shadow, opacity;
+    -moz-transition-duration: 0.3s, 0s;
+    -moz-transition-timing-function: ease-in-out, linear;
+    -moz-transition-delay: 0.1s, 0.4s;
+
+    -o-transition-property: box-shadow, opacity;
+    -o-transition-duration: 0.3s, 0s;
+    -o-transition-timing-function: ease-in-out, linear;
+    -o-transition-delay: 0.1s, 0.4s;
+
+    transition-property: box-shadow, opacity;
+    transition-duration: 0.3s, 0s;
+    transition-timing-function: ease-in-out, linear;
+    transition-delay: 0.1s, 0.4s;
+}
+
+.nav-item:hover .icon,
+.nav-item:focus .icon,
+.nav-item:active .icon {
+    opacity: 1;
+    box-shadow: inset 0 0 0 0 #fff;
+
+    -webkit-transition-delay: 0.1s, 0s;
+    -moz-transition-delay: 0.1s, 0s;
+    -o-transition-delay: 0.1s, 0s;
+    transition-delay: 0.1s, 0s;
+}
+
+
+.nav-item .icon:before,
+.nav-item .icon:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    margin: -7px 0 0 -9px;
+    border-width: 0 4px 4px 0;
+    border-style: solid;
+    border-color: #222;
+    
+    -webkit-transform: rotate(-45deg);
+    -webkit-transition: all 0.3s linear;
+    -webkit-transition-delay: 0.1s;
+
+    -moz-transform: rotate(-45deg);
+    -moz-transition: all 0.3s linear;
+    -moz-transition-delay: 0.1s;
+
+    -o-transform: rotate(-45deg);
+    -o-transition: all 0.3s linear;
+    -o-transition-delay: 0.1s;
+
+    transform: rotate(-45deg);
+    transition: all 0.3s linear;
+    transition-delay: 0.1s;
+}
+
+.nav-item .icon:before {
+    left: -25%;
+    border-color: #fff;
+}
+
+.nav-item:hover .icon:before,
+.nav-item:focus .icon:before,
+.nav-item:active .icon:before {
+    left: 50%;
+}
+
+.nav-item:hover .icon:after,
+.nav-item:focus .icon:after,
+.nav-item:active .icon:after {
+    left: 125%;
+}
+
+
+
+.nav-prev .icon {
+    left: 0;
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+
+.nav-next .icon {
+    right: 0;
+}
+</style>
+</head>
+
+<body>
+
+<nav class="nav">
+    <h1>Nome Sito</h1>
+    <a class="nav-item nav-prev" href="#">
+        <span class="icon">&lt;</span>
+        <span class="text">About</span>
+    </a>
+    <a class="nav-item nav-next" href="#">
+        <span class="text">Contatti</span>
+        <span class="icon">&gt;</span>
+    </a>
+</nav>
+
+</body>
+</html>

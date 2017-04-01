@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>$.post()</title>
+<meta charset="utf-8" />
+<style type="text/css">
+form {
+	margin: 2em;
+}
+
+form div {
+	margin-bottom: 1em;
+}
+
+form div label {
+	display: block;
+	font-weight: bold;
+}
+
+form div input {
+	width: 180px;
+	padding: 5px 8px;
+	display: block;
+	margin-top: 0.5em;
+}
+
+form p input {
+	padding: 6px;
+}
+
+.error {
+	color: red;
+}
+
+.success {
+	color: green;
+}
+
+</style>
+</head>
+
+<body>
+
+<form action="post.php" method="post">
+
+	<div>
+	
+		<label for="username">Username</label>
+		<input type="text" name="username" id="username"/>
+	
+	</div>
+	
+	<div>
+	
+		<label for="email">E-mail</label>
+		<input type="text" name="email" id="email"/>
+	
+	</div>
+	
+	<div>
+	
+		<label for="password">Password</label>
+		<input type="password" name="password" id="password"/>
+	
+	</div>
+	
+	<p><input type="submit" id="submit" name="submit" value="Send" /></p>
+
+</form>
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script>
+$(function() {
+
+	$('form').submit(function(event) {
+	
+		event.preventDefault();
+		
+		var $form = $(this);
+		var dataQuery = $form.serialize();
+		var url = $form.attr('action');
+		
+		if($('.error', $form).length || $('.success', $form).length) {
+			
+				$('.error, .success', $form).remove();
+		}
+		
+		$.post(url, dataQuery, function(html) {
+		
+			
+				
+				$form.append(html);
+			
+			
+		
+		
+		});
+	
+	});
+
+});
+</script>
+
+
+</body>
+</html>

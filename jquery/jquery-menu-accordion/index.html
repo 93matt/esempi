@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: menu accordion</title>
+<meta charset="utf-8" />
+<style>
+body {
+	margin: 0 auto;
+	width: 50%;
+	padding: 2em 0;
+	font: 100% Arial, sans-serif;
+}
+
+h2.accordion-header {
+	font: 2em 'Trebuchet MS', Trebuchet, sans-serif;
+	margin: 0 0 0.2em 0;
+	height: 1.5em;
+	line-height: 1.5;
+	background: url(accordion-on.png) no-repeat 0 0;
+	padding-left: 45px;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+
+h2.accordion-header-off {
+	background: url(accordion-off.png) no-repeat 0 0;
+	cursor: pointer;
+}
+
+div.accordion {
+	margin: 0.4em 0;
+	padding: 1em;
+	background: #a40;
+	color: #fff;
+	line-height: 1.4;
+	display: none;
+}
+
+div.accordion p {
+	margin: 0;
+}
+</style>
+</head>
+
+<body>
+
+<h2 class="accordion-header">Titolo 1</h2>
+
+<div class="accordion">
+
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+</div>
+
+<h2 class="accordion-header">Titolo 2</h2>
+
+<div class="accordion">
+
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+</div>
+
+
+<h2 class="accordion-header">Titolo 3</h2>
+
+<div class="accordion">
+
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+</div>
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+<script type="text/javascript">
+$(function() {
+
+  $('h2.accordion-header', 'body').each(function() {
+  
+    var $h2 = $(this);
+    var accordion = $h2.next();
+    
+    $h2.click(function() {
+    
+       if(accordion.is(':hidden')) {
+       
+         accordion.slideDown('slow');
+         $h2.addClass('accordion-header-off');
+       
+       
+       } else {
+       
+         accordion.slideUp('slow');
+         $h2.removeClass('accordion-header-off');
+       
+       
+       }
+    
+    
+    });
+  
+  
+  
+  });
+
+
+});
+</script>
+
+</body>
+</html>

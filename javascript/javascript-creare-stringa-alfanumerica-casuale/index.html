@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JavaScript: creare una stringa alfanumerica casuale</title>
+<meta charset="utf-8" />
+<style type="text/css">
+#create {
+	padding: 0.4em;
+	font: bold 1em Arial, sans-serif;
+	background: #c30;
+	color: #fff;
+	text-decoration: none;
+	border-radius: 6px;
+	border: 1px solid #a00;
+}
+
+#test span {
+	padding-left: 1em;
+	font: 1em Monaco, "Courier New", monospace;
+}
+</style>
+<script type="text/javascript">
+function createRandomString(length) {
+    
+    var str = '';
+    for ( ; str.length < length; str += Math.random().toString(36).substr(2) );
+    return str.substr(0, length);
+}
+
+window.onload = function() {
+
+	var test = document.getElementById('test');
+	var create = document.getElementById('create');
+	
+	create.onclick = function() {
+	
+		var str = createRandomString(21);
+		
+		var span = document.createElement('span');
+		span.innerHTML = str;
+		test.appendChild(span);
+	
+		return false;
+	
+	};
+
+};
+</script>
+</head>
+
+<body>
+
+<p id="test"><a href="#" id="create">Crea stringa casuale</a></p>
+
+</body>
+</html>

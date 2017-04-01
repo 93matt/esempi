@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: slideshow con dissolvenza</title>
+<meta charset="utf-8" />
+<style>
+body {
+	margin: 0;
+	padding: 2em 0;
+}
+
+#slideshow {
+	width: 500px;
+	height: 327px;
+	margin: 0 auto;
+	position: relative;
+	overflow: hidden;
+}
+
+#slideshow img {
+	width: 500px;
+	height: 327px;
+	display: block;
+	float: left;
+}
+
+#controls {
+	width: 500px;
+	margin: 0 auto;
+	text-align: center;
+	padding: 1em 0;
+}
+
+#controls a {
+	padding: 0.4em;
+	background: #444;
+	color: #fff;
+	font: bold small Arial, sans-serif;
+	text-decoration: none;
+	margin-right: 0.4em;
+}
+
+#controls a:hover {
+	background: #666;
+}
+</style>
+</head>
+
+<body>
+
+<div id="slideshow">
+
+	<img src="1.jpg" alt="" />
+	<img src="2.jpg" alt="" />
+	<img src="3.jpg" alt="" />
+
+</div>
+
+<div id="controls">
+	<a href="#" id="prev">Prec.</a>
+	<a href="#" id="next">Succ.</a>
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+var Slideshow = new function() {
+
+  var images = $('img', '#slideshow');
+  var len = images.length;
+  var index = -1;
+  var prev = $('#prev', '#controls');
+  var next = $('#next', '#controls');
+  
+  this.slide = function() {
+  
+    prev.click(function(event) {
+    
+      images.fadeOut(500);
+    
+      index--;
+      
+      
+      if(index == -1) {
+      
+        index = 0;
+      
+      
+      }
+      
+      var img = images.eq(index);
+      
+      img.fadeIn(2000);    
+    
+      event.preventDefault();
+    
+    });
+    
+    next.click(function(event) {
+    
+      images.fadeOut(500);
+    
+      index++;
+      
+      
+      if(index == len) {
+      
+        index = 0;
+      
+      
+      }
+      
+      var img = images.eq(index);
+      
+      img.fadeIn(2000);    
+    
+      event.preventDefault();
+    
+    });
+
+  
+  
+  };
+
+
+}();
+
+
+$(function() {
+
+  Slideshow.slide();
+
+});
+</script>
+</body>
+</html>

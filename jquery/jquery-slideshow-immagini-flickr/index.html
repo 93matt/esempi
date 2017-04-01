@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: slideshow con immagini di Flickr</title>
+<meta charset="utf-8" />
+<style type="text/css">
+#slideshow {
+	margin: 2em auto;
+	width: 600px;
+	height: 400px;
+	position: relative;
+	overflow: hidden;
+	border: 6px double #aaa;
+}
+
+#slideshow-wrapper {
+	width: 3000px;
+	height: 400px;
+	position: relative;
+	background: #ddd;
+}
+
+#slideshow-wrapper img {
+	float: left;
+	width: 600px;
+	height: 400px;
+}
+
+#slideshow-controls {
+	width: 600px;
+	margin: 10px auto;
+	text-align: center;
+	font: 3em Georgia, serif;
+}
+
+#slideshow-controls a {
+	text-decoration: none;
+	color: #777;
+	padding-right: 10px;
+	text-shadow: 1px 1px 1px #333;
+}
+</style>
+</head>
+<body>
+
+<div id="slideshow">
+	<div id="slideshow-wrapper">
+		
+	</div>
+	
+</div>
+<div id="slideshow-controls">
+		<a href="#" id="previous">&laquo;</a>
+		<a href="#" id="next">&raquo;</a>
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+var FlickrSlideshow = new function() {
+
+	var url = 'http://api.flickr.com/services/feeds/photos_public.gne?format=json&jsoncallback=?',
+		slideshow = document.getElementById('slideshow'),
+		wrapper = $('#slideshow-wrapper', slideshow),
+		previous = $('#previous'),
+		next = $('#next'),
+		index = 0;
+		
+	var get = function(callback) {
+	
+		$.getJSON(url, function(data){
+			$.each(data.items, function(i, item){
+				if(i < 5) {
+					var thumbItem = item.media.m;
+					var realSizeItem = thumbItem.slice(0, -6)+thumbItem.slice(-4);
+	    			$('<img alt="" />').attr('src', realSizeItem).appendTo(wrapper);
+				} else {
+				
+				return false;
+				
+			   }
+			});
+			
+			callback();
+			
+		});
+
+	
+	
+	};
+	
+	var controls = function() {
+		var images = $('img', wrapper);
+		var len = images.length - 1;
+		
+		previous.click(function(event) {
+			
+			index--;
+			
+			if(index <= 0 || index == len) {
+			
+				index = 0;
+			
+			}
+			
+			wrapper.animate({
+				left: - images.eq(index).position().left
+			}, 1000);
+		
+			event.preventDefault();
+		
+		});
+		
+		next.click(function(event) {
+			
+			index++;
+			
+			if(index <= 0 || index == len) {
+			
+				index = 0;
+			
+			}
+			
+			wrapper.animate({
+				left: - images.eq(index).position().left
+			}, 1000);
+		
+			event.preventDefault();
+		
+		});
+	
+
+	
+	
+	};
+	
+	this.init = function() {
+	
+		get(controls);
+	
+	};
+
+
+
+}();
+
+$(function() {
+
+	FlickrSlideshow.init();
+
+});
+</script>
+</body>
+</html>

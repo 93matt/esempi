@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS sprite: la tecnica</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	margin: 2em;
+}
+
+#social {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	height: 43px;
+}
+
+#social li {
+	width: 42px;
+	height: 100%;
+	margin-right: 0.5em;
+	float: left;
+}
+
+#social li a {
+	float: left;
+	width: 100%;
+	height: 100%;
+	text-indent: -1000em;
+    background-image: url(social.png);
+    background-repeat: no-repeat;
+}
+
+#social li #twitter {
+	background-position: 0 -43px;
+}
+
+#social li #flickr {
+	background-position: 0 0;
+}
+
+#social li #digg {
+	background-position: 0 -82px;
+}
+
+#social li #delicious {
+	background-position: 0 -129px;
+}
+</style>
+</head>
+
+<body>
+
+<ul id="social">
+	<li><a href="#" id="twitter">Twitter</a></li>
+	<li><a href="#" id="flickr">Flickr</a></li>
+	<li><a href="#" id="digg">Digg</a></li>
+	<li><a href="#" id="delicious">Delicious</a></li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: griglie CSS dinamiche</title>
+<meta charset="utf-8" />
+<style>
+body {
+	margin: 0;
+	padding: 2em 0;
+	font: 100% Arial, sans-serif;
+}
+
+#grid {
+	width: 600px;
+	margin: 0 auto;
+	padding: 0;
+	list-style: none;
+	height: 100%;
+	overflow: hidden;
+}
+
+#grid li {
+	height: 100%;
+	overflow: hidden;
+	padding-bottom: 1em;
+}
+
+div.box {
+	background: #ffc;
+	border: 1px solid #999;
+	height: 10em;
+	line-height: 10;
+	text-align: center;
+	float: left;
+}
+
+div.three {
+	width: 189px;
+	margin-right: 5px;
+}
+
+div.two {
+	width: 286px;
+	margin-right: 5px;
+}
+
+div.one {
+	width: 582px;
+	float: none;
+}
+</style>
+</head>
+
+<body>
+
+<ul id="grid">
+
+	<li>
+	
+		<div class="box">Box 1</div>
+		<div class="box">Box 2</div>
+		<div class="box">Box 3</div>
+	
+	</li>
+	
+	<li>
+	
+		<div class="box">Box 4</div>
+		<div class="box">Box 5</div>
+	
+	</li>
+	
+	<li>
+		<div class="box">Box 6</div>
+	</li>
+
+</ul>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+<script type="text/javascript">
+$(function() {
+
+  $('li', '#grid').each(function() {
+  
+    var $li = $(this);
+    var $box = $('div.box', $li);
+    var len = $box.length;
+    
+    switch(len) {
+    
+      case 3:
+        $box.addClass('three');
+        break;
+      case 2:
+        $box.addClass('two');
+        break;
+      case 1:
+        $box.addClass('one');
+        break;
+      default:
+        break;
+    
+    }
+    
+  
+  
+  });
+
+});
+</script>
+
+</body>
+</html>

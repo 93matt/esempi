@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: desktop Mac OS X</title>
+<meta charset="utf-8" />
+<style>
+html, body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	min-height: 100%;
+	font: 100% Tahoma, sans-serif;
+}
+
+body {
+	background: navy url(css-mac/desktop-bg.png);
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#desktop {
+	width: 100%;
+	height: 100%;
+	min-height: 100%;
+	position: relative;
+}
+
+#menu-bar {
+	height: 20px;
+	background: #f7f7f5 url(css-mac/topbar-bg.png) repeat-x;
+}
+
+#menu-actions {
+	float: left;
+	padding: 0 1em;
+	color: #000;
+	font-weight: bold;
+}
+
+#menu-actions li {
+	float: left;
+	margin-right: 1em;
+	height: 100%;
+	line-height: 20px;
+}
+
+#menu-actions li a {
+	text-decoration: none;
+	color: #000;
+	text-shadow: 0 2px 2px #f7f7f7;
+}
+
+#menu-actions li#apple {
+	width: 19px;
+	height: 100%;
+}
+#menu-actions li#apple a {
+	display: block;
+	width: 100%;
+	height: 100%;
+	text-indent: -1000em;
+	background: url(css-mac/apple.png) no-repeat 0 50%;
+	float: left;
+}
+
+#menu-utilities {
+	float: right;
+	height: 100%;
+	padding: 0 1em;
+}
+
+#menu-utilities li {
+	float: left;
+	height: 100%;
+	width: 30px;
+}
+
+#menu-utilities li a {
+	display: block;
+	width: 100%;
+	height: 100%;
+	float: left;
+	text-indent: -1000em;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+}
+
+#menu-utilities #time-machine a {
+	background-image: url(css-mac/time-machine.png);
+}
+#menu-utilities #bluetooth a {
+	background-image: url(css-mac/blue-tooth.png);
+}
+
+#menu-utilities #airport a {
+	background-image: url(css-mac/airport.png);
+}
+
+#menu-utilities #volume a {
+	background-image: url(css-mac/volume.png);
+}
+
+#menu-utilities #spotlight a {
+	background-image: url(css-mac/spotlight.png);
+}
+
+#dock {
+	width: 800px;
+	height: 119px;
+	background: url(css-mac/dock.png) no-repeat 0 100%;
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	margin-left: -400px;
+}
+
+#dock ul {
+	width: 600px;
+	height: 100%;
+	margin: 0 auto;
+}
+
+#dock ul li {
+	float: left;
+	height: 100%;
+	width: 119px;
+	margin-right: 1em;
+}
+
+#dock ul li a {
+	float: left;
+	height: 100%;
+	width: 100%;
+	text-indent: -1000em;
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}
+
+#dock ul #finder a {
+	background-image: url(css-mac/finder.png);
+}
+#dock ul #mail a {
+	background-image: url(css-mac/mail.png);
+}
+#dock ul #safari a {
+	background-image: url(css-mac/safari.png);
+}
+#dock ul #trash a {
+	background-image: url(css-mac/trash.png);
+}
+</style>
+</head>
+
+<body>
+
+<div id="desktop">
+
+	<div id="menu-bar">
+	
+		<ul id="menu-actions">
+		
+			<li id="apple"><a href="#">System commands</a></li>
+			<li><a href="#"><strong>Finder</strong></a></li>
+			<li><a href="#">File</a></li>
+			<li><a href="#">Edit</a></li>
+			<li><a href="#">View</a></li>
+			<li><a href="#">Go</a></li>
+			<li><a href="#">Window</a></li>
+			<li><a href="#">Help</a></li>
+		
+		</ul>
+		
+		<ul id="menu-utilities">
+		
+			<li id="time-machine"><a href="#">Time Machine</a></li>
+			<li id="bluetooth"><a href="#">Bluetooth</a></li>
+			<li id="airport"><a href="#">Airport</a></li>
+			<li id="volume"><a href="#">Volume</a></li>
+			<li id="spotlight"><a href="#">Spotlight</a></li>
+		
+		</ul>
+	
+	</div>
+	
+	<div id="dock">
+	
+		<ul>
+		
+			<li id="finder"><a href="#">Finder</a></li>
+			<li id="mail"><a href="#">Mail</a></li>
+			<li id="safari"><a href="#">Safari</a></li>
+			<li id="trash"><a href="#">Trash</a></li>
+		
+		</ul>
+	
+	</div>
+
+
+</div>
+
+</body>
+</html>

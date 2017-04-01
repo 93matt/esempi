@@ -1,0 +1,126 @@
+body {
+	margin: 0;
+	padding: 0;
+	font: 14px Arial, sans-serif;
+	background: #ccc;
+}
+
+#mail {
+	width: 600px;
+	margin: 20px auto;
+	background: #fff;
+	padding-bottom: 2em;
+}
+
+#header {
+	width: 600px;
+	height: 450px;
+	position: relative;
+}
+
+#header h1 {
+	margin: 0;
+	padding: 1em 0;
+	font-size: 2em;
+	background: #d34545;
+	color: #fff;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+#header img {
+	display: block;
+}
+
+#content {
+	line-height: 1.4;
+}
+
+#content p {
+	background: #111;
+	padding: 1em;
+	font-weight: bold;
+	color: #fff;
+	letter-spacing: 0.1em;
+	text-align: justify;
+	margin: 0;
+}
+
+#content p:first-letter {
+
+	float: left;
+	font: 50px 'Arial Black', sans-serif;
+	color: #ddd;
+	padding: 4px 8px 4px 0;
+	line-height: 0.8;
+
+}
+
+#footer h2 {
+	width: 500px;
+	height: 123px;
+	margin: 1em auto;
+	font-size: 34px;
+	text-transform: uppercase;
+	color: #fff;
+	line-height: 118px;
+	background: url(block-title.png) no-repeat;
+	text-align: center;
+}
+
+#featured {
+	width: 500px;
+	margin: 0 auto;
+	overflow: hidden;
+	padding-bottom: 2em;
+	border-bottom: 1em solid #d34545;
+}
+
+#featured ul {
+	margin: 0;
+	padding: 0 0 58px 0;
+	background: url(confirm_icon.png) no-repeat 50% 100%;
+	list-style: none;
+}
+
+#featured li {
+	width: 80%;
+	margin: 0 auto;
+	display: block;
+	margin-bottom: 1em;
+}
+
+#featured a {
+	display: block;
+	padding: 8px;
+	background: #222;
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-variant: small-caps;
+}
+
+#featured a:hover {
+	background: #000;
+	text-decoration: underline;
+}
+
+#featured div.featured {
+	width: 32%;
+	float: left;
+}
+
+#notice {
+	margin: 0;
+	text-align: center;
+	font-size: 12px;
+	padding: 4px;
+}
+
+#notice a {
+	color: #008;
+}

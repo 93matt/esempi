@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: note post it</title>
+<meta charset="utf-8" />
+<link href='http://fonts.googleapis.com/css?family=Covered+By+Your+Grace&v1' rel='stylesheet' type='text/css' />
+<style>
+body {
+	margin: 0;
+	padding: 2em;
+	font: 100% Arial, sans-serif;
+}
+
+#show-dialog {
+	width: 162px;
+	height: 50px;
+	text-decoration: none;
+	text-align: center;
+	display: block;
+	color: #fff;
+	line-height: 50px;
+	font-size: small;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	background: url(button.png) no-repeat;
+}
+
+#create-note {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 300px;
+	font-size: small;
+	display: none;
+}
+
+#create-note div {
+	width: 280px;
+	margin: 0.5em auto;
+}
+
+#create-note label {
+	display: block;
+	font-weight: bold;
+	color: #333;
+	padding-bottom: 4px;
+}
+
+#create-note div textarea {
+	width: 278px;
+	height: 200px;
+	border: 1px solid #999;
+	display: block;
+	font: 1em Arial, sans-serif;
+}
+
+#create-note p input {
+	width: 162px;
+	height: 50px;
+	text-align: center;
+	display: block;
+	color: #fff;
+	line-height: 50px;
+	font-size: small;
+	font-family: Arial, sans-serif;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	background: url(button.png) no-repeat;
+	border: none;
+}
+
+div.note {
+	width: 225px;
+	height: 206px;
+	background: url(sticky.png) no-repeat;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -103px 0 0 -114px;
+	font: 1em 'Covered By Your Grace', sans-serif;
+}
+
+div.note p {
+	margin: 0 auto;
+	width: 180px;
+	padding: 1em 0;
+}
+
+</style>
+</head>
+
+<body>
+
+<p><a href="#" id="show-dialog">Crea nota</a></p>
+
+<form id="create-note" action="#" method="post">
+   
+   <div>
+   
+   		<label for="content">Contenuto</label>
+   		<textarea name="content" id="content" cols="15" rows="15"></textarea>
+   
+   </div>
+   
+   <p><input type="submit" value="Crea" id="create-btn" name="create-btn" /></p>
+
+</form>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+
+<script type="text/javascript">
+$(function() {
+
+
+  $('#show-dialog').click(function(event) {
+  
+    $('#create-note').slideDown('slow');
+    
+    event.preventDefault();
+  
+  });
+  
+  $('#content', '#create-note').after('<div></div>')
+  .next()
+  .hide()
+  .end()
+  .keypress(function(event) {
+  
+    var current = $(this).val().length;
+    
+    if(current >= 100) {
+    
+      if(event.which != 0 && event.which != 8) {
+      
+        event.preventDefault();
+      
+      }
+    
+  
+    }
+    
+    $(this).next().show().text(100 - current);  
+  });
+  
+  $('#create-note').submit(function(event) {
+  
+  
+    var $form = $(this);  
+    var content = $('#content', $form).val();
+    
+    $('<div class="note"/>').html('<p>' + content + '</p>').
+    appendTo('body').draggable();
+    
+    $form.slideUp('slow');
+    
+    $('#content', $form).val('').next().empty();
+    
+    event.preventDefault();  
+  
+  
+  
+  });
+  
+  
+
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: generare una password random</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	margin: 2em;
+	padding: 1em;
+}
+
+#generate {
+	background: #1b8be0;
+	width: 100px;
+	padding: 6px;
+	color: #fff;
+	text-decoration: none;
+	font-family: Arial, sans-serif;
+	font-weight: bold;
+	border-radius: 6px;
+}
+</style>
+</head>
+
+<body>
+<p><a href="#" id="generate">Genera</a></p>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+(function($) {
+
+  $.generateRandomPassword = function(limit) {
+  
+    limit = limit || 8;
+  
+    var password = '';
+  
+    var chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789:;><!"£$%&/()=?^*°#_-@+[]{}|,.§ç';
+  
+    var list = chars.split('');
+    var len = list.length, i = 0;
+    
+    do {
+    
+      i++;
+    
+      var index = Math.floor(Math.random() * len);
+      
+      password += list[index];
+    
+    } while(i < limit);
+    
+    return password;
+ 
+  };
+
+
+})(jQuery);
+
+$(function() {
+
+  $('#generate').click(function(event) {
+  
+    var pwd = $.generateRandomPassword(13);
+    
+    $('<p/>').text(pwd).
+    insertAfter($(this).parent());
+    
+    event.preventDefault();
+  
+  });
+
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: layout basato sulla 960 Grid</title>
+<meta charset="utf-8" />
+<style type="text/css">
+/*=== Reset === */
+a,
+abbr,
+acronym,
+address,
+applet,
+article,
+aside,
+audio,
+b,
+big,
+blockquote,
+body,
+canvas,
+caption,
+center,
+cite,
+code,
+dd,
+del,
+details,
+dfn,
+dialog,
+div,
+dl,
+dt,
+em,
+embed,
+fieldset,
+figcaption,
+figure,
+font,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+hr,
+html,
+i,
+iframe,
+img,
+ins,
+kbd,
+label,
+legend,
+li,
+mark,
+menu,
+meter,
+nav,
+object,
+ol,
+output,
+p,
+pre,
+progress,
+q,
+rp,
+rt,
+ruby,
+s,
+samp,
+section,
+small,
+span,
+strike,
+strong,
+sub,
+summary,
+sup,
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
+time,
+tr,
+tt,
+u,
+ul,
+var,
+video,
+xmp {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+/*
+  Override the default (display: inline) for
+  browsers that do not recognize HTML5 tags.
+
+  IE8 (and lower) requires a shiv:
+  http://ejohn.org/blog/html5-shiv
+*/
+  display: block;
+}
+
+b,
+strong {
+/*
+  Makes browsers agree.
+  IE + Opera = font-weight: bold.
+  Gecko + WebKit = font-weight: bolder.
+*/
+  font-weight: bold;
+}
+
+img {
+  color: transparent;
+  font-size: 0;
+  vertical-align: middle;
+/*
+  For IE.
+  http://css-tricks.com/ie-fix-bicubic-scaling-for-images
+*/
+  -ms-interpolation-mode: bicubic;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+li {
+/*
+  For IE6 + IE7:
+
+  "display: list-item" keeps bullets from
+  disappearing if hasLayout is triggered.
+*/
+  display: list-item;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+th,
+td,
+caption {
+  font-weight: normal;
+  vertical-align: top;
+  text-align: left;
+}
+
+q {
+  quotes: none;
+}
+
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+sub,
+sup,
+small {
+  font-size: 75%;
+}
+
+sub,
+sup {
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+svg {
+/*
+  For IE9. Without, occasionally draws shapes
+  outside the boundaries of <svg> rectangle.
+*/
+  overflow: hidden;
+}
+
+/*== Layout == */
+
+body {
+  min-width: 960px;
+  background: #123;
+  font: 77% 'Helvetica Neue', Arial, sans-serif;
+  padding: 2em 0;
+}
+
+#site {
+	margin: 0 auto;
+	width: 960px;
+	background: #fff;
+}
+
+#branding {
+	background: #c30;
+	color: #fff;
+	padding: 2em;
+}
+
+#branding h1 {
+	font: 3em Georgia, serif;
+}
+
+#branding #tagline {
+	font-size: 1.3em;
+	font-style: italic;
+	padding-top: 0.3em;
+}
+
+#navigation {
+	height: 3em;
+	background: #222;
+	color: #fff;
+	padding: 0 1em;
+	font-size: 1.2em;
+}
+
+#navigation li {
+	float: left;
+	height: 100%;
+	margin-right: 1em;
+}
+
+#navigation a {
+	float: left;
+	height: 100%;
+	text-decoration: none;
+	padding: 0 1em;
+	line-height: 3;
+	color: #ddd;
+}
+
+#navigation a:hover {
+	background: #c20;
+	color: #fff;
+}
+
+#content {
+	width: 100%;
+}
+
+#showcase {
+	width: 940px;
+	margin: 2em auto 1.5em auto;
+	overflow: hidden;
+	padding-bottom: 3px;
+	border-bottom: 2px dotted #ddd;
+}
+
+#showcase div.box {
+	width: 220px;
+	padding: 10px 5px;
+	margin-right: 5px;
+	background: #c0c0c0;
+	font: 1.6em Georgia, serif;
+	float: left;
+	text-align: center;
+}
+
+#showcase div.box:last-child {
+	margin-right: 0;
+}
+
+#main {
+	float: left;
+	padding: 0 10px;
+	width: 680px;
+}
+
+#content-sub {
+	float: right;
+	padding-right: 10px;
+	width: 250px;
+}
+
+#site-info {
+	clear: both;
+	font-size: 1.2em;
+	height: 3em;
+	background: #222;
+	color: #ddd;
+	text-align: center;
+	line-height: 3;
+}
+
+#featured-content {
+	width: 668px;
+	padding: 10px 0 10px 13px;
+	background: #111;
+	color: #fff;
+	font-size: 1.4em;
+	font-family: "Arial Narrow", Arial, sans-serif;
+	overflow: hidden;
+}
+
+#featured-content div.featured {
+	width: 305px;
+	margin-right: 5px;
+	padding: 10px;
+	background: #666;
+	border-radius: 5px;
+	margin-bottom: 10px;
+	float: left;
+}
+
+#gallery {
+	width: 100%;
+	padding: 1.5em 0;
+	overflow: hidden;
+}
+
+#gallery div.img {
+	width: 200px;
+	padding: 5px;
+	border: 1px solid #ccc;
+	margin: 0 5px;
+	float: left;
+	height: 180px;
+}
+
+#gallery div.img img {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+#related {
+	margin: 10px 0;
+	width: 670px;
+	padding: 5px 0 5px 10px;
+	border-top: 2px dotted #ddd;
+	border-bottom: 2px dotted #ddd;
+	overflow: hidden;
+}
+
+#related a {
+	color: #d34545;
+}
+
+#related ul.related {
+	line-height: 1.4;
+	width: 120px;
+	float: left;
+	margin-right: 6px;
+}
+
+#related ul.related li {
+	margin-bottom: 5px;
+	padding-bottom: 2px;
+	border-bottom: 1px dotted #666;
+}
+
+#content-sub div {
+	width: 80%;
+	margin: 0 auto 10px auto;
+}
+
+#content-sub div.ads-box {
+	background: #000;
+	padding: 1em;
+	border-radius: 6px;
+	text-transform: uppercase;
+	font: 2em Impact, sans-serif;
+	text-align: center;
+	color: #ff0;
+	letter-spacing: 0.3em;
+}
+
+#sub-menu ul {
+	line-height: 1.4;
+}
+
+#sub-menu ul li {
+	margin-bottom: 1em;
+	display: block;
+	width: 100%;
+}
+
+#sub-menu ul li a {
+	height: 100%;
+	padding: 0.5em;
+	font-size: 1.3em;
+	background: #c30;
+	color: #fff;
+	text-decoration: none;
+	display: block;
+}
+
+#sub-menu ul li a:hover {
+	background: #d34545;
+}
+</style>
+</head>
+
+<body>
+
+<div id="site">
+	<div id="branding">
+		<h1>Lorem ipsum</h1>
+		<p id="tagline">Lorem ipsum dolor sit amet</p>
+	</div>
+	<ul id="navigation">
+		<li><a href="#">Home</a></li>
+		<li><a href="#">Info</a></li>
+		<li><a href="#">Portfolio</a></li>
+		<li><a href="#">Contatti</a></li>
+	</ul>
+	<div id="content">
+		<div id="showcase">
+			<div class="box">Lorem ipsum dolor sit amet</div>
+			<div class="box">Lorem ipsum dolor sit amet</div>
+			<div class="box">Lorem ipsum dolor sit amet</div>
+			<div class="box">Lorem ipsum dolor sit amet</div>
+		</div>
+		
+		<div id="main">
+		
+			<div id="featured-content">
+				<div class="featured">Lorem ipsum dolor sit amet et ideo ibam forte sicut meus est mos nescio quid meditans totus in illis [...]</div>
+				<div class="featured">Lorem ipsum dolor sit amet et ideo ibam forte sicut meus est mos nescio quid meditans totus in illis [...]</div>
+				<div class="featured">Lorem ipsum dolor sit amet et ideo ibam forte sicut meus est mos nescio quid meditans totus in illis [...]</div>
+				<div class="featured">Lorem ipsum dolor sit amet et ideo ibam forte sicut meus est mos nescio quid meditans totus in illis [...]</div>
+			</div>
+			
+			<div id="gallery">
+			
+				<div class="img">
+					<img src="http://gabrieleromanato.com/wp-content/uploads/2011/10/html5.png" alt="" />
+				</div>
+				<div class="img">
+					<img src="http://gabrieleromanato.com/wp-content/uploads/2011/10/derealization.jpg" alt=""/>
+				</div>
+				<div class="img">
+					<img src="http://gabrieleromanato.com/wp-content/uploads/2011/10/atwork.jpg" alt="" />
+				</div>
+			
+			</div>
+			
+			<div id="related">
+				<ul class="related">
+					<li><a href="#">Lorem ipsum</a></li>
+					<li><a href="#">Lorem ipsum</a></li>
+					<li><a href="#">Lorem ipsum</a></li>
+					<li><a href="#">Lorem ipsum</a></li>
+					<li><a href="#">Lorem ipsum</a></li>
+				</ul>
+				<ul class="related">
+					<li><a href="#">Lorem ipsum</a></li>
+					<li><a href="#">Lorem ipsum</a></li>
+					<li><a href="#">Lorem ipsum</a></li>
+					<li><a href="#">Lorem ipsum</a></li>
+					<li><a href="#">Lorem ipsum</a></li>
+				</ul>
+				<ul class="related">
+					<li><a href="#">Lorem ipsum</a></li>
+					<li><a href="#">Lorem ipsum</a></li>
+					<li><a href="#">Lorem ipsum</a></li>
+					<li><a href="#">Lorem ipsum</a></li>
+					<li><a href="#">Lorem ipsum</a></li>
+				</ul>
+				<ul class="related">
+					<li><a href="#">Lorem ipsum</a></li>
+					<li><a href="#">Lorem ipsum</a></li>
+					<li><a href="#">Lorem ipsum</a></li>
+					<li><a href="#">Lorem ipsum</a></li>
+					<li><a href="#">Lorem ipsum</a></li>
+				</ul>
+				<ul class="related">
+					<li><a href="#">Lorem ipsum</a></li>
+					<li><a href="#">Lorem ipsum</a></li>
+					<li><a href="#">Lorem ipsum</a></li>
+					<li><a href="#">Lorem ipsum</a></li>
+					<li><a href="#">Lorem ipsum</a></li>
+				</ul>
+				
+			</div>
+		
+		</div>
+		
+		<div id="content-sub">
+		
+			<div class="ads-box">ADS Lorem ipsum</div>
+			
+			<div id="sub-menu">
+			
+				<ul>
+					<li><a href="#">Categoria 1</a></li>
+					<li><a href="#">Categoria 2</a></li>
+					<li><a href="#">Categoria 3</a></li>
+					<li><a href="#">Categoria 4</a></li>
+				</ul>	
+			
+			</div>
+		
+		</div>
+		
+	</div>
+	<div id="site-info">
+		<p>&copy; Lorem Ipsum</p>	
+	</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: tab AJAX</title>
+<meta charset="utf-8" />
+<style>
+body {
+	margin: 0 auto;
+	width: 50%;
+	padding: 2em 0;
+	font: 76% Verdana, sans-serif;
+	background: #fff;
+}
+
+#tabs {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	height: 3em;
+	border-bottom: 1px solid #a40;
+}
+
+#tabs li {
+	float: left;
+	display: block;
+	height: 100%;
+	padding-left: 2em;
+	margin-right: 0.5em;
+	background: url(http://dev.css-zibaldone.com/onwebdev/post/tab-left.gif) no-repeat;
+}
+
+#tabs a {
+	float: left;
+	display: block;
+	height: 100%;
+	line-height: 3;
+	padding: 0 2em 0 0;
+	background: url(http://dev.css-zibaldone.com/onwebdev/post/tab-right.gif) no-repeat 100% 0;
+	color: #fff;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+#content {
+	padding: 1em;
+	font-size: 1.1em;
+	height: 100%;
+	position: relative;
+}
+
+#content h2 {
+	font: normal 1.8em Georgia, serif;
+	color: #c40;
+	margin: 0;
+}
+
+#content p {
+	line-height: 1.4;
+}
+
+#content #gallery {
+	height: 100%;
+	padding: 1em 0;
+	overflow: hidden;
+}
+
+#content #gallery img {
+	float: left;
+	width: 30%;
+	margin-right: 4px;
+	padding: 4px;
+	border: 1px solid #ddd;
+}
+
+#loader {
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	top: 250px;
+	left: 50%;
+	margin-left: -50px;
+	display: none;
+	z-index: 100;
+}
+
+</style>
+</head>
+
+<body>
+
+<ul id="tabs">
+	<li><a href="#">Tab 1</a></li>
+	<li><a href="#">Tab 2</a></li>
+	<li><a href="#">Tab 3</a></li>
+</ul>
+
+<div id="content">
+
+  <img src="ajax-loader.gif" alt="" id="loader" />
+
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+
+  $.ajaxSetup({
+    cache: false,
+    url: 'http://gabrieleromanato.com/adds/jquery-ajax-tabs.php',
+    type: 'GET',
+    success: function(html) {
+    
+       $('*', '#content').not('#loader').remove();
+       $(html).appendTo('#content');
+    
+    }
+    
+  });
+
+  $('#loader').ajaxStart(function() {
+  
+    $(this).show();
+  
+  });
+  
+  $('#loader').ajaxSuccess(function() {
+  
+    $(this).hide();
+  
+  });
+
+  $('#tabs a').eq(0).click(function(e) {
+  
+    $.ajax({
+      data: 'p=1'      
+    });
+  
+    e.preventDefault();
+  });
+  
+  $('#tabs a').eq(1).click(function(e) {
+  
+    $.ajax({
+      data: 'p=2'      
+    });
+  
+    e.preventDefault();
+  });
+  
+  $('#tabs a').eq(2).click(function(e) {
+  
+    $.ajax({
+      data: 'p=3'      
+    });
+  
+    e.preventDefault();
+  });
+
+
+
+});
+</script>
+
+</body>
+</html>

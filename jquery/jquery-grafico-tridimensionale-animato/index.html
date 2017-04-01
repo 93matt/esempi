@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: grafico tridimensionale animato</title>
+<meta charset="utf-8" />
+<style type="text/css" media="screen">
+body {
+	margin: 2em;
+}
+
+#graph {
+	width: 262px;
+	height: 430px;
+	position: relative;
+	overflow: hidden;
+}
+
+#graphbackground, #graphforeground { position: absolute; }
+
+#graphbar { 
+	position: absolute; 
+	top: 430px; 
+}
+
+label {
+	display: block;
+	font-weight: bold;
+	padding-bottom: 5px;
+}
+
+select {
+	font: 1em serif;
+	width: 6em;
+	display: block;
+}
+	
+</style>
+</head>
+
+<body>
+
+<form action="#" method="post" id="form">
+	<div>
+		<label for="choice">Il tuo livello di conoscenza degli standard del Web</label>
+		<select name="choice">
+			<option value="">Scegli</option>
+			<option value="284">Sufficiente</option>
+			<option value="142">Buono</option>
+			<option value="0">Ottimo</option>
+		</select>
+	</div>
+</form>
+
+<div id="graph">
+	<img src="img/graphbackground.png" id="graphbackground" width="262" height="430" alt="" />
+	<img src="img/graphbar.png" id="graphbar" width="262" height="430" alt="" />
+	<img src="img/graphforeground.png" id="graphforeground" width="262" height="430" alt="" />
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+
+	$('select[name=choice]', '#form').change(function() {
+	
+		var select = $(this);
+		var value = $('option:selected', select).val();
+		
+		if(value != '') {
+		
+			$('#graphbar').animate({
+				top: value
+			}, 1000);
+		
+		}
+	
+	});
+
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: slideshow di contenuti con animazioni avanzate</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="style.css" media="screen" />
+</head>
+
+<body>
+
+<div id="slider-container">
+<div id="slider">
+	<div id="slider-wrapper">
+		<div class="slide" title="Titolo 1">
+		  <div class="content">
+			<p class="left">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+			<img src="img/1.jpg" alt="" class="right" />
+		  </div>
+		</div>
+		<div class="slide" title="Titolo 2">
+		  <div class="content">
+		    <img src="img/2.jpg" alt="" class="left" />
+			<p class="right">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		  </div>
+			
+		</div>
+		<div class="slide" title="Titolo 3">
+		  <div class="content">
+		    <img src="img/2.jpg" alt="" class="left" />
+			<img src="img/1.jpg" alt="" class="right" />
+		  </div>
+			
+		</div>
+
+	</div>
+</div>
+<div id="slider-controls">
+	<a href="#" rel="0">1</a>
+	<a href="#" rel="1">2</a>
+	<a href="#" rel="2">3</a>
+</div>
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="slider.js"></script>
+</body>
+</html>

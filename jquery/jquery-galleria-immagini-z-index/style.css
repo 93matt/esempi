@@ -1,0 +1,37 @@
+#gallery {
+	margin: 2em auto;
+	position: relative;
+	width: 460px;
+	text-align: center;
+}
+
+#pictures {
+	width: 100%;
+	position: relative;
+	height: 408px;
+}
+
+#pictures img { 
+	position: absolute; 
+	top: 0; 
+	left: 0; 
+}
+
+#prev, #next {
+	display: inline;
+	margin-right: 5px;
+	font-size: 1.5em;
+	padding-top: 0.5em;
+}
+
+a {
+	text-decoration: none;
+	background: #222;
+	color: #fff;
+	padding: 3px 8px;
+	border-radius: 4px;
+}
+
+a:hover {
+	background: #333;
+}

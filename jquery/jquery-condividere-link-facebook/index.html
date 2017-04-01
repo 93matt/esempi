@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: condividere un link su Facebook</title>
+<meta charset="utf-8" />
+<style>
+#share {
+	font: small Arial, sans-serif;
+	text-decoration: none;
+	display: block;
+	height: 16px;
+	width: 150px;
+	line-height: 16px;
+	padding-left: 20px;
+	background: url(facebook_share_icon.gif) no-repeat;
+}
+</style>
+</head>
+
+<body>
+
+<p><a href="#" id="share">Condividi su Facebook</a></p>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+(function($) {
+
+  $.fn.fbShare = function(options) {
+  
+    var that = this;
+    var defaults = {
+      url: location.href,
+      title: document.title
+    };
+    
+    options = $.extend(defaults, options);
+    
+    return that.each(function() {
+    
+    
+      that.click(function(event) {
+      
+        window.open("http://www.facebook.com/sharer.php?u=" +
+                    encodeURIComponent(options.url) + "&amp;t="+
+                    encodeURIComponent(options.title),"sharer",
+                    "toolbar=0,status=0,width=626,height=436");
+             
+      
+        event.preventDefault();
+      
+      });
+    
+    
+    
+    
+    });
+  
+  
+  
+  };
+
+
+})(jQuery);
+
+$(function() {
+
+  $('#share').fbShare();
+
+});
+</script>
+
+</body>
+</html>

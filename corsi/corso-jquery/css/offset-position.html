@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>offset() - position()</title>
+<meta charset="utf-8" />
+<style type="text/css">
+#wrapper {
+    padding: 1em;
+    background: gray;
+    position: relative;
+}
+
+#test {
+    width: 5em;
+    height: 5em;
+    background: silver;
+}​
+​</style>
+</head>
+
+<body>
+<p>
+<button id="offset">offset()</button>
+<button id="position">position()</button>
+</p>
+
+<div id="wrapper">
+    <div id="test"></div>
+</div>
+
+<p id="output"></p>​
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script>
+$(function() {
+
+
+	$('#offset').click(function() {
+    var test = $('#test');
+    var top = test.offset().top;
+    var left = test.offset().left;
+    $('#output').text('top: ' + top + ', left: ' + left);
+});
+
+$('#position').click(function() {
+    var test = $('#test');
+    var top = test.position().top;
+    var left = test.position().left;
+    $('#output').text('top: ' + top + ', left: ' + left);
+});
+
+});
+</script>
+</body>
+</html>

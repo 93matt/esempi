@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: effetti combinati sugli slideshow</title>
+<meta charset="utf-8" />
+<style type="text/css" media="screen">
+#content-slider {
+	width: 600px;
+	height: 400px;
+	border: 1em solid #aaa;
+	position: relative;
+	overflow: hidden;
+	margin: 2em auto;
+}
+
+#content-slider-wrapper {
+	width: 2400px;
+	height: 400px;
+	position: relative;
+	background: #f2f2f2;
+}
+
+div.slide {
+	float: left;
+	width: 600px;
+	height: 400px;
+	position: relative;
+	background: #f2f2f2;
+}
+
+div.slide * {
+	font-family: Palatino, Georgia, serif;
+	margin: 0;
+	padding: 0 50px;
+}
+
+div.slide h2 {
+	font-weight: normal;
+	font-size: 2em;
+	padding-bottom: 5px;
+	padding-top: 50px;
+}
+
+div.slide p {
+	line-height: 1.3;
+}
+
+div.s2 {
+	background: #000;
+	color: #fff;
+}
+
+div.s3 {
+	background: #a30;
+	color: #fff;
+}
+
+div.s4 {
+	background: #c60;
+	color: #fff;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="content-slider">
+	<div id="content-slider-wrapper">
+		<div class="slide">
+			<h2>Titolo 1</h2>
+			
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+			
+		</div>
+		<div class="slide s2">
+			<h2>Titolo 2</h2>
+			
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+			
+		</div>
+		<div class="slide s3">
+			<h2>Titolo 3</h2>
+			
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+			
+		</div>
+		<div class="slide s4">
+			<h2>Titolo 4</h2>
+			
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+			
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+var ContentSlider = new function() {
+
+	var wrapper = document.getElementById('content-slider-wrapper'),
+		slides = $('div.slide', wrapper),
+		timer = null,
+		index = 0;
+		
+	var _slide = function() {
+	
+		timer = setInterval(function() {
+		
+			index++;
+			
+			if(index == 2) {
+			
+				slides.eq(0).animate({opacity: 0}, 0);
+				
+			}
+			
+			if(index == slides.length) {
+			
+				slides.not(':first').animate({
+						left: 0
+					}, 0, function() {
+					
+						slides.eq(0).animate({
+							opacity: 1
+						}, 2000);
+					});
+				
+				index = 0;
+				
+				
+			
+			}
+			
+			var slide = slides.eq(index);
+			
+			slide.animate({
+				left: - slide.position().left
+			}, 2000);
+			
+		
+		}, 2000);
+	
+	};
+	
+	this.init = function() {
+	
+		_slide();
+	
+	};
+
+}();
+
+$(function() {
+
+	ContentSlider.init();
+
+
+});
+</script>
+</body>
+</html>

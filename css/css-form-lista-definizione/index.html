@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: formattare un form con una lista di definizione</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	margin: 0;
+	padding: 2em 0;
+	font: 90% Arial, sans-serif;
+}
+
+#contact {
+	width: 30em;
+	margin: 0 auto;
+}
+
+#contact dt {
+	float: left;
+	clear: left;
+	width: 5em;
+}
+
+#contact dd {
+	margin: 0 0 1em 9.5em;
+	padding-top: 4px;
+}
+
+#contact dd input {
+	font: 1em Arial, sans-serif;
+	border: 1px solid #333;
+	width: 160px;
+}
+
+#contact dd textarea {
+	font: 1em Arial, sans-serif;
+	width: 400px;
+	height: 350px;
+	display: block;
+	border: 1px solid #333;
+}
+
+#contact label:after {
+	content: ':';
+}
+
+#contact .user,
+#contact .text,
+#contact .email {
+	padding-left: 41px;
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	height: 32px;
+	line-height: 27px;
+	font-weight: bold;
+}
+
+#contact .user {
+	background-image: url(user_24x32.png);
+}
+
+#contact .text {
+	background-image: url(pen_alt2_32x32.png);
+}
+
+#contact .email {
+	background-image: url(mail_32x24.png);
+}
+
+#contact p {
+	padding-left: 9.5em;
+}
+
+#contact p input {
+	font: bold 1em Arial, sans-serif;
+	background: #000;
+	color: #fff;
+	padding: 5px;
+	border: 1px solid #333;
+	border-radius: 4px;
+	display: block;
+	width: 100px;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+}
+	
+</style>
+</head>
+
+<body>
+<form action="#" method="post" id="contact">
+	<dl>
+		<dt class="user">
+			<label for="nome">Nome</label>
+		</dt>
+		<dd>
+			<input type="text" name="nome" id="nome" />
+		</dd>
+		<dt class="text">
+			<label for="oggetto">Oggetto</label>
+		</dt>
+		<dd>
+			<input type="text" name="oggetto" id="oggetto" />
+		</dd>
+		<dt class="email">
+			<label for="email">E-mail</label>
+		</dt>
+		<dd>
+			<input type="text" name="email" id="email" />
+		</dd>
+		<dt class="text">
+			<label for="messaggio">Messaggio</label>
+		</dt>
+		<dd>
+			<textarea name="messaggio" id="messaggio" rows="15" cols="15"></textarea>
+		</dd>
+	</dl>
+	
+	<p><input type="submit" name="submit" id="submit" value="Invia" /></p>
+</form>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+</body>
+</html>

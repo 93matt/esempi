@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: slideshow con effetto di entrata</title>
+<meta charset="utf-8" />
+<style>
+body {
+	margin: 0;
+	padding: 2em 0;
+	font: 100% Arial, sans-serif;
+}
+
+h3 {
+	font-size: 1.5em;
+	margin: 0;
+}
+
+p {
+	margin: 0;
+}
+
+#slider {
+	width: 500px;
+	height: 400px;
+	position: relative;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+#slider-wrapper {
+	width: 2500px;
+	height: 400px;
+	position: relative;
+}
+
+#slider-wrapper div.slide {
+	width: 500px;
+	height: 400px;
+	float: left;
+	background: #000;
+	color: #fff;
+	line-height: 400px;
+	text-align: center;
+	position: relative;
+}
+
+#slider-wrapper div.slide h3 {
+	display: inline;
+}
+
+#slider-wrapper div.slide p.text {
+	width: 100%;
+	height: 2em;
+	line-height: 2;
+	background: #d40;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+}
+</style>
+</head>
+
+<body>
+
+<div id="slider">
+
+	<div id="slider-wrapper">
+	
+		<div class="slide">
+			<h3>Slide 1</h3>
+			<p class="text">Testo in entrata</p>
+		</div>
+		
+		<div class="slide">
+			<h3>Slide 2</h3>
+			<p class="text">Testo in entrata</p>
+		</div>
+		
+		<div class="slide">
+			<h3>Slide 3</h3>
+			<p class="text">Testo in entrata</p>
+		</div>
+		
+		<div class="slide">
+			<h3>Slide 4</h3>
+			<p class="text">Testo in entrata</p>
+		</div>
+		
+		<div class="slide">
+			<h3>Slide 5</h3>
+			<p class="text">Testo in entrata</p>
+		</div>
+
+
+
+
+	
+	</div>
+
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+<script type="text/javascript">
+var getSlidePositions = function() {
+
+  var positions = [];
+  
+  $('div.slide', '#slider-wrapper').each(function(i) {
+  
+    var left = $(this).position().left;
+    
+    positions[i] = left;
+  
+  });
+  
+  return positions;
+
+};
+
+$(function() {
+
+  var len = $('div.slide', '#slider-wrapper').length;
+  var index = 0;
+  var offsets = getSlidePositions();
+  
+  var interval = setInterval(function() {
+  
+    index++;
+    
+    if(index == len) {
+    
+    
+      index = 0;
+    
+    
+    }
+    
+    var slide = $('div.slide', '#slider-wrapper').eq(index);
+    
+    $('#slider-wrapper').animate({
+      left: - offsets[index]
+    }, 1000, function() {
+    
+      slide.find('p.text').slideDown(800, function() {
+      
+        $(this).slideUp();
+      
+      });
+    
+    
+    });
+  
+  
+  }, 1800);
+  
+
+
+});
+
+</script>
+
+</body>
+</html>

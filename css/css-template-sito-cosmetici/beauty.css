@@ -1,0 +1,387 @@
+body {
+margin: 0;
+padding: 0 0 0.5em 8px;
+background: #fff;
+color: #000;
+font: 100.01%/normal Tahoma, sans-serif;
+}
+
+a:link, a:visited {
+color: #696a6c;
+background: transparent;
+text-decoration: none;
+}
+a:hover {
+text-decoration: underline;
+}
+
+
+#beautybar {
+margin: 0;
+width: 767px;
+font-size: 69%;
+}
+
+#header {
+margin: 0;
+width: 767px;
+height: 59px;
+background: transparent url("images/top-box.gif") no-repeat top right;
+}
+
+#header h1 {
+margin: 0;
+width: 377px;
+height: 59px;
+background: transparent url("images/logo.gif") no-repeat 0 0;
+}
+#header h1 span {
+position: absolute;
+top: -1000em;
+}
+
+#subheader {
+width: 767px;
+height: 210px;
+margin: 0;
+background: transparent url("images/mainpic.jpg") no-repeat 0 0;
+}
+
+#nav {
+float: left;
+width: 377px;
+height: 210px;
+margin: 0;
+background: transparent url("images/bar-bottom.jpg") no-repeat bottom right;
+}
+#nav ul {
+margin: 0;
+padding: 44px 0 0 0;
+float: right;
+width: 145px;
+background: transparent url("images/bar-top.jpg") repeat-y 0 0;
+list-style: none;
+}
+
+#nav li {
+width: 145px;
+height: 26px;
+margin: 0;
+padding: 0;
+display: block;
+}
+
+#nav a:link,
+#nav a:visited {
+display: block;
+margin: 0;
+padding: 0;
+width: 145px;
+height: 26px;
+}
+
+#nav a span {
+position: absolute;
+top: -1000em;
+}
+
+#nav a#home {
+background: transparent url("images/btn-home.jpg") no-repeat 0 0;
+width: 145px;
+height: 26px;
+}
+#nav a#home:hover {
+background-image: url("images/btn-home-over.jpg");
+}
+
+#nav a#chi {
+background: transparent url("images/btn-about.jpg") no-repeat 0 0;
+width: 145px;
+height: 26px;
+}
+#nav a#chi:hover {
+background-image: url("images/btn-about-over.jpg");
+}
+
+#nav a#servizi {
+background: transparent url("images/btn-services.jpg") no-repeat 0 0;
+width: 145px;
+height: 26px;
+}
+#nav a#servizi:hover {
+background-image: url("images/btn-services-over.jpg");
+}
+
+#nav a#prodotti {
+background: transparent url("images/btn-prod.jpg") no-repeat 0 0;
+width: 145px;
+height: 26px;
+}
+#nav a#prodotti:hover {
+background-image: url("images/btn-prod-over.jpg");
+}
+
+#nav a#listino {
+background: transparent url("images/btn-prices.jpg") no-repeat 0 0;
+width: 145px;
+height: 26px;
+}
+#nav a#listino:hover {
+background-image: url("images/btn-prices-over.jpg");
+}
+
+#nav a#contatti {
+background: transparent url("images/btn-contact.jpg") no-repeat 0 0;
+width: 145px;
+height: 26px;
+}
+#nav a#contatti:hover {
+background-image: url("images/btn-contact-over.jpg");
+}
+
+#nav a#home,
+#nav a#chi,
+#nav a#servizi,
+#nav a#prodotti,
+#nav a#listino,
+#nav a#contatti {
+display: block;
+margin: 0;
+padding: 0;
+}
+
+#prodotto {
+float: left;
+margin: 0;
+width: 390px;
+}
+#prodotto h2 {
+margin: 0;
+background: transparent url("images/header.gif") no-repeat 0 0;
+width: 390px;
+height: 55px;
+}
+#prodotto h2 span {
+position: absolute;
+top: -1000em;
+}
+
+#infobox {
+margin: 0;
+border: 1px solid #66696a;
+}
+#infobox p {
+margin: 0;
+padding: 5px;
+}
+#infobox img {
+float: right;
+padding-left: 10px;
+margin: 0;
+}
+#infobox p#info {
+margin: 0;
+padding: 5px 0 20px 5px;
+}
+
+#content {
+margin: 0;
+width: 767px;
+}
+
+#sx {
+float: left;
+margin: 0;
+width: 362px;
+padding-top: 5px;
+}
+
+#sx h2 {
+margin: 0;
+width: 362px;
+height: 18px;
+background: transparent url("images/title-products.gif") no-repeat 0 0;
+border-bottom: 16px solid #fff;
+}
+#sx h2 span {
+position: absolute;
+top: -1000em;
+}
+
+.product {
+margin: 0;
+padding-bottom: 2px;
+width: 362px;
+}
+.product:after {
+content: ".";
+display: block;
+height: 0;
+clear: both;
+visibility: hidden;
+}
+
+.img {
+float: left;
+width: 110px;
+margin: 0;
+}
+.img img {
+display: block;
+margin: 0;
+border: 1px solid #66696a;
+}
+
+.descr {
+float: left;
+width: 246px;
+margin: 0;
+}
+.descr h3 {
+margin: 0;
+padding-bottom: 0.2em;
+font-size: 1em;
+font-weight: bold;
+border-bottom: 1px solid #66696a;
+}
+.descr p {
+margin: 0;
+padding: 0.5em 0 1em 0;
+}
+
+#dx {
+float: right;
+width: 362px;
+margin: 0;
+padding-top: 5px;
+}
+
+#dx h2 {
+margin: 0;
+height: 18px;
+width: 362px;
+background: transparent url("images/title-welcome.gif") no-repeat 0 0;
+border-bottom: 16px solid #fff;
+}
+#dx h2 span {
+position: absolute;
+top: -1000em;
+}
+
+#vetrina {
+margin: 0;
+width: 362px;
+}
+#vetrina:after {
+content: ".";
+display: block;
+clear: both;
+height: 0;
+visibility: hidden;
+}
+
+#descrizione {
+float: left;
+width: 222px;
+margin: 0;
+}
+#descrizione p {
+margin: 0;
+padding-bottom: 1em;
+padding-right: 10px;
+}
+
+#edicola {
+float: right;
+width: 140px;
+margin: 0;
+}
+#edicola img {
+display: block;
+margin: 0;
+}
+
+#competition {
+margin: 0;
+padding: 0;
+clear: both;
+width: 362px;
+}
+#competition h3 {
+margin: 0;
+font-size: 1em;
+font-weight: bold;
+padding: 1em 0;
+}
+
+.infobox {
+margin: 0;
+width: 362px;
+padding-bottom: 1em;
+}
+.infobox:after {
+content: ".";
+display: block;
+height: 0;
+clear: both;
+visibility: hidden;
+}
+
+#info1, #info2, #info3 {
+float: left;
+margin: 0;
+width: 170px;
+}
+#info1 {
+padding-right: 2em;
+}
+
+#logo {
+float: left;
+margin: 0;
+width: 70px;
+height: 125px;
+padding-left: 17px;
+}
+#logo img {
+display: block;
+margin: 0;
+}
+
+#footer {
+clear: both;
+margin: 0;
+padding: 0;
+width: 767px;
+height: 1.5em;
+}
+
+#footer:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+#links {
+float: left;
+width: 375px;
+height: 1.5em;
+line-height: 1.5em;
+background: #dde4dd;
+border: 1px solid #696A6C;
+padding: 5px;
+color: #b8b3af;
+text-indent: 1em;
+}
+
+#copyright {
+float: left;
+width: 375px;
+border-top: 1px solid #696a6c;
+height: 1.5em;
+line-height: 1.5em;
+padding: 5px 0;
+text-indent: 0.5em;
+}

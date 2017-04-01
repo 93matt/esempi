@@ -1,0 +1,21 @@
+<div ng-controller="CheckoutCtrl">
+    <table class="table table-striped">
+		<thead>
+			<tr>
+				<th scope="col" colspan="2">Title</th>
+				<th scope="col" colspan="2">Price</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="product in products">
+				<td>
+					<img ng-src="{{product.image}}" alt="" width="50" height="55" />
+				</td>
+				<td>{{product.title}}</td>
+				<td>{{product.price | currency}}</td>
+				<td><a href="" ng-click="remove(product.title)" class="glyphicon glyphicon-remove"></a></td>
+			</tr>
+		</tbody>
+    </table>
+	<p>Total: {{total | currency}}</p>
+</div>

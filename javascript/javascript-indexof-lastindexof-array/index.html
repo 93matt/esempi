@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JavaScript: usare indexOf() e lastIndexOf() sugli array</title>
+<meta charset="utf-8" />
+<script type="text/javascript">
+function Print(expr) {
+
+	var body = document.body;
+	var log = document.createElement('p');
+	log.innerHTML = expr;
+	log.style.fontStyle = 'italic';
+	log.style.color = 'green';
+	
+	body.appendChild(log);
+
+}
+
+var obj = {};
+var arr = [ 'foo', 567, obj, 12.34 ];
+
+window.onload = function() {
+	Print( arr.indexOf(obj) ); // 2
+	
+	var index = arr.indexOf('foo');
+	Print( arr.slice(index, 2) ); // foo, 567
+	
+	var lastIndex = arr.lastIndexOf(12.34);
+	Print( arr.slice(lastIndex) ); // 12.34
+};
+</script>
+</head>
+<body>
+</body>
+</html>

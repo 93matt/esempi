@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: Observer pattern e animazioni</title>
+<meta charset="utf-8" />
+<style>
+#container {
+	width: 500px;
+	height: 100px;
+	position: relative;
+	border: 1px solid #000;
+}
+
+#animated {
+	width: 100px;
+	height: 100px;
+	background: #0084e4;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+</style>
+</head>
+
+<body>
+
+<p><a href="#" id="run">Esegui animazione</a></p>
+
+<div id="container">
+
+  <div id="animated"></div>
+
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+
+var Observer = new function() {
+
+  this.position = 0;
+  
+  this.setPosition = function(pos) {
+  
+    this.position = pos;
+  
+  };
+  
+  this.getPosition = function() {
+  
+    return this.position;
+  
+  };
+  
+  this.addAction = function(action) {
+  
+    if(typeof action === 'function') {
+    
+      action();
+    
+    
+    }
+    
+    return this;
+  
+  
+  };
+  
+  this.observe = function(element) {
+  
+    element = element || this; 
+    
+    console.log('Selected element: ' + element[0].tagName);  
+    
+    this.setPosition(element.position().left);
+      
+    console.log(this.getPosition());
+    
+    return this;
+    
+   
+  
+  
+  };
+
+}();
+
+$(function() {
+
+  function setHeight(element, speed, height) {
+  
+    $(element).animate({
+      height: height
+    }, speed);
+  
+  
+  }
+  
+  $('#animated').data('observer', Observer);
+  
+  var animated = $('#animated');
+
+
+  $('#run').click(function(e) {
+  
+    
+    $('#animated').data('observer').observe(animated);
+    
+    $('#animated').animate({
+      left: 100
+    }, 'slow', function() {
+    
+    
+      
+      $(this).data('observer').observe(animated).
+      addAction(setHeight(animated, 'slow', 50));
+      
+      $(this).animate({
+        left: 0
+      }, 'slow', function() {
+      
+      
+        
+        $(this).data('observer').observe(animated).
+        addAction(setHeight(animated, 'slow', 100));
+      
+      });
+    
+    
+    });
+  
+  
+    e.preventDefault();
+  
+  });
+
+
+
+});
+</script>
+
+</body>
+</html>

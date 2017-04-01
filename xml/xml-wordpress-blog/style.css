@@ -1,0 +1,164 @@
+/* General styles */
+
+@import url(http://fonts.googleapis.com/css?family=Oswald);
+
+body {
+	margin: 0;
+	padding: 0;
+	background: #f8f8f8;
+	color: #333;
+	font: 100% Arial, sans-serif;
+}
+
+a:link, a:visited {
+	color: #555;
+}
+a:hover {
+	color: #000;
+}
+
+p, li {
+	line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Oswald', sans-serif;
+}
+
+/* Structure */
+
+#page {
+	width: 100%;
+}
+
+#headerimg {
+	padding: 2em 0 2em 10%;
+	min-height: 100px;
+	background: #45484d;
+background: -moz-linear-gradient(top, #45484d 0%, #000000 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#45484d), color-stop(100%,#000000));
+background: -webkit-linear-gradient(top, #45484d 0%,#000000 100%);
+background: -o-linear-gradient(top, #45484d 0%,#000000 100%);
+background: -ms-linear-gradient(top, #45484d 0%,#000000 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=0 );
+background: linear-gradient(top, #45484d 0%,#000000 100%);
+color: #fff;
+}
+#headerimg h1 {
+	margin: 0;
+	padding: 8px 5px 5px 0;
+	font-size: 3.5em;
+}
+#headerimg .description {
+	padding: 0 5px 5px 0;
+	font-style: italic;
+	color: #dedede;
+}
+
+#content {
+	width: 65%;
+	float: left;
+	padding: 1em 1em 1em 2em;
+}
+
+#sidebar {
+	width: 29%;
+	float: right;
+	padding: 1em 1em 1em 0;
+}
+
+.post {
+	width: 80%;
+	margin: 0 auto;
+	position: relative;
+}
+.post h2 {
+	margin: 0 0 0.2em 0;
+	font-size: 1.6em;
+	padding-bottom: 2px;
+	padding-top: 6px;
+	border-bottom: 1px dotted #ccc;
+	text-transform: uppercase;
+	color: #d34141;
+}
+.post small {
+	position: absolute;
+	width: 80px;
+	height: 80px;
+	top: 0;
+	left: -100px;
+	background: #000;
+	color: #ddd;
+	text-align: center;
+	line-height: 80px;
+	border-radius: 6px;
+	font-size: 1.1em;
+	padding: 5px;
+}
+
+.entry {
+	width: 100%;
+}
+
+.entry .postmetadata {
+	padding: 0.2em 0;
+}
+
+#searchform {
+	margin: 0;
+	padding-top: 9px;
+	width: 100%;
+}
+	
+#searchform #s {
+	width: 170px;
+	background: #fff;
+	color: #333;
+	border: 1px solid #ddd;
+	font: 1em Arial, sans-serif;
+	margin-right: 0.3em;
+}
+
+#searchform #searchsubmit {
+	background: #d34545;
+	font-weight: bold;
+	color: #fff;
+	padding: 0.3em 0.8em;
+	border: none;
+	font-family: Arial, sans-serif;
+	font-size: 1em;
+}
+
+#sidebar h2 {
+	margin: 7px 0;
+	padding: 3px;
+	border-bottom: 1px dotted;
+}
+
+#sidebar ul {
+	margin: 5px 0;
+	padding: 0 0 0 3px;
+	list-style: none;
+}
+
+#sidebar li {
+	padding-bottom: 3px;
+	padding-left: 1.3em; 
+	margin-bottom: 0.3em;
+	border-bottom: 1px solid #ddd;
+}
+
+#footer {
+	clear: both;
+	padding: 4em 0;
+	text-align: center;
+	color: #fff;
+background: #45484d;
+background: -moz-linear-gradient(top, #45484d 0%, #000000 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#45484d), color-stop(100%,#000000));
+background: -webkit-linear-gradient(top, #45484d 0%,#000000 100%);
+background: -o-linear-gradient(top, #45484d 0%,#000000 100%);
+background: -ms-linear-gradient(top, #45484d 0%,#000000 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=0 );
+background: linear-gradient(top, #45484d 0%,#000000 100%);
+}

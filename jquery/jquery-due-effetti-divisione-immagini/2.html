@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: effetto di divisione delle immagini 2</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	margin: 0;
+	padding: 2em 0;
+}
+
+#image {
+	width: 500px;
+	height: 333px;
+	margin: 0 auto;
+	position: relative;
+}
+
+#image #main {
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+
+#image #thumb-1,
+#image #thumb-2,
+#image #thumb-3,
+#image #thumb-4 {
+	position: absolute;
+	width: 125px;
+	height: 85px;
+	display: none;
+}
+
+#image #thumb-1 {
+	top: 0;
+	left: 0;
+}
+
+#image #thumb-2 {
+	top: 0;
+	right: 0;
+}
+
+#image #thumb-3 {
+	bottom: 0;
+	left: 0;
+}
+
+#image #thumb-4 {
+	bottom: 0;
+	right: 0;
+}
+</style>
+</head>
+
+<body>
+
+<div id="image">
+
+	<img src="http://dev.css-zibaldone.com/onwebdev/post/star-rating/1.jpg" alt="" id="main" />
+
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+
+  var src = $('#image #main').attr('src'), i, len = 5;
+  
+  for(i = 1; i < len; i += 1) {
+  
+    $('<img/>').attr({src: src, width: 125, height: 85, id: 'thumb-' + i}).appendTo('#image');
+  
+  
+  }
+  
+  var interval = setTimeout(function() {
+  
+  
+    $('#main').animate({
+      opacity: '0.5'
+    }, 1000, function() {
+    
+    
+      $(this).nextAll().show(1000);
+    
+    });
+  
+  
+  }, 2000);
+
+
+});
+</script>
+
+</body>
+</html>

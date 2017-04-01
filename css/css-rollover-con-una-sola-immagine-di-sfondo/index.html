@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: rollover con una sola immagine di sfondo</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	margin: 0;
+	padding: 0;
+	border-top: 0.5em solid #222;
+	font: 90% Arial, sans-serif;
+}
+
+#navigation {
+	height: 6em;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	border-bottom: 2px solid #222;
+}
+
+#navigation li {
+	float: left;
+	height: 100%;
+	display: block;
+}
+
+#navigation a {
+	height: 2em;
+	padding: 4em 1em 0.1em 1em;
+	float: left;
+	line-height: 2;
+	background-position: 0 -100px;
+	background-repeat: no-repeat;
+	color: #fff;
+	text-decoration: none;
+	display: block;
+}
+
+#navigation a:hover {
+	background-color: #222 !important;
+	background-position: -100px -100px;
+}
+
+#navigation #home {
+	background-image: url(home.jpg);
+	background-color: #c30;
+}
+
+
+#navigation #about {
+	background-image: url(about.jpg);
+	background-color: #06c;
+}
+#navigation #contacts {
+	background-image: url(contact.jpg);
+	background-color: #c60;
+}		
+</style>
+</head>
+
+<body>
+
+<ul id="navigation">
+	<li><a href="#" id="home">Home</a></li>
+	<li><a href="#" id="about">About</a></li>
+	<li><a href="#" id="contacts">Contatti</a></li>
+</ul>
+
+</body>
+</html>

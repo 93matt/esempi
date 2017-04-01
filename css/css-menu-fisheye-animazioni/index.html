@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: menu fisheye con animazioni</title>
+<meta charset="utf-8" />
+<style type="text/css" media="screen">
+
+body {
+
+    width: 60%;
+    margin: 0 auto;
+    padding: 2em 0;
+    background: #fff;
+    color: #333;
+    font: 76% Arial, sans-serif;
+
+}
+
+#navigation {
+
+    width: 100%;
+    font-size: 1.2em;
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+}
+
+#navigation li {
+
+    float: left;
+    height: 100%;
+    margin-right: 4px;
+
+}
+
+#navigation li a {
+
+    float: left;
+    display: block;
+    padding: 0 10px 48px 0;
+    font-size: 1em;
+    color: #555;
+    font-weight: bold;
+    text-decoration: none;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: 50% 100%;
+    height: 100%;
+    -webkit-transition: all 1s ease-in-out;
+	-moz-transition: all 1s ease-in-out;
+	-o-transition: all 1s ease-in-out;
+	-ms-transition: all 1s ease-in-out;
+	transition: all 1s ease-in-out;
+    
+
+}
+
+#navigation li a:hover {
+	font-size: 1.2em;
+	text-transform: uppercase;
+	padding-bottom: 55px;
+}
+
+#navigation li a#home {
+
+
+    background-image: url("img/home-small.jpg");
+
+}
+
+#navigation li a#home:hover {
+
+    background-image: url("img/home-big.jpg");
+    
+
+}
+
+#navigation li a#images {
+
+    background-image: url("img/images-small.jpg");
+
+}
+
+#navigation li a#images:hover {
+
+    background-image: url("img/images-big.jpg");
+ 
+
+}
+
+#navigation li a#about {
+
+    background-image: url("img/about-small.jpg");
+
+}
+
+#navigation li a#about:hover {
+
+    background-image: url("img/about-big.jpg");
+
+}
+
+#navigation li a#contact {
+
+
+    background-image: url("img/contact-small.jpg");
+
+}
+
+#navigation li a#contact:hover {
+
+    background-image: url("img/contact-big.jpg");
+
+}
+
+</style>
+</head>
+
+<body>
+<ul id="navigation">
+	<li><a href="#" id="home">Home</a></li>
+	<li><a href="#" id="images">Immagini</a></li>
+	<li><a href="#" id="about">About</a></li>
+	<li><a href="#" id="contact">Contatti</a></li>
+</ul>
+</body>
+</html>

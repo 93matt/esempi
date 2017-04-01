@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Test on attribute selectors</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="author" content="Gabriele Romanato" />
+<meta name="description" content="In this test we only match CSS 2.1 attribute selectors within a style sheet." />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/CSSParser.js"></script>
+<script type="text/javascript">
+
+<!--
+
+$(document).ready(function() {
+
+     var parser = new CSSParser();
+     var attrs = parser.CSSAttributeSelectors();
+     
+     $('<ul></ul>').insertAfter('h2');
+     
+     for(var i=0; i<attrs.length; i++) {
+     
+        $('<li></li>').html(attrs[i]).appendTo('ul');
+     
+     }
+     
+
+
+
+
+});
+
+-->
+
+
+</script>
+</head>
+
+<body>
+
+<h1>Test on attribute selectors</h1>
+
+<pre>
+body {
+  background: #fff;
+  color: #333;
+}
+
+a[href] {border-bottom: 1px dashed;}
+
+p[class="bar"] {color: green;}
+
+a[title~="val"] {color: orange;}
+
+div[lang|="en"] {
+    background: yellow;
+    padding: 0.5em;
+}
+
+a[href^="http://"] {
+    background: url("ext.gif") no-repeat 0 0;
+    padding-left: 0.5em;
+}
+</pre>
+
+<hr />
+
+<h2>List of CSS 2.1 attribute selectors in the code above</h2>
+
+
+
+</body>
+</html>

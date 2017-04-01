@@ -1,0 +1,62 @@
+* 									{ margin: 0; padding: 0; }
+body 								{ font-family: Verdana, Arial, Helvetica, sans-serif;
+						  		 	  background: url(images/body-bg.jpg); font-size: 11px; }
+a 									{ 
+						  		      outline: none; text-decoration: none; }
+ul 									{ list-style: none; }
+
+
+
+#blogSliderWrap 					{ width: 320px; margin: 50px auto;
+									  background: url(images/widget-bottom-bg.jpg) 7px bottom no-repeat;
+									  padding-bottom: 50px; position: relative; }
+#blogSlider 						{ margin-left: 15px; padding: 25px 18px 0px 18px; width: 263px;
+									  background: url(images/widget-middle-bg.jpg) center center repeat-y; }
+.stripViewer 						{ position: relative; overflow: hidden; clear: both; }
+.stripViewer .panelContainer 		{ position: relative; left: 0px; top: 0px; }
+.stripViewer .panelContainer .panel { float: left; position: relative; width: 280px; }
+.stripNav 							{ margin-left: 22px; position: relative; top: 18px; z-index: 99;
+									  width: 285px; }
+.wrapper 							{ padding: 10px; }
+.innerWrap 							{ width: 273px; overflow: hidden; }
+#push 								{ height: 35px; }
+
+
+
+.stripNav ul li 					{ float: left; margin-right: 0.5em; position: relative; top: -18px;}
+
+.stripNav li a 	{ 
+   display: block;
+   padding: 5px;
+   background: #c30;
+   color: #fff;
+   font-weight: bold;
+   border-radius: 4px 4px 0 0;
+   text-decoration: none;
+} 
+
+.stripNav li + li a {
+	background: #222;
+}
+   
+
+
+
+
+
+.stripNavL a, .stripNavR a 			{ display: block; position: absolute; width: 75px; 
+							 		  height: 22px; text-indent: -9999px; }
+.stripNavL a						{ bottom: 35px; left: 45px; background: url(images/previous.png); }
+.stripNavR a 						{ bottom: 35px; right: 45px; background: url(images/next.png);
+}
+
+
+
+.panel ul 							{ width: 240px; }
+.panel ul li a 						{ border-bottom: 1px solid #C1B599; color: #303030;
+						  		  	  display: block; padding: 7px 10px; }
+.panel ul li:last-child a 			{ 
+								  	  border: none; }
+								
+.panel .onwebdev li a:hover 		{ background: #b20202; color: white; }
+.panel .examples li a:hover 		{	background: #4a8c7f; color: white; }

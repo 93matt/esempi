@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>scrollTop()</title>
+<meta charset="utf-8" />
+<style type="text/css">
+#test {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    top: 1000px;
+    background: green;
+}​
+</style>
+</head>
+
+<body>
+<p><button id="scroll">scrollTop()</button></p>
+
+<div id="test"></div>​
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script>
+$(function() {
+$('#scroll').click(function() {
+    $('html,body').animate({
+        scrollTop: $('#test').css('top')
+    }, 800, function() {
+
+	    alert($('body').scrollTop());
+	    
+	    
+        $('html, body').animate({
+            scrollTop: 0
+        }, 800, function() {
+        
+        	alert($('body').scrollTop());
+        
+        });
+
+    });
+});
+
+
+});
+</script>
+</body>
+</html>

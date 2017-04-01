@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: template per un profilo di Twitter</title>
+<meta charset="utf-8" />
+<style type="text/css" media="screen">
+body {
+	background: #999;
+	padding: 2em 0;
+	margin: 0;
+	font: 100% "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+a {
+	color: #44a5c8;
+	text-decoration: none;
+	
+}
+
+h1, p, ul {
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	list-style: none;
+	font-weight: normal;
+}
+
+#profile {
+	width: 837px;
+	height: 154px;
+	border: 1px solid #666;
+	border-radius: 8px;
+	background: #fff;
+	color: #999;
+	margin: 0 auto;
+}
+
+#profile-info {
+	float: left;
+	width: 460px;
+	padding: 10px;
+}
+
+#profile-avatar {
+	float: left;
+	width: 120px;
+	height: 120px;
+}
+
+#profile-content {
+	width: 330px;
+	float: left;
+	padding-left: 10px;
+} 
+
+#profile-content h1 {
+	color: #333;
+	font-size: 1.6em;
+	padding-right: 22px;
+	background: url(img/verified.png) no-repeat 100% 50%;
+	width: 156px;
+}
+
+#tagname {
+	font-weight: bold;
+	font-size: 1.1em;
+	padding-bottom: 4px;
+}
+
+#profile-desc {
+	font: 90% Georgia, serif;
+	padding-bottom: 4px;
+}
+
+#profile-loc {
+	font-size: 85%;
+}
+
+#profile-bar {
+	width: 128px;
+	float: right;
+	padding: 10px;
+}
+
+#profile-actions {
+	height: 30px;
+}
+
+#profile-actions a {
+	float: left;
+	height: 32px;
+	text-indent: -1000em;
+}
+
+#follow {
+	width: 86px;
+	background: url(img/follow.png) no-repeat;
+	margin-right: 4px;
+}
+
+#action {
+	width: 38px;
+	background: url(img/action.png) no-repeat;
+}
+
+#profile-bar ul {
+
+	padding: 10px 0;
+
+}
+
+#profile-bar ul li {
+	margin-bottom: 10px;
+	text-transform: uppercase;
+	font-size: 85%;
+}
+
+#profile-bar ul strong {
+	color: #333;
+	font-size: 110%;
+}
+</style>
+</head>
+
+<body>
+
+<div id="profile">
+	<div id="profile-info">
+		<div id="profile-avatar">
+			<img src="img/avatar.png" alt="" />
+		</div>
+		<div id="profile-content">
+			<h1>Nome utente</h1>
+			<p id="tagname">@nomeutente</p>
+			<div id="profile-desc">Lorem ipsum dolor.</div>
+			<div id="profile-loc">Italy. <a href="#">http://sito.it/</a></div>
+		</div>
+	</div>
+	<div id="profile-bar">
+		<div id="profile-actions">
+			<a href="#" id="follow">Follow</a>
+			<a href="#" id="action">Action</a>
+		</div>
+		<ul>
+			<li><strong>4,000</strong> tweets</li>
+			<li><strong>692</strong> following</li>
+			<li><strong>436</strong> followers</li>
+		</ul>
+	</div>
+</div>
+
+</body>
+</html>

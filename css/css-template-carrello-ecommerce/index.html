@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: template per un carrello di e-commerce</title>
+<meta charset="utf-8" />
+<style type="text/css" media="screen">
+
+/* General styles */
+
+body, h2, form, fieldset, table, th, td, ul, p, legend {
+	margin: 0;
+	padding: 0;
+	border: none;
+	list-style: none;
+	color: #333;
+}
+
+
+body {
+	background: #fff;
+	color: #333;
+	font: 76% Arial, Helvetica, sans-serif;
+}
+
+h2 {
+	font-size: 1.6em;
+	font-weight: normal;
+	color: #666;
+}
+
+/* Give input elements a consistent dimension */
+
+input {
+	font: 1em Arial, Helvetica, sans-serif;
+}
+
+
+/* Styling the main container */
+
+
+#order {
+	width: 700px;
+	margin: 2em auto;
+	padding: 8px 6px;
+}
+
+/* Styling the form element just for IE6/7 */
+
+form {
+	height: 100%;  /* http://www.satzansatz.de/cssd/onhavinglayout.html */
+}
+
+/* Styling the main title */
+
+h2 {
+	text-align: center;
+	text-transform: uppercase;
+}
+
+/* Styling the table for order details */
+
+form table {
+	width: 100%;
+	padding: 6px 0;
+	border-spacing: 0;
+	border-collapse: collapse;
+	margin-bottom: 0.5em;
+}
+
+form table th {
+	text-align: left;
+	font-weight: normal;
+}
+
+form table td {
+	padding-bottom: 3px;
+}
+
+form table td input {
+	border: 1px solid #ccc;
+	display: block;
+	margin-right: 4px;
+}
+
+form table td #copy1,
+form table td #copy2,
+form table td #copy3,
+form table td #copy4,
+form table td #price1,
+form table td #price2,
+form table td #price3,
+form table td #price4 {
+	width: 50px;
+}
+
+
+form table td #code1,
+form table td #code2,
+form table td #code3,
+form table td #code4 {
+	width: 70px;
+}
+
+form table td #title1,
+form table td #title2,
+form table td #title3,
+form table td #title4 {
+	width: 505px;
+}
+
+
+/* Payment method: fieldset and its children */
+
+fieldset legend {
+	font-weight: bold;
+	padding-bottom: 5px;
+}
+
+fieldset ul {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+fieldset ul li {
+	float: left;
+	width: 172px;
+	margin: 0;
+}
+
+fieldset ul li label {
+	font-weight: bold;
+	vertical-align: middle;
+}
+
+fieldset ul li input {
+	vertical-align: middle;
+}
+
+
+fieldset div.footer {
+	width: 100%;
+	padding: 10px 0 20px 0;
+	height: 100%;
+	overflow: hidden;
+}
+
+fieldset div.footer div.left {
+	float: left;
+	width: 200px;
+	margin: 0;
+}
+
+fieldset div.footer div.right {
+	float: right;
+	width: 200px;
+	margin: 0;
+	position: relative;
+	left: 17px;
+}
+
+fieldset div.footer input {
+	vertical-align: middle;
+	border: none;
+	border-bottom: 1px solid #ccc;
+}
+fieldset div.footer label {
+	vertical-align: middle;
+	font-weight: bold;
+}
+
+
+/* Customer info */
+
+
+form ul.customer-info {
+	width: 100%;
+	padding: 15px 0;
+	overflow: hidden;
+	height: 100%;
+}
+
+form ul.customer-info li {
+	float: left;
+	width: 340px;
+	margin: 0 4px 0 0;
+}
+
+form ul.customer-info input {
+	vertical-align: middle;
+	border: none;
+	border-bottom: 1px solid #ccc;
+	width: 110px;
+	margin-right: 5px;
+}
+
+form ul.customer-info label {
+	font-weight: bold;
+	vertical-align: middle;
+	padding-right: 4px;
+}
+
+
+/* Submit button */
+
+form #submit {
+	border-color: #ccc;
+	background: #666;
+	font-weight: bold;
+	color: #fff;
+}
+
+
+
+
+	
+
+
+
+</style>
+<!--[if lt IE 8]>
+<style type="text/css" media="screen">
+fieldset legend {
+	position: relative;
+	left: -6px;
+}
+</style>
+<![endif]-->
+</head>
+
+<body>
+
+
+<div id="order">
+<h2>Order your books</h2>
+<form action="#" method="post">
+
+
+<table summary="Order: copies, code, title, price">
+
+<tr>
+    <th scope="col">Copies</th>
+    <th scope="col">Code</th>
+    <th scope="col">Title</th>
+    <th scope="col">Price</th>
+</tr>
+
+<tr>
+    <td><input type="text" name="copy1" id="copy1" /></td>
+    <td><input type="text" name="code1" id="code1" /></td>
+    <td><input type="text" name="title1" id="title1" /></td>
+    <td><input type="text" name="price1" id="price1" /></td>
+</tr>
+
+
+<tr>
+    <td><input type="text" name="copy2" id="copy2" /></td>
+    <td><input type="text" name="code2" id="code2" /></td>
+    <td><input type="text" name="title2" id="title2" /></td>
+    <td><input type="text" name="price2" id="price2" /></td>
+</tr>
+
+
+
+<tr>
+    <td><input type="text" name="copy3" id="copy3" /></td>
+    <td><input type="text" name="code3" id="code3" /></td>
+    <td><input type="text" name="title3" id="title3" /></td>
+    <td><input type="text" name="price3" id="price3" /></td>
+</tr>
+
+<tr>
+    <td><input type="text" name="copy4" id="copy4" /></td>
+    <td><input type="text" name="code4" id="code4" /></td>
+    <td><input type="text" name="title4" id="title4" /></td>
+    <td><input type="text" name="price4" id="price4" /></td>
+</tr>
+
+
+
+
+</table>
+
+
+<fieldset>
+<legend>Payment method</legend>
+
+<ul>
+    <li>
+        <label for="cod">COD</label>
+        <input type="checkbox" name="cod" id="cod" value="cod" />
+    </li>
+    <li>
+        <label for="visa">VISA</label>
+        <input type="checkbox" name="visa" id="visa" value="visa" />
+    </li>
+    <li>
+        <label for="american-express">American Express</label>
+        <input type="checkbox" name="american-express" id="american-express" value="american-express" />
+    </li>
+    <li>
+        <label for="master-card">Master Card</label>
+        <input type="checkbox" name="master-card" id="master-card" value="master-card" />
+    </li>
+    
+</ul>
+
+<div class="footer">
+
+    <div class="left">
+    
+        <label for="cc-number">N.</label>
+        <input type="text" name="cc-number" id="cc-number" />
+    
+    </div>
+    
+    <div class="right">
+    
+         <label for="cc-expires">Expires</label>
+         <input type="text" name="cc-expires" id="cc-expires" />
+    
+    
+    </div>
+
+
+</div>
+
+</fieldset>
+
+<ul class="customer-info">
+
+    <li>
+         <label for="name">Name</label>
+        <input type="text" name="name" id="name" />
+        <label for="address">Address</label>
+        <input type="text" name="address" id="address" />
+    </li>
+    
+    
+    
+    <li>
+         <label for="city">City</label>
+        <input type="text" name="city" id="city" />
+        <label for="state">State</label>
+        <input type="text" name="state" id="state" />
+    </li>
+    
+    
+    <li>
+         <label for="phone">Phone</label>
+        <input type="text" name="phone" id="phone" />
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email" />
+    </li>
+    
+    
+
+
+</ul>
+
+
+<p><input type="submit" name="submit" id="submit" value="Place order" /></p>
+
+
+
+
+</form>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet href="style.xsl" type="text/xsl"?>
+
+<document>
+
+	<page>
+
+
+		<headerimg>
+		
+			<h1>XML blog</h1>
+			<description>a Wordpress blog</description>
+	
+	
+		</headerimg>
+		
+		<content>
+		
+			<post>
+			
+				<h2>Story Heading</h2>
+				<date>4/03/2009</date>
+				
+				<entry>
+				
+					<p>
+					Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diem
+					nonummy nibh eiusmod tincidunt ut lacreet dolore magna aliguam
+					erat voluptat.
+					Ut wisis enim ad minim veniam, quis nostrud exerci tution ullamcorper suscipit
+					lobortis nisi ut aliquip ex ea commodo consequat.
+					Duis te feugifacilisi.
+					Duis autem dolor in hendrerit in vulputate velit esse molestie consequat, vel
+					illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio
+					dignissim qui blandit present luptatum zzril delenit au gue duis dolore te feugat
+					nulla facilisi.
+					Ut wisi enim ad minim veniam, quis nostrud exerci taion ullamcorper suscipit
+					lobortis nisi ut aliquip ex en commodo consequat.
+					Duis te feugifacilisi.
+					</p>
+				
+					<p>
+					Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diem
+					nonummy nibh eiusmod tincidunt ut lacreet dolore magna aliguam
+					erat voluptat.
+					Ut wisis enim ad minim veniam, quis nostrud exerci tution ullamcorper suscipit
+					lobortis nisi ut aliquip ex ea commodo consequat.
+					Duis te feugifacilisi.
+					Duis autem dolor in hendrerit in vulputate velit esse molestie consequat, vel
+					illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio
+					dignissim qui blandit present luptatum zzril delenit au gue duis dolore te feugat
+					nulla facilisi.
+					Ut wisi enim ad minim veniam, quis nostrud exerci taion ullamcorper suscipit
+					lobortis nisi ut aliquip ex en commodo consequat.
+					Duis te feugifacilisi.
+					</p>
+					
+					<postmetadata>Posted in <link url="#">Category</link> | <link url="#">Comment &#187;</link></postmetadata>
+				
+				</entry>
+			
+			</post>
+		
+		</content>
+		
+		<sidebar>
+		
+			<h2>Archives</h2>
+			
+			<ulist>
+				<item><link url="#">April 2009</link></item>
+				<item><link url="#">March 2009</link></item>
+			</ulist>
+			
+			<h2>Categories</h2>
+			
+			<ulist>
+				<item><link url="#">category 1</link> (3)</item>
+				<item><link url="#">category 2</link> (7)</item>		
+				<item><link url="#">category 3</link> (5)</item>
+			</ulist>
+			
+			<h2>Meta</h2>
+			
+			<ulist>
+			
+				<item><link url="#">XML</link></item>
+				<item><link url="#">Wordpress</link></item>
+			
+			</ulist>
+			
+		
+		</sidebar>
+		
+		<footer>
+		
+			Gabriele Romanato
+		</footer>
+
+
+	</page>
+
+
+</document>

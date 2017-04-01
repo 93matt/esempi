@@ -1,0 +1,50 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<title>jQuery: aggiungere un video di YouTube</title> 
+<meta charset="utf-8" /> 
+</head> 
+ 
+<body> 
+    
+<div id="test"></div> 
+ 
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>  
+<script type="text/javascript">
+(function($) {
+    $.fn.addYouTubeVideo = function(options) {
+            
+        var that = this;
+        var settings = {
+        
+        	width: 425,
+        	height: 344,
+        	url: ''
+        
+        };
+        
+        options = $.extend(settings, options);
+        
+        var video = '<iframe width="' + options.width + '" height="' + options.height + 
+        			'" src="' + options.url + '" frameborder="0" allowfullscreen></iframe>';
+        
+        
+        return that.each(function() {
+        	$(video).appendTo(this);
+        });
+        
+    };
+})(jQuery); 
+ 
+$(function() {
+    
+   $('#test').addYouTubeVideo({width: '500', height: '440', url:'http://www.youtube.com/v/Nb_Rch9wmmw?fs=1&amp;hl=en_US'}); 
+    
+    
+});
+ 
+ 
+ 
+</script> 
+</body> 
+</html> 

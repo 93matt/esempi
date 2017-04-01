@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>$.param()</title>
+<meta charset="utf-8" />
+</head>
+
+<body>
+
+<p><button id="encoded">param() encoded</button><button id="decoded">param() decoded</button></p>​
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script>
+$(function() {
+
+	var myObject = {
+    a: {
+        one: 1,
+        two: 2,
+        three: 3
+    },
+    b: [1, 2, 3]
+};
+var recursiveEncoded = $.param(myObject);
+var recursiveDecoded = decodeURIComponent($.param(myObject));
+
+$('#encoded').click(function() {
+    alert(recursiveEncoded);
+});
+
+$('#decoded').click(function() {
+    alert(recursiveDecoded);
+});
+});
+</script>
+
+</body>
+</html>

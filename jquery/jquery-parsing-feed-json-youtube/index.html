@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: parsing di un feed JSON di YouTube</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	font: 100% 'Helvetica Neue', Arial, sans-serif;
+	padding: 2em 0;
+	margin: 0 auto;
+	width: 400px;
+}
+
+h2 {
+	margin: 0;
+	padding-bottom: 5px;
+	text-transform: uppercase;
+	color: #d34545;
+	font-size: 1.2em;
+}
+
+iframe {
+	display: block;
+	width: 100%;
+	margin: 0.5em 0;
+}
+</style>
+</head>
+
+<body>
+
+<div id="videos"></div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+
+  var html = '';
+  var youTubeURL = 'http://gdata.youtube.com/feeds/api/videos?q=gabrieleromanato&max-results=2&v=2&alt=json';
+  
+  $.getJSON(youTubeURL, function(response) {
+  
+    var entries = response.feed.entry;
+    
+    $.each(entries, function(index, property) {
+    
+     var title = property.title.$t;
+     var src = property.content.src; 
+      
+      html += '<h2>' + title + '</h2>';
+      html += '<iframe src="' + src + '" width="400" height="350"></iframe>';
+    
+    
+    
+    });
+  
+    $('#videos').html(html);
+  
+  });
+
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: calcolare un totale con percentuale di sconto</title>
+<meta charset="utf-8" />
+<style type="text/css">
+#form {
+	margin: 2em auto;
+	width: 400px;
+	padding: 1em 0;
+	font: 100% Arial, sans-serif;
+}
+
+input {
+	font: 1em Arial, sans-serif;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+li {
+	margin-bottom: 0.5em;
+}
+
+label {
+	display: block;
+	color: #444;
+	padding-bottom: 4px;
+}
+
+li input {
+	display: block;
+	width: 120px;
+	border: 1px solid #aaa;
+}
+
+p input {
+	background: #c30;
+	color: #fff;
+	font-weight: bold;
+	padding: 4px 10px;
+	border: none;
+}
+</style>
+</head>
+
+<body>
+
+<form action="#" method="post" id="form">
+	<ul>
+		<li>
+			<label for="prezzo">Prezzo (&euro;)</label>
+			<input type="text" name="prezzo" id="prezzo" />
+		</li>
+		<li>
+			<label for="qty">Quantità</label>
+			<input type="text" name="qty" id="qty" />
+		</li>
+		<li>
+			<label for="sconto">Sconto (%)</label>
+			<input type="text" name="sconto" id="sconto" />
+		</li>
+	</ul>
+	
+	<p id="total"><strong>Totale:</strong><span></span></p>
+	
+	<p><input type="submit" name="calcola" id="calcola" value="Calcola" /></p>
+</form>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+
+	function calculateDiscount(total, percentage) {
+        
+        var discountValue = (total / 100) * percentage;
+        var finalPrice = total - discountValue;
+        
+        return finalPrice.toFixed(2);
+    }
+    
+    $('#form').submit(function(event) {
+    
+    	var price = new Number($('#prezzo').val());
+    	var qty = new Number($('#qty').val());
+    	var discount = new Number($('#sconto').val());
+    	
+    	var subTotal = price * qty;
+    	
+    	var total = calculateDiscount(subTotal, discount);
+    	
+    	$('span', '#total').html(' ' + total + ' &euro;');
+    	
+    	event.preventDefault();
+    
+    });
+
+
+
+});
+</script>
+</body>
+</html>

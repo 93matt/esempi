@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: effetto dissolvenza sulle immagini</title>
+<meta charset="utf-8" />
+<style type="text/css">
+#pic-wrapper {
+	margin: 2em auto;
+	width: 650px;
+	height: 431px;
+	position: relative;
+	cursor: pointer;
+}
+
+#pic {
+	width: 650px;
+	height: 431px;
+	-moz-transition: all 1s ease-out;
+	-webkit-transition: all 1s ease-out;
+	-o-transition: all 1s ease-out;
+	-ms-transition: all 1s ease-out;
+	position: absolute;
+	z-index: 1;
+	opacity: 1;
+}
+
+#pic-inner {
+	width: 650px;
+	height: 431px;
+	z-index: 0;
+	position: absolute;
+}	
+
+#pic:hover {
+	opacity: 0;
+}
+</style>
+</head>
+
+<body>
+
+<div id="pic-wrapper">
+
+	<img src="1.jpg" alt="" id="pic" />
+
+	<img src="2.jpg" alt="" id="pic-inner" />
+
+</div>
+
+</body>
+</html>

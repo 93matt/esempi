@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: aggiornare un carrello di e-commerce</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	margin: 2em auto;
+	font: 100% Arial, sans-serif;
+	width: 400px;
+}
+
+#cart {
+	margin: 0;
+}
+
+table {
+	border-collapse: separate;
+	width: 100%;
+	table-layout: fixed;
+	border-spacing: 4px;
+}
+
+th {
+	background: #000;
+	color: #fff;
+	padding: 5px;
+	border-right: 2px solid;
+}
+
+td {
+	padding: 5px;
+	border: 1px solid #aaa;
+	vertical-align: middle;
+}
+
+td input {
+	width: 40px;
+	border: 1px solid #ccc;
+	display: block;
+	margin: 0 auto;
+}
+
+#update {
+	background: #c30;
+	color: #fff;
+	text-decoration: none;
+	padding: 0.4em;
+	font-weight: bold;
+	border-radius: 4px;
+}
+
+div.error {
+	padding: 5px;
+	color: #c30;
+}	
+
+</style>
+</head>
+
+<body>
+
+<form action="#" id="cart" method="post">
+	<table summary="Carrello" id="table-cart">
+		<thead>
+			<tr>
+				<th scope="col">Descrizione</th>
+				<th scope="col">Quantità</th>
+				<th scope="col">Prezzo</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Prodotto 1</td>
+				<td><input type="text" name="qty" class="qty" value="1" /></td>
+				<td>13 &euro;</td>
+			</tr>
+			<tr>
+				<td>Prodotto 2</td>
+				<td><input type="text" name="qty" class="qty" value="1" /></td>
+				<td>22.50 &euro;</td>
+			</tr>
+			<tr>
+				<td>Prodotto 3</td>
+				<td><input type="text" name="qty" class="qty" value="1" /></td>
+				<td>30 &euro;</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<p id="total"><strong>Totale:</strong> <span>65.50 &euro;</span></p>
+	
+	<p><a href="#" id="update">Aggiorna carrello</a></p>
+
+</form>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+
+	function updateCart(event) {
+	
+	    var total = 0;
+	    
+	    $('div.error').remove();
+	
+		$('tbody tr', '#table-cart').each(function() {
+		
+			var $tr = $(this);
+			var qty = $('input.qty', $tr).val();
+			var price = $tr.find('td').eq(2).text();
+			
+			if(!/^\d+$/.test(qty)) {
+			
+				$('<div class="error"/>').html('Specificare quantità').
+				insertAfter('#total');
+				
+				return;
+			
+			}
+			
+			var $qty = new Number(qty);
+			var $price = new Number(price.substring(0, price.length-1));
+			
+			total += $price * $qty;
+			
+		
+		
+		
+		});
+		
+		$('span', '#total').html(total.toFixed(2) + ' &euro;');
+		
+		event.preventDefault();
+	
+	
+	}
+	
+	$('#update').bind('click', updateCart);
+
+});
+</script>
+</body>
+</html>

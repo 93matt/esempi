@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AngularJS: validazione dei form con ng-pattern</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" media="screen" />
+<style type="text/css" media="screen">
+#form {
+	max-width: 480px;
+	padding: 0 1em;
+	margin: 2em auto;
+}
+
+#form input.btn {
+	display: block;
+	width: 100%;
+}
+
+#form [class*="bg-"] {
+	padding: 1em;
+}
+
+#form input.ng-dirty {
+	background: #fafafa;
+}
+
+#form input.ng-invalid {
+	color: red;
+}
+
+#form input.ng-valid {
+	color: green;
+}
+</style>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+<script type="text/javascript">
+var app = angular.module('MyApp', []);	
+
+app.controller('FormCtrl', ['$scope', function($scope) {
+	$scope.success = false;
+	$scope.error = false;
+	$scope.formData = {};
+
+	$scope.send = function() {
+		$scope.success = false;
+		$scope.error = false;
+
+		if($scope.myForm.$valid) {
+			$scope.success = true;
+		} else {
+			$scope.error = true;
+		}
+	};
+}]);
+
+</script>
+</head>
+<body ng-app="MyApp">
+<form name="myForm" novalidate method="post" id="form" ng-controller="FormCtrl" ng-submit="send()">
+	<p class="bg-danger text-danger" ng-show="error">Dati non validi</p>
+	<p class="bg-success text-success" ng-show="success">Dati validi</p>
+	<p>
+		<input type="text" name="vat-number" class="form-control" placeholder="Partita IVA" ng-pattern="/^\d{11}$/" ng-model="formData.vatNumber" required />
+	</p>
+	<p>
+		<input type="text" name="tax-code" class="form-control" placeholder="Codice Fiscale" ng-pattern="/^[A-Z0-9]{16}$/" ng-model="formData.taxCode" required />
+	</p>
+	<p>
+		<input type="submit" class="btn btn-primary" value="Invia" />
+	</p>
+</form>	
+</body>
+</html>

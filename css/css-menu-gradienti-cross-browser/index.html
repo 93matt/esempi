@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: menu con gradienti cross-browser</title>
+<meta charset="utf-8" />
+<style type="text/css" media="screen">
+
+body {
+	margin: 0;
+	padding: 0;
+	font: 100.01% Arial, sans-serif;
+}
+
+#navigation {
+	height: 3em;
+	margin: 0;
+	padding: 0 1em;
+	background: #000;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='#444444');
+	background: -webkit-gradient(linear, left top, left bottom, from(#000), to(#444));
+	background: -moz-linear-gradient(top,  #000,  #444);
+	background: -o-linear-gradient(top, #000, #444);
+	list-style: none;
+}
+
+#navigation li {
+	float: left;
+	height: 100%;
+	position: relative;
+	margin-right: 0.5em;
+}
+
+#navigation a {
+	height: 2em;
+	position: relative;
+	top: 1em;
+	float: left;
+	bottom: 0;
+	padding: 0 1em;
+	line-height: 2;
+	font-weight: bold;
+	text-decoration: none;
+	background: #d40;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#dd4400', endColorstr='#ff9900');
+	background: -webkit-gradient(linear, left top, left bottom, from(#d40), to(#f90));
+	background: -moz-linear-gradient(top,  #d40,  #f90);
+	background: -o-linear-gradient(top,  #d40,  #f90);
+	color: #fff;
+	border-radius: 8px 8px 0 0;
+}
+
+#navigation a:hover {
+	background: #f90;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff9900', endColorstr='#dd4400');
+	background: -webkit-gradient(linear, left top, left bottom, from(#f90), to(#d40));
+	background: -moz-linear-gradient(top,  #f90,  #d40);
+	background: -o-linear-gradient(top,  #f90,  #d40);
+	color: #fff;
+}	
+	
+
+</style>
+</head>
+
+<body>
+
+<ul id="navigation">
+
+	<li><a href="#">Home</a></li>
+	<li><a href="#">About</a></li>
+	<li><a href="#">Contatti</a></li>
+
+</ul>
+
+</body>
+</html>

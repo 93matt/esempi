@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>offsetParent()</title>
+<meta charset="utf-8" />
+<style type="text/css">
+#wrapper {
+    margin: 1em auto;
+    width: 600px;
+    position: relative;
+    border: 1px solid;
+}
+
+#inner {
+    padding: 1em;
+}
+
+#test {
+    width: 100px;
+    height: 100px;
+    background: green;
+}
+
+.offset {
+    background: silver;
+}
+​</style>
+</head>
+
+<body>
+<p><button id="offset">offsetParent()</button></p>
+
+<div id="wrapper">
+    <div id="inner">
+        <div id="test"></div>
+    </div>
+</div>​
+
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script>
+$(function() {
+$('#offset').click(function() {
+    $('#test').offsetParent().addClass('offset');
+});
+
+});
+</script>
+</body>
+</html>

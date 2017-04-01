@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: slideshow di immagini con controlli</title>
+<meta charset="utf-8" />
+<style type="text/css">
+#rotator li {
+	display: none;
+}
+
+#container {
+	width: 500px;
+	height: 375px;
+	margin: 2em auto;
+}
+
+#rotator_wrapper {
+	overflow: hidden;
+	position: relative;
+	width: 500px;
+	height: 375px;
+}
+
+#rotator_wrapper li {
+	list-style: none;
+}
+
+#rotator,
+#rotator li,
+#rotator img {
+	width: 500px;
+	height: 375px;
+}
+
+#rotator {
+	background: #fff;
+	position: relative;
+}
+
+#rotator li {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+#rotator_controls {
+	overflow: hidden;
+	position: absolute;
+	top: 5px;
+	left: 2px;
+}
+
+#rotator_controls li {
+	display: inline;
+	float: left;
+	margin: 0 0 0 3px;
+	width: 30px;
+}
+
+#rotator_play_pause,
+#rotator_controls a {
+	background: #ccc;
+	border: 1px solid #000;
+	color: #999;
+	display: block;
+	font: bold 76% Verdana, sans-serif;
+	padding: 1px 5px 2px;
+	text-align: center;
+	text-decoration: none;
+}
+
+#rotator_controls a.current {
+	color: #000;
+	text-decoration: underline;
+}
+
+#rotator_play_pause:hover,
+#rotator_controls a:hover {
+	background: #000;
+	border-color: #fff;
+	color: #fff;
+}
+
+#rotator_play_pause {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="container">
+	<div id="rotator_wrapper">
+		<ul id="rotator">
+			<li id="photo_1">
+				<img src="photo_1.jpg" alt="" />
+			</li>
+			<li id="photo_2">
+				<img src="photo_2.jpg" alt="" />
+			</li>
+			<li id="photo_3">
+				<img src="photo_3.jpg" alt="" />
+			</li>
+			<li id="photo_4">
+				<img src="photo_4.jpg" alt="" />
+			</li>
+			<li id="photo_5">
+				<img src="photo_5.jpg" alt="" />
+			</li>
+		</ul>
+		<ul id="rotator_controls">
+			<li>
+				<a href="#photo_1" class="current">1</a>
+			</li>
+			<li>
+				<a href="#photo_2">2</a>
+			</li>
+			<li>
+				<a href="#photo_3">3</a>
+			</li>
+			<li>
+				<a href="#photo_4">4</a>
+			</li>
+			<li>
+				<a href="#photo_5">5</a>
+			</li>
+		</ul>
+		<a href="#" id="rotator_play_pause">PAUSA</a>
+	</div>
+</div>
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+var ImageRotator = new function() {
+
+	var speed = 2000;
+	var pause = false;
+	
+	var resume = function(element) {
+	
+		rotate(element);
+	
+	};
+	
+	var rotate = function(element) {
+	
+		if(pause) {
+		
+			return;
+		
+		}
+		
+		var $li =  $(element).next('li').length ? $(element).next('li') : $('#rotator li:first');
+		var $a = $('#rotator_controls a.current').parent('li').next('li').length ? $('#rotator_controls a.current').parent('li').next('li').find('a') : $('#rotator_controls a:first');
+		
+		
+		
+		
+
+
+
+		
+		$(element).fadeOut(speed, function() {
+		
+		  $('#rotator_controls a.current').removeClass('current');
+		
+		  $li.fadeIn(speed);
+		  
+		  $a.addClass('current');
+		  
+		  
+		  resume($li);
+		
+		
+		});
+		
+		
+
+	
+	};
+	
+	var controls = function() {
+	
+		$('a', '#rotator_controls').click(function(event) {
+
+			$('#rotator_play_pause').text('PLAY');
+
+			$($(this).attr('href')).show().siblings('li').hide();
+
+			$(this).addClass('current').parent('li').siblings('li').find('a').removeClass('current');
+
+			pause = true;
+			
+			this.blur();
+			
+			event.preventDefault();
+
+       });
+       
+       $('#rotator_play_pause').click(function(event) {
+
+			if ($(this).text() === 'PAUSA') {
+
+				pause = true;
+
+				$(this).text('PLAY');
+
+			} else {
+
+				pause = false;
+
+				rotate('li:visible:first', '#rotator');
+
+				$(this).text('PAUSA');
+			}
+
+			this.blur();
+			event.preventDefault();
+		});
+
+
+
+	
+	
+	};
+	
+	this.init = function() {
+	
+	  $('li:first', '#rotator').show();
+	  controls();
+	  rotate('li:visible:first', '#rotator');
+	
+	
+	};
+
+}();
+
+$(function() {
+
+	ImageRotator.init();
+
+});
+</script>
+</body>
+</html>

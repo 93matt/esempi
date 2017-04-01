@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: personalizzare l'easing</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	margin: 2em;
+	padding: 2em;
+}
+
+#test {
+	width: 100px;
+	height: 100px;
+	position: relative;
+	background: #d34545;
+	cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div id="test"></div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+jQuery.extend(jQuery.easing, {
+	
+	moveAway: function(x, t, b, c, d) {
+	
+	  return (c - b) * (d / t);
+	
+	}
+
+
+});
+
+$(function() {
+
+  $('#test').click(function() {
+  
+    $(this).animate({
+     width: 200,
+     height: 200,
+     left: 200,
+     visibility: 'toggle'
+    }, 1000, 'moveAway');
+  
+  
+  });
+
+
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Plugin: public methods</title>
+<meta charset="utf-8" />
+<style>
+.gallery {
+	overflow: hidden;
+	width: 400px;
+	margin: 1em 0;
+}
+
+.gallery-wrapper {
+	height: 290px;
+	background: #ccc;
+	position: relative;
+}
+
+.gallery-wrapper img {
+	width: 400px;
+	height: 290px;
+	position: absolute;
+	display: none;
+}
+
+.gallery-wrapper > img:first-child {
+	display: block;
+}
+
+.gallery-nav {
+	margin: 0.5em 0;
+	text-align: center;
+}
+
+.gallery-nav a {
+	display: inline-block;
+	width: 2em;
+	height: 2em;
+	line-height: 2;
+	text-align: center;
+	background: #222;
+	color: #fff;
+	text-decoration: none;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Gallery 1</h1>
+
+<div class="gallery" id="gallery-1">
+
+	<div class="gallery-wrapper">
+	
+		<img src="img/1.jpg" alt=""/>
+		<img src="img/2.jpg" alt=""/>
+		<img src="img/3.jpg" alt=""/>
+	
+	</div>
+	<div class="gallery-nav">
+	
+		<a href="#" data-img="0">1</a>
+		<a href="#" data-img="1">2</a>
+		<a href="#" data-img="2">3</a>
+		
+	
+	</div>
+</div>
+
+<h1>Gallery 2</h1>
+
+<div class="gallery" id="gallery-2">
+
+	<div class="gallery-wrapper">
+	
+		<img src="img/1.jpg" alt=""/>
+		<img src="img/2.jpg" alt=""/>
+		<img src="img/3.jpg" alt=""/>
+		<img src="img/4.jpg" alt=""/>
+		<img src="img/5.jpg" alt=""/>
+		<img src="img/6.jpg" alt=""/>
+	
+	</div>
+	<div class="gallery-nav">
+	
+		<a href="#" data-img="0">1</a>
+		<a href="#" data-img="1">2</a>
+		<a href="#" data-img="2">3</a>
+		<a href="#" data-img="3">4</a>
+		<a href="#" data-img="4">5</a>
+		<a href="#" data-img="5">6</a>
+		
+	
+	</div>
+</div>	
+
+	
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="jquery.gallery.js"></script>
+<script>
+$(function() {
+
+	$('#gallery-1').gallery();
+	$('#gallery-1').gallery.actionOnNavigation(function() {
+	
+		$(this).stop(true, true).fadeTo(500, 0.5).delay(500).fadeTo(500, 1);
+	
+	});	
+	
+	$('#gallery-2').gallery();
+	$('#gallery-2').gallery.actionOnNavigation(function() {
+	
+		alert($(this).index());
+	
+	});	
+
+
+});
+</script>
+
+</body>
+</html>

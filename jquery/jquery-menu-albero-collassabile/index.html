@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: menu ad albero collassabile</title>
+<meta charset="utf-8" />
+<style type="text/css" media="screen">
+
+body {
+    font: 76% Verdana, sans-serif;
+    color: #333;
+    background: #fff;
+    margin: 2em;
+}
+
+#menu {
+	margin: 1em 0;
+	padding: 0;
+	list-style: none;
+}
+
+#menu li {
+     padding: 0 0 5px 0;
+}
+
+#menu li ul {
+    display: none;
+}
+
+#menu li.plus {
+	padding-left: 19px;
+	background: url(img/plus.gif) no-repeat;
+	position: relative;
+	left: -19px;
+}
+
+#menu li.minus {
+	padding-left: 19px;
+	background: url(img/minus.gif) no-repeat;
+	position: relative;
+	left: -19px;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<ul id="menu">
+<li>Voce 1</li>
+<li>Voce 2</li>
+<li>Voce 3
+    <ul>
+        <li>Voce 3.1</li>
+        <li>Voce 3.2</li>
+    </ul>
+</li>
+<li>Voce 4</li>
+<li>Voce 5
+    <ul>
+        <li>Voce 5.1</li>
+        <li>Voce 5.2</li>
+        <li>Voce 5.3</li>
+    </ul>
+</li>
+<li>Voce 6</li>
+</ul>
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+<script type="text/javascript">
+$(function() {
+
+  $('li:has(ul)', '#menu').addClass('plus');
+  
+  $('li:has(ul)', '#menu').click(function(event) {
+	 
+	 if(this == event.target) {
+	 
+	     if($(this).children().is(':hidden')) {
+	         $(this).addClass('minus').children().slideDown();
+		 
+	     }  else {
+	
+	         $(this).removeClass('minus').children().slideUp();
+		 
+		 
+	     }
+	    
+	    
+	}
+	 
+  }).css('cursor', 'pointer');
+
+
+});
+</script>
+
+</body>
+</html>

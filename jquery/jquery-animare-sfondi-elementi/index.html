@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: animare gli sfondi degli elementi</title>
+<meta charset="utf-8" />
+<style type="text/css">
+
+body {
+  padding: 2em 0;
+  background: #fff;
+  color: #333;
+  font-family: sans-serif;
+}
+
+#panels {
+    width: 60em;
+    height: 20em;
+    background: silver;
+    position: relative;
+    margin: 0 auto;
+}
+
+#panels h1 {
+  font-size: 10em;
+  letter-spacing: 0.1em;
+  font-weight: normal;
+  height: 1em;
+  margin: 0;
+  width: 5em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -0.5em 0 0 -2.5em;
+  text-transform: uppercase;
+  text-align: center;
+  z-index: 1;
+  text-shadow: 3px 3px 3px #999;
+}
+
+div.panel {
+  height: 100%;
+  width: 20em;
+  position: absolute;
+  top: 0;
+  display: none;
+  z-index: 0;
+}
+
+div.panel img {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 133px;
+	height: 100px;
+	margin: -50px 0 0 -78px;
+} 
+
+.a {
+  background: #eee;
+  left: 0;
+}
+
+.b {
+  background: #999;
+  left: 20em;
+}
+
+.c {
+  background: #eee;
+  left: 40em;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="panels">
+
+<h1>Title</h1>
+
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+
+
+   var panels = '<div class="panel a"><img src="quotes.png"/></div><div class="panel b"></div><div class="panel c"><img src="quotes2.png"/></div>';
+   $(panels).insertBefore('#panels h1');
+   
+   
+   function showPanels() {
+   
+   
+       setTimeout(function() {
+       
+          
+          $('div.c', '#panels').fadeOut().prev().prev().fadeIn(1000);
+          
+          setTimeout(function() {
+          
+            $('div.a', '#panels').fadeOut(1000).next().fadeIn(1000);
+            
+            setTimeout(function() {
+            
+            
+                $('div.b', '#panels').fadeOut(1000).next().fadeIn(1000);
+            
+            
+            }, 1000);
+          
+          
+          }, 1000);
+       
+       
+       
+       }, 1000);
+   
+   
+   
+   }
+   
+   setTimeout(function() {
+   
+   
+     showPanels();
+     
+     setTimeout(arguments.callee, 3000);
+   
+   
+   }, 1000);
+
+
+
+});
+
+
+
+</script>
+
+</body>
+</html>
+

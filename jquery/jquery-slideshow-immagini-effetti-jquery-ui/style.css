@@ -1,0 +1,27 @@
+#slideshow {
+	width: 900px;
+	height: 558px;
+	margin: 3em auto;
+	position: relative;
+	background: url(img/bg.jpg) no-repeat;
+}
+
+#slideshow-wrapper {
+	width: 400px;
+	height: 360px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -180px 0 0 -200px;
+}
+
+#slideshow-wrapper img {
+	display: none;
+}
+
+#slideshow-wrapper #caption {
+	text-align: center;
+	padding: 5px 0;
+	font: 1.4em serif;
+	display: none;
+}

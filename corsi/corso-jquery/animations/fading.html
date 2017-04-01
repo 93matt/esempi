@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>fadeIn() - fadeOut() - fadeToggle() - fadeTo()</title>
+<meta charset="utf-8" />
+<style type="text/css">
+#test {
+    margin: 2em auto;
+    width: 10em;
+    height: 10em;
+    background: gray;
+}​
+</style>
+</head>
+
+<body>
+
+<p><button id="in">fadeIn()</button>
+<button id="out">fadeOut()</button>
+<button id="toggle">fadeToggle()</button>
+<button id="to">fadeTo()</button></p>
+
+
+<div id="test"></div>
+
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script>
+$(function() {
+			
+	 
+	 var test = $('#test'),
+    $in = $('#in'),
+    out = $('#out'),
+    toggle = $('#toggle'),
+    to = $('#to');
+
+
+$in.click(function() {
+    test.fadeIn(1000, function() {
+        alert('Complete');
+    });
+});
+    
+    
+out.click(function() {
+    test.fadeOut(1000, function() {
+        alert('Complete');
+    });
+});
+
+
+toggle.click(function() {
+    test.fadeToggle(1000, function() {
+        alert('Complete');
+    });
+});
+
+to.click(function() {
+    test.fadeTo(1000, 0.5, function() {
+        alert('Complete');
+    });
+});	
+		
+});
+</script>
+</body>
+</html>

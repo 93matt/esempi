@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: visualizzare il sorgente del codice</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	width: 40%;
+	margin: 2em auto;
+	font: 95% Arial, sans-serif;
+}
+
+div.code {
+	width: 100%;
+}
+
+div.code-toolbar {
+	height: 2em;
+	background: #222;
+	border-radius: 4px 4px 0 0;
+	line-height: 2;
+	padding: 0 0.5em;
+	text-align: right;
+}
+
+div.code-toolbar a.source {
+	color: #fff;
+}
+
+div.code pre {
+	font: 1em Monaco, "Courier New", monospace;
+	margin: 0 0 1em 0;
+	line-height: 1.4;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	background: #eee;
+	padding: 1em;
+	border-radius: 0 0 4px 4px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="code">
+	<div class="code-toolbar">
+		<a href="#" class="source">Visualizza sorgente</a>
+	</div>
+<pre>
+$(document).ready(function() {
+
+	$('#test').click(function() {
+	
+		alert('Test');
+	
+	});
+
+});	
+</pre>
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+
+	$('div.code', document.body).each(function() {
+	
+		var $div = $(this);
+		var $link = $('a.source', $div);
+		var html = $('pre', $div).html();
+		
+		$link.click(function(event) {
+		
+			var newWindow = window.open(location.href, 'code','location=1,status=1,scrollbars=1, width=400,height=400');
+			var newDocument = newWindow.document;
+			newDocument.write('<pre>' + html + '</pre>');
+			newDocument.close();
+		
+			event.preventDefault();
+		});
+	
+	});
+
+
+});
+</script>
+</body>
+</html>

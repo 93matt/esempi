@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: contatori sugli elementi HTML</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	margin: 0 auto;
+	font: 100% Arial, sans-serif;
+	width: 30em;
+	padding: 2em 0;
+}
+
+body * {font-weight: normal;}
+
+
+ul {
+	list-style: none;
+}
+
+li span {
+	padding-right: 5px;
+}
+</style>
+</head>
+
+<body>
+<h1>Sezione</h1>
+
+<h2>Sottosezione</h2>
+
+<h3>Sottosezione</h3>
+
+<h2>Sottosezione</h2>
+
+<h3>Sottosezione</h3>
+
+<h4>Sottosezione</h4>
+
+
+<ul id="test">
+	<li>a</li>
+	<li>b</li>
+	<li>c
+		<ul>
+			<li>d</li>
+			<li>e</li>
+			<li>f
+			
+				<ul>
+					<li>g</li>
+					<li>h</li>
+				</ul>
+			
+			</li>
+		</ul>
+	</li>
+</ul>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+var counter = 0;
+
+$('#test > li').each(function(i) {
+
+	var level = i + 1;
+	counter++;
+	var $li = $(this);
+	
+	$('<span/>').text(level + '. ').
+	prependTo($li);
+	
+	if($('ul:first', $li).length) {
+	
+		$('ul:first > li', $li).each(function(j) {
+		
+			$('<span/>').text(counter + '.' + (j+1)).
+			prependTo($(this));
+			
+			
+			if($('ul:first', $(this)).length) {
+			
+				$('ul:first > li', $(this)).each(function(k) {
+				
+					
+					$('<span/>').text(counter + '.' + (j+1) + '.' + (k+1)).
+					prependTo($(this));
+				
+				});
+			
+			
+			}	
+		
+		
+		});
+	
+	}
+
+});
+
+
+ var level2 = 0;
+  var level3 = 0;
+  var level4 = 0;
+  
+
+  $(':header').each(function() {
+  
+    var $header = $(this);
+    var text = $header.text();
+    var tag = $header[0].tagName.toLowerCase();
+    var levelTag = tag.charAt(1);
+    
+    switch(levelTag) {
+    
+      case '2':
+        
+        level2 += 1;
+        $header.text(level2 + '. ' + text);
+        
+        
+        break;
+      case '3':
+        
+        level3 += 1;
+        $header.text(level2 + '. ' + level3 + ' ' + text);
+        
+        
+        break;
+      case '4':
+        level4 += 1;
+        $header.text(level2 + '. ' + level3 + '. ' + level4 + ' ' + text);
+        
+        
+        break;
+      default:
+        break;
+    
+    
+    
+    }
+    
+    
+    
+  
+  });
+
+
+</script>
+</body>
+</html>

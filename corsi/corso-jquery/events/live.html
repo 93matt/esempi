@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>live()</title>
+<meta charset="utf-8" />
+<style>
+input[type="password"] {
+	display: block;
+	margin-bottom: 1em;
+	padding: 6px 12px;
+	width: 16em;
+}
+
+#output {
+	padding: 1em;
+	background: #ffc;
+	border: thick solid #999;
+}
+</style>
+</head>
+
+<body>
+
+
+
+<form action="request.php" method="post">
+
+	<div>
+		<input type="password" name="data" id="data" />
+	</div>
+	
+		
+	<p><input type="submit" name="s" value="Send"/></p>
+
+</form>
+
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script>
+$(function() {
+
+    
+   $('#output').live('click', function() {
+   
+   		alert('Live!');
+   
+   
+   });
+   
+   $('form').submit(function(event) {
+   
+   		event.preventDefault();
+   	
+   		var form = $(this);
+   		var data = form.serialize();
+   		var url = form.attr('action');
+   		
+   		$.ajax({
+   			type: 'POST',
+   			dataType: 'json',
+   			url: url,
+   			data: data,
+   			success: function(json) {
+   			
+   				if($('#output').length) {
+   					$('#output').remove();
+   				}
+   				
+   				if(typeof json.error !== 'undefined') {
+   				
+   					$('<div id="output"/>').text(json.error).
+   					css('color', 'red').appendTo(form);
+   				
+   				
+   				} else {
+   				
+   					$('<div id="output"/>').text(json.id).
+   					css('color', 'green').appendTo(form);
+   				
+   				
+   				}
+   			
+   			
+   			}
+   		});
+   
+   
+   });
+	
+	
+	
+});
+</script>
+</body>
+</html>

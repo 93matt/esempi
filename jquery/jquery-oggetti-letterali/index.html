@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery e oggetti letterali</title>
+<meta charset="utf-8" />
+<style type="text/css" media="screen">
+body {
+	margin: 0;
+	padding: 2em 0;
+	font: 100% Arial, sans-serif;
+}
+
+#slideshow {
+	width: 500px;
+	height: 350px;
+	margin: 0 auto;
+	overflow: hidden;
+	position: relative;
+}
+
+#slideshow-wrapper {
+	width: 2000px;
+	height: 350px;
+	position: relative;
+}
+
+#slideshow img {
+	float: left;
+	width: 500px;
+	height: 350px;
+}
+
+#slideshow-controls {
+	width: 500px;
+	margin: 1em auto;
+	text-align: center;
+}
+
+#slideshow-controls a {
+	color: #fff;
+	background: #d34545;
+	padding: 0.5em 1.5em;
+	text-decoration: none;
+	font-weight: bold;
+	margin-right: 1em;
+}
+</style>
+</head>
+
+<body>
+
+<div id="slideshow">
+
+	<div id="slideshow-wrapper">
+	
+		<img src="4.jpg" alt="" />
+		<img src="3.jpg" alt="" />
+		<img src="2.jpg" alt="" />
+		<img src="1.jpg" alt="" />
+	
+	</div>
+
+</div>
+
+<div id="slideshow-controls">
+	<a href="#" id="prev">Prec.</a>
+	<a href="#" id="next">Succ.</a>
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+
+var Slideshow = {
+
+  wrapper: $('#slideshow-wrapper', '#slideshow'),
+  slides: $('img', '#slideshow-wrapper'),
+  previous: $('#prev', '#slideshow-controls'),
+  next: $('#next', '#slideshow-controls'),
+  index: 0,
+  
+  getSlidePositions: function() {
+  
+    var positions = [];
+    
+    this.slides.each(function(i) {
+    
+      var left = $(this).position().left;
+      
+      positions[i] = left;
+    
+    
+    });
+  
+    return positions;
+  },
+  
+  slide: function() {
+  
+    var offsets = this.getSlidePositions();
+    
+    this.previous.click(function(event) {
+    
+      Slideshow.index--;
+      
+      if(Slideshow.index == -1) {
+      
+        Slideshow.index = 0;
+      
+      }
+      
+      Slideshow.wrapper.animate({
+        left: - offsets[Slideshow.index]
+      }, 'slow');
+    
+      event.preventDefault();
+    
+    });
+    
+    this.next.click(function(event) {
+    
+      Slideshow.index++;
+      
+      if(Slideshow.index == Slideshow.slides.length) {
+      
+      
+        Slideshow.index = 0;
+      
+      }
+      
+      Slideshow.wrapper.animate({
+        left: - offsets[Slideshow.index]
+      }, 'slow');
+    
+      event.preventDefault();
+    
+    });
+
+  
+  
+  }
+
+
+};
+
+
+Slideshow.slide();
+
+});
+</script>
+</body>
+</html>

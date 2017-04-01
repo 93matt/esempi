@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta charset="utf-8" />
+<style type="text/css">
+.test {
+	padding: 1em;
+	background-color: #fffcb5;
+}
+
+</style>
+</head>
+
+<body>
+
+<form id="test" action="#" method="post">
+	<div>
+		<input type="checkbox" name="check" id="check"/>
+	</div>
+</form>
+
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script>
+$(function() {
+
+	$('#check').change(function() {
+	
+		var $check = $(this),
+			$div = $check.parent();
+		
+		if($check.prop('checked')) {
+		
+			$div.addClass('test');	
+		
+		} else {
+		
+			$div.removeClass('test');
+		
+		}
+	
+	});	
+	
+});
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: menu verticale</title>
+<meta charset="utf-8" />
+<style type="text/css">
+
+body {
+  padding: 1em;
+  margin: 0;
+  font-size: 100%;
+}
+
+#navigation {
+  width: 20em;
+  padding: 1em;
+  margin: 0 auto;
+  border: 1px solid gray;
+  border-radius: 10px;
+  list-style: none;
+}
+
+#navigation li {
+    display: block;
+    margin-bottom: 0.5em;
+    height: 100%;
+    border-bottom: 1px solid gray;
+    padding-bottom: 4px;
+    font: 2em Impact, sans-serif;
+    padding-left: 55px;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    padding-top: 5px;
+}
+
+#navigation #home {
+  background-image: url(home.png);
+}
+#navigation #articles {
+  background-image: url(articles.png);
+}
+#navigation #about {
+  background-image: url(about.png);
+}
+#navigation #contacts {
+  background-image: url(contacts.png);
+}
+
+#navigation li a {
+    text-decoration: none;
+    color: gray;
+    text-transform: uppercase;
+}
+#navigation li a:hover {
+    color: #333;
+}
+</style>
+</head>
+
+<body>
+
+<ul id="navigation">
+
+<li id="home"><a href="#">Home</a></li>
+<li id="articles"><a href="#">Articoli</a></li>
+<li id="about"><a href="#">About</a></li>
+<li id="contacts"><a href="#">Contatti</a></li>
+
+</ul>
+
+
+</body>
+</html>
+

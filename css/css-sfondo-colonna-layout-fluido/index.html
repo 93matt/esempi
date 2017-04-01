@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: sfondo della colonna di un layout fluido</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+    margin: 0;
+    padding: 2em 0;
+    font: 100% Arial, sans-serif;
+    background: #ccc;
+}
+
+#site {
+	width: 70%;
+	margin: 0 auto;
+	background: #fff;
+	color: #333;
+}
+
+#branding {
+	padding: 3em;
+	text-align: center;
+	background: #000;
+	color: #fff;
+}
+
+#branding h1 {margin: 0;}
+
+#content {
+	height: 100%;
+	overflow: hidden;
+	background: url(bg-col.gif) repeat-y 75% 0;
+}
+
+#main {
+	float: left;
+	width: 75%;
+}
+
+#content-sub {
+	float: right;
+	width: 25%;
+}
+
+p {padding: 0 1em; line-height: 1.4;}
+
+#site-info {
+	padding: 3em;
+	font-weight: bold;
+	text-align: center;
+	color: #fff;
+	background: #000;
+	clear: both;
+}
+</style>
+</head>
+
+<body>
+
+<div id="site">
+
+
+    <div id="branding"><h1>Nome sito</h1></div>
+    
+    <div id="content">
+    
+        <div id="main">
+        
+        
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        
+        </div>
+        <div id="content-sub">
+         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+    
+    
+    </div>
+    
+    <div id="site-info">Footer</div>
+
+
+</div>
+
+</body>
+</html>

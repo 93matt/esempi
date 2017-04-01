@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>attr()</title>
+<meta charset="utf-8" />
+</head>
+
+<body>
+
+<p><button id="read">Read attribute</button><button id="write">Write attribute</button></p>
+
+<p id="test">Maecenas sed diam eget risus varius blandit sit amet non magna. Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auctor fringilla. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
+
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script>
+$(function() {
+
+	$('#read').click(function() {
+	
+		alert($('#test').attr('id'));
+	
+	
+	});
+	
+	$('#write').click(function() {
+	
+		$('#test').attr({
+			align: 'right',
+			title: 'Test'
+		});
+	
+	
+	});
+	
+	
+});
+</script>
+</body>
+</html>

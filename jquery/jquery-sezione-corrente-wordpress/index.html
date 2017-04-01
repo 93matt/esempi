@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: gestire la sezione corrente del menu di Wordpress</title>
+<meta charset="utf-8" />
+<style type="text/css" media="screen">
+
+body {
+	margin: 0;
+	padding: 0;
+	font: 76%/1 Arial, sans-serif;
+}
+
+#navigation {
+	height: 5em;
+	font-size: 1.2em;
+	background: #f1f1f1 url(bg.png) repeat-x;
+	position: relative;
+}
+
+#navigation ul {
+	margin: 0;
+	padding: 0;
+	height: 2em;
+	position: absolute;
+	top: 3em;
+	left: 1em;
+	list-style: none;
+}
+
+#navigation ul li {
+	float: left;
+	height: 100%;
+	margin-right: 0.5em;
+}
+
+#navigation ul li a {
+	float: left;
+	height: 100%;
+	line-height: 2;
+	color: #666;
+	font-weight: bold;
+	text-decoration: none;
+	border-width: 1px 1px 0 1px;
+	border-radius: 3px 3px 0 0;
+	border-color: #c6c6c6;
+	background: #fff;
+	padding: 0 1em;
+}
+
+#navigation ul li strong {
+	float: left;
+	height: 100%;
+	line-height: 2;
+	color: #fff;
+	border-radius: 3px 3px 0 0;
+	padding: 0 1em;
+	background: #d54e21 url(current.png) repeat-x;
+}
+	
+	
+
+</style>
+</head>
+
+<body>
+
+<div id="navigation">
+
+	<ul>
+		<li class="current-menu-item"><a href="#">Home</a></li>
+		<li><a href="#">Articoli</a></li>
+		<li><a href="#">About</a></li>
+		<li><a href="#">Contatti</a></li>
+	</ul>
+
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+<script type="text/javascript">
+$(function() {
+
+  var currentItem = $('li.current-menu-item', '#navigation');
+  var currentLink = $('a', currentItem);
+  var text = currentLink.text();
+  currentLink.replaceWith('<strong>' + text + '</strong>');
+
+});
+</script>
+
+</body>
+</html>

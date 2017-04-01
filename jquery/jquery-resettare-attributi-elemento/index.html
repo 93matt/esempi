@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: resettare tutti gli attributi su un elemento</title>
+<meta charset="utf-8" />
+<style type="text/css" media="screen">
+
+body {
+	font-family: Arial, sans-serif;
+}
+
+.test { background: silver;}
+
+#test {width: 400px; color: green;}
+
+</style>
+</head>
+
+<body>
+
+<p><a href="#" id="reset">Resetta attributi</a></p>
+
+<table border="1" cellpadding="5" cellspacing="5" class="test" id="test" title="Test">
+<tr>
+<td>Foo</td>
+<td>Bar</td>
+<td>Baz</td>
+</tr>
+</table>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+(function($) {
+
+    $.fn.resetAttributes = function() {
+    
+       var attrs = this[0].attributes;
+       
+       for(var i=0; i<attrs.length; i++) {
+       
+           var $attr = attrs[i].nodeName;
+	   
+	   
+	   
+	   switch($attr) {
+	   
+	       case 'class':
+	           this[0].className = '';
+		   break;
+	       case 'border':
+	           this[0].setAttribute('border', '0');
+		   break;
+	   
+	       default:
+	          this[0].setAttribute($attr, '');
+		  break;
+	   
+	   }
+       
+       
+       }
+    
+       return this;
+    };
+
+
+})(jQuery);
+
+$(document).ready(function() {
+
+    $('#reset').click(function(event) {
+    
+        $('#test').resetAttributes();
+	
+        event.preventDefault();
+    
+    });
+
+});
+
+
+</script>
+</body>
+</html>

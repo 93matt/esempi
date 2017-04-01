@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: ottenere una definizione da Wikipedia</title>
+<meta charset="utf-8" />
+<style type="text/css">
+
+body {
+	margin: 2em;
+	font: 100% Arial, sans-serif;
+}
+
+#search {
+	margin: 0 auto;
+	width: 50%;
+}
+
+input, label {
+	font: 1em Arial, sans-serif;
+	vertical-align: middle;
+}
+
+label {
+	font-weight: bold;
+	margin-right: 0.5em;
+}
+
+#d {
+	border: 1px solid #999;
+	width: 150px;
+	background: #fff;
+	margin-right: 0.5em;
+}
+
+#submit {
+	background: #d34545;
+	border: none;
+	color: #fff;
+	font-weight: bold;
+	padding: 0.3em 1em;
+}
+
+div.def {
+	width: 50%;
+	padding: 1em;
+	background: #f5f5f5;
+	margin: 1em 0;
+}
+
+div.def h2 {
+	font-size: 1.3em;
+	font-weight: normal;
+	text-transform: uppercase;
+	margin: 0;
+}
+
+div.def p {
+	line-height: 1.4;
+	margin-top: 0;
+	margin-bottom: 0.3em;
+}
+
+div.def div a {
+	color: #d34545;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<form action="http://gabrieleromanato.com/adds/jquery-definizione-wikipedia.php" method="get" id="search">
+
+<div>
+	<label for="d">Termine:</label>
+	<input type="text" name="d" id="d" />
+	<input type="submit" name="submit" id="submit" value="Ottieni definizione" />
+</div>
+
+</form>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+
+  $('#search').submit(function(event) {
+  
+    var $form = $(this);
+    var term = $('#d', $form).val();
+    
+    $.ajax({
+      type: 'GET',
+      dataType: 'json',
+      url: $form.attr('action'),
+      data: 'd=' + term,
+      success: function(data) {
+      
+        var html = '';
+        html += '<div class="def">';
+        html += '<h2>' + data.term + '</h2>';
+        html += '<p>' + data.desc + '</p>';
+        html += '<div><a href="' + data.url + '">' + data.url + '</a></div>';
+        html += '</div>';
+        
+        $(html).appendTo($form);
+        
+      
+      
+      }
+    });
+    
+  
+    event.preventDefault();
+  
+  });
+
+});
+</script>
+</body>
+</html>

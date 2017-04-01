@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>filter()</title>
+<meta charset="utf-8" />
+<style type="text/css">
+.filter {
+    background: yellow;
+}​
+
+</style>
+</head>
+
+<body>
+
+<p><button id="filter">filter()</button></p>
+
+<p>Integer auctor aliquet parturient nascetur et ut aenean. Cursus arcu ac magna auctor vel vel tristique magnis aenean, eu? Lacus @username et habitasse nisi integer penatibus mauris, et, cum ac odio! In scelerisque penatibus tincidunt duis et!</p>
+
+<p>Integer auctor aliquet parturient nascetur et ut aenean. Cursus arcu ac magna auctor vel vel tristique magnis aenean, eu? Lacus et habitasse nisi integer penatibus mauris, et, cum ac odio! In scelerisque penatibus tincidunt duis et!</p>
+
+<p>Integer auctor aliquet parturient nascetur et ut aenean. Cursus arcu ac magna auctor vel vel tristique magnis aenean, eu? Lacus @username et habitasse nisi integer penatibus mauris, et, cum ac odio! In scelerisque penatibus tincidunt duis et!</p>
+
+<p>Integer auctor aliquet parturient nascetur et ut aenean. Cursus arcu ac magna auctor vel vel tristique magnis aenean, eu? Lacus et habitasse nisi integer penatibus mauris, et, cum ac odio! In scelerisque penatibus tincidunt duis et!</p>
+
+<p>Integer auctor aliquet parturient nascetur et ut aenean. Cursus arcu ac magna auctor vel vel tristique magnis aenean, eu? Lacus et habitasse nisi integer penatibus mauris, et, cum ac odio! In scelerisque penatibus tincidunt duis et!</p>
+
+
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script>
+$(function() {
+
+	$('#filter').click(function() {
+    $('p').filter(function() {
+        var text = $(this).text();
+        return /(^|\s)@(\w+)/g.test(text);
+    }).addClass('filter');
+    });
+		
+});
+</script>
+</body>
+</html>

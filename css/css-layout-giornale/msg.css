@@ -1,0 +1,127 @@
+body {
+	background: #fff;
+	color: #000;
+	font: 100%/1.5 "Times New Roman", Times, serif;
+	margin: 2em 2%;
+	padding: 0;
+	
+}
+
+body:after {content: "."; display: block; height: 0; clear: both; visibility: hidden;}
+
+
+p {margin: 0; padding: 0.5em;}
+
+h2 {font-size: 1.8em;}
+h3 {font-size: 1.4em;}
+
+h2, h3 {margin: 0; padding: 0.3em; line-height: normal;}
+
+img {border: 1px solid #000;}
+
+#intestazione {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	text-align: center;
+}
+#intestazione h1 {
+	margin: 0 auto;
+	padding: 0;
+	height: 2em;
+	width: 611px;
+	background: url("titolo.gif") no-repeat 0 0;
+}
+#intestazione h1 span {position: absolute; top: -1000em;}
+
+#sottointestazione {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+h3.regione {width: 611px; margin: 0 auto; text-transform: uppercase; font-family: Arial, sans-serif;}
+p.info {width: 611px; padding: 0.2em; margin: 0 auto; color: #fff; background: #808080; text-align: center;
+	font-family: Arial, sans-serif; font-weight: bold; font-size: 70%;}
+
+span.importante {text-transform: uppercase; padding-left: 0.2em; height: 0;}
+
+#principale {
+	float: left;
+	width: 80%;
+	margin: 1em 0 0 0;
+	padding: 0;
+	border: 1px solid #000;
+}
+
+
+#primanotizia {
+	float: left;
+	width: 80%;
+	margin: 0;
+	padding: 0;
+	border-right: 1px solid;
+}
+#titolo {
+	margin: 0;
+}
+p.strapline {font-family: Georgia, serif; margin: 0; text-align: center;}
+#titolo h2 {font-size: 1.6em; padding: 0.2em; margin: 0; text-align: center; text-transform: uppercase;}
+p.subtitle {font-family: Georgia, serif; margin: 0; font-style: italic; text-align: center;}
+
+#riquadro {
+	margin: 0;
+	width: 100%;
+}
+
+img.wide {width: 100%;}
+
+p.didascalia {margin: 0; padding-left: 0.5em; font-style: italic; text-align: center;}
+
+#anticipazioni {width: 100%; margin: 0; text-align: center;}
+
+
+.antbox {width: 32%; float: left; margin: 0; border-right: 1px solid #000;}
+.antbox h3 {margin: 0; padding: 0.3em; font-family: Arial, sans-serif; color: #c00; background: transparent; text-transform: uppercase;}
+.antbox p {font-style: italic; margin: 0; padding: 0.3em;}
+.antbox p.pagina {font-size: 76%; font-weight: bold; font-style: normal;}
+#last {
+	border-right: none;
+}
+
+#spalla {float: right; width: 19%; margin: 0; text-align: center;}
+
+#spalla p {margin: 0; padding: 0.2em; text-align: left;}
+span.imp {text-transform: uppercase; font-weight: bold;}
+p.autori {text-align: left; font: bold 76%/1.5 Arial, sans-serif; margin: 0 auto; padding-top: 0.2em; text-transform: uppercase;
+	border-top: 1px solid; width: 90%; }
+span.norm {font-weight: normal;}
+
+#laterale {
+	float: right;
+	width: 19%;
+	margin: 1em 0 0 0;
+	border: 1px solid #000;
+}
+
+.figure {
+	background: #d6f4a3;
+	color: #000;
+	margin: 0.5em;
+	padding: 0.3em;
+	text-align: center;
+}
+
+.figure h3 {font: bold 1em Georgia, serif; text-transform: uppercase; margin: 0; padding-bottom: 0.3em;}
+
+.img {
+	margin: 0;
+	background: #ffffe5;
+	color: #000;
+}
+
+.img h4 {font-weight: bold; font-size: 1em; text-transform: uppercase;}
+
+p.caption {font-style: italic;}
+
+
+

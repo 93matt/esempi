@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: creare un nome utente da un indirizzo e-mail</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	margin: 2em;
+	padding: 2em;
+	font: 90% Arial, sans-serif;
+}
+
+input, label {
+	font: 1em Arial, sans-serif;
+	vertical-align: middle;
+}
+
+input:focus {
+	outline-style: none;
+}
+
+label {
+	margin-right: 0.4em;
+	font-weight: bold;
+}
+
+#email {
+	width: 150px;
+	border: 1px solid #bbb;
+	border-radius: 5px;
+	margin-right: 0.4em;
+}
+
+#generate {
+	background: #c30;
+	border: none;
+	color: #fff;
+	font-weight: bold;
+	padding: 0.3em 0.6em;
+	border-radius: 5px;
+}
+</style>
+</head>
+
+<body>
+
+<form action="#" method="post" id="form">
+	<div>
+		<label for="email">E-mail:</label><input type="text" name="email" id="email" />
+		<input type="submit" name="generate" id="generate" value="Nome utente" />
+	</div>
+</form>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+function createUserName(value) {
+
+	var at = value.indexOf('@');
+	var username = value.substring(0, at);
+	
+	return username;
+
+}
+
+$(function() {
+
+	$('#form').submit(function(event) {
+	
+	    var $form = $(this);
+	    
+	    $('p', $form).remove();
+	
+		var email = $('#email', $form).val();
+		var username = createUserName(email);
+		
+		$('<p/>').text(username).appendTo($form);
+	
+		event.preventDefault();
+	
+	});	
+
+});
+</script>
+</body>
+</html>

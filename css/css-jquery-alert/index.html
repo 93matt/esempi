@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Alert con i CSS e jQuery</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body, html { height:100%; margin: 0; }
+
+p {margin-left: 1em; margin-top: 1em;}
+ 
+#popup {
+width: 320px; 
+height: 134px;
+position: absolute;
+top: 50%;
+left: 50%;
+margin: -67px 0 0 -160px;
+border: 3px outset ActiveBorder;
+background: ButtonFace;
+color: WindowText;
+display: none;
+}
+#title {
+margin: 0;
+padding: 0;
+height: 1.5em;
+line-height: 1.5em;
+background: ActiveCaption;
+color: CaptionText;
+font: caption;
+}
+
+#title ul {
+float: right;
+margin: 0;
+padding-right: .1em;
+height: 1.5em;
+line-height: 1.5em;
+}
+#title li {
+display: inline;
+margin: 0;
+padding: .2em 0;
+}
+#title a img {border: none; margin: 0; padding: 0;}
+
+#title h3 {
+margin: 0;
+padding-left: 0.5em;
+font: caption;
+color: CaptionText;
+height: 1.5em;
+line-height: 1.5em;
+font-weight: bold;
+}
+
+#popup p, #popup form {
+font: message-box;
+margin: 0;
+color: ButtonText;
+text-align: center;
+}
+#popup form {padding: 0;}
+
+input {
+width: 75px;
+background: ButtonFace;
+font: message-box; 
+color: ButtonText;
+border-width: 3px;
+border-style: outset;
+border-color: ThreeDFace;
+}
+
+#popup p.ico {
+font: message-box;
+margin: 1em;
+padding: 0;
+text-align: center;
+background: transparent url("alert.gif") no-repeat 0 0;
+height: 3em;
+line-height: 3em;
+}
+
+
+
+</style>
+
+
+</head>
+
+<body>
+<p><a href="#" id="open">Apri</a></p>
+
+<div id="popup">
+<div id="title">
+<ul>
+<li><a href="#" id="close"><img src="chiudi.gif" alt="Chiudi" title="Chiudi"></a></li>
+</ul>
+<h3>Titolo</h3>
+</div>
+
+<p class="ico">Benvenuti nel nostro sito!</p>
+
+<form action="" method="post">
+<p>
+<input value="OK" type="submit" name="OK" id="OK" />
+</p>
+</form>
+
+
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+
+  $('#open').click(function(event) {
+  
+    $('#popup').show();
+  
+    event.preventDefault();
+  
+  });
+  
+  $('form', '#popup').submit(function(event) {
+  
+    $('#popup').hide();
+  
+    event.preventDefault();
+  
+  });
+  
+  $('#close').click(function(event) {
+  
+    $('#popup').hide();
+    
+    event.preventDefault();
+  
+  
+  });
+
+});
+</script>
+
+</body>
+</html>

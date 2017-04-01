@@ -1,0 +1,110 @@
+body {
+	font: 76% Verdana, sans-serif;
+}
+
+
+form, ul, p {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+form {
+	width: 600px;
+	margin: 0 auto;
+	padding: 2em 0;
+}
+
+li {
+	height: 100%;
+	margin-bottom: 0.4em;
+	padding-left: 22px;
+}
+
+label {
+	font-weight: bold;
+	padding-bottom: 3px;
+}
+
+#name, #last,  #email, #subject, #message, #url  {
+	display: block;
+	font: 1em Verdana, sans-serif;
+	
+}
+
+#name, #last,  #email, #subject, #url {
+	width: 150px;
+	border: 1px solid #ccc;
+}
+
+#message {
+	width: 300px;
+	height: 200px;
+	border: 1px solid #ccc;
+}
+
+
+form p {
+	padding: 0.3em 0 0.3em 22px;
+}
+
+form table {
+	margin: 1em 0 1em 22px;
+}
+
+form table th {
+	text-align:left;
+	background: #eee;
+	padding: 0 0.2em;
+	border-bottom: 0.2em solid #fff;
+	vertical-align: top;
+}
+
+form table td {
+	vertical-align: top;
+	padding-left: 0.3em;
+}
+
+
+
+div.error {
+	color: red;
+	padding-top: 4px;
+}
+
+div.warning {
+	color: #338;
+	padding-top: 4px;
+}
+
+
+#for-name, #for-last,  #for-email, #for-subject, #for-message, #for-url{
+	background-color: transparent;
+	background-position: 0 0;
+	background-repeat: no-repeat;
+}
+#for-name, #for-last {
+	background-image: url("../img/name.png");
+}
+#for-email {
+	background-image: url("../img/email.png");
+}
+
+#for-subject {
+	background-image: url("../img/subject.png");
+}
+#for-message {
+	background-image: url("../img/message.png");
+}
+
+#for-url {
+    background-image: url("../img/url.png");
+}
+
+#send {
+	font: bold 1.2em Arial, sans-serif;
+	background: #d34545;
+	color: #fff;
+	border: none;
+	padding: 0.3em 1em;
+}

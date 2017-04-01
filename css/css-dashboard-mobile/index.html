@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: dashboard in stile mobile</title>
+<meta charset="utf-8" />
+<style type="text/css" media="screen">
+
+body {
+    
+    margin: 0;
+    padding: 2em 0;
+    font: 12px Arial, sans-serif;
+    background: #008eb9;
+    color: #333;
+    
+}
+
+h2 {
+    
+    font: 100% "Arial Black", Arial, sans-serif;
+    
+}
+
+#site {
+    
+    width: 380px;
+    margin: 0 auto;
+    background: #fff;
+    border: 2px solid #777;
+    border-radius: 6px;
+    
+}
+
+#dashboard {
+    
+    padding: 10px 0;
+    width: 360px;
+    margin: 0 auto;
+    
+}
+
+#dashboard h2 {
+    
+    background: #008eb9;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1.5em;
+    letter-spacing:. 0.1em;
+    -moz-border-radius: 6px 6px 0 0;
+    border-radius: 6px 6px 0 0;
+    margin: 0 0 10px 0;
+    padding: 6px;
+    text-align: center;
+    
+}
+
+#dashboard ul {
+    
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    
+}
+
+#dashboard ul li {
+    
+    float: left;
+    width: 120px;
+    height: 6em;
+    background-position: 50% 0;
+    background-repeat: no-repeat;
+    
+}
+
+#dashboard ul li a {
+    
+    display: block;
+    width: 100%;
+    float: left;
+    text-decoration: none;
+    color: #008eb9;
+    text-transform: uppercase;
+    font-variant: small-caps;
+    text-align: center;
+    font-weight: bold;
+    padding-top: 55px;
+    
+}
+
+
+
+
+#dashboard ul #panel {
+    
+    background-image: url(panel.png);
+}
+
+#dashboard ul #stats {
+    
+    background-image: url(stats.png);
+}
+
+#dashboard ul #files {
+    
+    background-image: url(files.png);
+}
+
+#dashboard ul #setting {
+    
+    background-image: url(setting.png);
+}
+
+#dashboard ul #mail {
+    
+    background-image: url(mail.png);
+}
+
+#dashboard ul #feed {
+    
+    background-image: url(feed.png);
+}
+
+
+
+
+</style>
+</head>
+<body>
+
+<div id="site">
+
+    <div id="dashboard">
+	
+	    <h2>Dashboard</h2>
+	
+	    <ul>
+		
+		    <li id="panel"><a href="#">Control panel</a></li>
+			<li id="stats"><a href="#">Statistics</a></li>
+			<li id="files"><a href="#">Files</a></li>
+			<li id="setting"><a href="#">Settings</a></li>
+			<li id="mail"><a href="#">Mail</a></li>
+			<li id="feed"><a href="#">Feed</a></li>
+		
+		</ul>
+	
+	</div>
+
+
+</div>
+
+
+</body>
+</html>

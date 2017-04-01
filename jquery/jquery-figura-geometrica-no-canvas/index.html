@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: disegnare una figura geometrica senza canvas</title>
+<meta charset="utf-8" />
+<style>
+#square {
+	width: 200px;
+	height: 200px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -100px 0 0 -100px;
+}
+
+#top {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 0px; /* width: 200 height: 2 */
+	height: 0px;
+	background: black;
+}
+
+#right {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 0px; /* width: 2 height: 200 */
+	height: 0px;
+	background: black;
+}
+
+#bottom {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 0px;  /* width: 200 height: 2 */
+	height: 0px;
+	background: black;
+}
+
+#left {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 0px; /* width: 2 height: 200 */
+	height: 0px;
+	background: black;
+}
+	
+	
+</style>
+</head>
+
+<body>
+
+<div id="square">
+
+	<div id="top"></div>
+	<div id="right"></div>
+	<div id="bottom"></div>
+	<div id="left"></div>
+
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+
+    var counter1 = 0;
+    var counter2 = 0;
+    var counter3 = 0;
+    var counter4 = 0;
+    
+    var interval1 = window.setInterval(function() {
+    
+    
+      counter1 += 1;
+      
+      $('#top').css({height: '2px', width: counter1});
+      
+      if(counter1 == 200) {
+      
+        window.clearInterval(interval1);
+        
+        var interval2 = window.setInterval(function() {
+        
+          counter2 += 1;
+          
+          $('#right').css({width: '2px', height: counter2});
+          
+          if(counter2 == 200) {
+          
+            window.clearInterval(interval2);
+            
+            var interval3 = window.setInterval(function() {
+            
+            
+              counter3 += 1;
+              
+              $('#bottom').css({height: '2px', width: counter3});
+              
+              if(counter3 == 200) {
+              
+                window.clearInterval(interval3);
+                
+                var interval4 = window.setInterval(function() {
+                
+                
+                
+                  counter4 += 1;
+                  
+                  $('#left').css({width: '2px', height: counter4});
+                  
+                  if(counter4 == 200) {
+                  
+                    window.clearInterval(interval4);
+                    
+                    $('#square').css('background', 'yellow');
+                  
+                  }
+                
+                
+                
+                
+                }, 50);
+              
+              
+              }
+            
+            
+            }, 50);
+          
+          }
+          
+        
+        }, 50);
+      
+      }
+    
+    
+    }, 50);
+
+});
+</script>
+
+</body>
+</html>

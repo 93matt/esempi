@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Corso jQuery: materiale didattico</title>
+<meta charset="utf-8" />
+<meta name="description" content="Indice del corso jQuery tenuto per il Gruppo Editoriale L'Espresso / Repubblica il 22 ottobre 2012" />
+<style type="text/css">
+body {
+	margin: 0;
+	padding: 0;
+	font: 100%/1.5 Georgia, serif;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+h1 {
+	font-weight: normal;
+	text-align: center;
+	font-family: Arial, sans-serif;
+}
+
+p {
+	text-align: center;
+}
+
+p a {
+	text-decoration: none;
+	
+}
+
+#content {
+	margin: 1.5em auto;
+	overflow: hidden;
+	width: 100%;
+	max-width: 768px;
+}
+
+#content > li {
+	overflow: hidden;
+	padding-bottom: 0.5em;
+	margin-bottom: 1em;
+	border-bottom: 1px solid #ccc;
+}
+
+#content > li > strong {
+	float: left;
+	margin-right: 1em;
+	width: 30%;
+}
+
+#content > li ul {
+	float: right;
+	width: 60%;
+}
+
+#content > li ul li {
+	padding-left: 2.5em;
+	padding-bottom: 0.5em;
+	list-style: decimal;
+}
+
+.btn {
+  display: inline-block;
+  padding: 4px 10px 4px;
+  margin-bottom: 0;
+  font-size: 13px;
+  line-height: 18px;
+  color: #333333;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  vertical-align: middle;
+  cursor: pointer;
+  background-color: #f5f5f5;
+  background-image: -ms-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+  background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+  background-repeat: repeat-x;
+  border: 1px solid #cccccc;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+  border-bottom-color: #b3b3b3;
+  border-radius: 4px;
+  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ffffff', endColorstr='#e6e6e6', GradientType=0);
+  filter: progid:dximagetransform.microsoft.gradient(enabled=false);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+
+.btn:hover {
+  color: #333333;
+  text-decoration: none;
+  background-color: #e6e6e6;
+  background-position: 0 -15px;
+  -webkit-transition: background-position 0.1s linear;
+     -moz-transition: background-position 0.1s linear;
+      -ms-transition: background-position 0.1s linear;
+       -o-transition: background-position 0.1s linear;
+          transition: background-position 0.1s linear;
+}
+
+
+.btn.active,
+.btn:active {
+  background-color: #e6e6e6;
+  background-image: none;
+  outline: 0;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+
+
+.btn-primary {
+  background-color: #0074cc;
+  background-image: -ms-linear-gradient(top, #0088cc, #0055cc);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0055cc));
+  background-image: -webkit-linear-gradient(top, #0088cc, #0055cc);
+  background-image: -o-linear-gradient(top, #0088cc, #0055cc);
+  background-image: -moz-linear-gradient(top, #0088cc, #0055cc);
+  background-image: linear-gradient(top, #0088cc, #0055cc);
+  background-repeat: repeat-x;
+  border-color: #0055cc #0055cc #003580;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#0088cc', endColorstr='#0055cc', GradientType=0);
+  filter: progid:dximagetransform.microsoft.gradient(enabled=false);
+  color: #fff;
+}
+
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary.active,
+.btn-primary.disabled,
+.btn-primary[disabled] {
+  background-color: #0055cc;
+  color: #fff;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<h1>Corso jQuery: materiale didattico</h1>
+<p><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/corso-jquery.zip" class="btn btn-primary">Download</a></p>
+
+<ul id="content">
+<li><strong>AJAX</strong>
+	<ul>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/ajax/$.ajax.html">$.ajax()</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/ajax/$.get.html">$.get()</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/ajax/$.getJSON.html">$.getJSON()</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/ajax/$.getScript.html">$.getScript()</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/ajax/$.post.html">$.post()</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/ajax/load.html">load()</a></li>
+	</ul>
+</li>
+<li><strong>ANIMATIONS</strong>
+	<ul>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/animations/animate.html">animate()</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/animations/delay.html">delay()</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/animations/easing.html">Easing</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/animations/fading.html">fadeIn() - fadeOut() - fadeToggle() - fadeTo()</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/animations/jquery-ui.html">jQuery UI</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/animations/show-hide.html">show() - hide()</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/animations/sliding.html">slideDown() - slideUp() - slideToggle()</a></li>
+	</ul>
+</li>
+<li><strong>CSS</strong>
+	<ul>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/css/classes.html">addClass() - removeClass() - toggleClass() - hasClass()</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/css/css.html">css()</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/css/dimensions.html">width() - height() - innerWidth() - innerHeight() - outerWidth() - outerHeight()</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/css/offset-position.html">offset() - position()</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/css/offsetParent.html">offsetParent()</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/css/scrollTop.html">scrollTop()</a></li>
+	</ul>
+</li>
+<li><strong>DOM</strong>
+	<ul>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/dom/add-eq-end-andSelf.html">add() - eq() - end() - andSelf()</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/dom/attr.html">attr()</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/dom/children.html">children()</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/dom/contents.html">contents()</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/dom/custom-selectors.html">Custom selectors</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/dom/eq-index.html">eq() - index()</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/dom/filter.html">filter()</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/dom/find.html">find()</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/dom/has.html">has()</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/dom/html.html">html()</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/dom/is.html">is()</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/dom/prev-next.html">prev() - next()</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/dom/prevAll-nextAll.html">prevAll() - nextAll()</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/dom/prevUntil-nextUntil.html">prevUntil() - nextUntil()</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/dom/removeAttr.html">removeAttr()</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/dom/selectors.html">Selectors</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/dom/slice.html">slice()</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/dom/text.html">text()</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/dom/user-defined-selectors.html">User-defined selectors</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/dom/wrap-wrapAll-wrapInner.html">wrap() - wrapAll() - wrapInner()</a></li>
+	</ul>
+</li>
+<li><strong>EVENTS</strong>
+	<ul>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/events/change.html">change()</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/events/click.html">click()</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/events/contextmenu.html">contextmenu()</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/events/event-custom.html">Custom Events</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/events/event-data.html">Event Data</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/events/event-namespace.html">Event Namespace</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/events/focus-blur.html">focus() - blur()</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/events/hover.html">hover()</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/events/live.html">live()</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/events/mousemove.html">mousemove()</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/events/submit.html">submit()</a></li>
+	</ul>
+</li>
+<li><strong>PLUGIN</strong>
+	<ul>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/plugin/plugin-basic.html">Plugin: basic</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/plugin/plugin-private-methods.html">Plugin: private methods</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/plugin/plugin-public-methods.html">Plugin: public methods</a></li>
+	</ul>
+</li>
+<li><strong>UTILITY</strong>
+	<ul>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/utility/$.data.html">$.data()</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/utility/$.hasData.html">$.hasData()</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/utility/$.param.html">$.param()</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/utility/$.parseJSON.html">$.parseJSON()</a></li>
+    <li><a href="http://esempi.gabrieleromanato.com/corsi/corso-jquery/utility/array.html">Array methods</a></li>
+	</ul>
+</li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: test sull'elemento video HTML5</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	margin: 2em 0;
+	padding: 0;
+	font: 100% Arial, sans-serif;
+}
+
+#video {
+	width: 60%;
+	padding: 1em;
+	margin: 0 auto;
+	border: 2px dashed #d34545;
+}
+
+ol {
+	width: 95%;
+	margin: 0 auto;
+	padding: 0;
+}
+
+
+li {
+	overflow: hidden;
+	padding: 1em;
+	margin-bottom: 1em;
+	border: 1px solid #3d4545;
+	position: relative;
+}
+
+li.pos {
+	height: 230px;
+}
+
+video {
+	width: 30%;
+	height: 20%;
+	display: block;
+}
+
+.float {
+	float: left;
+	margin: 5px 5px 5px 0;
+}
+
+.position {
+	position: absolute;
+	top: 4.5em;
+	left: 1em;
+	width: 30%;
+	height: 64%;
+}
+
+.position + p {
+	margin-left: 32%;
+	margin-top: 0;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="video">
+
+   <ol>
+   
+   <li>
+     <h2>Float</h2>
+
+	<video width="320" height="240" controls="controls" class="float">
+  		<source src="video.ogv" type="video/ogg" />
+  		<source src="video.mp4" type="video/mp4" />
+  	</video>
+  	
+  	Lorem ipsum dolor sit amet et ideo autem aquis concupiscentia huius mundi comparatur.
+  	
+  	</li>
+  	
+  	<li class="pos">
+     <h2>Posizionamento</h2>
+
+	<video width="320" height="240" controls="controls" class="position">
+  		<source src="video.ogv" type="video/ogg" />
+  		<source src="video.mp4" type="video/mp4" />
+  	</video>
+  	
+  	<p>Lorem ipsum dolor sit amet et ideo autem aquis concupiscentia huius mundi comparatur.</p>
+  	
+  	</li>
+
+  	
+  	
+  	</ol>
+
+</div>
+
+</body>
+</html>

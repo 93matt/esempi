@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: formattare le date RSS in italiano</title>
+<meta charset="utf-8" />
+</head>
+
+<body>
+
+<div id="rss"></div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+(function($) {
+
+  $.formatRSSDate = function(timestamp) {
+  
+  
+    var day = '';
+    var month = '';
+    var time = '';
+    
+    var formattedDate = '';
+    
+    timestamp.replace(',' , ' ');
+    timestamp.replace(/\+1\.00|GMT$/, ' ');
+    
+    var parts = timestamp.split(' ');
+    var part = parts[0].replace(',','');
+    
+    switch(part) {
+    
+        case 'Mon':
+	day = 'Luned&igrave;';
+	break;
+        case 'Tue':
+	day = 'Marted&igrave;';
+	break;
+        case 'Wed':
+	day = 'Mercoled&igrave;';
+	break;
+       case 'Thu':
+                day = 'Gioved&igrave;';
+	break;
+       case 'Fri':
+                day = 'Venerd&igrave;';
+	break;
+       case 'Sat':
+                day = 'Sabato';
+	break;
+       case 'Sun':
+                day = 'Domenica';
+                break;
+       default:
+                break;
+  
+    
+    }
+    
+    switch(parts[2]) {
+    
+	case 'Jan':
+	    month = 'Gennaio';
+	    break;
+	case 'Feb':
+	    month = 'Febbraio';
+	    break;
+	case 'Mar':
+	    month = 'Marzo';
+	    break;
+	case 'Apr':
+	    month = 'Aprile';
+	    break;
+	case 'May':
+	    month = 'Maggio';
+	    break;
+	case 'Jun':
+	    month = 'Giugno';
+	    break;
+	case 'Jul':
+	    month = 'Luglio';
+	    break;
+	case 'Aug':
+	    month = 'Agosto';
+	    break;
+	case 'Sep':
+	    month = 'Settembre';
+	    break;
+	case 'Oct':
+	    month = 'Ottobre';
+	    break;
+	case 'Nov':
+	    month = 'Novembre';
+	    break;
+	case 'Dec':
+	    month = 'Dicembre';
+	    break;
+	default:
+	    break;
+    
+    
+    }
+    
+    time = parts[4].replace(/:\d{2}$/, '');
+    
+    formattedDate = day + ' ' + parts[1] + ' ' + month + ' ' + parts[3] + ' ' + time; 
+    
+   return formattedDate;
+
+  
+  
+  
+  };
+
+
+})(jQuery);
+
+$(function() {
+
+  $.ajax({
+    type: 'GET',
+    url: 'feed.xml',
+    dataType: 'xml',
+    success: function(rss) {
+    
+      var html = '<ul>';
+      var items = $(rss).find('item');
+      
+      items.each(function() {
+      
+        var $item = $(this);
+        var title = $item.find('title').text();
+        var link = $item.find('link').text();
+        var desc = $item.find('description').text();
+        var date = $.formatRSSDate($item.find('pubDate').text());
+        
+        html += '<li><h3><a href="' + link + '">' + title + '</a></h3>' +
+                 '<div><small>' + date + '</small></div>' +
+                 '<p>' + desc + '</p></li>';
+      
+      });
+      
+      html += '</ul>';
+      
+      $('#rss').html(html);
+      
+    
+    }
+    
+  });
+
+});
+</script>
+
+</body>
+</html>

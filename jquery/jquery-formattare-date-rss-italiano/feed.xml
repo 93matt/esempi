@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+   <channel>
+      <title>ACME News</title>
+      <link>http://www.acme.com/news</link>
+      <description>News da ACME.</description>
+      <language>it</language>
+      <pubDate>Mon, 8 Feb 2010 20:30:00 GMT</pubDate>
+      <lastBuildDate>Mon, 8 Feb 2010 20:30:00 GMT</lastBuildDate>
+      <item>
+         <title>Lorem ipsum</title>
+         <link>#</link>
+         <description>Lorem
+	 quondam scripsit articulum de originibus librorum et ivit via sicut eius est mos, sed
+	 nescit quod meditavit nugarum totus in illis.
+	 </description>
+         <pubDate>Sun, 7 Feb 2010 20:00:00 GMT</pubDate>
+         
+      </item>
+       <item>
+         <title>Lorem ipsum dolor</title>
+         <link>#</link>
+         <description>Lorem
+	 quondam scripsit articulum de originibus librorum et ivit via sicut eius est mos, sed
+	 nescit quod meditavit nugarum totus in illis.
+	 </description>
+         <pubDate>Mon, 8 Feb 2010 20:25:00 GMT</pubDate>
+         
+      </item>
+      
+   </channel>
+</rss>

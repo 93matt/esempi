@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: simulazione di onda quadra</title>
+<meta charset="utf-8" />
+<style type="text/css">
+#container {
+	width: 600px;
+	height: 100px;
+	position: relative;
+	margin: 2em auto;
+}
+
+#block {
+	width: 100px;
+	height: 100px;
+	background: black;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	margin-left: -50px;
+}
+
+#line {
+	width: 250px;
+	height: 2px;
+	background: black;
+	position: absolute;
+	left: 0;
+	top: 50%;
+	margin-top: -1px;
+	display: none;
+}
+
+#line2 {
+	width: 250px;
+	height: 50px;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+div.block {
+	width: 80px;
+	height: 50px;
+	position: relative;
+	border-bottom: 2px solid black;
+	float: left;
+	display: none;
+}
+
+div.inner {
+	width: 50px;
+	height: 50px;	
+	border: 2px solid black;
+	border-bottom: none;
+	margin: 0 auto;
+	background: white;
+}
+
+div.arrow {
+	position: absolute;
+	bottom: -0.4em;
+	left: 0;
+	font-size: 4em;
+}
+</style>
+</head>
+
+<body>
+
+<div id="container">
+	<div id="line"></div>
+    <div id="block"></div>
+	<div id="line2">
+		<div class="block"><div class="inner"></div></div>
+		
+		<div class="block"><div class="inner"></div></div>
+		
+		
+		<div class="block"><div class="inner"></div></div>
+		
+		
+	</div>
+	<div class="arrow">&rarr;</div>
+</div>
+
+
+
+
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+
+    setTimeout(function() {
+	
+	    $('#line', '#container').fadeIn('slow', function() {
+		
+		    $('#line2', '#container').fadeIn('slow', function() {
+			
+			
+			    $(this).find('div:first').fadeIn(1000, function() {
+				
+				
+				  $(this).next().fadeIn(1000, function() {
+				  
+				      $(this).next().fadeIn(1000, function() {
+					  
+					  
+					      $(this).next().fadeIn(1000);
+					  
+					  });
+				  
+				  
+				  });
+				
+				
+				});
+			
+			});
+		
+		
+		});
+	
+	}, 1000);
+
+});
+</script>
+
+</body>
+</html>

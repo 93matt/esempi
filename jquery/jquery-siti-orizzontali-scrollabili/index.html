@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: siti orizzontali scrollabili</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+	width: 8000px;
+	font: 100% Georgia, serif;
+}
+
+#navigation {
+	margin: 0;
+	padding: 0;
+	height: 2.6em;
+	list-style: none;
+	background: #222;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+#navigation li {
+	float: left;
+	padding: 0 1em;
+	height: 100%;
+}
+
+#navigation a {
+	float: left;
+	height: 100%;
+	color: #fff;
+	text-decoration: none;
+	line-height: 2.6;
+	padding: 0 0.5em;
+	display: block;
+}
+
+#navigation a:hover, .current {
+	background: #333;
+}
+
+div.panel {
+	width: 930px;
+	float: left;
+	padding-left: 30px;
+	padding-right: 1040px;
+	margin-top: 45px;
+}
+</style>
+</head>
+
+<body>
+
+<ul id="navigation">
+	<li><a href="#home" class="current">Home</a></li>
+	<li><a href="#about">About</a></li>
+	<li><a href="#contacts">Contatti</a></li>
+</ul>
+
+<div id="home" class="panel">
+	<h2>Home</h2>
+	<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</p>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</p>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</p>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>
+
+<div id="about" class="panel">
+	<h2>About</h2>
+	<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</p>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</p>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</p>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>
+
+<div id="contacts" class="panel">
+	<h2>Contatti</h2>
+	<p><a href="#">test[at]test.com</a></p>
+</div>
+
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$('a', '#navigation').bind('click', function(event){
+		event.preventDefault();
+		var $a = $(this);
+		var target = $a.attr('href');
+		           
+		$a.addClass('current').parents('ul').find('a').not($a).removeClass('current');	
+		           
+		$('html, body').stop().animate({
+			scrollLeft: $(target).offset().left,
+			scrollTop: $(target).offset().top
+		}, 1200);
+	});
+});
+</script>
+</body>
+</html>

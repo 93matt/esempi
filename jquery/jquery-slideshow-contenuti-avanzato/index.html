@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: slideshow di contenuti avanzato</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	margin: 0;
+	padding: 2em 0;
+	font: 100% Arial, sans-serif;
+}
+
+#slideshow {
+	width: 650px;
+	height: 500px;
+	margin: 0 auto;
+	position: relative;
+	overflow: hidden;
+}
+
+#slideshow ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	width: 3900px;
+	height: 500px;
+	position: relative;
+}
+
+#slideshow li {
+	width: 650px;
+	height: 500px;
+	float: left;
+	background: #333;
+}
+
+#slideshow img {
+	float: left;
+	width: 650px;
+	height: 500px;
+}
+
+#slideshow div {
+	float: left;
+	width: 200px;
+	height: 500px;
+	background: #000 url(arrow.png) no-repeat 50% 80%;
+	color: #fff;
+	display: none;
+}
+
+#slideshow div * {
+	width: 80%;
+	margin: 0 auto;
+	padding: 1em 0;
+}
+</style>
+</head>
+
+<body>
+
+<div id="slideshow">
+
+	<ul id="slideshow-wrapper">
+	
+		<li>
+		
+		  <img src="1.jpg" alt="" />
+		  
+		  <div>
+		  
+		  	<h3>Slide 1</h3>
+		  	
+		  	<p>Lorem ipsum dolor sit amet.</p>
+		  
+		  </div>
+		
+		</li>
+		
+		<li>
+		
+		  <img src="2.jpg" alt="" />
+		  
+		  <div>
+		  
+		  	<h3>Slide 2</h3>
+		  	
+		  	<p>Lorem ipsum dolor sit amet.</p>
+		  
+		  </div>
+		
+		</li>
+		
+		<li>
+		
+		  <img src="3.jpg" alt="" />
+		  
+		  <div>
+		  
+		  	<h3>Slide 3</h3>
+		  	
+		  	<p>Lorem ipsum dolor sit amet.</p>
+		  
+		  </div>
+		
+		</li>
+		
+		<li>
+		
+		  <img src="4.jpg" alt="" />
+		  
+		  <div>
+		  
+		  	<h3>Slide 4</h3>
+		  	
+		  	<p>Lorem ipsum dolor sit amet.</p>
+		  
+		  </div>
+		
+		</li>
+		
+		<li>
+		
+		  <img src="5.jpg" alt="" />
+		  
+		  <div>
+		  
+		  	<h3>Slide 5</h3>
+		  	
+		  	<p>Lorem ipsum dolor sit amet.</p>
+		  
+		  </div>
+		
+		</li>	
+	</ul>
+
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+<script type="text/javascript">
+var getSlidePositions = function() {
+
+  var positions = [];
+  
+  $('li', '#slideshow').each(function(i) {
+  
+    var left = $(this).position().left;
+    
+    positions[i] = left;
+  
+  });
+  
+  return positions;
+};
+
+$(function() {
+
+  var slides = $('li', '#slideshow-wrapper');
+  var len = slides.length;
+  var index = 0;
+  var offsets = getSlidePositions();
+  var wrapper = $('#slideshow-wrapper', '#slideshow');
+  
+  var interval = setTimeout(function() {
+  
+    index++;
+    
+    
+    if(index == len) {
+    
+      index = 0;
+      
+      $('img', '#slideshow-wrapper').css('width', 700);
+      $('div', '#slideshow-wrapper').hide();
+    
+    
+    }
+    
+    var slide = slides.eq(index);
+    
+    wrapper.animate({
+      left: - offsets[index]
+    }, 1000, function() {
+    
+      slide.find('img').animate({
+        width: 450
+      }, 1000, function() {
+      
+        $(this).next().slideDown(1000);
+      
+      });
+    
+    
+    });
+  
+    setTimeout(arguments.callee, 3000);
+  
+  }, 500);
+
+});
+
+</script>
+
+</body>
+</html>

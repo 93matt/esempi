@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: ordine delle colonne nel layout</title>
+<meta charset="utf-8" />
+<style type="text/css" media="screen">
+
+body, h1, h2, p {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: #fff;
+	color: #333;
+	font: 85% Arial, Helvetica, sans-serif;
+}
+
+h1 {
+	font-size: 2em;
+}
+
+h2 {
+	font-size: 1.6em;
+}
+
+p {
+	padding: 0.4em 0;
+	line-height: 1.5;
+}
+
+#site {
+	margin: 0 auto;
+	width: 56%;
+	padding: 2em 0;
+	overflow: auto;
+	height: 100%;
+}
+
+#header {
+	border-bottom: 2px solid #ccc;
+	padding-bottom: 0.2em;
+	width: 100%;
+}
+
+#content, #sidebar, #extra {
+	float: left;
+	margin: 0;
+	padding-top: 0.3em;
+}
+
+#content {
+	width: 49%;
+	background: #ffc;
+}
+
+#sidebar, #extra {
+	width: 25%;
+}
+
+#sidebar {
+	background: #cff;
+}
+
+#extra {
+	background: #def;
+}
+
+#footer {
+	clear: both;
+	padding: 0.2em 0;
+	border-top: 2px solid #ccc;
+	width: 100%;
+}
+
+
+
+</style>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+
+$(function() {
+
+    var $content = $('#content').clone();
+    $('#content').remove();
+    $content.insertAfter('#sidebar');
+
+
+});
+</script>
+</head>
+
+<body>
+
+<div id="site">
+
+    <div id="header">
+        <h1>Header</h1>
+    </div>
+    
+    <div id="content">
+    
+        <h2>Primo</h2>
+	
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diem
+nonummy nibh eiusmod tincidunt ut lacreet dolore magna aliguam
+erat voluptat.
+Ut wisis enim ad minim veniam, quis nostrud exerci tution ullamcorper suscipit
+lobortis nisi ut aliquip ex ea commodo consequat.
+Duis te feugifacilisi.</p>
+
+
+
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diem
+nonummy nibh eiusmod tincidunt ut lacreet dolore magna aliguam
+erat voluptat.
+Ut wisis enim ad minim veniam, quis nostrud exerci tution ullamcorper suscipit
+lobortis nisi ut aliquip ex ea commodo consequat.
+Duis te feugifacilisi.</p>
+
+
+
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diem
+nonummy nibh eiusmod tincidunt ut lacreet dolore magna aliguam
+erat voluptat.
+Ut wisis enim ad minim veniam, quis nostrud exerci tution ullamcorper suscipit
+lobortis nisi ut aliquip ex ea commodo consequat.
+Duis te feugifacilisi.</p>
+
+    
+    </div>
+    
+    
+    
+    <div id="sidebar">
+    
+        <h2>Secondo</h2>
+	
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diem
+nonummy nibh eiusmod tincidunt ut lacreet dolore magna aliguam
+erat voluptat.
+Ut wisis enim ad minim veniam, quis nostrud exerci tution ullamcorper suscipit
+lobortis nisi ut aliquip ex ea commodo consequat.
+Duis te feugifacilisi.</p>
+
+
+
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diem
+nonummy nibh eiusmod tincidunt ut lacreet dolore magna aliguam
+erat voluptat.
+Ut wisis enim ad minim veniam, quis nostrud exerci tution ullamcorper suscipit
+lobortis nisi ut aliquip ex ea commodo consequat.
+Duis te feugifacilisi.</p>
+
+
+
+    
+    </div>
+    
+    
+    
+    <div id="extra">
+    
+        <h2>Terzo</h2>
+	
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diem
+nonummy nibh eiusmod tincidunt ut lacreet dolore magna aliguam
+erat voluptat.
+Ut wisis enim ad minim veniam, quis nostrud exerci tution ullamcorper suscipit
+lobortis nisi ut aliquip ex ea commodo consequat.
+Duis te feugifacilisi.</p>
+
+
+
+    
+    </div>
+    
+    <div id="footer">Footer</div>
+
+
+</div>
+
+
+</body>
+</html>

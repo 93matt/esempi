@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: creare un plugin per la validazione dei form</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+</head>
+
+<body>
+<form action="#" method="post" id="test">
+
+<ul>
+	<li id="for-name"><label for="name">Nome:</label>
+	<input type="text" name="name" id="name" class="chars" />
+	</li>
+	<li id="for-last"><label for="last">Cognome:</label>
+	<input type="text" name="last" id="last" class="chars" />
+	</li>
+	<li id="for-email"><label for="email">E-mail:</label>
+	<input type="text" name="email" id="email" class="email" /></li>
+	<li id="for-subject"><label for="subject">Oggetto:</label>
+	<input type="text" name="subject" id="subject" class="chars" />
+	</li>
+	<li id="for-url"><label for="url">URL:</label>
+	<input type="text" name="url" id="url" class="url" />
+	</li>
+	<li id="for-message"><label for="message">Messaggio:</label>
+	<textarea id="message" name="message" cols="25" rows="15" class="chars"></textarea>
+	</li>
+</ul>
+
+<p><input type="submit" value="Invia" name="send" id="send" /></p>
+
+
+
+
+
+</form>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="jquery.validator.js"></script>
+
+<script type="text/javascript">
+$(function() {
+
+	$('#test').validator({
+		email: true,
+		url: true,
+		chars: true
+	});	
+
+
+});
+
+
+</script>
+
+</body>
+</html>

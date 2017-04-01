@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: tooltip in stile Facebook</title>
+<meta charset="utf-8" />
+<style>
+.tipsy { padding: 5px; font-size: 10px; opacity: 0.8; 
+filter: alpha(opacity=80); 
+background-repeat: no-repeat;  
+background-image: url(tipsy.gif); }
+  .tipsy-inner { padding: 5px 8px 4px 8px; background-color: black; 
+  color: white; max-width: 200px; text-align: center; }
+  .tipsy-inner { -moz-border-radius:3px; 
+  -webkit-border-radius:3px; border-radius: 3px; }
+  .tipsy-north { background-position: top center; }
+  .tipsy-south { background-position: bottom center; }
+  .tipsy-east { background-position: right center; }
+  .tipsy-west { background-position: left center; }
+  
+#fb-menu {
+	margin: 1em auto;
+	width: 60%;
+	font: small Tahoma, sans-serif;
+	padding: 0;
+	list-style: none;
+	height: 100%;
+	overflow: hidden;
+}
+
+#fb-menu li {
+	float: left;
+	margin-right: 0.5em;
+}
+
+#fb-menu a {
+	color: #3b5998;
+	text-decoration: none;
+	font-size: 0.9em;
+	display: block;
+	float: left;
+	padding-left: 4px;
+}
+
+#fb-menu li span {
+
+	float: left;
+	display: block;
+	width: 16px;
+	height: 16px;
+	background-image: url(sprites.png);
+	background-repeat: no-repeat;
+	cursor: pointer;
+
+}
+
+#fb-menu li span.home {
+	background-position: 100% 100%;
+}
+
+#fb-menu #home {
+	padding-left: 0;
+	position: relative;
+	left: -2px;
+}
+
+#fb-menu li span.town {
+	background-position: 100% -17px;
+}
+
+#fb-menu #town {
+	position: relative;
+	left: -2px;
+}
+	
+</style>
+</head>
+
+<body>
+
+<ul id="fb-menu">
+	<li>
+	  <span class="home"></span>
+	  <a href="#" id="home" title="Home">Home</a>
+	</li>
+	<li>
+	  <span class="profile"></span>
+	  <a href="#" id="profile" title="Edit your profile">Edit your profile</a>
+	</li>
+	<li>
+	  <span class="town"></span>
+	  <a href="#" id="town" title="Add your hometown">Add your hometown</a>
+	</li>
+</ul>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="jquery.tipsy.js"></script>
+<script type="text/javascript">
+$(function() {
+
+  $('li', '#fb-menu').each(function() {
+
+    var $li = $(this);
+    
+    $li.find('a').tipsy({
+      fade: true
+    });
+      
+  
+  
+  });
+});
+</script>
+
+</body>
+</html>

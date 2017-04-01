@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: usare Flickr con JSON</title>
+<meta charset="utf-8" />
+<style type="text/css" media="screen">
+#flickr {
+	width: 50%;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+#flickr img {
+	float: left;
+	width: 18%;
+	margin-right: 0.5em;
+	border: none;
+}
+
+h2 {
+	margin: 0 auto;
+	padding-top: 10px;
+	font: normal 2em Arial, sans-serif;
+	text-transform: uppercase;
+	background: url(http://gabrieleromanato.com/images/flickr.png) no-repeat 0 50%;
+	text-align: center;
+	color: #1057ae;
+	width: 50%;
+	height: 6em;
+	line-height: 6;
+}
+
+</style>
+</head>
+
+<body>
+
+<h2>Ultime 5 foto da Flickr</h2>
+<div id="flickr"></div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+
+  var url = 'http://api.flickr.com/services/feeds/photos_public.gne?id=31968388@N02&lang=it-it&format=json&jsoncallback=?';
+
+  $.getJSON(url, function(data) {
+          
+  
+      var html = '';
+      
+      $.each(data.items, function(i,item) {            
+            
+             html += '<a href="' + item.link + '"><img src="'+item.media.m+ '"/></a>';
+             
+             
+             return i < 4;
+
+            
+      });
+      
+      $('#flickr').html(html);        
+    
+  });
+    
+});
+
+</script>
+</body>
+</html>

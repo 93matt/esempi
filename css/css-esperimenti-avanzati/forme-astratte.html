@@ -1,0 +1,272 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<title>Forme astratte con i CSS</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="author" content="Gabriele Romanato">
+<meta name="keywords" content="Shapes">
+<meta name="description" content="Shapes">
+<meta name="robots" content="all">
+<style type="text/css" media="screen">
+
+body {
+background: #fff;
+margin: 0;
+padding: 0;
+color: #000;
+text-align: center;
+}
+
+/* test code */
+.box {
+margin: 0 auto 0 auto;
+width: 100px;
+padding: 0;
+}
+
+.circle {
+height: 1px;
+overflow: hidden;
+background: #000;
+}
+
+.a1 {
+margin: 0 12px 0 12px;
+border: none;
+}
+.a2 {
+margin: 0 9px;
+border-width: 0;
+}
+.a3 {
+margin: 0 7px;
+border-width: 0;
+}
+.a4 {
+margin: 0 6px 0 6px;
+}
+.a5 {
+margin: 0 5px 0 5px;
+}
+.a6 {
+margin: 0 4px 0 4px;
+}
+.a7 {
+margin: 0 3px 0 3px;
+}
+.a8 {
+margin: 0 2px 0 2px; height: 2px; 
+}
+.a9 {
+margin: 0 1px 0 1px; height: 3px;
+}
+
+
+.circle2 {height: 2px; overflow: hidden; background: #000;}
+.b1, .b2, .b3, .b4, .b5, .b6, .b7, .b8, .b9, .b10 {margin: 0 2px;}
+
+.circle3 {height: 1px; overflow: hidden; background: #000;}
+.c1 {margin: 0 1px;}
+.c2 {margin: 0 2px;}
+.c3 {margin: 0 3px;}
+.c4 {margin: 0 4px;}
+.c5 {margin: 0 5px;}
+.c6 {margin: 0 6px;}
+
+.circle4, .circle5, .circle6 {height: 1px; overflow: hidden; background: #000;}
+.circle5 {background: #000;}
+.circle6 {text-align: center;}
+
+.d1 {margin: 0 2px;}
+.d2 {margin: 0 4px;}
+.d3 {margin: 0 6px;}
+.d4 {margin: 0 8px;}
+.d5 {margin: 0 10px;}
+.d6 {margin: 0 12px;}
+.d7 {margin: 0 14px;}
+.d8 {margin: 0 16px;}
+.d9 {margin: 0 18px;}
+.d10 {margin: 0 20px;}
+.d11 {margin: 0 22px;}
+
+.d1, .d3, .d5, .d7, .d11 {width: 2px; height: 2px;}
+
+.circle6 * {margin: 0 auto;}
+.e1 {width: 100px;}
+.e2 {width: 99px;}
+.e3 {width: 98px; }
+.e4 {width: 97px;}
+.e5 {width: 96px;}
+.e6 {width: 95px;}
+.e7 {width: 94px;}
+.e8 {width: 93px;}
+.e9 {width: 92px;}
+.e10 {width: 91px;}
+.e11 {width: 90px;}
+
+#a-cont {width: 120px; margin: 10px auto; border: 2em double; padding: 0; background: #fff;}
+#cont {width: 100px; margin: 0 auto; border: none; padding: 0; background: #fff;}
+#cont2 {border: none; width: 100px;  margin: 0 auto; background: #fff;}
+
+</style>
+</head>
+  <body>
+
+  <div id="a-cont">
+  <div id="cont">
+  <div id="cont2">
+  <div class="box">
+    <div class="circle a1">&nbsp;</div>
+    <div class="circle a2">&nbsp;</div>
+    <div class="circle a3">&nbsp;</div>
+	<div class="circle a4">&nbsp;</div>
+	<div class="circle a5">&nbsp;</div>
+	<div class="circle a6">&nbsp;</div>
+	<div class="circle a7">&nbsp;</div>
+	<div class="circle a8">&nbsp;</div>
+	<div class="circle a9">&nbsp;</div>
+	<div class="circle a9">&nbsp;</div>
+    <div class="circle a8">&nbsp;</div>
+    <div class="circle a7">&nbsp;</div>
+	<div class="circle a6">&nbsp;</div>
+	<div class="circle a5">&nbsp;</div>
+	<div class="circle a4">&nbsp;</div>
+	<div class="circle a3">&nbsp;</div>
+	<div class="circle a2">&nbsp;</div>
+	<div class="circle a1">&nbsp;</div>
+  </div>
+  
+  <div class="box">
+    <div class="circle2 b1">&nbsp;</div>
+    <div class="circle2 b2">&nbsp;</div>
+    <div class="circle2 b3">&nbsp;</div>
+	<div class="circle2 b4">&nbsp;</div>
+	<div class="circle2 b5">&nbsp;</div>
+	<div class="circle2 b6">&nbsp;</div>
+	<div class="circle2 b7">&nbsp;</div>
+	<div class="circle2 b8">&nbsp;</div>
+	<div class="circle2 b9">&nbsp;</div>
+	<div class="circle2 b10">&nbsp;</div>
+    <div class="circle2 b9">&nbsp;</div>
+    <div class="circle2 b8">&nbsp;</div>
+	<div class="circle2 b7">&nbsp;</div>
+	<div class="circle2 b6">&nbsp;</div>
+	<div class="circle2 b5">&nbsp;</div>
+	<div class="circle2 b4">&nbsp;</div>
+	<div class="circle2 b3">&nbsp;</div>
+	<div class="circle2 b2">&nbsp;</div>
+	<div class="circle2 b1">&nbsp;</div>
+  </div>
+  
+  <div class="box">
+    <div class="circle3 c1">&nbsp;</div>
+    <div class="circle3 c2">&nbsp;</div>
+    <div class="circle3 c3">&nbsp;</div>
+	<div class="circle3 c4">&nbsp;</div>
+	<div class="circle3 c5">&nbsp;</div>
+	<div class="circle3 c6">&nbsp;</div>
+	<div class="circle3 c5">&nbsp;</div>
+	<div class="circle3 c4">&nbsp;</div>
+	<div class="circle3 c3">&nbsp;</div>
+	<div class="circle3 c2">&nbsp;</div>
+    <div class="circle3 c2">&nbsp;</div>
+ </div>
+ 
+  <div class="box">
+    <div class="circle4 c1">&nbsp;</div>
+    <div class="circle4 c2">&nbsp;</div>
+    <div class="circle4 c3">&nbsp;</div>
+	<div class="circle4 c4">&nbsp;</div>
+	<div class="circle4 c5">&nbsp;</div>
+	<div class="circle4 c6">&nbsp;</div>
+	<div class="circle4 b5">&nbsp;</div>
+	<div class="circle4 b4">&nbsp;</div>
+	<div class="circle4 b3">&nbsp;</div>
+	<div class="circle4 b2">&nbsp;</div>
+    <div class="circle4 b1">&nbsp;</div>
+ </div>
+ 
+ <div class="box">
+    <div class="circle5 d1">&nbsp;</div>
+    <div class="circle5 d2">&nbsp;</div>
+    <div class="circle5 d3">&nbsp;</div>
+	<div class="circle5 d4">&nbsp;</div>
+	<div class="circle5 d5">&nbsp;</div>
+	<div class="circle5 d6">&nbsp;</div>
+	<div class="circle5 d7">&nbsp;</div>
+	<div class="circle5 d8">&nbsp;</div>
+	<div class="circle5 d9">&nbsp;</div>
+	<div class="circle5 d10">&nbsp;</div>
+    <div class="circle5 d11">&nbsp;</div>
+	<div class="circle5 d1">&nbsp;</div>
+    <div class="circle5 d2">&nbsp;</div>
+    <div class="circle5 d3">&nbsp;</div>
+	<div class="circle5 d4">&nbsp;</div>
+	<div class="circle5 d5">&nbsp;</div>
+	<div class="circle5 d6">&nbsp;</div>
+	<div class="circle5 d7">&nbsp;</div>
+	<div class="circle5 d8">&nbsp;</div>
+	<div class="circle5 d9">&nbsp;</div>
+	<div class="circle5 d10">&nbsp;</div>
+    <div class="circle5 d11">&nbsp;</div>
+</div>
+<div class="box">
+  <div class="circle6 e1">&nbsp;</div>
+  <div class="circle6 e2">&nbsp;</div>
+  <div class="circle6 e3">&nbsp;</div>
+  <div class="circle6 e4">&nbsp;</div>
+  <div class="circle6 e5">&nbsp;</div>
+  <div class="circle6 e6">&nbsp;</div>
+  <div class="circle6 e7">&nbsp;</div>
+  <div class="circle6 e8">&nbsp;</div>
+  <div class="circle6 e9">&nbsp;</div>
+  <div class="circle6 e10">&nbsp;</div>
+  <div class="circle6 e11">&nbsp;</div>
+  <div class="circle a1">&nbsp;</div>
+    <div class="circle a2">&nbsp;</div>
+    <div class="circle a3">&nbsp;</div>
+	<div class="circle a4">&nbsp;</div>
+	<div class="circle a5">&nbsp;</div>
+	<div class="circle a6">&nbsp;</div>
+	<div class="circle a7">&nbsp;</div>
+	<div class="circle a8">&nbsp;</div>
+	<div class="circle a9">&nbsp;</div>
+	<div class="circle a9">&nbsp;</div>
+    <div class="circle a8">&nbsp;</div>
+    <div class="circle a7">&nbsp;</div>
+	<div class="circle a6">&nbsp;</div>
+	<div class="circle a5">&nbsp;</div>
+	<div class="circle a4">&nbsp;</div>
+	<div class="circle a3">&nbsp;</div>
+	<div class="circle a2">&nbsp;</div>
+	<div class="circle a1">&nbsp;</div>
+	<div class="circle a9">&nbsp;</div>
+    <div class="circle a8">&nbsp;</div>
+    <div class="circle a7">&nbsp;</div>
+	<div class="circle a6">&nbsp;</div>
+	<div class="circle a5">&nbsp;</div>
+	<div class="circle a4">&nbsp;</div>
+	<div class="circle a3">&nbsp;</div>
+	<div class="circle a2">&nbsp;</div>
+	<div class="circle a1">&nbsp;</div>
+	<div class="circle5 d11">&nbsp;</div>
+    <div class="circle5 d10">&nbsp;</div>
+    <div class="circle5 d9">&nbsp;</div>
+	<div class="circle5 d8">&nbsp;</div>
+	<div class="circle5 d7">&nbsp;</div>
+	<div class="circle5 d6">&nbsp;</div>
+	<div class="circle5 d5">&nbsp;</div>
+	<div class="circle5 d4">&nbsp;</div>
+	<div class="circle5 d3">&nbsp;</div>
+	<div class="circle5 d2">&nbsp;</div>
+    <div class="circle5 d1">&nbsp;</div>
+</div>
+</div>
+</div>
+</div>
+  
+ 
+  
+
+</body>
+</html>

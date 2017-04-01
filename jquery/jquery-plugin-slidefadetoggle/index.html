@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: il plugin slideFadeToggle</title>
+<meta charset="utf-8" />
+<style type="text/css" media="screen">
+#test {
+	width: 150px;
+	height: 150px;
+	background: #b20;
+	margin: 2em;
+}
+</style>
+</head>
+
+<body>
+
+<div id="test"></div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+(function($) {
+
+	$.fn.slideFadeToggle  = function(options) {
+	
+		options = $.extend({
+			speed: 1000,
+			easing: 'swing',
+			callback: function() {}
+		}, options);
+	
+        return this.animate({opacity: 'toggle', height: 'toggle'}, options.speed, options.easing, options.callback);
+	}; 
+
+})(jQuery);
+
+$(function() {
+
+	setTimeout(function() {
+	
+		$('#test').slideFadeToggle();
+	
+	
+	}, 1500);
+
+
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: slideshow professionale a tab espandibili</title>
+<meta charset="utf-8" />
+<style type="text/css">
+#slideshow {
+	margin: 2em auto;
+	width: 980px;
+	height: 740px;
+	position: relative;
+	overflow: hidden;
+}
+
+#slideshow-wrapper {
+	width: 2940px;
+	height: 740px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	background: #ddd;
+}
+
+#slideshow-wrapper img {
+	float: left;
+	width: 980px;
+	height: 740px;
+	display: none;
+}
+
+#slides {
+	width: 980px;
+	height: 740px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	overflow: hidden;
+}
+
+div.slide {
+	width: 200px;
+	float: left;
+	font: 90% Arial, sans-serif;
+	position: relative;
+	top: 721px;
+	margin-left: 100px;
+}
+
+div.slide h3 {
+	margin: 0;
+	font-size: 18px;
+	background-color: #fff;
+	background-image: url(img/arrows.png); 
+	background-repeat: no-repeat; 
+	background-position: 100% 0;
+	color: #c30;
+	height: 18px;
+	cursor: pointer;
+	padding: 0 5px;
+	border: 1px solid #999;
+	border-radius: 5px 5px 0 0;
+}
+
+div.slide h3.active {
+	background-position: 100% 100%;
+}
+
+div.slide p {
+	margin: 0;
+	padding: 1em;
+	line-height: 1.3;
+	background: #000;
+	color: #fff;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="slideshow">
+	<div id="slideshow-wrapper">
+		<img src="img/1.jpg" alt="" id="s1" />
+		<img src="img/2.jpg" alt="" id="s2" />
+		<img src="img/3.jpg" alt="" id="s3" />
+	</div>
+	<div id="slides">
+		<div class="slide">
+			<h3>Titolo 1</h3>
+			<p>Lorem ipsum dolor sit amet.</p>
+		</div>
+		<div class="slide">
+			<h3>Titolo 2</h3>
+			<p>Lorem ipsum dolor sit amet.</p>
+		</div>
+		<div class="slide">
+			<h3>Titolo 3</h3>
+			<p>Lorem ipsum dolor sit amet.</p>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+var Slider = new function() {
+
+	var wrapper = $('#slideshow-wrapper', '#slideshow');
+	var images = $('img', wrapper);
+	var slides = $('#slides', '#slideshow');
+	
+	var prepare = function() {
+	
+		$('h3', slides).each(function(i) {
+		
+			$(this).attr('rel', '#s' + (i+1));
+		
+		});
+	
+	};
+	
+	var reset = function() {
+	
+		images.hide();
+		wrapper.css('left', 0);
+	
+	};
+	
+	var slideAndShow = function(slide) {
+	
+		wrapper.animate({
+			left: - slide.position.left
+		}, 100, function() {
+		
+			slide.fadeIn(1000);
+		
+		});
+	
+	
+	};
+	
+	var showHideSlides = function() {
+	
+		$('h3', slides).each(function() {
+		
+			var $h3 = $(this);
+			var slide = $($h3.attr('rel'));
+			
+			$h3.click(function() {
+			
+				reset();
+			
+				if(!$h3.hasClass('active')) {
+				
+					$h3.parent().animate({
+						top: 660
+					}, 500);
+					
+					slideAndShow(slide);
+					
+					$h3.addClass('active');
+				
+				} else {
+				
+					$h3.parent().animate({
+						top: 721
+					}, 500);
+					
+					$h3.removeClass('active');
+				
+				}
+			
+			});
+			
+		
+		});
+	
+	
+	};
+	
+	this.init = function() {
+	
+		prepare();
+	
+		showHideSlides();
+	
+	};
+
+
+}();
+
+$(function() {
+
+	Slider.init();
+
+});
+</script>
+</body>
+</html>

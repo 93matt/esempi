@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Array methods</title>
+<meta charset="utf-8" />
+</head>
+
+<body>
+
+<p><button id="grep">$.grep()</button><button id="map">$.map()</button><button id="unique">$.unique()</button>
+<button id="isarray">$.isArray()</button><button id="inarray">$.inArray(1280, arr)</button></p>​
+
+<div id="test">var arr = [1, 5, 6, 98, 56, 23, 48, 12, 9, 4, 2, 100, 2, 6, 1, 48];</div>
+<div id="output"></div>
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script>
+$(function() {
+
+	var arr = [1, 5, 6, 98, 56, 23, 48, 12, 9, 4, 2, 100, 2, 6, 1, 48];
+	
+	
+	$('#grep').click(function() {
+	
+		arr = $.grep(arr, function(value, index) {
+		
+			return (value % 2 == 0);
+		
+		});
+		
+		$('#output').text('[' + arr.join(',') + ']');
+	
+	});
+	
+	$('#map').click(function() {
+	
+		arr = $.map(arr, function(value, index) {
+		
+			return (value * 2) + index;
+		
+		});
+		
+		$('#output').text('[' + arr.join(',') + ']');
+	
+	});	
+	
+	$('#isarray').click(function() {
+	
+		var isArray = $.isArray(arr);
+		
+		$('#output').text(isArray);
+	
+	});	
+	
+	$('#inarray').click(function() {
+	
+		var inArray = $.inArray(1280, arr);
+		
+		$('#output').text(inArray);
+	
+	});	
+
+	
+
+});
+</script>
+
+</body>
+</html>

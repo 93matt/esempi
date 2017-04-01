@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AngularJS Social Shares</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" media="screen" />
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+<script type="text/javascript">
+var app = angular.module('MyApp', []);
+
+app.directive('socialShare', ['$window', '$document', function($window, $document) {
+
+	var urls = {
+		facebook: 'https://www.facebook.com/sharer/sharer.php?u=#url',
+		twitter: 'https://twitter.com/intent/tweet?url=#url&text=#text',
+		google: 'https://plus.google.com/share?url=#url',
+		linkedin: 'http://www.linkedin.com/shareArticle?mini=true&url=#url&title=#title'
+	};
+
+	return {
+		restrict: 'A',
+		link: function(scope, element, attr) {
+			element.on('click', function(event) {
+				event.preventDefault();
+				var type = attr.socialShare;
+				var title = $document[0].title;
+				var pageURL = $document[0].URL;
+				var shareUrl = '';
+
+				switch(type) {
+					case 'twitter':
+						shareUrl = urls.twitter.replace('#url', pageURL).
+						replace('#text', window.encodeURIComponent(title));
+						break;
+					case 'facebook':
+						shareUrl = urls.facebook.replace('#url', pageURL);
+						break;
+					case 'google':
+						shareUrl = urls.google.replace('#url', pageURL);
+						break;
+					case 'linkedin':
+						shareUrl = urls.linkedin.replace('#url', pageURL).
+						replace('#title', title);
+						break;
+					default:
+						shareUrl = urls.twitter.replace('#url', pageURL).
+						replace('#text', window.encodeURIComponent(title));
+						break;
+
+
+				}
+
+				$window.open(shareUrl, '', 'width=500,height=350');
+			});
+		}
+	};
+
+}]);
+</script>
+</head>
+<body ng-app="MyApp" class="full">
+	<div class="social-btns">
+		<button type="button" social-share="twitter" class="btn btn-primary twitter">
+			<i class="fa fa-twitter"></i> Share on Twitter
+		</button>
+		<button type="button" social-share="facebook" class="btn btn-primary facebook">
+			<i class="fa fa-facebook"></i> Share on Facebook
+		</button>
+		<button type="button" social-share="google" class="btn btn-primary google">
+			<i class="fa fa-google-plus"></i> Share on Google+
+		</button>
+		<button type="button" social-share="linkedin" class="btn btn-primary linkedin">
+			<i class="fa fa-linkedin"></i> Share on Linkedin
+		</button>	
+	</div>	
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: z-index e posizionamento</title>
+<meta charset="utf-8" />
+<style>
+body {
+	margin: 0;
+	padding: 2em 0;
+}
+
+#browsers {
+	width: 500px;
+	height: 400px;
+	position: relative;
+	margin: 0 auto;
+}
+
+#browsers img {
+	display: block;
+	width: 128px;
+	height: 128px;
+	position: absolute;
+}
+
+#chrome {
+	top: 50%;
+	left: 50%;
+	margin: -64px 0 0 -64px;
+	z-index: 5;
+}
+
+#firefox {
+	top: 130px;
+	left: 110px;
+	z-index: 4;
+}
+
+#ie {
+	top: 130px;
+	right: 110px;
+	z-index: 4;
+}
+
+#opera {
+	top: 130px;
+	left: 60px;
+	z-index: 3;
+}
+
+#safari {
+	top: 130px;
+	right: 60px;
+	z-index: 3;
+}
+</style>
+</head>
+
+<body>
+
+<div id="browsers">
+
+	<img src="chrome.png" alt="" id="chrome" />
+	<img src="firefox.png" alt="" id="firefox" />
+	<img src="iExplorer.png" alt="" id="ie" />
+	<img src="opera.png" alt="" id="opera" />
+	<img src="safari.png" alt="" id="safari" />
+
+</div>
+
+</body>
+</html>

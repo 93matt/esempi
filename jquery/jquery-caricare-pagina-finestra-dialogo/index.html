@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: caricare una pagina in una finestra di dialogo</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" />
+</head>
+
+<body>
+
+<p><a href="page.html" id="open" title="Pagina di test">Carica una pagina in una finestra di dialogo</a></p>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+<script type="text/javascript">
+$(function() {
+
+	$('#open').click(function(event) {
+	
+	    var $link = $(this);
+	
+		var $dialog = $('<div></div>')
+				.load($link.attr('href') + ' #content')
+				.dialog({
+					autoOpen: false,
+					title: $link.attr('title'),
+					width: 600
+		});
+		
+		$dialog.dialog('open');
+	
+		event.preventDefault();
+	
+	});
+
+});
+</script>
+</body>
+</html>

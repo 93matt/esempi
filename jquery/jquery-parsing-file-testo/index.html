@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: parsing di un file di testo</title>
+<meta charset="utf-8" />
+</head>
+
+<body>
+<div id="test"></div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+function parseText(text) {
+
+	var parts = text.split(/\n/);
+	var header = /^\[header\s.+\].+\[\/header\]$/;
+	var para = /^\[para\].+\[\/para\]$/;
+	var matches = [], i, len = parts.length;
+	
+	for(i = 0; i < len; i += 1) {
+	
+		var part = parts[i];
+		
+		if(header.test(part)) {
+		
+			var heading = '', level = /level="\d"/, headerText = /\].+\[/;
+			
+			var levelNumberMatch = part.match(level);
+			var levelNumber = levelNumberMatch[0].replace(/level="+/g, '').replace('"', '');
+			
+			heading += '<h' + levelNumber + '>';
+			
+			var levelTextMatch = part.match(headerText);
+			var levelText = levelTextMatch[0].replace('[', '').replace(']', '');
+			
+			heading += levelText + '</h' + levelNumber + '>';
+			
+			matches.push(heading);
+			
+		
+		}
+		
+		if(para.test(part)) {
+		
+		
+			var paragraph = '';
+			var paraMatch = part.match(para);
+			var paragraphText = paraMatch[0].replace(/\[\/?para]/g, '');
+			
+			paragraph = '<p>' + paragraphText + '</p>';
+		
+			matches.push(paragraph);
+		
+		}
+		
+	
+	
+	
+	}
+	
+	
+	return matches;
+
+
+
+}
+
+
+$(function() {
+
+	$.ajax({
+		type: 'GET',
+		dataType: 'text',
+		url: 'test.txt',
+		success: function(text) {
+		
+			var textParts = parseText(text);
+			
+			$('#test').html(textParts.join(''));
+		
+		}
+    });
+
+});
+</script>
+
+</body>
+</html>

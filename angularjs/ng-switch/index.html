@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AngularJS: ng-switch</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" media="screen" />
+<style type="text/css" media="screen">
+body {
+	margin: 2em auto;
+	max-width: 500px;
+}
+</style>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+<script type="text/javascript">
+var app = angular.module('MyApp', []);
+
+
+app.controller('ChoiceCtrl', ['$scope', function($scope) {
+	$scope.chosenLanguage = '';
+	$scope.languages = ['JavaScript', 'PHP'];
+}]);
+</script>
+</head>
+<body ng-app="MyApp">
+	<div ng-controller="ChoiceCtrl">
+		<p>
+			<select name="choice" class="form-control" ng-model="chosenLanguage" ng-options="language for language in languages">
+				<option value="">Choose a language</option>
+			</select>
+		</p>
+		<div class="switch-container" ng-switch on="chosenLanguage">
+			<p ng-switch-when="JavaScript">AngularJS, jQuery</p>
+			<p ng-switch-when="PHP">Zend Framework, Symphony</p>
+			<p ng-switch-default>Choose a language</p>
+		</div>
+	</div>	
+</body>
+</html>

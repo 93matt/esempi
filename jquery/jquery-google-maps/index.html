@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Usare jQuery con le Google Maps</title>
+<meta charset="utf-8" />
+<style type="text/css">
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+	min-height: 100%;
+}
+
+body {
+	position: relative;
+}
+
+#map {
+  width: 600px;
+  height: 500px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -250px 0 0 -300px;
+}
+
+#pic {
+  width: 200px;
+  height: 135px;
+  padding: 5px;
+}
+
+#pic p {
+  margin: 0;
+  text-align: center;
+  font: small Arial, sans-serif;
+  padding-top: 5px;
+}
+
+#pic img {
+  display: block;
+  width: 100px;
+  height: 114px;
+  margin: 0 auto;
+}
+
+#overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #333;
+	display: none;
+}
+
+#lightbox {
+	width: 500px;
+	height: 470px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -235px 0 0 -250px;
+	background: #fff;
+	font: 100% Arial, sans-serif;
+	display: none;
+}
+
+#lightbox img {
+	width: 400px;
+	height: 420px;
+	display: block;
+	margin: 0 auto;
+	padding-top: 10px;
+}
+
+#content {
+	width: 400px;
+	margin: 0 auto;
+	overflow: hidden;
+	padding-top: 10px;
+}
+
+#content p {
+	margin: 0;
+	float: left;
+	text-transform: uppercase;
+}
+
+#content a {
+	color: #d34545;
+	font-weight: bold;
+	text-decoration: none;
+	float: right;
+}
+	
+</style>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+(function() {
+
+    var map, infoWindow, gMap = google.maps;
+
+
+    window.onload = function() {
+    
+        $('#overlay').css('opacity', '0.7');
+        
+        $('#open').live('click', function(event) {
+        
+          $('#overlay').show();
+          $('#lightbox').show();
+        
+          event.preventDefault();
+        
+        });
+        
+        $('#close').live('click', function(event) {
+        
+          $('#overlay, #lightbox').hide();
+    
+        
+          event.preventDefault();
+        
+        });
+
+    
+    
+        var options = {  
+          zoom: 10,
+          center: new gMap.LatLng(44.5739, 10.848),  
+          mapTypeId: gMap.MapTypeId.ROADMAP  
+        };  
+    
+        map = new gMap.Map(document.getElementById('map'), options);
+        
+        
+        var marker = new gMap.Marker({
+          position: new gMap.LatLng(44.5739, 10.848),
+          map: map,
+          title: 'Formigine e il suo storico castello'
+        });
+        
+        
+               
+        
+        gMap.event.addListener(marker, 'click', function() {
+        
+        
+            if (!infoWindow) {
+               infoWindow = new gMap.InfoWindow();
+            }
+            
+            
+             var img = '<div id="pic"><img src="stemma.jpg" alt="" /><p>Comune di Formigine &raquo; <a href="#" id="open">Castello</a></p></div>';
+            
+             infoWindow.setContent(img);
+             infoWindow.open(map, marker);
+             
+
+      
+        
+        
+        });
+
+
+    
+    };
+
+
+})();
+
+</script>
+</head>
+
+<body>
+
+<div id="map"></div>
+
+<div id="overlay"></div>
+
+	<div id="lightbox">
+	
+		<img src="castello.jpg" alt="" />
+		
+		<div id="content">
+		   <p>Il Castello di Formigine</p>
+		   <a href="#" id="close">X</a>
+		</div>
+	
+	</div>
+
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: tooltip</title>
+<meta charset="utf-8" />
+<style>
+body {
+	margin: 0 auto;
+	width: 40em;
+	padding: 2em 0;
+	font: 100% Arial, sans-serif;
+	line-height: 1.4;
+}
+
+a {
+	color: #a40;
+	font-weight: bold;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+a.tooltip span {
+	width: 10em;
+	padding: 0.4em;
+	background: #ffc;
+	border: 1px solid #666;
+	color: #333;
+	position: absolute;
+	border-radius: 6px;
+	box-shadow: 4px 4px 4px #ccc;
+	font-size: 85%;
+	font-weight: normal;
+}
+</style>
+</head>
+
+<body>
+
+<p>Lorem ipsum dolor sit amet, <a href="#" class="tooltip" title="Lorem ipsum dolor sit amet">consectetur</a> adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat <a href="#" class="tooltip" title="Lorem ipsum dolor sit amet">nulla pariatur</a>. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea <a href="#" class="tooltip" title="Lorem ipsum dolor sit amet">commodo consequat</a>. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+
+   $('a.tooltip', 'p').each(function() {
+
+      var $a = $(this);
+      var title = $a.attr('title');
+      
+      $('<span/>').text(title).
+      appendTo($a).hide();
+      
+      $a.removeAttr('title');
+      
+      $a.hover(function() {
+      
+         $('span', $a).css({
+           top: $a.offset().top + 18,
+           left: $a.offset().left + 10
+         }).stop(true, true).fadeIn(800);  
+      
+      }, function() {
+      
+        $('span', $a).stop(true, true).
+        fadeOut(800);
+      
+      
+      });
+
+   });
+});
+</script>
+</body>
+</html>

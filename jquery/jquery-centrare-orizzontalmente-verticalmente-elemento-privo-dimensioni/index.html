@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: centrare orizzontalmente e verticalmente un elemento privo di dimensioni</title>
+<meta charset="utf-8" />
+<style type="text/css">
+#parent {
+	width: 20em;
+	height: 20em;
+	background: silver;
+	position: relative;
+	margin: 1em;
+	border: thick solid;
+}
+
+#child {
+	position: absolute;
+	background: yellow;
+	padding: 1em;
+}
+</style>
+</head>
+
+<body>
+
+<div id="parent">
+	<div id="child">Test</div>
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+
+	var parent = $('#parent'),
+	    child = $('#child'),
+	    $top = (parent.height() - child.outerHeight()) / 2,
+	    $left = (parent.width() - child.outerWidth()) / 2;
+	    
+	child.css({
+		top: $top,
+		left: $left
+	});
+
+
+});
+</script>
+</body>
+</html>

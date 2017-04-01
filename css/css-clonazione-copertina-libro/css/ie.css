@@ -1,0 +1,14 @@
+* html #logo .sec.first, * html #logo .sec.second, * html #logo .sec.third {position: static;}
+* html #logo .sec.first {margin-top: -0.65em}
+* html #logo .sec.second {margin-top: -0.6em}
+* html #logo .sec.third {margin-top: -0.6em;}
+* html #logo {
+	height: auto;
+}
+
+* html #logo p {
+	position: relative;
+ bottom: -9px;
+}
+
+#info #firma {position: static; margin-top: -0.5em}

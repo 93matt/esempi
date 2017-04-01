@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>focus() - blur()</title>
+<meta charset="utf-8" />
+<style>
+input {
+	display: block;
+	padding: 0.5em;
+	width: 18em;
+	margin-bottom: 0.5em;
+}
+</style>
+</head>
+
+<body>
+
+<p><button id="focusblur">focus(), blur()</button><button id="on">on({focus:..., blur:...})</button></p>
+
+<form action="#" method="post">
+
+	<div>
+		<input type="text" name="a"/>
+	</div>
+	
+	<div>
+		<input type="text" name="b"/>
+	</div>
+
+</form>
+
+
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script>
+$(function() {
+
+    
+    $('#focusblur').click(function() {
+    
+    	$('input[name=a]').unbind('focus');
+    	$('input[name=a]').unbind('blur');
+    	
+    	$('input[name=a]').focus(function(event) {
+    	
+    		var input = event.target;
+    		var name = input.getAttribute('name');
+    		
+    		$(input).val(name.toUpperCase());
+    	
+    	});
+    	
+    	$('input[name=a]').blur(function(event) {
+    	
+    		var input = event.target;
+    		var name = input.getAttribute('name');
+    		
+    		$(input).val(name.toLowerCase());
+    	
+    	});
+
+    
+    
+    });
+    
+    $('#on').click(function() {
+    
+    	$('input[name=a]').off('focus');
+    	$('input[name=a]').off('blur');
+    	
+    	$('input[name=a]').on({
+    		focus: function(event) {
+    		
+    			var input = event.target;
+    		var name = input.getAttribute('name');
+    		
+    		$(input).val(name.toUpperCase());
+    		
+    		},
+    		blur: function(event) {
+    		
+    			var input = event.target;
+    		var name = input.getAttribute('name');
+    		
+    		$(input).val(name.toLowerCase());
+    		
+    		}
+    	});
+    });
+
+
+	
+	
+	
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: slideshow con navigazione a comparsa laterale</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	padding: 2em 0;
+}
+
+#slideshow {
+	width: 700px;
+	height: 400px;
+	position: relative;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+#slideshow-wrapper {
+	width: 2400px;
+	height: 400px;
+	position: absolute;
+	left: 100px;
+	z-index: 3;
+}
+
+#slideshow-wrapper img {
+	float: left;
+	width: 600px;
+	height: 400px;
+	position: relative;
+}
+
+#slideshow-nav {
+	width: 100px;
+	height: 276px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	position: absolute;
+	top: 50%;
+	margin-top: -138px;
+	left: 100px;
+	z-index: 2;
+}
+
+#slideshow-nav li,
+#slideshow-nav li a,
+#slideshow-nav li a img {
+	display: block;
+	width: 100%;
+}
+
+#open {
+	display: block;
+	width: 18px;
+	height: 150px;
+	background: url(img/open-off.png) no-repeat;
+	text-indent: -1000em;
+	position: absolute;
+	top: 50%;
+	left: 82px;
+	margin-top: -75px;
+	z-index: 2;
+}
+
+#open:hover {
+	background: url(img/open-on.png) no-repeat;
+}
+</style>
+</head>
+
+<body>
+
+<div id="slideshow">
+	<div id="slideshow-wrapper">
+		<img src="img/1.jpg" alt="" id="s1" />
+		<img src="img/2.jpg" alt="" id="s2" />
+		<img src="img/3.jpg" alt="" id="s3" />
+		<img src="img/4.jpg" alt="" id="s4" />
+	</div>
+	<ul id="slideshow-nav">
+		<li>
+			<a href="#s1"><img src="img/1-thumb.jpg" alt="" /></a>
+		</li>
+		<li>
+			<a href="#s2"><img src="img/2-thumb.jpg" alt="" /></a>
+		</li>
+		<li>
+			<a href="#s3"><img src="img/3-thumb.jpg" alt="" /></a>
+		</li>
+		<li>
+			<a href="#s4"><img src="img/4-thumb.jpg" alt="" /></a>
+		</li>
+	</ul>
+	<a href="#" id="open">Apri</a>
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+var Slider = {
+
+	slide: function() {
+	
+		$('a', '#slideshow-nav').each(function() {
+		
+			var $a = $(this);
+			var href = $a.attr('href');
+			var $img = $(href);
+			var left = $img.position().left;
+			
+			$a.click(function(event) {
+			
+			    $('img', '#slideshow-wrapper').not($img).css('left', 0);
+			
+				$img.animate({
+					left: - left
+				}, 1000);
+				
+				event.preventDefault();
+			
+			});
+		
+		
+		});
+	
+	
+	},
+	
+	control: function() {
+	
+		var $control = $('#open', '#slideshow');
+		var $nav = $('#slideshow-nav', '#slideshow');
+		
+		$control.click(function(event) {
+		
+			if(parseInt($nav.css('left')) == 100) {
+			
+				$nav.animate({
+					left: 0
+				}, 1000);	
+			
+			} else {
+			
+				$nav.animate({
+					left: 100
+				}, 1000);
+			
+			}
+		
+		
+			event.preventDefault();
+		
+		});
+	
+	
+	},
+	
+	init: function() {
+	
+		this.slide();
+		this.control();
+	
+	
+	}
+
+};
+
+$(function() {
+
+	Slider.init();
+
+});
+</script>
+</body>
+</html>

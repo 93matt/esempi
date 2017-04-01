@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: gestire lo scrolling verticale</title>
+<meta charset="utf-8" />
+<style type="text/css">
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	min-height: 100%;
+	width: 100%;
+}
+
+body {
+	position: relative;
+	font: 100%/1.5 Arial, sans-serif;
+	overflow-y: hidden;
+}
+
+#site {
+	width: 100%;
+	height: 100%;
+	min-height: 100%;
+	position: relative;
+	overflow-y: hidden;
+}
+
+#content {
+	width: 68%;
+	position: absolute;
+	top: 2em;
+	right: 2%;
+	height: 100%;
+	min-height: 100%;
+}
+
+#navigation {
+	width: 20%;
+	height: 100%;
+	min-height: 100%;
+	background: #000;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+#navigation ul {
+	width: 100%;
+	margin: 0;
+	padding: 2em 0 0 0;
+	list-style: none;
+}
+
+#navigation a {
+	display: block;
+	padding: 0.5em;
+	margin-bottom: 1em;
+	margin-left: 28%;
+	text-align: right;
+	background: #c30;
+	color: #fff;
+	text-decoration: none;
+	width: 70%;
+	border-radius: 6px;
+}
+
+#navigation a:hover {
+	background: #d30;
+}
+
+#navigation a.current {
+	background: #d34545;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+
+
+#about, #contatti {
+	margin-top: 600px;
+}
+
+	
+</style>
+</head>
+
+<body>
+
+<div id="site">
+	<div id="content">
+		<div class="box" id="home">
+			<h1>Home</h1>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+			
+		</div>
+		
+		<div class="box" id="about">
+			<h1>About</h1>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+			
+		</div>
+		
+		<div class="box" id="contatti">
+			<h1>Contatti</h1>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			<p>contatti[at]sito.it</p>
+
+			
+		</div>
+	</div>
+	<div id="navigation">
+		<ul>
+			<li><a href="#home" class="current">Home</a></li>
+			<li><a href="#about">About</a></li>
+			<li><a href="#contatti">Contatti</a></li>
+		</ul>
+	</div>
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+
+	$('a', '#navigation').each(function() {
+	
+		var $a = $(this);
+		var href = $a.attr('href');
+		var box = $(href);
+		var $ul = $a.parents('ul');
+		
+		$a.click(function(event) {
+		
+			
+			$a.addClass('current');
+			$ul.find('a').not($a).removeClass('current');
+			
+			$('#content').css('top', '2em');
+			
+			$('#content').animate({
+				top: - (box.offset().top - 50)
+			}, 1000); 
+							
+			
+						
+			event.preventDefault();
+		
+		});
+		
+	
+	});
+
+});
+</script>
+</body>
+</html>

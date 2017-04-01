@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: inserire marcatura negli elementi con solo testo</title>
+<meta charset="utf-8" />
+<style type="text/css" media="screen">
+body {
+	margin: 0 auto;
+	width: 30em;
+	padding: 2em 0;
+}
+
+#test {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#test li {
+	margin-bottom: 1em;
+	padding: 0.5em;
+	font-size: 1.5em;
+	background: #f2f5f5;
+}
+
+#test strong {
+	padding: 0 5px;
+	color: #333;
+}
+</style>
+</head>
+
+<body>
+
+<ul id="test">
+	<li>A</li>
+	<li>B</li>
+	<li>C</li>
+</ul>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+(function($) {
+
+	$.fn.insert = function(options) {
+	
+		var that = this;
+		var settings = {
+		
+			content: '',
+			where: 'before'
+		
+		};
+		
+		options = $.extend(settings, options);
+		
+		var element = that[0];
+		var html = that.html();
+		
+		if(element.childNodes.length == 1 && element.firstChild.nodeType == 3) {
+		
+			
+			switch(options.where) {
+			
+				case 'before':
+				
+				return that.each(function() {
+				
+					that.html(options.content + html);	
+				
+				
+				});
+				
+				case 'after':
+				
+				return that.each(function() {
+				
+					that.html(html + options.content);	
+				
+				
+				});
+				
+				default:
+				
+				return that.each(function() {
+				
+					that.html(options.content + html);	
+				
+				
+				});
+			
+			
+			}
+		
+		
+		
+		
+		}
+	
+	
+	
+	};
+
+})(jQuery);
+
+
+$(function() {
+
+	$('li:first', '#test').insert({content: '<strong>1</strong>'});
+	$('li:last', '#test').insert({content: '<strong>3</strong>', where: 'after'});
+
+});
+
+</script>
+
+</body>
+</html>

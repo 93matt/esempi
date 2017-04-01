@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: animazione PNG</title>
+<meta charset="utf-8" />
+<style>
+#anim {
+	height: 127px;
+	width: 60px;
+	background: url(walker.png) no-repeat 0 0;
+	margin: 0 auto;
+}
+</style>
+</head>
+
+<body>
+
+<div id="anim"></div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+
+$(function() {
+
+  var steps = [0, 60, 110, 171, 230, 300];
+  var index = -1;
+  
+  var interval = setTimeout(function() {
+  
+     index++;
+     
+     if(index == 5) {
+     
+       index = 0;
+     
+     }
+  
+    
+    $('#anim').css('backgroundPosition', '-' + steps[index] + 'px 0px');
+    
+    setTimeout(arguments.callee, 100);
+  
+  
+  }, 25);
+
+});
+
+</script>
+
+</body>
+</html>

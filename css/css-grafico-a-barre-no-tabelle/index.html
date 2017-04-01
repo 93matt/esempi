@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: grafico a barre senza tabelle</title>
+<meta charset="utf-8" />
+<style type="text/css">
+#chart {
+	width: 600px;
+	height: 500px;
+	margin: -250px 0 0 -300px;
+	font: 100% Arial, sans-serif;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	border-left: 1px solid #333;
+	border-bottom: 1px solid #333;
+}
+
+#ie {
+	position: absolute;
+	width: 120px;
+	height: 100%;
+	background: #fff url(ie.jpeg) no-repeat 0 0;
+	left: 20px;
+	bottom: 0;
+	font-weight: bold;
+	font-size: 1.5em;
+}
+
+#ie span {
+	display: block;
+	width: 100%;
+	height: 400px;
+	background: #008;
+	color: #fff;
+	text-align: center;
+	line-height: 400px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+#ff {
+	position: absolute;
+	width: 120px;
+	height: 100%;
+	background: #fff url(firefox.jpg) no-repeat 0 80px;
+	left: 160px;
+	bottom: 0;
+	font-weight: bold;
+	font-size: 1.5em;
+
+}
+
+#ff span {
+	display: block;
+	width: 100%;
+	height: 300px;
+	background: #a00;
+	color: #fff;
+	text-align: center;
+	line-height: 300px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+#chrome {
+
+    position: absolute;
+	width: 120px;
+	height: 100%;
+	background: #fff url(chrome.jpg) no-repeat 0 130px;
+	left: 300px;
+	bottom: 0;
+	font-weight: bold;
+	font-size: 1.5em;
+}
+
+#chrome span {
+	display: block;
+	width: 100%;
+	height: 250px;
+	background: #080;
+	color: #fff;
+	text-align: center;
+	line-height: 250px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+h1 {
+	text-align: center;
+	margin: 0;
+	font: 3em "Trebuchet MS", Trebuchet, sans-serif;
+	text-transform: uppercase;
+	padding: 0.5em 0;
+	color: #cc3300;
+}
+
+#browsers {
+	position: absolute;
+	width: 100%;
+	left: 0;
+	bottom: 0;
+}
+
+#browsers span {
+	color: #000;
+	font: bold small Arial, sans-serif;
+	position: absolute;
+	top: 8px;
+	text-transform: uppercase;
+}
+
+#browsers span.ie {
+	left: 72px;
+}
+
+#browsers span.ff {
+	left: 190px;
+}
+
+#browsers span.chrome {
+	left: 330px;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>I primi 3 browser</h1>
+
+<div id="chart">
+
+  <div id="ie"><span>45%</span></div>
+  <div id="ff"><span>30%</span></div>
+  <div id="chrome"><span>25%</span></div>
+  
+  <div id="browsers">
+	<span class="ie">IE</span>
+	<span class="ff">Firefox</span>
+	<span class="chrome">Chrome</span>
+</div>
+
+
+</div>
+
+
+</body>
+</html>

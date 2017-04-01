@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>jQuery IE6Fix test</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="author" content="Gabriele Romanato" />
+<style type="text/css" media="screen">
+
+body {
+	padding: 2em 0;
+	margin: 0 20%;
+	font: 76%/1.5 Verdana, sans-serif;
+}
+
+p {
+	margin: 0;
+	padding: 0.5em 0;
+}
+
+h1, h2 {
+    margin: 0 0 6px 0;
+}
+
+h2 {
+  font-size: 1.4em;
+  border-bottom: 1px solid;
+}
+
+acronym {
+	border-bottom: 1px dashed;
+	cursor: help;
+	font-weight: bold;
+	background: #ffc;
+}
+
+#container {
+    width: 400px;
+    background: #eee;
+    overflow: hidden;
+}
+
+#alignleft {
+  float: left;
+  width: 200px;
+  margin-left: 10px;
+  background: #ffc;
+}
+
+#content {
+    background: #ccc;
+}
+
+p.italic {
+   font-size: 1.2em;
+   font-style: italic;
+}
+
+#box {
+  width: 400px;
+  overflow: hidden;
+}
+
+#floated-left {
+    float: left;
+    width: 150px;
+    height: 150px;
+    background: orange;
+    font-weight: bold;
+    text-align: center;
+    line-height: 150px;
+}
+
+#box-content {
+    margin: 0 0 0 160px;
+    background: silver;
+}
+
+
+
+
+
+</style>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+<!--[if IE 6]>
+<script type="text/javascript" src="jquery.ie6fix.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+
+
+	  $('#alignleft').ie6Fix({doubledMarginBug: true});
+	  $('p.italic').ie6Fix({italicBug: true});
+	  $('#box-content').ie6Fix({textJogBug: true});
+	  $('img', 'p').ie6Fix({lineHeightBug: true});
+	  
+	  
+
+});
+</script>
+<![endif]-->
+</head>
+
+<body>
+
+<h2>Line-height bug</h2>
+
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diem
+nonummy nibh eiusmod tincidunt ut lacreet dolore magna aliguam
+erat voluptat. <img src="test.gif" alt="" />
+Ut wisis enim ad minim veniam, quis nostrud exerci tution ullamcorper suscipit
+lobortis nisi ut aliquip ex ea commodo consequat.
+Duis te feugifacilisi.
+Duis autem dolor in hendrerit in vulputate velit esse molestie consequat, vel
+illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio
+dignissim qui blandit present luptatum zzril delenit au gue duis dolore te feugat
+nulla facilisi.<img src="test.gif" alt="" />
+Ut wisi enim ad minim veniam, quis nostrud exerci taion ullamcorper suscipit
+lobortis nisi ut aliquip ex en commodo consequat.
+Duis te feugifacilisi.</p>
+
+<h2>3-pixels text jog</h2>
+
+<div id="box">
+
+   <div id="floated-left">Float</div>
+   <div id="box-content">Main content</div>
+
+</div>
+
+
+<h2>Doubled-margin bug</h2>
+
+<div id="container">
+    <div id="alignleft">
+          Float
+    </div>
+    <div id="content">
+    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diem
+nonummy nibh eiusmod tincidunt ut lacreet dolore magna aliguam
+erat voluptat.</div>
+    
+</div>
+
+
+<h2>Italic bug</h2>
+
+<p class="italic">
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diem
+nonummy nibh eiusmod tincidunt ut lacreet dolore magna aliguam
+erat voluptat.
+Ut wisis enim ad minim veniam, quis nostrud exerci tution ullamcorper suscipit
+lobortis nisi ut aliquip ex ea commodo consequat.
+Duis te feugifacilisi.
+Duis autem dolor in hendrerit in vulputate velit esse molestie consequat, vel
+illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio
+dignissim qui blandit present luptatum zzril delenit au gue duis dolore te feugat
+nulla facilisi.
+Ut wisi enim ad minim veniam, quis nostrud exerci taion ullamcorper suscipit
+lobortis nisi ut aliquip ex en commodo consequat.
+Duis te feugifacilisi.</p>
+
+
+
+
+</body>
+</html>

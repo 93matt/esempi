@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Test su document.lastModified e Date()</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="author" content="Gabriele Romanato" />
+<script type="text/javascript">
+<!--
+
+function lastModify(string, elem, target) {
+       elem = document.createElement(elem);
+       elem.appendChild(document.createTextNode(string));
+       target = document.getElementsByTagName(target)[0];
+       target.appendChild(elem);
+}
+
+      
+
+
+window.onload = function() {
+
+    if(document.lastModified) {
+    
+    var mDate = new Date(document.lastModified);
+    var month = mDate.getMonth()+1;
+    var day = mDate.getDate();
+    var year = mDate.getFullYear();
+    var hours = mDate.getHours() + 2;
+    var minutes = mDate.getMinutes();
+    var seconds = mDate.getSeconds();
+    
+    var modificationDate = day + '/' + month + '/' + year + ' ' + hours + ':' + minutes + ':' + seconds;
+        
+    
+	lastModify(modificationDate,  'p', 'body');
+       
+       } else {
+         var browser;
+         var ua = navigator.userAgent;
+          if(ua.indexOf('Chrome') != -1) {
+	  browser = 'Chrome';
+          } else if (ua.indexOf('Safari') != -1) {
+	  browser = 'Safari';
+          } else if(ua.indexOf('Opera') != -1) {
+          
+              browser = 'Opera';
+          
+          } else if(ua.indexOf('Firefox') != -1) {
+          
+              browser = 'Firefox';
+          
+          } else if(ua.indexOf('MSIE') != -1) {
+          
+              browser = 'Internet Explorer';
+          
+          }
+          
+          
+          
+          lastModify('document.lastModified non è supportato da ' + browser, 'p', 'body');
+      }
+
+
+};
+-->
+</script>
+</head>
+
+<body>
+
+<p>Dovreste vedere una stringa con le informazioni sull'ultima modifica del documento.</p>
+
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: portfolio dinamico con anteprima</title>
+<meta charset="utf-8" />
+<style>
+body {
+	margin: 0;
+	padding: 2em 0;
+	font: 76% 'Lucida Grande', Verdana, sans-serif;
+}
+
+#portfolio {
+
+  padding: 2em 0 2em 3.5em;
+  margin: 0 auto;
+  width: 80%;
+  overflow: hidden;
+  height: 100%;
+  border: 1px solid #aaa;
+  border-radius: 10px;
+  
+
+
+}
+
+div.preview {
+	width: 32%;
+	margin: 0 5px 0 0;
+	float: left;
+	height: 300px;
+	position: relative;
+	
+}
+
+div.preview iframe {
+
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+
+}
+
+div.overlay {
+	position: absolute;
+	width: 100%;
+	height: 0px;
+	overflow: hidden;
+	top: 0;
+	left: 0;
+	background: #333;
+	line-height: 300px;
+}
+
+div.overlay a {
+	width: 100%;
+	height: 100%;
+	display: block;
+	text-align: center;
+	font-size: 1.6em;
+	font-weight: bold;
+	text-decoration: none;
+	color: #fff;
+	text-transform: uppercase;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<div id="portfolio">
+
+<iframe src="http://www.icosfitness.com/"></iframe>
+<iframe src="http://www.linea4office.com/"></iframe>
+<iframe src="http://www.nicolacolecchia.it/"></iframe>
+
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="http://dev.css-zibaldone.com/js/jquery/plugins/jquery.easing.js"></script>
+<script type="text/javascript">
+$(function() {
+
+  $('iframe', '#portfolio').attr({
+  	frameborder: '0',
+  	scrolling: 'no',
+  	width: '400',
+  	height: '300'
+  });
+  
+  $('iframe', '#portfolio').each(function() {
+  
+  
+    $(this).wrap('<div class="preview"></div>');
+  
+  
+  });
+  
+  $('div.preview', '#portfolio').each(function() {
+  
+    var $preview = $(this);
+    var $iframe = $preview.find('iframe');
+    var href = $iframe.attr('src');
+    
+    $('<div class="overlay"/>').
+    html('<a href="' + href + '">Visita il sito</a>').
+    css('opacity', '0.8').
+    insertBefore($iframe);
+  
+  
+  });
+  
+  $('div.preview', '#portfolio').each(function() {
+  
+    var $preview = $(this);
+    var $overlay = $preview.find('div.overlay');
+    
+    $preview.hover(function() {
+    
+      $overlay.stop(true, true).
+      animate({
+        height: 300
+      }, 'slow', 'easeOutBounce');
+    
+    
+    }, function() {
+    
+    
+      $overlay.stop(true, true).
+      animate({
+        height: 0
+      }, 'slow', 'easeOutBounce');
+
+    
+    
+    
+    });
+  
+  
+  
+  });
+
+
+});
+</script>
+</body>
+</html>

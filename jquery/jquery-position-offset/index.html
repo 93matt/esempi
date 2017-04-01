@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: differenza fra position() e offset()</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	font: 100% Arial, sans-serif;
+	padding: 2em;
+}
+
+#container {
+	width: 600px;
+	height: 400px;
+	background: #ccc;
+	position: relative;
+}
+
+#test {
+	width: 100px;
+	height: 100px;
+	background: #d34545;
+	position: relative;
+}
+
+</style>
+</head>
+
+<body>
+
+<p><a href="#" id="position">position() {top: + 50, left: +50}</a> | <a href="#" id="offset">offset() {top: + 50, left: +50}</a></p>
+
+<div id="container">
+	<div id="test"></div>
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+
+  var test = $('#test', '#container');
+  var triggerPosition = $('#position');
+  var triggerOffset = $('#offset');
+  
+  triggerPosition.click(function(event) {
+  
+    test.css({top: 0, left: 0});
+  
+    var top = test.position().top;
+    var left = test.position().left;
+    
+    test.animate({
+      top: top + 50,
+      left: left + 50
+    }, 'slow');
+    
+    event.preventDefault();
+  
+  
+  });
+  
+  triggerOffset.click(function(event) {
+  
+    test.css({top: 0, left: 0});
+  
+    var top = test.offset().top;
+    var left = test.offset().left;
+    
+    test.animate({
+      top: top + 50,
+      left: left + 50
+    }, 'slow');
+    
+    event.preventDefault();
+  
+  
+  });
+
+
+
+});
+</script>
+</body>
+</html>

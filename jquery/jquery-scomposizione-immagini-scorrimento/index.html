@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: scomposizione delle immagini tramite scorrimento</title>
+<meta charset="utf-8" />
+<style type="text/css">
+#slider {
+	width: 500px;
+	height: 375px;
+	margin: 2em auto;
+	position: relative;
+	overflow: hidden;
+}
+
+#slider-wrapper {
+	width: 2000px;
+	height: 375px;
+	position: relative;
+	background: #eee;
+}
+
+div.slide {
+	width: 500px;
+	height: 375px;
+	float: left;
+	position: relative;
+}
+
+div.slide img {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+div.piece {
+	width: 500px;
+	height: 125px;
+	background-repeat: no-repeat;
+	position: relative;
+}
+
+div.piece-wrapper {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+
+}
+</style>
+</head>
+
+<body>
+
+<div id="slider">
+	<div id="slider-wrapper">
+		<div class="slide">
+			<img src="img/1.jpg" alt="" />
+		</div>
+		<div class="slide">
+			<img src="img/2.jpg" alt="" />
+		</div>
+		<div class="slide">
+			<img src="img/3.jpg" alt="" />
+		</div>
+		<div class="slide">
+			<img src="img/4.jpg" alt="" />
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+var Slider = new function() {
+
+	var slider = document.getElementById('slider'),
+		wrapper = $('#slider-wrapper', slider),
+		slides = $('div.slide', slider),
+		timer = null,
+		index = 0;
+		
+	var prepareSlides = function() {
+	
+		slides.each(function() {
+		
+		    var $slide = $(this);
+		    var $img = $('img', $slide);
+		    var src = $img.attr('src');
+		
+			$('<div class="piece-wrapper"><div class="piece"></div><div class="piece"></div><div class="piece"></div></div>').appendTo($slide);
+			
+			$('div.piece', $slide).css('backgroundImage', 'url(' + src + ')');
+			
+			$('div.piece', $slide).eq(0).css('backgroundPosition', '0  0');
+			$('div.piece', $slide).eq(1).css('backgroundPosition', '0  -125px');
+			$('div.piece', $slide).eq(2).css('backgroundPosition', '0  -250px');
+			
+			$img.hide();
+
+
+		
+		});
+	
+	};
+	
+	var divide = function(element) {
+	
+		$('div.piece', element).eq(0).
+		animate({
+			left: '-9999px'
+		}, 800, function() {
+		
+			$(this).next().animate({
+				left: '9999px'
+			}, 800, function() {
+			
+				$(this).next().animate({
+					left: '-9999px'
+				}, 800);
+			
+			});
+		
+		});
+	
+	};
+	
+	var reset = function() {
+	
+		$('div.piece', slider).animate({left: 0}, 0);
+	
+	};
+	
+	var autoSlide = function() {
+	
+		timer = setInterval(function() {
+		
+			index++;
+			
+			if(index == slides.length) {
+			
+				index = 0;
+				
+				reset();
+			
+			}
+		
+		    var slide = slides.eq(index);
+		    
+		    wrapper.animate({
+		    	left: - slide.position().left
+		    }, 800, function() {
+		    
+		    	divide(slide);
+		    
+		    });
+		
+		
+		}, 3200);
+	
+	};
+
+	this.init = function() {
+	
+		prepareSlides();
+		autoSlide();
+	
+	};
+
+}();
+
+$(function() {
+
+	Slider.init();
+
+});
+</script>
+</body>
+</html>

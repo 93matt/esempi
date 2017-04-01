@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: mostrare e nascondere gli elementi di una lista</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	margin: 2em auto;
+	width: 40%;
+	font: 90% Arial, sans-serif;
+}
+
+#test {
+	width: 14em;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-size: 1.1em;
+	border: 1px solid #999;
+}
+
+#test li {
+	display: block;
+	padding: 0.4em;
+	background: #eee;
+	cursor: pointer;
+}
+
+#test li.active {
+	background: #c60;
+	display: none;
+}
+</style>
+</head>
+
+<body>
+
+<ul id="test">
+    <li>A</li>
+    <li class="active">B</li>
+    <li class="active">C</li>
+    <li>D</li>
+    <li>E</li>
+</ul>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+    
+	$('li', '#test').click(function() {
+	
+		var $li = $(this);
+		var next = $li.next();
+		var prev = $li.prev();
+		
+		if(next.is('li.active')) {
+		
+		   if(next.is(':hidden')) {
+		
+			  next.slideDown(300);
+			  
+		   } else {
+		   
+		   	  next.slideUp(300);
+		   
+		   }
+		
+		}
+		
+		if(prev.is('li.active')) {
+		
+			if(prev.is(':hidden')) {
+		
+			  prev.slideDown(300);
+			  
+		   } else {
+		   
+		   	  prev.slideUp(300);
+		   
+		   }
+
+		
+		}
+		
+		if(!prev.is('li.active') && !next.is('li.active')) {
+		
+			$li.parent().find('li.active').each(function() {
+			
+				if($(this).is(':hidden')) {
+				
+					$(this).slideDown(300);
+				
+				} else {
+				
+					$(this).slideUp(300);
+				
+				}
+			
+			});
+		
+		}
+	
+	});    
+    
+});
+</script>
+</body>
+</html>

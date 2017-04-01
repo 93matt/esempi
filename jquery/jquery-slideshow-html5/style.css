@@ -1,0 +1,56 @@
+figure, figcaption {
+	display: block;
+}
+
+#slideshow {
+	width: 800px;
+	height: 600px;
+	margin: 2em auto;
+	position: relative;
+	overflow: hidden;
+	background: url(img/frame.jpg) no-repeat;
+}
+
+#slideshow-wrapper {
+	width: 500px;
+	height: 300px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -150px 0 0 -260px;
+	overflow: hidden;
+}
+
+#slide-wrapper {
+	width: 2000px;
+	height: 200px;
+	position: relative;
+}
+
+#slide-wrapper figure {
+	float: left;
+	width: 500px;
+	height: 300px;
+	position: relative;
+}
+
+#slide-wrapper figure img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 500px;
+	height: 300px;
+	z-index: 1;
+}
+
+#slide-wrapper figure figcaption {
+	width: 100%;
+	padding: 6px;
+	text-align: center;
+	background: rgba(0, 0, 0, 0.6);
+	color: #fff;
+	position: absolute;
+	left: 0;
+	bottom: 15px;
+	z-index: 2;
+}

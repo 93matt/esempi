@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: classi CSS</title>
+<meta charset="utf-8" />
+<style>
+.add {
+  background: #ffc;
+  width: 150px;
+}
+
+.toggle {
+  background: #c00;
+  color: #fff;
+  padding: 1em;
+  font-weight: bold;
+  width: 100px;
+}
+</style>
+</head>
+
+<body>
+
+<p><a href="#" id="add">addClass()</a> | <a href="#" id="remove">removeClass()</a> | <a href="#" id="toggle">toggleClass()</a></p>
+
+<div id="test">
+  Test
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+
+  $('#add').click(function(event) {
+  
+    $('#test').addClass('add');
+    
+    event.preventDefault();
+  
+  
+  });
+  
+  $('#remove').click(function(event) {
+  
+    $('#test').removeClass($(this).attr('class'));
+    
+    event.preventDefault();
+  
+  
+  });
+  
+  $('#toggle').click(function(event) {
+  
+    $('#test').toggleClass('toggle');
+    
+    event.preventDefault();
+  
+  
+  });
+
+});
+</script>
+</body>
+</html>

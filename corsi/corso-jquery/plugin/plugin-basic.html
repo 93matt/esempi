@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Plugin: basic</title>
+<meta charset="utf-8" />
+<style>
+.test {
+	background: #ccc;
+}
+</style>
+</head>
+
+<body>
+
+<ul>
+
+    <li>Item</li>
+    <li>Item</li>
+    <li>Item</li>
+
+
+</ul>
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script>
+(function($) {
+
+	$.fn.plugin = function(options) {
+	
+	    var defaults = {
+	    	event: 'click',
+	    	className: 'test'
+	    };
+	    
+	    options = $.extend(defaults, options);
+	    
+	    return this.each(function() {
+	    
+	        $(this).on(options.event, function() {
+	        
+	        	$(this).addClass(options.className).siblings().removeClass(options.className);
+	        
+	        
+	        });
+	    
+	    
+	    });
+	
+	};
+
+})(jQuery);
+
+$(function() {
+
+	$('li').plugin();
+
+
+});
+</script>
+
+</body>
+</html>

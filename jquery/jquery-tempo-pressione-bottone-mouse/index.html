@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: calcolare il tempo di pressione del bottone del mouse</title>
+<meta charset="utf-8" />
+<style type="text/css">
+#test {
+	width: 150px;
+	height: 150px;
+	cursor: pointer;
+	background: #d34545;
+}
+</style>
+</head>
+
+<body>
+
+<div id="test"></div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+
+  var counter = 0;
+
+  $('#test').bind('mousedown mouseup', function(event) {
+  
+  
+    var evtType = event.type;
+    
+    switch(evtType) {
+    
+      case 'mousedown':
+      
+        var interval = setInterval(function() {
+        
+        
+          counter++;
+        
+        
+        
+        }, 1000);
+        
+       break;
+       
+      case 'mouseup':
+      
+        clearInterval(interval);
+        
+        var seconds = (counter == 1) ? 'secondo' : 'secondi';
+        
+        alert('Hai premuto il bottone del mouse per ' + counter + ' ' + seconds);
+        
+       break;
+       
+       
+      default:
+        break;
+    
+    
+    
+    }
+  
+  
+  
+  });
+
+
+});
+</script>
+
+</body>
+</html>

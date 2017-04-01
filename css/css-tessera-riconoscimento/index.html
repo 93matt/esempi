@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: tessera di riconoscimento</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	margin: 0;
+	padding: 2em 0;
+	font: 100% Helvetica, Arial, sans-serif;
+	background: #ccc;
+}
+
+h2, p {
+	margin: 0;
+	padding: 0;
+	font-weight: normal;
+	font-size: 100%;
+}
+
+#card {
+	width: 30%;
+	padding: 1em;
+	background: #fff;
+	border-radius: 12px;
+	overflow: hidden;
+	margin: 0 auto;
+	border: 1px solid #999;
+}
+
+#card-content {
+	overflow: hidden;
+	margin: 0 auto;
+	width: 90%;
+}
+
+#details {
+	float: left;
+	width: 70%;
+	padding-right: 2em;
+}
+
+#details h2 {
+	font-size: 2em;
+	border-bottom: 1px solid #ccc;
+	color: #242424;
+	margin-bottom: 10px;
+}
+
+#details p {
+	font: italic 1.2em Georgia, serif;
+	color: #343434;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 10px;
+}
+
+#details p iframe {
+	display: block;
+	width: 100%;
+	height: 250px;
+}
+
+#pic {
+	float: right;
+	width: 96px;
+	height: 96px;
+	border: 1px solid #888;
+	border-radius: 6px;
+	position: relative;
+	top: 0.3em;
+	background: #fff;
+	box-shadow: 2px 2px 2px #ddd;
+}
+
+#pic img {
+	position: absolute;
+	bottom: 0;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<div id="card">
+	<div id="card-content">
+	<div id="details">
+			<h2>Gabriele Romanato</h2>
+			<p>Web developer</p>
+			<p>Italy</p>
+			<p>
+			<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Vasto,+Italy&amp;aq=1&amp;sll=37.0625,-95.677068&amp;sspn=44.744674,110.390625&amp;vpsrc=0&amp;ie=UTF8&amp;hq=&amp;hnear=Vasto+Chieti,+Abruzzi,+Italy&amp;t=h&amp;z=12&amp;ll=42.112706,14.709621&amp;output=embed"></iframe></p>
+	</div>
+	<div id="pic">
+		<img src="avatar.png" alt="" />
+	</div>
+	</div>
+</div>
+
+</body>
+</html>

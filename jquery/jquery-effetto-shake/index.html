@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: effetto shake</title>
+<meta charset="utf-8" />
+<style type="text/css" media="screen">
+body {
+	margin: 0;
+	padding: 2em 0;
+	font: 300 95% 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+#navigation {
+	width: 50%;
+	height: 2em;
+	margin: 0 auto;
+	padding: 0;
+	list-style: none;
+	border-bottom: 5px solid #000;
+}
+
+#navigation li {
+	float: left;
+	height: 100%;
+	padding: 0 1em;
+	border-radius: 6px 6px 0 0;
+	line-height: 2;
+	background: #000;
+	margin-right: 0.5em;
+}
+
+#navigation a {
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+#navigation a:hover {
+	color: #ddd;
+}
+</style>
+</head>
+
+<body>
+
+<ul id="navigation">
+
+	<li><a href="#">Home</a></li>
+	<li><a href="#">Articoli</a></li>
+	<li><a href="#">About</a></li>
+	<li><a href="#">Contatti</a></li>
+
+</ul>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	
+	$('li', document.getElementById('navigation')).each(function() {
+	
+	  var $li = $(this);
+	  var $a = $('a', $li);
+	  
+	  $a.mouseover(function() {
+	  
+	    $a.stop(true, true).effect('shake', {times: 2, distance: 5}, 300);
+	  
+	  });	
+	
+	});
+});
+</script>
+
+</body>
+</html>

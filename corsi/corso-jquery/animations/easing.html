@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Easing</title>
+<meta charset="utf-8" />
+<style type="text/css">
+#wrapper {
+	overflow: hidden;
+	width: 860px;
+	margin: 2em auto;
+}
+
+#tester {
+	background-color: #900;
+	height: 300px;
+	width: 300px;
+	float: left;
+}
+
+#controls {
+	float: right;
+	width: 500px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="wrapper">
+	<div id="tester"></div>
+	<div id="controls">
+	
+		<p>
+			<select name="easeType" id="easeType">
+      <option>linear</option>
+      <option>swing</option>
+      <option>jswing</option>
+      <option>easeInQuad</option>
+      <option>easeInCubic</option>
+      <option>easeInQuart</option>
+      <option>easeInQuint</option>
+      <option>easeInSine</option>
+      <option>easeInExpo</option>
+      <option>easeInCirc</option>
+      <option>easeInElastic</option>
+      <option>easeInBack</option>
+      <option>easeInBounce</option>
+      <option>easeOutQuad</option>
+      <option>easeOutCubic</option>
+      <option>easeOutQuart</option>
+      <option>easeOutQuint</option>
+      <option>easeOutSine</option>
+      <option>easeOutExpo</option>
+      <option>easeOutCirc</option>
+      <option>easeOutElastic</option>
+      <option>easeOutBack</option>
+      <option>easeOutBounce</option>
+      <option>easeInOutQuad</option>
+      <option>easeInOutCubic</option>
+      <option>easeInOutQuart</option>
+      <option>easeInOutQuint</option>
+      <option>easeInOutSine</option>
+      <option>easeInOutExpo</option>
+      <option>easeInOutCirc</option>
+      <option>easeInOutElastic</option>
+      <option>easeInOutBack</option>
+      <option>easeInOutBounce</option>
+    </select>
+		</p>
+		
+	<p>
+	<select name="effectType" id="effectType">
+     <option selected>slideToggle()</option>
+     <option>fadeToggle()</option>
+     <option>slideUp()</option>
+     <option>slideDown()</option>
+     <option>fadeOut()</option>
+     <option>fadeIn()</option>
+   </select>
+	</p>
+	
+	<p>
+   Durata:
+   <input name="testDuration" type="text" id="testDuration" value="1000" size="4" maxlength="4">
+ </p>
+ <p>
+   <input type="submit" name="test" id="test" value="Test">
+   <input type="submit" name="reset" id="reset" value="Reset">
+ </p>
+
+	
+	
+	</div>
+
+
+</div>
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/jquery.easing.js"></script>
+<script>
+$(document).ready(function() {	
+
+	
+						   
+	function resetTest() {
+		effectType = $('#effectType').val();
+		if (effectType == 'fadeIn()'){
+			$('#tester').fadeOut(0)
+		} 
+		else if (effectType == 'fadeOut()') {
+			$('#tester').fadeIn(0)
+		}
+		else if (effectType == 'slideDown()') {
+			$('#tester').slideUp(0)
+		}
+		else if ( effectType == 'slideUp()' ) {
+			$('#tester').slideDown(0)
+		} 
+		else if (effectType == 'slideToggle()') {
+			$('#tester').slideUp(0)
+		}
+		else if (effectType == 'fadeToggle()') {
+			$('#tester').fadeOut(0)
+		}
+	}
+		
+	$('#effectType, #easeType').change(function() {
+		$(this).blur()
+		resetTest()
+	})
+	
+	function runTest() {
+		easeType = $('#easeType').val();
+		effectType = $('#effectType').val();
+		testDuration = parseInt( $('#testDuration').val() );
+		
+		$('#testDuration, #test, #reset').blur();
+		
+		
+		
+		
+		if (effectType == 'fadeIn()'){
+			$('#tester').fadeIn(testDuration,easeType)
+		} 
+		else if (effectType == 'fadeOut()') {
+			$('#tester').fadeOut(testDuration,easeType)
+		}
+		else if (effectType == 'slideDown()') {
+			$('#tester').slideDown(testDuration,easeType)
+		}
+		else if ( effectType == 'slideUp()' ) {
+			$('#tester').slideUp(testDuration,easeType)
+		} 
+		else if (effectType == 'slideToggle()') {
+			$('#tester').slideToggle(testDuration,easeType)
+		}
+		else if (effectType == 'fadeToggle()') {
+			$('#tester').fadeToggle(testDuration,easeType)
+		}
+	}
+	
+	$('#test').click(function() {
+		if (effectType == 'fadeToggle()' || effectType == 'slideToggle()') {
+			runTest()
+		} else {
+			resetTest()
+			runTest()
+		}
+	})
+	$('#reset').click(function() {
+		resetTest()
+	})
+	$(document).keydown(function(event) {
+		//alert(event.keyCode)
+		if (event.keyCode == '39') {
+			//alert('right')
+			currentlySelected = $('#easeType option:selected')
+			//alert(currentlySelected.val())
+			firstEase = $('#easeType option:last').val()
+			//find first ease option value
+			if (currentlySelected.val()!=firstEase) {
+				currentlySelected.attr('selected', '');
+				currentlySelected.next('option').attr('selected', 'selected');
+			}
+		} else if (event.keyCode == '37') {
+			//alert('left')
+				currentlySelected = $('#easeType option:selected')
+				lastEase = $('#easeType option:first').val()
+				//find last ease option value
+			if (currentlySelected.val()!=lastEase) {
+				currentlySelected.attr('selected', '');
+				currentlySelected.prev('option').attr('selected', 'selected');
+			}
+		} else if (event.keyCode == '13') {
+			//alert('return')
+			if (effectType == 'fadeToggle()' || effectType == 'slideToggle()') {
+				runTest()
+			} else {
+				resetTest()
+				runTest()
+			}
+		} else if (event.keyCode == '32') {
+			//alert('space?')
+		}
+	})
+
+	resetTest()
+	
+	$('#fadeToggle').click(function() {
+		$(this).next('.explaination').slideToggle(800, 'easeOutCubic');
+	})
+	
+})
+
+
+</script>
+
+</body>
+</html>

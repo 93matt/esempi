@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: breadcrumb espandibili</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	margin: 2em auto;
+	width: 40em;
+	font: 90% Arial, sans-serif;
+}
+
+#breadcrumbs {
+	height: 1.2em;
+}
+
+#breadcrumbs a,
+#breadcrumbs strong {
+	float: left;
+	height: 100%;
+	line-height: 1.2;
+}
+
+#breadcrumbs span.sep {
+	width: 4px;
+	height: 100%;
+	float: left;
+	margin: 0 1em 0 0.5em;
+	background: url(arrow-off.gif) no-repeat 0 50%;
+	cursor: pointer;
+}
+
+#breadcrumbs span.sep:hover {
+	background: url(arrow-on.gif) no-repeat 0 50%;
+}
+</style>
+</head>
+
+<body>
+
+<div id="breadcrumbs">
+	<a href="#">Home</a><span class="sep"></span>
+	<a href="#">Articoli</a><span class="sep"></span>
+	<strong>Titolo articolo</strong>
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+
+	$('#breadcrumbs').children().
+	not('a:first, span.sep:first').
+	hide();
+	
+	$('span.sep', '#breadcrumbs').click(function() {
+	
+		var $span = $(this);
+		
+		var sibling = ($span.next().is('a')) ? $span.nextAll('a, span')  : $span.next('strong');
+		
+		
+		sibling.show(500);
+	
+	
+	});
+
+});
+</script>
+</body>
+</html>

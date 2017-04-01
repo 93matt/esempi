@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: formattare i tweet di Twitter</title>
+<meta charset="utf-8" />
+<link href='http://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css' />
+<style>
+body {
+	margin: 0;
+	padding: 2em 0;
+	background: #232323;
+	font: 100% Arial, sans-serif;
+}
+
+#tweets {
+	width: 300px;
+	padding: 140px 1em 1em 1em;
+	background: #fff url(twitter.png) no-repeat 50% 10px;
+	border-radius: 12px;
+	color: #000;
+	margin: 0 auto;
+}
+
+#tweets h3 {
+	margin: 0;
+	padding: 10px 0;
+	text-align: center;
+	font: 2em 'Permanent Marker', sans-serif;
+	color: #4a8cf7;
+}
+
+#tweets-content {
+	width: 90%;
+	margin: 0 auto;
+}
+
+#tweets-content ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#tweets-content ul li {
+	margin-bottom: 0.5em;
+	line-height: 1.3;
+	padding-left: 11px;
+	background: url(arrow.gif) no-repeat 0 4px;
+}
+
+#tweets-content ul li a {
+	color: #d34545;
+}
+
+#tweets-content ul li small {
+	display: block;
+	font-style: italic;
+}
+    
+</style>
+</head>
+
+<body>
+
+<div id="tweets">
+	<h3>Tweet</h3>
+	<div id="tweets-content"></div>
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="jquery.tweetable.js"></script>
+<script type="text/javascript">
+$(function() {
+  $('#tweets-content').tweetable({
+    username: 'gabromanato', 
+    time: true, 
+    limit: 5
+  });
+});
+</script>
+
+</body>
+</html>

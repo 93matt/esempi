@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>hover()</title>
+<meta charset="utf-8" />
+<style>
+#test {
+	background: green;
+	width: 100px;
+	height: 100px;
+	cursor: pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<p><button id="hover">hover()</button><button id="on">on('hover')</button></p>
+
+<div id="test"></div>
+
+
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script>
+$(function() {
+
+    
+
+	
+	
+	$('#hover').click(function() {
+	
+		$('#test').unbind('hover');
+		
+		$('#test').hover(function(event) {
+	
+		alert(event.target.nodeName);
+		
+		}, function(event) {
+		
+			alert(event.target.nodeName);
+		
+		
+		});
+	
+	
+	});	
+	
+	
+	
+	$('#on').click(function() {
+	
+		$('#test').off('hover');
+		
+		$('#test').on('hover', function(event) {
+	
+		alert(event.target.nodeName);
+	
+	},  function(event) {
+		
+			alert(event.target.nodeName);
+		
+		
+		});
+	
+	});
+
+});
+</script>
+</body>
+</html>

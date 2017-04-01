@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: menu con effetto rimbalzo</title>
+<meta charset="utf-8" />
+<style>
+body {
+	margin: 0;
+	padding: 0;
+	font: 100% 'Arial Black', Arial, sans-serif;
+}
+
+#navigation {
+	height: 4em;
+	margin: 0;
+	padding: 0 1em;
+	list-style: none;
+	border-bottom: 2px solid #666;
+}
+
+#navigation li {
+	height: 100%;
+	float: left;
+	margin-right: 0.5em;
+}
+
+#navigation a {
+	float: left;
+	height: 2em;
+	padding: 0 1em;
+	background: #232326;
+	color: #fff;
+	line-height: 2;
+	text-transform: uppercase;
+	font-weight: bold;
+	text-decoration: none;
+	margin: 2em 0 0 0;
+	letter-spacing: 0.1em;
+	position: relative;
+	border-radius: 6px 6px 0 0;
+}
+
+#navigation a:hover {
+	background: #666;
+}
+</style>
+</head>
+
+<body>
+
+<ul id="navigation">
+
+	<li><a href="#">Home</a></li>
+	<li><a href="#">Articoli</a></li>
+	<li><a href="#">About</a></li>
+
+</ul>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="http://dev.css-zibaldone.com/js/jquery/plugins/jquery.easing.js"></script>
+<script type="text/javascript">
+$(function() {
+
+  $('li', '#navigation').each(function() {
+  
+  
+    var $li = $(this);
+    var $a = $('a', $li);
+    
+    $a.hover(function() {
+    
+      $a.stop(true, true).animate({
+        height: '3em',
+        lineHeight: '3em',
+        bottom: '1em'
+      }, 'slow', 'easeOutBounce');
+    
+    
+    
+    }, function() {
+    
+    
+      $a.stop(true, true).animate({
+        height: '2em',
+        lineHeight: '2em',
+        bottom: 0
+      }, 'slow', 'easeOutBounce');
+    
+    
+    });
+  
+  
+  });
+
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: aggiungere un'ombra all'elemento body</title>
+<meta charset="utf-8" />
+<style type="text/css">
+* {
+	margin: 0;
+	padding: 0;
+}
+
+#top, #bottom, #left, #right {
+	background: #000;
+}
+
+#left, #right {
+	position: fixed;
+	top: 0; bottom: 0;
+	width: 88px;
+}
+		
+#left { 
+	left: 0;  
+	background: url(img/left.png) left center repeat-y;
+}
+		
+#right { 
+	right: 0; 
+	background: url(img/right.png) right center repeat-y;
+}
+		
+#top, #bottom {
+	position: fixed;
+	left: 0; 
+	right: 0;
+	height: 88px;
+}
+		
+#top { 
+	top: 0px; 
+	background: url(img/top.png) top center repeat-x; 
+}
+
+#bottom { 
+	bottom: 0px; 
+	background: url(img/bottom.png) bottom center repeat-x; 
+}
+</style>
+</head>
+
+<body>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+
+	$('<div id="left"></div><div id="right"></div><div id="top"></div><div id="bottom"></div>').
+	appendTo('body');
+
+});
+</script>
+</body>
+</html>

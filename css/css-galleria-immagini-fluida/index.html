@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: galleria di immagini fluida</title>
+<meta charset="utf-8" />
+<style>
+body {
+	margin: 0;
+	padding: 2em 0;
+	font: 100% Arial, sans-serif;
+}
+
+#gallery {
+	margin: 0 auto;
+	padding: 0;
+	width: 40%;
+	list-style: none;
+	overflow: hidden;
+}
+
+#gallery li {
+	width: 48%;
+	float: left;
+	padding-bottom: 0.5em;
+	margin-right: 0.3em;
+}
+
+#gallery li img {
+	display: block;
+	width: 100%;
+}
+
+#gallery li p {
+	margin: 0;
+	padding: 0.3em 0 0 0;
+	font-style: italic;
+}
+</style>
+</head>
+
+<body>
+
+<ul id="gallery">
+
+	<li><img src="http://dev.css-zibaldone.com/onwebdev/post/img/pics/1.jpg" alt="Immagine 1" />
+		<p>Immagine 1</p>
+	</li>
+	
+	<li><img src="http://dev.css-zibaldone.com/onwebdev/post/img/pics/2.jpg" alt="Immagine 2" />
+		<p>Immagine 2</p>
+	</li>
+	
+	<li><img src="http://dev.css-zibaldone.com/onwebdev/post/img/pics/3.jpg" alt="Immagine 3" />
+		<p>Immagine 3</p>
+	</li>
+	
+	<li><img src="http://dev.css-zibaldone.com/onwebdev/post/img/pics/4.jpg" alt="Immagine 4" />
+		<p>Immagine 4</p>
+	</li>
+</ul>
+
+
+
+</body>
+</html>

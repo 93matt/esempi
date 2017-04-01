@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: accordion orizzontale</title>
+<meta charset="utf-8" />
+<style>
+body {
+	margin: 0;
+	padding: 2em 0;
+	font: 100% Arial, sans-serif;
+}
+
+p {
+	margin: 0;
+	line-height: 1.4;
+	padding: 5px;
+}
+
+h2 {
+	margin-top: 0;
+	font-size: 1.6em;
+	color: #fff;
+	padding: 5px;
+	text-transform: uppercase;
+	width: 290px;
+	float: right;
+	background: #a40 url(open.png) no-repeat 0 50%;
+	text-indent: 35px;
+	cursor: pointer;
+}
+
+div.accordion {
+	margin: 0 auto 1em auto;
+	width: 600px;
+	height: 100%;
+	overflow: hidden;
+}
+
+div.accordion-content {
+	width: 0px;
+	background: #333;
+	color: #fff;
+	float: left;
+	margin-bottom: 10px;
+	position: relative;
+	left: 300px;
+	overflow: hidden;
+	height: 2.5em;
+	
+}
+</style>
+</head>
+
+<body>
+
+<div class="accordion">
+<h2>Titolo 1</h2>
+<div class="accordion-content">
+  <p>Lorem ipsum dolor sit amet.</p>
+</div>
+
+<div class="accordion">
+<h2>Titolo 2</h2>
+<div class="accordion-content">
+  <p>Lorem ipsum dolor sit amet.</p>
+</div>
+
+
+<div class="accordion">
+<h2>Titolo 3</h2>
+<div class="accordion-content">
+  <p>Lorem ipsum dolor sit amet.</p>
+</div>
+
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+
+  $('h2', 'div.accordion').each(function() {
+  
+    var $h2 = $(this);
+    var content = $h2.next();
+    
+    $h2.click(function() {
+   
+    
+      if(content.css('width') == '0px') {
+      
+        content.animate({
+          width: 300,
+          left: 0
+        }, 'slow');
+      
+      
+      } else {
+      
+        content.animate({
+          left: 300,
+          width: 0
+        }, 'slow');
+      
+      
+      }
+    
+    
+    });
+  
+  
+  });
+
+
+});
+</script>
+
+</body>
+</html>

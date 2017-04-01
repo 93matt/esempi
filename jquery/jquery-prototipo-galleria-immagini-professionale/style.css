@@ -1,0 +1,71 @@
+body {
+	background: #f2f2f2;
+}
+
+#gallery {
+	width: 800px;
+	height: 600px;
+	background: url(img/bg.png) no-repeat;
+	margin: 2em auto;
+	position: relative;
+}
+
+#gallery-outer {
+	width: 600px;
+	height: 400px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -200px 0 0 -300px;
+	overflow: hidden;
+}
+
+#gallery-inner {
+	width: 2400px;
+	height: 400px;
+}
+
+#gallery-inner img {
+	float: left;
+	width: 600px;
+	height: 400px;
+}
+
+
+#gallery-nav {
+	width: 500px;
+	height: 100px;
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	margin-left: -250px;
+}
+
+#gallery-nav a {
+	float: left;
+	width: 120px;
+	height: 100px;
+	margin-right: 5px;
+	position: relative;
+	background: url(img/frame.png) no-repeat;
+}
+
+#gallery-nav a img {
+	border: none;
+	width: 80px;
+	height: 60px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -30px 0 0 -40px;
+}
+
+#ribbon {
+	width: 112px;
+	height: 99px;
+	background: url(img/ribbon.png) no-repeat;
+	position: absolute;
+	top: 50px;
+	left: 20px;
+}
+

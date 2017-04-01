@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: dock iPhone</title>
+<meta charset="utf-8" />
+<style type="text/css" media="screen">
+
+body {
+    
+    padding: 2em 0;
+    margin: 0 auto;
+    width: 320px;
+    font: 62.5% Arial, sans-serif;
+    
+}
+
+#dock {
+    
+    width: 100%;
+    height: 91px;
+    background: url(dock.png) no-repeat;
+    
+}
+
+#dock ul {
+    
+    height: 100%;
+    width: 300px;
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    
+}
+
+#dock li {
+    
+    
+    width: 59px;
+    height: 60px;
+    float: left;
+    margin-right: 15px;
+    position: relative;
+    left: 8px;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+
+#dock li a {
+    
+    float: left;
+    width: 100%;
+    height: 100%;
+    font-size: 1.2em;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    
+}
+
+#dock li a span {
+    
+    display: none;
+    background: #fff;
+    color: #000;
+    color: rgba(0, 0, 0, 0.5);
+    padding: 0.3em;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    font-weight: bold;
+    position: relative;
+    top: 65px;
+    
+}
+
+#dock #safari {
+    
+    background-image: url(Safari.png);
+    left: 4px;
+}
+
+#dock #mail {
+    
+    background-image: url(Mail.png);
+}
+
+#dock #settings {
+    
+    background-image: url(Settings.png);
+    left: 12px;
+}
+
+#dock #phone {
+    
+    background-image: url(Phone.png);
+    left: 15px;
+}
+
+
+
+</style>
+</head>
+
+<body>
+    
+<div id="dock">
+    
+    <ul>
+        <li id="safari"><a href="#"><span>Safari</span></a></li>
+        <li id="mail"><a href="#"><span>Mail</span></a></li>
+        <li id="settings"><a href="#"><span>Settings</span></a></li>
+        <li id="phone"><a href="#"><span>Phone</span></a></li>
+    </ul>
+</div>
+    
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="http://dev.css-zibaldone.com/js/jquery/plugins/jquery.easing.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+    
+    
+   $('li', '#dock').each(function() {
+    
+    
+        var $li = $(this);
+        
+        $li.hover(function() {
+        
+          $li.stop(true, true).animate({
+            top: '-5px'
+          }, 'slow', 'easeOutBounce');
+            
+          $li.find('span').stop(true, true).fadeIn('slow');
+            
+            
+        }, function() {
+            
+            $li.stop(true, true).animate({
+              top: 0
+            }, 'slow', 'easeOutBounce');
+            $li.find('span').stop(true, true).fadeOut('slow');            
+        }
+        
+        );
+    
+    
+    
+   });
+    
+    
+});
+
+
+</script>
+</body>
+</html>
+

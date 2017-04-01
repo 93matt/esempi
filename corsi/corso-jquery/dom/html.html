@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>html()</title>
+<meta charset="utf-8" />
+<style type="text/css">
+#wrapper {
+	max-width: 960px;
+	width: 100%;
+	margin: 2em auto;
+	overflow: hidden;
+}
+
+#test {
+	float: left;
+	width: 40%;
+	background: silver;
+}
+
+pre {
+	float: right;
+	width: 50%;
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+</style>
+</head>
+
+<body>
+
+<p><button id="html">html()</button></p>
+
+
+<div id="wrapper">
+
+<div id="test">
+
+
+</div>
+​
+
+
+<pre>
+</pre>
+</div>
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script>
+$(function() {
+
+	var showHTML = function() {
+		var wrapperHTML = $('#test', '#wrapper')[0].innerHTML;
+		var html = wrapperHTML.replace(/<+/g, '&lt;').replace(/>+/g, '&gt;').replace(/"+/g, '&quot;');
+		
+		$('pre', '#wrapper')[0].innerHTML = html;
+		
+		
+	
+	};
+	
+	$('#html').click(function() {
+	
+		var $html = '<ul>';
+		
+		for(var i = 0; i < 20; ++i) {
+		
+			var frag = '<li>' + (i + 1) + '</li>';
+			$html += frag;
+		
+		}
+		
+		$html += '</ul>';
+		
+		$('#test').html($html);
+		
+		
+		showHTML();
+	
+	});
+		
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AngularJS: esempio di richiesta GET con il servizio $http</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" media="screen" />
+<style type="text/css" media="screen">
+#results {
+	margin: 2em auto;
+	max-width: 960px;
+	padding: 0 1em;
+}
+
+#loader {
+	margin: 2em 0;
+}
+
+@keyframes slide {
+	from {
+		left: 0;
+	}
+	to {
+		left: 50px;
+	}
+}
+
+#loader:before {
+	content: ' ';
+	display: inline-block;
+	width: 36px;
+	height: 36px;
+	background: #ccc;
+	border-radius: 50%;
+	position: relative;
+	animation: slide 500ms linear infinite alternate;
+}
+
+#list {
+	margin: 2em 0;
+	padding: 0;
+	list-style: none;
+}
+
+#list li {
+	display: block;
+	margin-bottom: 1em;
+	padding: 1em;
+}
+
+#list li:nth-child(even) {
+	background: #f5f5f5;
+}
+</style>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+<script type="text/javascript">
+var app = angular.module('MyApp', []);
+
+app.controller('WeatherCtrl', ['$scope', '$http', function($scope, $http) {
+	$scope.title = 'Vasto';
+	$scope.dataLoaded = false;
+	$scope.data = [];
+
+	$http.get('http://api.openweathermap.org/data/2.5/forecast/daily', {
+		params: {
+			q: 'Vasto',
+			mode: 'json',
+			units: 'metric',
+			days: 7
+		}
+	}).then(function(response) {
+		$scope.dataLoaded = true;
+		var list = response.data.list;
+		$scope.data = list;
+
+
+	}, function(response) {
+		console.log(response);
+	});
+
+}]);
+</script>
+</head>
+<body ng-app="MyApp">
+<div id="results" ng-controller="WeatherCtrl">
+	<h1>Previsioni meteo per {{title}}</h1>
+	<div id="loader" ng-show="!dataLoaded"></div>
+	<ul id="list" ng-cloak>
+		<li ng-repeat="item in data">
+			<time>{{(item.dt * 1000) | date:'dd-MM-yyyy'}}</time>
+			<p>Min: {{item.temp.min}}, Max: {{item.temp.max}}, {{item.weather[0].description}}</p>
+		</li>
+	</ul>	
+</div>	
+</body>
+</html>

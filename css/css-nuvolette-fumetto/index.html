@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: nuvolette in stile fumetto</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	margin: 2em;
+}
+
+#comics {
+	width: 50%;
+	margin: 0 auto;
+	overflow: hidden;
+	border: 10px solid;
+	border-radius: 10px;
+}
+
+#comics img {
+	float: left;
+	margin: 0 1em 0 0;
+}
+
+div.bubble {
+	width: 40%;
+	background: url(speech-bubble.png) no-repeat 10px 0;
+	float: left;
+	position: relative;
+	top: 12em;
+	left: -5em;
+}
+
+div.bubble blockquote {
+	font: 100% 'Comic Sans MS', sans-serif;
+	line-height: 1.4;
+	margin: 0;
+	padding: 1em;
+	background: #ddd url(speech-bubble-bg.png) repeat;
+	border-radius: 60px;
+}
+
+div.bubble blockquote p {
+	margin-top: 0;
+	padding: 0.5em;
+	font-size: 1.2em;
+}
+</style>
+</head>
+
+<body>
+
+<div id="comics">
+	<img src="lisa-simpson.gif" alt="Lisa Simpson" />
+<div class="bubble">
+	<blockquote>
+		<p>Is your remarkably sexist drivel intentional or just some horrible mistake?</p>
+	</blockquote>
+</div>
+
+</div>
+
+</body>
+</html>

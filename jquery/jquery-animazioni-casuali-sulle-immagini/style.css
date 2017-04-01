@@ -1,0 +1,39 @@
+#image {
+	margin: 4em auto;
+	border: 0.5em double #ccc;
+	width: 800px;
+	height: 500px;
+	position: relative;
+}
+
+#image img {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 0;
+}
+
+#image #run {
+	display: block;
+	text-decoration: none;
+	width: 10em;
+	font: bold 1em Arial, sans-serif;
+	background: #06c;
+	color: #fff;
+	padding: 0.3em 0;
+	text-align: center;
+	position: absolute;
+	top: -2.1em;
+	left: -0.5em;
+	border-radius: 4px 4px 0 0;
+}
+
+#wrapper {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2;
+}	

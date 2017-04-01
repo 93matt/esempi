@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>css()</title>
+<meta charset="utf-8" />
+<style type="text/css">
+#test {
+    width: 100px;
+    height: 100px;
+    padding: 16px;
+    border: 5px solid black;
+    background: gray;
+    margin: 0 auto;
+}
+
+#output {
+    text-align: center;
+}​
+​</style>
+</head>
+
+<body>
+<p><button id="read">Read styles</button><button id="write">Write styles</button></p>
+
+
+<div id="test"></div>
+
+<p id="output"></p>
+
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script>
+$(function() {
+	
+	$('#read').click(function() {
+	
+		$('#output').text($('#test').css('width'));
+	
+	
+	});
+	
+	$('#write').click(function() {
+	
+		$('#test').css({
+			width: '200px',
+			height: '200px',
+			backgroundColor: 'black'
+		});	
+	
+	});
+	
+	
+	
+});
+</script>
+</body>
+</html>

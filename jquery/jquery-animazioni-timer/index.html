@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: animazioni e timer</title>
+<meta charset="utf-8" />
+<style type="text/css">
+#test {
+    width: 150px;
+    height: 150px;
+    background: orange;
+}
+
+#test2 {
+  margin-top: 1em;
+  width: 150px;
+  height: 150px;
+  background: silver;
+  position: relative;
+}
+</style>
+</head>
+
+<body>
+
+<div id="test"></div>
+
+<div id="test2"></div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+
+
+    setTimeout(function() {
+    
+        $('#test').animate({opacity: 'toggle'}, 2000);
+        
+        setTimeout(arguments.callee, 2000);
+    
+    
+    }, 500);
+    
+    setTimeout(function() {
+    
+    
+        $('#test2').animate({left: 150}, 1000, function() {
+            $(this).animate({left: 0}, 1000);
+            
+        });
+        
+        setTimeout(arguments.callee, 2000);
+        
+        
+    
+    
+    }, 500);
+
+
+});
+
+</script>
+</body>
+</html>

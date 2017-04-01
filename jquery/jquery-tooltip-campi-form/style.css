@@ -1,0 +1,80 @@
+body {
+      font: 13px/1.4 Helvetica,Arial,sans-serif;
+      color: #434343;
+    }
+  
+    #form {
+    	margin: 7em auto 2em auto;
+    	width: 400px;
+    	position: relative;
+    }
+    
+    input {
+      
+      border-radius: 3px;
+      background-color: white;
+      border: 1px solid #CCCCCC;
+      color: #333333;
+      margin-left: 0;
+      margin-right: 0;
+      font-size: 1.8em;
+      padding: 10px;
+      width: 400px;
+      z-index: 100;
+    }
+
+    div.tooltip-trigger {
+      background: url("img/button.png") repeat-x scroll 0 0 transparent;
+      border: 1px solid #CCCCCC;
+      color: white;
+      cursor: pointer;
+      font-size: 23px;
+      font-weight: bold;
+      height: 32px;
+      padding: 4px 0 0 11px;
+      text-decoration: none;
+      width: 25px;
+      z-index: 101;
+      position: absolute;
+      right: -15px;
+      top: 8px;
+    }
+
+    
+    div.tooltip-trigger:hover, div.tooltip-trigger:focus {
+      background: url("img/button.png") repeat-x scroll 0 -40px transparent;
+    }
+
+    div.tooltip-trigger span {
+      color: white;
+    }
+
+    div.tooltip-trigger .tooltip {
+      background: url("img/tooltip.png") repeat-x scroll left top #333333;
+      border: 1px solid #333333;
+      bottom: 50px;
+      display: none;
+      font-size: 14px;
+      font-weight: normal;
+      padding: 10px;
+      position: absolute;
+      right: -100px;
+      width: 350px;
+      z-index: 1100;
+      border-radius: 4px;
+    }
+
+    div.tooltip-trigger .tooltip p {
+      margin: 0;
+    }
+
+    div.tooltip-trigger .tooltip .point {
+      background: url("img/tooltip.png") repeat-x scroll center bottom transparent;
+      bottom: -12px;
+      height: 12px;
+      position: absolute;
+      right: 97px;
+      width: 40px;
+    }
+
+    

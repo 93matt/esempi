@@ -1,0 +1,41 @@
+#slideshow {
+	margin: 2em auto;
+	width: 600px;
+	height: 450px;
+	overflow: hidden;
+	position: relative;
+}
+
+#slideshow-wrapper {
+	width: 2400px;
+	height: 450px;
+	position: relative;
+}
+
+#slideshow-wrapper img {
+	float: left;
+	width: 600px;
+	height: 450px;
+}
+
+#slideshow #grid {
+	width: 650px;
+	height: 450px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	display: none;
+}
+
+#slideshow #grid div.box {
+	background: #333;
+	width: 58px;
+	height: 43px;
+	float: left;
+	margin: 2px;
+}
+
+#slideshow #grid div.alt {
+	background: #999;
+}

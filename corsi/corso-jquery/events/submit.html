@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>submit()</title>
+<meta charset="utf-8" />
+<style>
+input[type="text"] {
+	display: block;
+	margin-bottom: 1em;
+	padding: 6px 12px;
+	width: 16em;
+}
+</style>
+</head>
+
+<body>
+
+<p><button id="submit">submit()</button><button id="on">on('submit')</button></p>
+
+
+<form action="#" method="post">
+
+	<div>
+		<input type="text" name="a"/>
+	</div>
+	
+	<div>
+		<input type="text" name="b"/>
+	</div>
+	
+	<div>
+		<input type="text" name="c"/>
+	</div>
+	
+	<p><input type="submit" name="s" value="Send"/></p>
+
+</form>
+
+<div id="output"></div>
+
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script>
+$(function() {
+
+    
+
+	
+	
+	$('#submit').click(function() {
+	
+		$('form').unbind('submit');
+		
+		$('form').submit(function(event) {
+		
+			event.preventDefault();
+			
+			var $form = $(this);
+			var data = $form.serialize();
+			
+			$('#output').text(data);
+		
+		
+		});
+	
+	
+	});	
+	
+	
+	
+	$('#on').click(function() {
+	
+		$('form').off('submit');
+		
+		$('form').on('submit', function(event) {
+		
+			event.preventDefault();
+			
+			var $form = $(this);
+			var data = $form.serialize();
+			
+			$('#output').text(data);
+	
+	
+			
+		});
+	
+	});
+
+});
+</script>
+</body>
+</html>

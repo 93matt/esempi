@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: trasformazioni e animazioni del testo</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	padding: 2em;
+}
+
+#letters {
+	width: 400px;
+	border-bottom: 1px solid;
+}
+
+#letters h1 {
+	margin: 0;
+	font: 3em 'Arial Narrow', Arial, sans-serif;
+	position: relative;
+	height: 1em;
+}
+
+h1 span {
+	position: absolute;
+	top: 0;
+}
+
+span.e {
+	left: 0;
+}
+span.r {
+	left: 1em;
+}
+span.u {
+	left: 2em;
+}
+span.j {
+	left: 3em;
+}
+span.q {
+	left: 4em;
+}
+
+span.y {
+	left: 5em;
+}
+
+.rotate {
+	-moz-transform: rotate(10deg);
+	-webkit-transform: rotate(10deg);
+	-o-transform: rotate(10deg);
+	-ms-transform: rotate(10deg);
+	transform: rotate(10deg);
+}
+</style>
+</head>
+
+<body>
+
+<div id="letters">
+	<h1>
+	
+		<span class="e">e</span>
+		<span class="r">r</span>
+		<span class="u">u</span>
+		<span class="j">J</span>
+		<span class="q">q</span>
+		<span class="y">y</span>	
+	</h1>
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+
+	setTimeout(function() {
+	
+		$('h1', '#letters').animate({
+			left: 300
+		}, 'slow', function() {
+		
+			$('#letters').addClass('rotate');
+			
+			$(this).animate({
+				left: '+=100',
+				top: 100
+		    }, 'slow', function() {
+		    
+		     	$('#letters').removeClass('rotate');
+		    
+		    	$(this).animate({
+		    		left: 0
+		    	}, 'slow', function() {
+		    	
+		    		$('span.j').animate({
+		    			left: 0
+		    		}, 'slow', function() {
+		    		
+		    			$('span.q').animate({
+		    				left: '1em'
+		    			}, 'slow', function() {
+		    			
+		    				$('span.u').animate({
+		    					left: '2em'
+		    				}, 'slow', function() {
+		    				
+		    					$('span.e').animate({
+		    						left: '3em'
+		    					}, 'slow', function() {
+		    					
+		    						$('span.r').animate({
+		    							left: '4em'
+		    						}, 'slow', function() {
+		    						
+		    							$('span.y').animate({
+		    								left: '5em'
+		    							}, 'slow', function() {
+		    							
+		    							
+		    							  $('h1', '#letters').animate({
+		    							  		top: 0
+		    							  }, 'slow');
+		    							
+		    							});
+		    						
+		    						});
+		    					
+		    					});
+		    				
+		    				});
+		    				
+		    			
+		    			});
+		    		
+		    		
+		    		});
+		    	
+		    	
+		    	});
+		    
+		    });
+		
+		});
+	
+	
+	}, 3000);
+
+
+});
+</script>
+</body>
+</html>

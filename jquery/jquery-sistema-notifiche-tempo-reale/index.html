@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: sistema di notifiche in tempo reale</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	margin: 0;
+	padding: 0;
+	font: 95% Arial, sans-serif;
+}
+
+#notifications {
+	height: 2em;
+	margin: 0;
+	padding: 0 0.5em;
+	list-style: none;
+	background: #222;
+}
+
+#notifications > li {
+	float: left;
+	height: 100%;
+	margin-right: 0.5em;
+	position: relative;
+}
+
+#notifications > li > a {
+	float: left;
+	height: 100%;
+	line-height: 2;
+	padding: 0 1em;
+	font-weight: bold;
+	text-decoration: none;
+	color: #fff;
+}
+
+#notifications #projects {
+	background: #c30;
+}
+
+#notifications #tasks {
+	background: #282;
+}
+
+#message {
+	width: 35em;
+	margin: 1em auto;
+	padding: 0;
+}
+
+#message input,
+#message select,
+#message textarea {
+	font: 1em Arial, sans-serif;
+	display: block;
+}
+
+#message label {
+	display: block;
+	font-weight: bold;
+	padding-bottom: 4px;
+}
+
+#message div input {
+	width: 150px;
+	border: 1px solid #bbb;
+	margin-bottom: 0.5em;
+}
+
+#message div select {
+	width: 150px;
+	margin-bottom: 0.5em;
+}
+
+#message div textarea {
+	width: 380px;
+	height: 280px;
+	border: 1px solid #bbb;
+}
+
+#message p input {
+	width: 100px;
+	background: #ddd;
+	border: 1px solid #aaa;
+	font-weight: bold;
+	padding: 5px;
+	border-radius: 5px;
+}
+
+ul.messages {
+	width: 15em;
+	padding: 0.8em;
+	margin: 0;
+	list-style: none;
+	background: #222;
+	color: #fff;
+	position: absolute;
+	top: 2em;
+	left: 0;
+	display: none;
+}
+
+ul.messages li {
+	margin-bottom: 0.4em;
+	padding-bottom: 4px;
+	border-bottom: 1px dotted #ccc;
+	text-align: right;
+}
+
+ul.messages li a {
+	color: #f90;
+	font-size: 1.2em;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+ul.messages li div.message {
+	text-align: left;
+}
+
+ul.messages li div.message h4 {
+	font: normal 1.2em Arial, sans-serif;
+	margin: 0;
+}
+
+ul.messages li div.message p {
+	margin: 0.3em 0;
+	line-height: 1.4;
+}
+	
+</style>
+</head>
+
+<body>
+
+<ul id="notifications">
+	<li><a href="#" id="projects">Progetti <span>0</span></a></li>
+	<li><a href="#" id="tasks">Compiti <span>0</span></a></li>
+</ul>
+
+<form action="#" method="post" id="message">
+	<div>
+		<label for="category">Categoria</label>
+		<select name="category" id="category">
+			<option>Seleziona:</option>
+			<option value="progetti">Progetti</option>
+			<option value="compiti">Compiti</option>
+		</select>
+	</div>
+	<div>
+		<label for="title">Titolo</label>
+		<input type="text" name="title" id="title" />
+	</div>
+	<div>
+		<label for="description">Descrizione</label>
+		<textarea name="description" id="description" rows="15" cols="15"></textarea>
+	</div>
+	<p><input type="submit" name="send" id="send" value="Invia" /></p>
+</form>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+
+	$('li', '#notifications').each(function() {
+	
+		var $ul = $('<ul class="messages"/>');
+		
+		$ul.appendTo($(this));
+	
+	});
+		
+				
+		$('a.delete').live('click', function(event) {
+		
+		    var $a = $(this);
+			var $ul = $a.parents('ul.messages');
+			var $message = $a.parent();
+			var $li = $ul.parent();
+			var $span = $('a span', $li);
+			var no = new Number($span.text());
+
+		
+			$ul.slideUp(500);
+			$message.remove();
+			
+			$span.text(no - 1);
+	
+		
+			event.preventDefault();
+		
+		});
+	
+
+	
+	$('#message').submit(function(event) {
+	
+	    var $form = $(this);
+	    var category = $('#category', $form).val();
+	    var title = $('#title', $form).val();
+	    var description = $('#description', $form).val();
+	    
+	    var projects = $('#projects', '#notifications');
+	    var projectsNo = $('span', projects);
+	    var tasks = $('#tasks', '#notifications');
+	    var tasksNo = $('span', tasks);
+	    
+	    var projectsNumber = new Number(projectsNo.text());
+	    var tasksNumber = new Number(tasksNo.text());
+	    
+	    var projectMessages = projects.parent().find('ul.messages');
+	    var taskMessages = tasks.parent().find('ul.messages');
+	    
+	    var html = '<li><a href="#" class="delete">X</a><div class="message">';
+	    
+	    switch(category) {
+	    
+	    	case 'progetti':
+	    	
+	    	   html += '<h4>' + title + '</h4><p>' + description + '</p></div></li>';
+	    	   
+	    	   $(html).appendTo(projectMessages);
+	    	   
+	    	   projectsNo.text(projectsNumber + 1);
+	    	
+	    	   break;
+	    	   
+	    	case 'compiti':
+	    	
+	    		html += '<h4>' + title + '</h4><p>' + description + '</p></div></li>';
+	    	   
+	    	   $(html).appendTo(taskMessages);
+	    	   
+	    	   tasksNo.text(tasksNumber + 1);
+	    	
+	    	   break;
+	    	   
+	    	default:
+	    	
+	    	   break;
+	    
+	    
+	    }
+		
+	
+		event.preventDefault();
+	});
+	
+	$('#projects').click(function(event) {
+	
+	    var $a = $(this);
+	    
+	    var $ul = $a.parent().find('ul.messages');
+	    
+	    if($ul.is(':hidden')) {
+	    
+	    	$ul.slideDown(500);
+	    
+	    } else {
+	    
+	    	$ul.slideUp(500);
+	    
+	    }
+		
+	
+		event.preventDefault();
+	
+	});
+	
+	$('#tasks').click(function(event) {
+	
+	    var $a = $(this);
+	    
+	    var $ul = $a.parent().find('ul.messages');
+	    
+	    if($ul.is(':hidden')) {
+	    
+	    	$ul.slideDown(500);
+	    
+	    } else {
+	    
+	    	$ul.slideUp(500);
+	    
+	    }
+		
+	
+		event.preventDefault();
+	
+	});
+	
+	
+	
+
+
+});
+</script>
+</body>
+</html>

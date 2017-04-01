@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: simulare l'attributo placeholder</title>
+<meta charset="utf-8" />
+<style type="text/css">
+#form {
+	margin: 1em;
+	padding: 1em;
+	font: 100% Arial, sans-serif;
+}
+
+#form input {
+	width: 150px;
+	font: 1em Arial, sans-serif;
+	border: 1px solid #bbb;
+	border-radius: 4px;
+	display: block;
+	margin-bottom: 0.5em;
+}
+
+input:focus {
+	outline-style: none;
+}
+
+span.placeholder {
+	padding: 3px 0 3px 4px;
+	color: #545454;
+}
+</style>
+</head>
+
+<body>
+
+<form action="#" method="post" id="form">
+	<div>
+		<input type="text" id="text" name="text" />
+		<input type="text" id="text2" name="text2" />
+	</div>
+</form>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+(function($) {
+
+	$.fn.placeholder = function(options) {
+	
+		var that = this;
+		
+		if(!that.is('input[type=text]')) {
+		
+			return;
+		
+		}
+		
+		var defaults = {
+		
+			text: 'Placeholder'
+		
+		};
+		
+		options = $.extend(defaults, options);
+		
+		var top = that.offset().top;
+		var left = that.offset().left;
+		
+		return that.each(function() {
+		
+			$('<span class="placeholder"/>').text(options.text).
+			css({
+				position: 'absolute',
+				top: top,
+				left: left
+			}).insertAfter(that);
+			
+			that.focus(function() {
+			
+			
+				that.next('span.placeholder').hide();
+			
+			});
+			
+			that.blur(function() {
+			
+				if(that.val() == '') {
+				
+					that.next('span.placeholder').show();
+				
+				}
+			
+			});	
+		
+		});
+	
+	};
+
+})(jQuery);
+
+$(function() {
+
+	$('#text', '#form').placeholder({text: 'Lorem'});
+	$('#text2', '#form').placeholder({text: 'Lorem ipsum'});
+
+});
+</script>
+</body>
+</html>

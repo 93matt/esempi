@@ -1,0 +1,34 @@
+#slideshow {
+	width: 600px;
+	height: 400px;
+	position: relative;
+	overflow: hidden;
+	border: 5px solid #222;
+	border-radius: 5px;
+	margin: 2em auto;
+}
+
+#slideshow-wrapper {
+	width: 600px;
+	height: 400px;
+	position: relative;
+	overflow: hidden;
+	background: #bbb;
+}
+
+#slideshow-wrapper img {
+	height: 400px;
+	width: 0px;
+	display: none;
+}
+
+#slideshow-cursor {
+	position: absolute;
+	top: 0;
+	width: 30px;
+	height: 400px;
+	left: 0;
+	z-index: 1;
+	background: #333;
+	display: none;
+}

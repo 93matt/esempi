@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Custom selectors</title>
+<meta charset="utf-8" />
+<style type="text/css">
+#wrapper {
+	width: 860px;
+	margin: 2em auto;
+	overflow: hidden;
+}
+
+#test {
+	float: left;
+	width: 400px;
+}
+
+pre {
+	float: right;
+	width: 400px;
+	white-space: pre-wrap;
+	word-break: break-word;
+	padding: 5px;
+	background: #eee;
+}
+
+#selector {
+	margin: 0 0 1.5em 0;
+	border-bottom: 1px solid;
+	padding-bottom: 0.3em;
+}
+
+#s {
+	width: 200px;
+	padding: 6px;
+	border: 1px solid #ccc;
+	background: #f6f6f6;
+	font: 1em Arial, sans-serif;
+}
+
+#select {
+	padding: 6px 12px;
+	background: #000;
+	color: #fff;
+	border: none;
+	font: bold 1em Arial, sans-serif;
+	margin-left: 1em;
+}
+.test {
+	padding: 0.5em;
+	background: yellow;
+}
+</style>
+</head>
+
+<body>
+
+<div id="wrapper">
+
+	<form id="selector" action="#">
+	
+		<input type="text" name="s" id="s"/>
+		<input type="submit" id="select" value="Select"/>
+	
+	</form>
+
+	<div id="test">
+	
+	    <div id="empty"></div>
+	    <input type="text"/>
+	    <h1>...</h1>
+	    <h2>...</h2>
+	    <h3>...</h3>
+	    <input type="checkbox"/>
+	    <textarea></textarea>
+	    <button>Button</button>
+			
+	</div>
+	
+<pre>
+&lt;div id=&quot;test&quot;&gt;
+&lt;div id=&quot;empty&quot;&gt;&lt;/div&gt;
+	    &lt;input type=&quot;text&quot;/&gt;
+	    &lt;h1&gt;...&lt;/h1&gt;
+	    &lt;h2&gt;...&lt;/h2&gt;
+	    &lt;h3&gt;...&lt;/h3&gt;
+	    &lt;input type=&quot;checkbox&quot;/&gt;
+	    &lt;textarea&gt;&lt;/textarea&gt;
+	    &lt;button&gt;Button&lt;/button&gt;
+&lt;/div&gt;
+</pre>
+
+</div>
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script>
+$(function() {
+
+	$('#selector').submit(function(e) {
+	
+		e.preventDefault();
+		
+		$('.test').removeClass('test');
+		
+		var expr = $.trim($('#s').val());
+		$(expr).addClass('test');
+	
+	
+	});
+
+});
+</script>
+</body>
+</html>

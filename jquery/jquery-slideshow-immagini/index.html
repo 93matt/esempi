@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: slideshow di immagini</title>
+<meta charset="utf-8" />
+<style>
+body {
+	margin: 0;
+	padding: 2em 0;
+	font: 100% Arial, sans-serif;
+}
+
+#slideshow {
+	width: 600px;
+	height: 400px;
+	margin: 0 auto;
+	position: relative;
+	overflow: hidden;
+}
+
+#slideshow-wrapper {
+	width: 3600px;
+	height: 400px;
+	position: relative;
+}
+
+#slideshow-wrapper img {
+	float: left;
+	width: 600px;
+	height: 400px;
+}
+
+#slideshow-actions {
+	width: 600px;
+	margin: 0.5em auto;
+	padding: 0.5em;
+	background: #333;
+	border-radius: 6px;
+}
+
+#slideshow-actions ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	height: 100%;
+	text-align: center;
+}
+
+#slideshow-actions li {
+	display: inline;
+	margin-right: 0.5em;
+	font-size: 90%;
+	font-weight: bold;
+	color: #fff;
+}
+
+#slideshow-actions a {
+	color: #fff;
+	text-decoration: none;
+}
+</style>
+</head>
+
+<body>
+
+<div id="slideshow">
+
+	<div id="slideshow-wrapper">
+	
+		<img src="1.jpg" alt="" />
+		<img src="2.jpg" alt="" />
+		<img src="3.jpg" alt="" />
+		<img src="4.jpg" alt="" />
+		<img src="5.jpg" alt="" />
+		<img src="6.jpg" alt="" />
+	
+	</div>
+
+</div>
+
+<div id="slideshow-actions">
+	<ul>
+		<li><a href="#" id="prev">&laquo; Precedente</a></li>
+		<li><a href="#" id="next">&raquo; Successiva</a></li>
+		<li id="slideno"></li>
+	</ul>
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+var Slideshow = new function() {
+
+  var index = 0;
+  var prev = $('#prev', '#slideshow-actions');
+  var next = $('#next', '#slideshow-actions');
+  var slides = $('img', '#slideshow-wrapper');
+  var wrapper = $('#slideshow-wrapper');
+  var slideNo = $('#slideno', '#slideshow-actions');
+  
+  var getSlidePositions = function() {
+  
+    var positions = [];
+    
+    slides.each(function(i) {
+    
+      var left = $(this).position().left;
+      positions[i] = left;
+    
+    
+    });
+  
+    return positions;
+  };
+  
+  this.slide = function() {
+  
+    var offsets = getSlidePositions();
+    var len = offsets.length;
+    
+    
+    
+    prev.click(function(event) {
+    
+      index--;
+      
+      if(index == -1) {
+      
+        index = 5;
+      
+      }
+      
+      
+      wrapper.animate({
+        left: - offsets[index]
+      }, 'slow', function() {
+      
+        slideNo.text(index+1);
+      
+      
+      });
+      
+      event.preventDefault();
+    
+    
+    });
+    
+    next.click(function(event) {
+    
+      index++;
+      
+      if(index == len) {
+      
+        index = 0;      
+      
+      
+      }
+      
+      wrapper.animate({
+        left: - offsets[index]
+      }, 'slow', function() {
+      
+        slideNo.text(index+1);
+      
+      
+      });
+      
+      event.preventDefault();
+    
+    
+    
+    });
+  
+  
+  };
+  
+
+}();
+
+$(function() {
+
+  Slideshow.slide();
+
+});
+</script>
+
+</body>
+</html>

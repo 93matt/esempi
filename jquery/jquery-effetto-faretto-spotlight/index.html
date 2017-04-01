@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: effetto faretto (spotlight)</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	margin: 0;
+	padding: 0;
+	background: #000;
+}
+
+h1 {
+	margin: 0.5em auto;
+	padding: 0.5em;
+	font: normal 8em "Arial Black", Arial, sans-serif;
+	width: 600px;
+	height: 600px;
+	line-height: 600px;
+	color: #fff;
+	text-align: center;
+	text-shadow: 0 0 0 #ffc;
+	cursor: pointer;
+	position: relative;
+	background: #000;
+	text-transform: uppercase;
+}
+
+h1 span {
+	width: 360px;
+	height: 360px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -180px 0 0 -180px;
+	box-shadow: 0 0 0 #ffc;
+	border-radius: 12px;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>Test<span></span></h1>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+  
+  var factor = 24;
+
+  $('h1').mousemove(function(event) {
+  
+    var x = event.clientX - $(this).width();
+    var y = event.clientY - $(this).height();
+    
+    $(this).css('textShadow', x + 'px' + ' ' +  y + 'px' + ' ' +  factor + 'px' + ' ' +  '#ffc').
+    find('span').css('boxShadow',    x + 'px' + ' ' +  y + 'px' + ' ' +  factor + 'px' + ' ' + '#ffc');
+  
+  
+  });
+
+});
+</script>
+</body>
+</html>

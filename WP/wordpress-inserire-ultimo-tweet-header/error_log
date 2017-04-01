@@ -1,0 +1,10 @@
+[29-Nov-2011 14:10:22] PHP Warning:  file_get_contents(http://twitter.com/statuses/user_timeline/gabromanato.xml?count=1) [<a href='function.file-get-contents'>function.file-get-contents</a>]: failed to open stream: HTTP request failed! HTTP/1.0 503 Service Unavailable
+ in /home/gabriele/public_html/esempi/WP/wordpress-inserire-ultimo-tweet-header/index.php on line 76
+[29-Nov-2011 14:10:22] PHP Fatal error:  Uncaught exception 'Exception' with message 'String could not be parsed as XML' in /home/gabriele/public_html/esempi/WP/wordpress-inserire-ultimo-tweet-header/index.php:76
+Stack trace:
+#0 /home/gabriele/public_html/esempi/WP/wordpress-inserire-ultimo-tweet-header/index.php(76): SimpleXMLElement->__construct('')
+#1 /home/gabriele/public_html/esempi/WP/wordpress-inserire-ultimo-tweet-header/index.php(125): get_latest_tweet()
+#2 {main}
+  thrown in /home/gabriele/public_html/esempi/WP/wordpress-inserire-ultimo-tweet-header/index.php on line 76
+[29-Nov-2011 14:12:01] PHP Warning:  file_get_contents(http://twitter.com/statuses/user_timeline/gabromanato.xml?count=1) [<a href='function.file-get-contents'>function.file-get-contents</a>]: failed to open stream: HTTP request failed! HTTP/1.0 503 Service Unavailable
+ in /home/gabriele/public_html/esempi/WP/wordpress-inserire-ultimo-tweet-header/index.php on line 74

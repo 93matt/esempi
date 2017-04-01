@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: deferred objects e animazioni in sequenza</title>
+<meta charset="utf-8" />
+<style type="text/css">
+#container {
+	width: 800px;
+	height: 450px;
+	margin: 2em auto;
+	border: 5px solid #999;
+	background: #f2f2f2;
+}
+
+div.animated {
+	width: 150px;
+	height: 150px;
+	position: relative;
+}
+
+.a1 {
+	background: red;
+}
+
+.a2 {
+	background: blue;
+}
+
+.a3 {
+	background: green;
+}
+
+p {
+	text-align: center;
+}
+
+#run {
+	padding: 0.4em;
+	display: inline-block;
+	background: #06c;
+	color: #fff;
+	font: 1em Arial, sans-serif;
+	text-decoration: none;
+	border: 1px solid #02c;
+	border-radius: 4px;
+	box-shadow: 2px 2px 2px #999;
+}
+</style>
+</head>
+
+<body>
+
+<p><a href="#" id="run">Esegui</a></p>
+
+<div id="container">
+	<div class="animated a1"></div>
+	<div class="animated a2"></div>
+	<div class="animated a3"></div>
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+var animation = function() {
+
+	$.Deferred(function(def) {
+	
+		def.pipe(function() {
+		
+			return $('.a1').animate({
+				left: 650
+			}, 1000);
+		
+		}).pipe(function() {
+		
+		  return setTimeout(function() {
+		
+			$('.a2').animate({
+				left: 650
+			}, 1000);
+			
+		  }, 1000);
+		
+		}).pipe(function() {
+		
+		  return setTimeout(function() {
+		
+			$('.a3').animate({
+				left: 650
+			}, 1000);
+		  }, 2000);
+		
+		});
+	
+	}).resolve();
+
+};
+
+$(function() {
+
+	$('#run').click(function(event) {
+	
+		animation();
+		
+		event.preventDefault();
+	
+	});
+
+});
+</script>
+
+</body>
+</html>

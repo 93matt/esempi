@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CSS: carta da gioco</title>
+	<meta charset="utf-8"/>
+	<style type="text/css" media="screen">
+body {margin: 0; background: #393; color: #000; font-family: Arial, sans-serif;}
+
+#card {
+width: 300px;
+height: 450px;
+position: absolute;
+top: 50%;
+left: 50%;
+margin: -225px 0 0 -150px;
+border-width: 1px 2px 2px 1px;
+border-style: solid;
+color: black;
+background: white;
+line-height: 1;
+}
+	
+
+.diams1:before {content: '\2666' '\A'; white-space: pre; color: maroon;}
+.diams2:after {content: "A";}
+
+#simb1, #simb2, #simb3, #simb4 {font-size: 80px; width: 1em; text-align: center;}
+#simb1, #simb3 {float: left; margin: 0;}
+#simb2, #simb4 {float: right; margin: 0;}
+#simb1, #simb3 {padding-left: 10px;}
+#simb3, #simb4 {position: relative; top: -7px;}
+#center {clear: both; margin: 0; text-align: center; font-size: 130px;}
+	
+	
+	</style>
+</head>
+
+<body>
+
+<div id="card">
+<div id="simb1" class="diams1 diams2"></div>
+<div id="simb2" class="diams1 diams2"></div>
+<div id="center" class="diams1"></div>
+<div id="simb3" class="diams1 diams2"></div>
+<div id="simb4" class="diams1 diams2"></div>
+</div>
+
+
+
+</body>
+</html>

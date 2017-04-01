@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>slice()</title>
+<meta charset="utf-8" />
+</head>
+
+<body>
+
+<p><button id="slice">slice()</button></p>
+
+<ul id="test">
+    <li>A</li>
+    <li>B</li>
+    <li>C</li>
+    <li>D</li>
+    <li>E</li>
+    <li>F</li>
+    <li>G</li>
+</ul>​
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script>
+$(function() {
+
+	$('#slice').click(function() {
+    var set = $('li', '#test').slice(0, 4);
+    set.each(function() {
+        var text = $(this).text();
+        $(this).text(text.toLowerCase());
+    });
+    
+    });
+	
+});
+</script>
+</body>
+</html>

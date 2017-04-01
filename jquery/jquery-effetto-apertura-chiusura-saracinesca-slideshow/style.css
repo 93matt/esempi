@@ -1,0 +1,30 @@
+#slideshow {
+	margin: 2em auto;
+	width: 650px;
+	height: 430px;
+	position: relative;
+	overflow: hidden;
+	border: 6px double #bbb;
+}
+
+#slideshow img {
+	width: 650px;
+	height: 430px;
+	display: none;
+}
+
+#panel-left, #panel-right {
+	width: 325px;
+	height: 430px;
+	background: #000;
+	position: absolute;
+	top: 0;
+}
+
+#panel-left {
+	left: -325px;
+}
+
+#panel-right {
+	right: -325px;
+}

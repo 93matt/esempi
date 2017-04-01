@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: prototipo per slide di immagini</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	margin: 2em 0;
+	font: 90% Arial, sans-serif;
+}
+
+h2, h3, p {
+	margin: 0;
+	font-size: 100%;
+	font-weight: normal;
+}
+
+#slide {
+	width: 600px;
+	height: 403px;
+	margin: 4em auto;
+	position: relative;
+}
+
+#header {
+	height: 41px;
+	background: url(img/header.png) repeat-x;
+	color: #fff;
+	position: relative;
+	border-radius: 6px 6px 0 0;
+}
+
+#header h2 {
+	font-size: 1.6em;
+	text-transform: uppercase;
+	padding-top: 8px;
+	text-align: center;
+}
+
+#header img {
+	position: absolute;
+	top: -50px;
+	left: 5px;
+}
+
+#img {
+	width: 600px;
+	height: 373px;
+}
+
+#img img {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+#ads {
+	width: 200px;
+	height: 373px;
+	position: absolute;
+	top: 41px;
+	right: 0;
+	background-color: rgba(203, 203, 203, 0.5);
+}
+
+#ads h3, #ads p {
+	padding: 1em;
+}
+
+#ads h3 {
+	font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+<div id="slide">
+	<div id="header">
+		<h2>Immagine</h2>
+		<img src="img/logo.png" alt=""/>
+	</div>
+	<div id="img">
+		<img src="img/cup.jpg" alt="" />
+	</div>
+	<div id="ads">
+		<h3>Lorem ipsum</h3>
+		<p>Ideo autem aquis huius mundi comparatur.</p>
+	</div>
+</div>
+
+</body>
+</html>

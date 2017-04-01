@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: animazioni avanzate sul testo</title>
+<meta charset="utf-8" />
+<style type="text/css" media="screen">
+html, body { 
+	overflow: hidden; 
+}
+body {
+	background: #f5f5f5;
+}
+
+#message {
+	width: 890px; 
+	margin: 30px auto; 
+	font-family: Impact, sans-serif;
+}
+
+#message h1 {
+	color: #666;
+	font-size: 180px;
+	line-height: 0.7;
+	text-align: center; 
+	letter-spacing: -8px; 
+	padding-bottom: 40px;
+}
+
+.step-one #message h1 {
+	padding-top: 220px;
+}
+
+#message h1 span { 
+			-webkit-transition: all 2.5s;
+			-moz-transition: all 2.5s;
+			-o-transition: all 2.5s;
+}
+		#message h1 span.char1 { margin-left: -1450px; } 
+		#message h1 span.char2 { margin-left: 200px; }
+		#message h1 span.char3 { margin-left: 200px; }
+		#message h1 span.char5 { margin-left: 1450px; }
+		#message h1 span.char6 { margin-left: 200px; }
+		#message h1 span.char7 { margin-left: 200px; }
+		#message h1 span.char8 { margin-left: 200px; }
+		#message h1 span.char9 { margin-left: 200px; }
+		.step-one #message h1 span { margin: 0; }
+ 		
+ 		#message p { text-align: center; font-size: 30px; letter-spacing: 20px;}
+ 		#message p span { position: relative; -webkit-transition: all 2.5s ease; 
+			-moz-transition: all 2.5s ease;
+			-o-transition: all 2.5s ease; color: #000; }
+ 		.step-two #message p span { top: 0 !important; left: 0 !important; } 
+	
+</style>
+</head>
+
+<body>
+
+<div id="message">
+	
+		<h1>jQuery 1.8</h1>
+		
+		<p>Coming 2012</p>
+	
+</div>
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.lettering.js"></script>
+<script type="text/javascript">
+$(function() {
+
+	$('h1, p', document.getElementById('message')).lettering();
+	
+	$('p span', document.getElementById('message')).each(function() {  
+		$(this).css({ top: -(Math.floor(Math.random()*1001)+1500), 
+					  left: Math.floor(Math.random()*1001)-500,  });
+					   
+	});
+	
+	
+	
+	setTimeout(function() {
+
+		$('html').addClass('step-one');
+	}, 1000);
+	
+	setTimeout(function() {
+		$('html').addClass('step-two');
+		
+	}, 3000);
+
+});
+</script>
+</body>
+</html>

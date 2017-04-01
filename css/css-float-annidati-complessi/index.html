@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: float annidati e complessi</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	margin: 2em 0; 
+	padding: 0;
+}
+#box {
+	margin: 0 auto; 
+	width: 600px; 
+	height: 600px; 
+	background: #0c0; 
+	color: #fff;
+}
+#left {
+	margin: 0; 
+	width: 300px; 
+	height: 600px; 
+	background: #ffc; 
+	color: #000; 
+	float: left;
+}
+#right {
+	margin: 0; 
+	width: 300px; 
+	height: 600px; 
+	float: right;
+}
+#left1 {
+	margin: 0; 
+	width: 100px; 
+	height: 300px; 
+	background: green; 
+	float: left;
+}
+#left2 {
+	margin: 0; 
+	width: 100px; 
+	height: 300px; 
+	background: yellow; 
+	float: left;
+}
+#left3 {
+	margin: 0; 
+	width: 100px; 
+	height: 300px; 
+	background: lime; 
+	float: left;
+}
+#lefta, #leftb, #leftc {
+	width: 100px; 
+	height: 100px; 
+	margin: 0;
+}
+#lefta {background: #00f;}
+#leftb {background: #693;}
+#leftc {background: teal;}
+
+#subleft {
+   float: left;
+   margin: 0;
+   width: 50px;
+   height: 100px;
+   background: maroon;
+}
+#subleft1 {
+   float: left;
+   width: 25px;
+   height: 25px;
+   background: pink;
+}
+#subleft2 {
+   float: right;
+   width: 25px;
+   height: 25px;
+   background: fuchsia;
+}
+
+#subleft1, #subleft2 {margin: 0;}
+
+#subleft3 {
+	clear: both; 
+	margin: 0; 
+	height: 50px; 
+	background: orange;
+}
+
+#subright {
+	float: right; 
+	margin: 0; 
+	width: 50px; 
+	height: 100px; 
+	background: purple;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="box">
+
+<div id="left">
+  <div id="left1">
+   <div id="lefta">
+    <div id="subleft">
+      <div id="subleft1"></div>
+      <div id="subleft2"></div>
+      <div id="subleft3"></div>
+    </div>
+    <div id="subright"></div>
+  </div>
+  <div id="leftb"></div>
+  <div id="leftc"></div>
+ </div>
+  <div id="left2"></div>
+  <div id="left3"></div>
+</div>
+
+<div id="right"></div>
+
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JavaScript: serializzare un form senza jQuery</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	margin: 0;
+	padding: 2em 0;
+	font: 100% Arial, sans-serif;
+}
+
+form {
+	margin: 0 auto;
+	width: 50%;
+}
+
+fieldset {
+	margin: 0 0 1em 0;
+	padding: 0.5em;
+}
+
+legend {
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+label {
+	font-weight: bold;
+	display: block;
+}
+
+input {
+	font: 1em Arial, sans-serif;
+	display: block;
+}
+
+textarea {
+	width: 400px;
+	height: 300px;
+	display: block;
+	font: 1em Arial, sans-serif;
+}
+</style>
+<script type="text/javascript">
+function serializeForm(form) {
+
+  form = document.getElementById(form) || document.forms[0];
+  var elems = form.elements;
+  
+  var serialized = [], i, len = elems.length, str='';
+  
+  for(i = 0; i < len; i += 1) {
+  
+    var element = elems[i];
+    var type = element.type;
+    var name = element.name;
+    var value = element.value;
+    
+    switch(type) {
+    
+      case 'text':
+      case 'radio':
+      case 'checkbox':
+      case 'textarea':
+      case 'select-one':
+      
+      str = name + '=' + encodeURIComponent(value);
+      
+      serialized.push(str);
+      
+      break;
+      
+      default:
+      
+      
+        break;
+        
+    }    
+  
+  }
+  
+  return serialized.join('&');
+
+}
+
+window.onload = function() {
+
+  var form = document.forms[0];
+  
+  form.onsubmit = function() {
+    
+    var serializedString = serializeForm('test');
+    var div = document.createElement('div');
+    div.appendChild(document.createTextNode(serializedString));
+    
+    form.appendChild(div);
+    
+    return false;
+  
+    
+  };
+
+};
+</script>
+</head>
+
+<body>
+
+<form action="#" method="post" id="test">
+
+	<fieldset>
+	
+		<legend>Input di testo</legend>
+		
+		<div>
+			<label for="name">Nome:</label>
+			<input type="text" name="name" id="name" />
+		</div>
+		
+		<div>
+		
+			<label for="website">Sito:</label>
+			<input type="text" name="website" id="website" />
+		
+		</div>
+	
+	</fieldset>
+	
+	<fieldset>
+	
+		<legend>Radio/Checkbox</legend>
+		
+		<div>
+			<label for="js">Uso JavaScript</label>
+			<input type="radio" name="js" id="js" value="yes" />
+		</div>
+		
+		<div>
+			<label for="css">Uso i CSS</label>
+			<input type="checkbox" name="css" id="css" value="yes" />
+		</div>
+
+		
+		
+	
+	</fieldset>
+	
+	<fieldset>
+	
+		<legend>Select</legend>
+		
+		<div>
+		
+			<label for="standard">Qual'&egrave; il tuo standard preferito?</label>
+			<select name="standard" id="standard">
+			
+				<option>Scegli...</option>
+				<option value="CSS">CSS</option>
+				<option value="JavaScript">JavaScript</option>
+				<option value="HTML">HTML</option>
+			
+			</select>
+		
+		</div>
+	
+	</fieldset>
+	
+	<fieldset>
+	
+		<legend>Textarea</legend>
+		
+		<div>
+		
+			<label for="comments">Commenti:</label>
+			<textarea id="comments" name="comments" rows="15" cols="20"></textarea>
+		
+		</div>
+	
+	
+	</fieldset>
+	
+	<p><input type="submit" name="btn" id="btn" value="Invia" /></p>
+
+</form>
+
+</body>
+</html>

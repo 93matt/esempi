@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: impedire l'inserimento di caratteri speciali in una textarea</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	margin: 0;
+	padding: 2em 0;
+	background: #ccc;
+	font: 76% Helvetica, Arial, sans-serif;
+}
+
+form {
+	width: 40%;
+	font-size: 1.2em;
+	padding: 1em;
+	background: #fff;
+	margin: 0 auto;
+	border: 1px solid #888;
+	border-radius: 8px;
+	box-shadow: 1px 3px 3px #ddd;
+}
+
+textarea {
+	display: block;
+	width: 450px;
+	height: 350px;
+	background: #f5f5f6;
+	border-radius: 5px;
+	font: 1.1em Helvetica, Arial, sans-serif;
+}
+
+p input {
+	font: 1em Helvetica, Arial, sans-serif;
+	background: #06c;
+	color: #fff;
+	border: none;
+	border-radius: 4px;
+	display: block;
+	padding: 5px;
+	width: 100px;
+}
+
+input:focus, textarea:focus {outline-style: none;}
+
+.info {background:#d5edf8;color:#205791;border: 2px solid #92cae4; padding: 0.8em; margin-bottom: 1em; width: 435px; border-radius: 5px;}
+</style>
+</head>
+
+<body>
+
+<form action="#" method="post">
+    <div class="info">Caratteri non ammessi: <strong>&lt;</strong> <strong>&gt;</strong></div>
+	<div>
+		<textarea cols="15" rows="15" id="text" name="text"></textarea>
+	</div>
+	<p><input type="submit" name="send" id="send" value="Invia" /></p>
+</form>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+
+	$('#text').keyup(function(event) {
+	
+		var char = event.keyCode;
+		var value = $(this).val();
+		
+		if(char == 188) {
+		
+		 	$(this).val(value.replace(/<+/g, '&lt;')); 
+		  
+		
+		}
+		
+		if(value.indexOf('>') != -1) {
+		
+			$(this).val(value.replace(/>+/g, '&gt;'));
+		
+		}	
+	});
+
+});
+</script>
+</body>
+</html>

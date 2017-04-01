@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: modulo scolastico</title>
+<meta charset="utf-8" />
+<style type="text/css" media="screen">
+body {
+margin: 2em auto;
+width: 60%;
+padding: 0;
+font: 100.01%/normal Georgia, serif;
+background: #fff;
+color: #000;
+}
+
+form {
+margin: 0;
+padding: 225px 0 0 0;
+background: url(stemma_repubblica.jpg) no-repeat 50% 0;
+}
+
+form h2, form h3 {
+margin: 0;
+padding: 0.5em 0;
+font-size: 1.3em;
+text-align: center;
+}
+
+
+form div, form p, form dl, form dt {
+padding: 1em 0;
+margin: 0;
+}
+
+form dd {
+margin: 0;
+padding: 0 0 1em 2.5em;
+}
+
+
+
+form fieldset {border: none;}
+
+form legend {
+margin: 0;
+padding: 0;
+font-weight: bold;
+position: relative;
+}
+
+form input:focus {
+	outline-style: none;
+}
+
+form input.txt {
+border-width: 0 0 1px 0;
+border-style: solid;
+border-color: #000;
+width: 150px;
+vertical-align: baseline;
+font-family: Georgia, serif;
+font-size: 1em;
+position: relative;
+top: -0.4em;
+}
+
+form input.check {
+vertical-align: baseline;
+}
+
+form label, form select {
+vertical-align: baseline;
+}
+
+form input.submit {
+width: 100px;
+font-weight: bold;
+text-transform: uppercase;
+position: relative;
+background: #000;
+color: #fff;
+border: none;
+padding: 4px;
+display: block;
+border-radius: 6px;
+}
+</style>
+</head>
+
+<body>
+
+<form method="post" action="#">
+
+<h2>Al Dirigente Scolastico</h2>
+
+<div>
+<label for="m">Il</label>
+<input type="checkbox" name="m" id="m" value="m" class="check" />
+<label for="f">la</label>
+<input type="checkbox" name="f" id="f" value="f" class="check" />
+<label for="o">sottoscritto</label>
+<input type="checkbox" name="o" id="o" value="o" class="check" />
+<label for="a">a</label>
+<input type="checkbox" name="a" id="a" value="a" class="check" />
+<label for="cognome">Cognome</label>
+<input type="text" name="cognome" id="cognome" value="" class="txt" />
+<label for="nome">Nome</label>
+<input type="text" name="nome" id="nome" value="" class="txt" />
+<label for="qualifica">Qualifica</label>
+<input type="text" name="qualifica" id="qualifica" value="" class="txt" />
+</div>
+
+<div>
+<label for="tempo">a tempo</label>
+<input type="text" name="tempo" id="tempo" value="" class="txt" />
+<label for="as">in servizio presso questo istituto nel corrente A.S.</label>
+<input type="text" name="as" id="as" value="" class="txt" />
+</div>
+
+<h3>Chiede alla S.V. di poter usufruire</h3>
+
+
+<fieldset>
+<legend>(indicare se un giorno solo)</legend>
+<div>
+<label for="giorno">per il</label> 
+<input type="text" name="giorno" id="giorno" value="" class="txt" />
+</div>
+</fieldset>
+
+
+<fieldset>
+<legend>(indicare se pi&ugrave; giorni)</legend>
+<div>
+<label for="dal">dal</label>
+<input type="text" name="dal" id="dal" value="" class="txt" />
+<label for="al">al</label>
+<input type="text" name="al" id="al" value="" class="txt" />
+<label for="giornicomplessivi">per complessivi giorni</label>
+<input type="text" name="giornicomplessivi" id="giornicomplessivi" value="" class="txt" />
+
+</div>
+
+</fieldset>
+
+<p>di:</p>
+
+<div>
+
+<dl>
+<dt>
+
+<input type="checkbox" value="ferie" id="ferie" name="ferie" class="check" />
+<label for="ferie">Ferie</label>
+</dt>
+<dd><input type="checkbox" value="corrente" id="corrente" name="corrente" class="check" />
+<label for="corrente">Relative al corrente anno scolastico</label>
+<input type="text" value="" name="asferie" id="asferie" class="txt" /></dd>
+<dd>
+<input type="checkbox" value="maturate" id="maturate" name="maturate" class="check" />
+<label for="maturate">Maturate e non godute nel precedente anno scolastico</label>
+<input type="text" value="" name="asferiematurate" id="asferiematurate" class="txt" />
+</dd>
+<dd>
+<input type="checkbox" value="festivita" id="festivita" name="festivita" class="check" />
+<label for="festivita">Festivit&agrave; previste L. 23.12.1977, n.937</label>
+</dd>
+<dd>
+<input type="checkbox" value="concorsoesame" id="concorsoesame" name="concorsoesame" class="check" />
+<label for="concorsoesame">Partecipazione a concorso/esame</label>
+</dd>
+<dd>
+<input type="checkbox" value="motivipersonali" id="motivipersonali" name="motivipersonali" class="check" />
+<label for="motivipersonali">Motivi personali</label>
+<select name="motivi" id="motivi">
+<option value="Matrimonio">Matrimonio</option>
+<option value="Lutto familiare">Lutto familiare</option>
+</select>
+</dd>
+
+<dt>
+<input type="checkbox" name="malattia" id="malattia" value="malattia" class="check" />
+<label for="malattia">Malattia</label>
+</dt>
+
+
+<dt>
+<input type="checkbox" name="aspettativa" id="aspettativa" value="aspettativa" class="check" />
+<label for="aspettativa">Aspettativa per motivi di famiglia/studio</label>
+</dt>
+
+<dt>
+<input type="checkbox" name="altro" id="altro" value="altro" class="check" />
+<label for="altro">Altro caso previsto dalla normativa vigente</label>
+<input type="text" value="" name="altrocaso" id="altrocaso" class="txt" />
+</dt>
+
+
+
+
+</dl>
+
+<p><input type="submit" value="Invia" class="submit" /></p>
+
+
+
+</div> 
+
+
+
+
+
+
+</form>
+
+
+
+
+
+</body>
+</html>

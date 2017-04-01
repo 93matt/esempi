@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: debugging e tracciamento delle animazioni</title>
+<meta charset="utf-8" />
+<style type="text/css">
+#test {
+	background: #1b8be0;
+	width: 100px;
+	height: 100px;
+	position: relative;
+	cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div id="test"></div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+(function($) {
+
+  $.fn.tracker = function(options) {
+  
+    var that = this;
+    
+    that.data('selector', that.selector);
+    that.data('context', that.context);
+    
+    var settings = {
+  
+      styleProperties: []
+    
+    
+    };
+    
+    options = $.extend(settings, options);
+    
+    var props = options.styleProperties;
+    var styleProps = '', i, len = props.length;
+    
+    styleProps += '{ ';
+    
+    for(i = 0; i < len; i += 1) {
+    
+      var value = that.css(props[i]);
+      
+      styleProps += props[i] + ':' + ' ' + value + '; ';
+    
+    }
+    
+    styleProps += ' }';
+    
+    
+    return that.each(function() {
+    
+      var date = new Date();
+    
+      var log = '[' + that.data('selector') + '] ' + 
+                  that.data('context') + ' ' + styleProps 
+                  + ' ' + date.getMilliseconds() + '/ ' + date.getSeconds();
+                  
+      $('<p/>').text(log).appendTo('body');  
+    
+    
+    
+    });
+    
+  
+  
+  };
+
+})(jQuery);
+
+$(function(){
+
+  
+  $('#test', 'body').click(function() {
+  
+    $(this).animate({
+      width: 150,
+      height: 150,
+      left: 50
+    }, {
+    
+      duration: 'slow',
+      
+      step: function() {
+      
+        $('#test', 'body').tracker({styleProperties: ['width', 'height', 'left']});
+      
+      
+      }
+    
+    });
+    
+  });
+
+});
+</script>
+</body>
+</html>

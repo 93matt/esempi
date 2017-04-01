@@ -1,0 +1,220 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>CSS: quadrati annidati con diagonale</title>
+<style type="text/css" media="screen">
+
+#square {
+background: #fff;
+color: #000;
+width: 50px;
+height: 50px;
+border: 1px solid;
+position: absolute;
+top: 50%;
+left: 50%;
+margin: -25px 0 0 -25px;
+}
+
+.diag {
+width: 1px;
+height: 1px;
+background: #000;
+position: absolute;
+}
+
+
+.x0 {bottom: 0px; left: 0px;}
+.x1 {bottom: 1px; left: 1px;}
+.x2 {bottom: 2px; left: 2px;}
+.x3 {bottom: 3px; left: 3px;}
+.x4 {bottom: 4px; left: 4px;}
+.x5 {bottom: 5px; left: 5px;}
+.x6 {bottom: 6px; left: 6px;}
+.x7 {bottom: 7px; left: 7px;}
+.x8 {bottom: 8px; left: 8px;}
+.x9 {bottom: 9px; left: 9px;}
+.x10 {bottom: 10px; left: 10px;}
+
+.x11 {bottom: 11px; left: 11px;}
+.x12 {bottom: 12px; left: 12px;}
+.x13 {bottom: 13px; left: 13px;}
+.x14 {bottom: 14px; left: 14px;}
+.x15 {bottom: 15px; left: 15px;}
+.x16 {bottom: 16px; left: 16px;}
+.x17 {bottom: 17px; left: 17px;}
+.x18 {bottom: 18px; left: 18px;}
+.x19 {bottom: 19px; left: 19px;}
+.x20 {bottom: 20px; left: 20px;}
+
+.x21 {bottom: 21px; left: 21px;}
+.x22 {bottom: 22px; left: 22px;}
+.x23 {bottom: 23px; left: 23px;}
+.x24 {bottom: 24px; left: 24px;}
+.x25 {bottom: 25px; left: 25px;}
+.x26 {bottom: 26px; left: 26px;}
+.x27 {bottom: 27px; left: 27px;}
+.x28 {bottom: 28px; left: 28px;}
+.x29 {bottom: 29px; left: 29px;}
+.x30 {bottom: 30px; left: 30px;}
+
+.x31 {bottom: 31px; left: 31px;}
+.x32 {bottom: 32px; left: 32px;}
+.x33 {bottom: 33px; left: 33px;}
+.x34 {bottom: 34px; left: 34px;}
+.x35 {bottom: 35px; left: 35px;}
+.x36 {bottom: 36px; left: 36px;}
+.x37 {bottom: 37px; left: 37px;}
+.x38 {bottom: 38px; left: 38px;}
+.x39 {bottom: 39px; left: 39px;}
+.x40 {bottom: 40px; left: 40px;}
+
+.x41 {bottom: 41px; left: 41px;}
+.x42 {bottom: 42px; left: 42px;}
+.x43 {bottom: 43px; left: 43px;}
+.x44 {bottom: 44px; left: 44px;}
+.x45 {bottom: 45px; left: 45px;}
+.x46 {bottom: 46px; left: 46px;}
+.x47 {bottom: 47px; left: 47px;}
+.x48 {bottom: 48px; left: 48px;}
+.x49 {bottom: 49px; left: 49px;}
+.x50 {bottom: 50px; left: 50px;}
+
+
+
+#square2 {
+width: 40px;
+height: 40px;
+border: 1px solid;
+position: absolute;
+top: 50%;
+left: 50%;
+margin: -21px 0 0 -21px;
+}
+
+#a1, #a2, #a3, #a4 {
+width: 20px;
+height: 20px;
+border: 1px solid;
+position: absolute;
+}
+
+#a1 {
+top: 0;
+left: 0;
+width: 19px;
+height: 19px;
+border-width: 0 1px 1px 0;
+}
+
+#a2 {
+top: 0;
+left: 20px;
+border-width: 0 0 1px 0;
+height: 19px;
+}
+
+#a3 {
+bottom: 0;
+left: 0;
+border-width: 0 1px 0 0;
+width: 19px;
+}
+
+#a4 {
+bottom: 0;
+left: 20px;
+border-width: 0 0 0 0;
+height: 20px;
+}
+
+
+
+
+
+
+
+</style>
+</head>
+
+<body>
+
+<div id="square">
+
+<div class="diag x0"></div>
+
+<div class="diag x1"></div>
+<div class="diag x2"></div>
+<div class="diag x3"></div>
+<div class="diag x4"></div>
+<div class="diag x5"></div>
+<div class="diag x6"></div>
+<div class="diag x7"></div>
+<div class="diag x8"></div>
+<div class="diag x9"></div>
+<div class="diag x10"></div>
+
+
+<div class="diag x11"></div>
+<div class="diag x12"></div>
+<div class="diag x13"></div>
+<div class="diag x14"></div>
+<div class="diag x15"></div>
+<div class="diag x16"></div>
+<div class="diag x17"></div>
+<div class="diag x18"></div>
+<div class="diag x19"></div>
+<div class="diag x20"></div>
+
+<div class="diag x21"></div>
+<div class="diag x22"></div>
+<div class="diag x23"></div>
+<div class="diag x24"></div>
+<div class="diag x25"></div>
+<div class="diag x26"></div>
+<div class="diag x27"></div>
+<div class="diag x28"></div>
+<div class="diag x29"></div>
+<div class="diag x30"></div>
+
+<div class="diag x31"></div>
+<div class="diag x32"></div>
+<div class="diag x33"></div>
+<div class="diag x34"></div>
+<div class="diag x35"></div>
+<div class="diag x36"></div>
+<div class="diag x37"></div>
+<div class="diag x38"></div>
+<div class="diag x39"></div>
+<div class="diag x40"></div>
+
+<div class="diag x41"></div>
+<div class="diag x42"></div>
+<div class="diag x43"></div>
+<div class="diag x44"></div>
+<div class="diag x45"></div>
+<div class="diag x46"></div>
+<div class="diag x47"></div>
+<div class="diag x48"></div>
+<div class="diag x49"></div>
+<div class="diag x50"></div>
+
+
+
+
+<div id="square2">
+<div id="a1"></div>
+<div id="a2"></div>
+<div id="a3"></div>
+<div id="a4"></div>
+
+
+</div>
+
+
+
+</div>
+
+</body>
+</html>

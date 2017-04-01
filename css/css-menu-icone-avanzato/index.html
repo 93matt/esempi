@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: menu ad icone avanzato</title>
+<meta charset="utf-8" />
+<style type="text/css" media="screen">
+@import url(http://fonts.googleapis.com/css?family=Oswald);
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+#navigation {
+	margin: 0;
+	padding: 0;
+	height: 36px;
+	font: 100% Oswald, sans-serif;
+	list-style: none;
+	border-bottom: 1px solid #ccc;
+	background: #f2f2f2;
+}
+
+#navigation li {
+	float: left;
+	height: 100%;
+	margin-right: 1em;
+}
+
+#navigation span {
+	width: 36px;
+	height: 36px;
+	float: left;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	opacity: 0.6;
+}
+
+#navigation #home span {
+	background-image: url(img/home.png);
+}
+#navigation #articles span {
+	background-image: url(img/book.png);
+}		
+#navigation #about span {
+	background-image: url(img/info.png);
+}
+#navigation #contact span {
+	background-image: url(img/email.png);
+}
+
+#navigation a {
+	float: left;
+	padding: 0 1em;
+	height: 36px;
+	line-height: 36px;
+	color: #222;
+	text-decoration: none;
+	text-shadow: 1px 1px 1px #444;
+	text-transform: uppercase;
+}
+
+#navigation a:hover {
+	background: #222;
+	color: #fff;
+}
+
+#navigation li:hover span {
+	opacity: 1;
+}
+	
+		
+</style>
+</head>
+
+<body>
+
+<ul id="navigation">
+	<li id="home"><span></span><a href="#">Home</a></li>
+	<li id="articles"><span></span><a href="#">Articoli</a></li>
+	<li id="about"><span></span><a href="#">About</a></li>
+	<li id="contact"><span></span><a href="#">Contatti</a></li>
+</ul>
+
+</body>
+</html>

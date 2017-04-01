@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>is()</title>
+<meta charset="utf-8" />
+</head>
+
+<body>
+
+<div>
+	<select name="choice" id="choice">
+	
+		<option>Select</option>
+		<option value="p:first">is('#test')</option>
+		<option value="#foo">is('div')</option>
+		<option value=".test">is('#test')</option>
+	
+	
+	</select>
+</div>
+
+<pre>
+&lt;p id=&quot;test&quot;&gt;&lt;/p&gt;
+&lt;div id=&quot;foo&quot;&gt;&lt;/div&gt;
+&lt;p class=&quot;test&quot;&gt;&lt;/p&gt;
+</pre>
+
+
+<p id="test">Integer auctor aliquet parturient nascetur et ut aenean. Cursus arcu ac magna auctor vel vel tristique magnis aenean, eu? Lacus @username et habitasse nisi integer penatibus mauris, et, cum ac odio! In scelerisque penatibus tincidunt duis et!</p>
+
+<div id="foo">Integer auctor aliquet parturient nascetur et ut aenean. Cursus arcu ac magna auctor vel vel tristique magnis aenean, eu? Lacus et habitasse nisi integer penatibus mauris, et, cum ac odio! In scelerisque penatibus tincidunt duis et!</div>
+
+<p class="test">Integer auctor aliquet parturient nascetur et ut aenean. Cursus arcu ac magna auctor vel vel tristique magnis aenean, eu? Lacus @username et habitasse nisi integer penatibus mauris, et, cum ac odio! In scelerisque penatibus tincidunt duis et!</p>
+
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script>
+$(function() {
+
+	
+	
+	$('#choice').change(function() {
+	
+		var value = $('option:selected', $(this)).val();
+		var selector = $(value);
+		
+		switch(value) {
+			case 'p:first':
+				alert(selector.is('#test'));
+				break;
+			case '#foo':
+				alert(selector.is('div'));
+				break;
+			case '.test':
+				alert(selector.is('#test'));
+				break;
+			default:
+				break;
+		}
+	
+	
+	});
+			
+});
+</script>
+</body>
+</html>

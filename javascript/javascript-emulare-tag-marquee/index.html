@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JavaScript: emulare il tag marquee</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	margin: 1em;
+}
+
+#container {
+	width: 430px;
+	background: silver;
+}
+
+#marquee {
+	font-family: Arial, sans-serif;
+	position: relative;
+}
+</style>
+</head>
+
+<body>
+
+<div id="container">
+
+  <span id="marquee">Test</span>
+
+</div>
+
+<script type="text/javascript">
+var Marquee = function(element, width) {
+	
+	var self = this;
+
+	this.element = document.getElementById(element);
+	
+	this.width = width;
+	
+	var limitToRight = this.width;
+	var limitToLeft = 0;
+	
+	var marquee = function() {
+	
+		var counterTimerToRight = 0;
+		var counterTimerToLeft = limitToRight;
+		
+		var timerToRight = setInterval(function() {
+		
+			counterTimerToRight += 1;
+			
+			if(counterTimerToRight == limitToRight) {
+			
+				clearInterval(timerToRight);
+				
+				var timerToLeft = setInterval(function() {
+				
+					counterTimerToLeft -= 1;
+					
+					if(counterTimerToLeft == limitToLeft) {
+					
+						clearInterval(timerToLeft);
+					
+					}
+				
+					self.element.style.left = counterTimerToLeft + 'px';
+				
+				}, 25);
+			
+			}
+			
+			
+			self.element.style.left = counterTimerToRight + 'px';
+		
+		
+		}, 25);	
+	
+	};
+	
+	this.run = function() {
+	
+		var runTimer = setTimeout(function() {
+		
+			marquee();
+			
+			setTimeout(arguments.callee, 19850);
+		
+		
+		}, 25);
+	
+	
+	};
+
+
+};
+
+window.onload = function() {
+
+	var marquee = new Marquee('marquee', 397);
+	marquee.run();
+
+};
+</script>
+
+
+</body>
+</html>

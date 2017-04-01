@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Servizi</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-route.min.js"></script>
+<script type="text/javascript">
+var app = angular.module('MyApp', ['ngRoute']);
+
+app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+	$routeProvider.when('/', {
+		controller: 'ProductsCtrl',
+		templateUrl: 'partials/products.html'
+	}).when('/checkout', {
+		controller: 'CheckoutCtrl',
+		templateUrl: 'partials/checkout.html'
+	}).otherwise({ redirectTo: '/' });
+	$locationProvider.html5Mode(false).hashPrefix('!');
+}]);
+
+app.factory('Storage', function() {
+    return {
+        type: sessionStorage,
+        save: function(item, value) {
+            this.type.setItem(item, value);
+        },
+        read: function(item) {
+            return this.type.getItem(item);
+        },
+        remove: function(item) {
+            this.type.removeItem(item);
+        },
+        hasItem: function(item) {
+            return (this.read(item) !== null);
+        },
+        empty: function() {
+            this.type.clear();
+        },
+        items: function() {
+            return this.type.length;
+        },
+        saveAsJSON: function(item, value) {
+            this.save(item, JSON.stringify(value));
+        },
+        readAsJSON: function(item) {
+            var value = this.read(item);
+            return JSON.parse(value);
+        }
+    };
+});
+
+app.factory('Cart', ['Storage',  function(Storage) {
+    return {
+    	count: function() {
+    		var num = 0;
+    		if(Storage.hasItem('ecommerce-cart')) {
+    			var cart = Storage.readAsJSON('ecommerce-cart');
+    			num = cart.items.length;
+    		}
+    		return num;
+    	},
+        addToCart: function(product) {
+            if(!Storage.hasItem('ecommerce-cart')) {
+                var cart = {};
+                cart.items = [];
+                cart.items.push(product);
+                Storage.saveAsJSON('ecommerce-cart', cart);
+            } else {
+                var cart = Storage.readAsJSON('ecommerce-cart');
+                cart.items.push(product);
+                Storage.saveAsJSON('ecommerce-cart', cart);
+            }
+        },
+        removeProduct: function(title) {
+            var cart = Storage.readAsJSON('ecommerce-cart');
+            var items = cart.items;
+            for(var i = 0; i < items.length; ++i) {
+                if(items[i].title == title) {
+                    items.splice(i, 1);
+                    break;
+                }
+            }
+            var data = items;
+            var newCart = {};
+            newCart.items = data;
+            Storage.remove('ecommerce-cart');
+            Storage.saveAsJSON('ecommerce-cart', newCart);
+        },
+        getCartTotal: function() {
+            var cart = Storage.readAsJSON('ecommerce-cart');
+            var items = cart.items;
+            var total = 0;
+
+            for(var i = 0; i < items.length; ++i) {
+                var product = items[i];
+                var price = Number(product.price);
+                var partial = price;
+                total += partial;
+            }
+
+            return total;    
+        },
+        emptyCart: function(callback) {
+            if(Storage.hasItem('ecommerce-cart')) {
+                Storage.remove('ecommerce-cart');
+                callback();
+            }
+        },
+        updateCart: function(newCart) {
+            Storage.remove('ecommerce-cart');
+            Storage.saveAsJSON('ecommerce-cart', newCart);    
+        },
+        getCart: function() {
+        	var cart = Storage.readAsJSON('ecommerce-cart');
+            var items = cart.items;
+            return items;	
+        }
+    };
+}]);
+
+app.controller('ProductsCtrl', ['$scope', 'Cart', function($scope, Cart) {
+	$scope.products = [
+		{
+			title: 'Unraveling AngularJS 1.4',
+			price: 6.87,
+			image: 'http://ecx.images-amazon.com/images/I/51b%2BolwptRL._SX384_BO1,204,203,200_.jpg'
+		},
+		{
+			title: 'Pro AngularJS',
+			price: 42.74,
+			image: 'http://ecx.images-amazon.com/images/I/51yy190aiLL._SX404_BO1,204,203,200_.jpg'
+		},
+		{
+			title: 'Professional AngularJS',
+			price: 34.32,
+			image: 'http://ecx.images-amazon.com/images/I/5199qc7zTWL._SX396_BO1,204,203,200_.jpg'
+		}
+	];
+
+	$scope.itemsInCart = Cart.count();
+
+	$scope.add = function(product) {
+		Cart.addToCart(product);
+		$scope.itemsInCart = Cart.count();
+	};
+}]);
+
+app.controller('CheckoutCtrl', ['$scope', 'Cart', function($scope, Cart) {
+	$scope.products = Cart.getCart();
+	$scope.total = Cart.getCartTotal();
+
+	$scope.remove = function(title) {
+		Cart.removeProduct(title);
+		$scope.products = Cart.getCart();
+		$scope.total = Cart.getCartTotal();
+	};
+}]);
+</script>
+</head>
+<body ng-app="MyApp" class="full">
+	
+	<div ng-view></div>	
+</body>
+</html>

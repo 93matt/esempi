@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>change()</title>
+<meta charset="utf-8" />
+</head>
+
+<body>
+
+<p><button id="change">change()</button><button id="on">on('change')</button></p>
+
+<p>
+	<select name="choice" id="choice">
+		<option>Choose</option>
+		<option value="A">A</option>
+		<option value="B">B</option>
+		<option value="C">C</option>
+	</select>
+</p>
+
+<div id="output"></div>
+
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script>
+$(function() {
+
+    
+
+	
+	
+	$('#change').click(function() {
+	
+		$('#choice').unbind('change');
+		
+		$('#choice').change(function() {
+		
+			var $select = $(this);
+			var value = $('option:selected', $select).val();
+			
+			$('#output').text(value);
+		
+		
+		});
+	
+	
+	});	
+	
+	
+	
+	$('#on').click(function() {
+	
+		$('#choice').off('change');
+		
+		$('#choice').on('change', function() {
+		
+			var $select = $(this);
+			var value = $('option:selected', $select).val();
+
+			
+			$('#output').text(value);
+	
+	
+			
+		});
+	
+	});
+
+});
+</script>
+</body>
+</html>

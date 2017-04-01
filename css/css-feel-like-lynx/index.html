@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Feel Like Lynx</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+margin: 0 20px 20px 20px;
+padding: 0;
+font: 100.01%/normal Arial, Helvetica, sans-serif;
+background: #00ff00;
+color: #000;
+}
+
+#header {
+width: 629px;
+margin: 0;
+background: transparent url("img/header1a.gif") no-repeat 0 0;
+}
+
+#subh {
+width: 629px;
+margin: 0;
+background: transparent url("img/header1b.gif") no-repeat 33px 0;
+}
+
+#menu {
+width: 629px;
+margin: 0;
+background: transparent url("img/header1c.gif") no-repeat 160px 0;
+}
+
+#menu ul {
+margin: 0 0 0 250px;
+padding: 0.5em 0 0 0;
+list-style: none;
+font-size: 80%;
+}
+#menu li {
+display: inline;
+margin: 0;
+padding-right: 0.3em;
+height: 0;
+}
+#menu a:link,
+#menu a:visited {
+font-weight: bold;
+color: #000;
+background: transparent;
+}
+#menu a:hover {
+text-decoration: none;
+}
+
+#subheader {
+margin: 0;
+width: 629px;
+background: transparent url("img/header2a.gif") no-repeat 0 0;
+height: 40px;
+}
+
+#logo {
+float: left;
+width: 160px;
+margin: 0 0 0 33px;
+display: inline;
+}
+#logo img {
+margin: 0;
+display: block;
+}
+#motto {
+float: left;
+width: 436px;
+margin: 0;
+background: transparent url("img/header2b.gif") no-repeat 0 0;
+}
+#motto p {
+margin: 0 0 0 54px;
+}
+#motto p img {
+display: block;
+margin: 0;
+}
+
+#skip {
+clear: both;
+margin: 0;
+width: 629px;
+height: 15px;
+background: transparent url("img/header3a.gif") no-repeat 0 0;
+}
+
+#skipa {
+margin: 0;
+width: 629px;
+height: 15px;
+background: transparent url("img/header3b.gif") no-repeat 33px 0;
+}
+
+#skipb {
+margin: 0;
+width: 629px;
+height: 15px;
+background: transparent url("img/header3c.gif") no-repeat 160px 0;
+}
+
+#salta {
+margin: 0;
+width: 629px;
+height: 15px;
+background: transparent url("img/header3d.gif") no-repeat 193px 0;
+}
+#salta a {
+position: absolute;
+top: -1000em;
+}
+
+#content {
+margin: 0;
+padding-top: 1.5em;
+width: 97%;
+font-size: 80%;
+}
+
+#content:after {
+content: ".";
+display: block;
+height: 0;
+clear: both;
+visibility: hidden;
+}
+
+#sx {
+margin: 0;
+float: left;
+width: 185px;
+background: transparent;
+color: #fff;
+}
+
+#sx h3 {
+margin: 0 1em;
+padding: 5px;
+background: #00ff00;
+color: #000;
+font-size: 100%;
+}
+
+#sx blockquote {
+margin: 0 5px;
+padding: 1em 0;
+}
+#sx blockquote p {
+margin: 0;
+line-height: 1.5;
+padding: 5px;
+}
+
+span.blogAuthor {
+color: #00ff00;
+font-weight: bold;
+background: transparent;
+}
+
+#firstquote {
+width: 185px;
+padding: 0;
+margin: 0;
+background: transparent url("img/quote1.gif") no-repeat 0 0;
+height: 67px;
+}
+
+#firstquote span {
+position: absolute;
+top: -1000em;
+}
+
+#quotes {
+width: 185px;
+margin: 0;
+background: transparent url("img/quote2.gif") repeat-y 0 0;
+}
+
+#lastquote {
+width: 185px;
+margin: 0;
+padding: 0;
+background: transparent url("img/quote3.gif") no-repeat 0 0;
+height: 117px;
+}
+#lastquote span {
+position: absolute;
+top: -1000em;
+}
+
+#dx {
+float: left;
+width: 462px;
+background: transparent url("img/main1a.gif") no-repeat 0 0;
+color: #000;
+margin: 0 0 0 3em;
+display: inline;
+}
+
+#dxb {
+width: 462px;
+margin: 0;
+background: transparent url("img/main1b.gif") no-repeat 70px 0;
+height: 70px;
+}
+#dxb span {
+position: absolute;
+top: -1000em;
+}
+
+#dxc {
+width: 462px;
+margin: 0;
+background: transparent url("img/main1c.gif") no-repeat 0 0;
+}
+#dxc span {
+position: absolute;
+top: -1000em;
+}
+
+#breadcrumbs {
+margin: 0 0 0 19px;
+padding: 0.5em 0.5em 0.5em 0;
+list-style: none;
+text-align: right;
+background: #fff;
+color: #000;
+}
+#breadcrumbs li {
+display: inline;
+height: 0;
+margin: 0;
+padding: 0 0.3em;
+}
+
+#breadcrumbs a:link,
+#breadcrumbs a:visited {
+color: #f00;
+font-weight: bold;
+text-decoration: none;
+}
+#breadcrumbs a:hover {
+text-decoration: underline;
+}
+
+#articolo {
+margin: 0 0 0 19px;
+padding: 0 1em;
+background: #fff;
+color: #000;
+}
+#articolo h2 {
+text-align: center;
+font-size: 1.3em;
+margin: 0;
+padding: 1em 0;
+}
+#articolo h3 {
+font-size: 1em;
+font-weight: bold;
+color: #f00;
+background: transparent;
+margin: 0;
+padding-bottom: 1em;
+padding-top: 1em;
+}
+
+#articolo p {
+margin: 0;
+padding: 0 0 0.5em 0;
+}
+
+#articolo .article {
+border-bottom: 2px dashed #000;
+padding-bottom: 10px;
+margin-bottom: 0.5em;
+}
+
+#disclaimer {
+font-weight: bold;
+padding: 1em 0;
+margin: 0;
+}
+
+#fine {
+margin: 0;
+height: 70px;
+}
+
+#fondo {
+margin: 0 0 0 19px;
+height: 70px;
+background: transparent url("img/main3b.gif") no-repeat 0 0;
+float: left;
+width: 392px;
+display: inline;
+}
+#fondo span {
+position: absolute;
+top: -1000em;
+}
+
+#torna {
+height: 70px;
+width: 50px;
+float: left;
+margin: 0;
+background: transparent url("img/main3c.gif") no-repeat 0 0;
+}
+#torna a {
+position: absolute;
+top: -1000em;
+}
+
+#switch a {
+	font: bold 1.2em Arial, sans-serif;
+	color: #fff;
+	background: #c30;
+	text-decoration: none;
+	padding: 0.4em;
+	border-radius: 6px;
+	text-transform: uppercase;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="header">
+
+<div id="subh">
+<div id="menu">
+<ul>
+<li><a href="#">home</a> &raquo;</li> 
+<li><a href="#">top #100</a> &raquo;</li> 
+<li><a href="#">latest entries</a> &raquo; </li>
+<li><a href="#">archive</a> &raquo;</li> 
+<li><a href="#">blogdex</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="subheader">
+<p id="logo"><img src="img/vblog.gif" alt="V.BLOG" /></p>
+<div id="motto">
+<p><img src="img/header2c.gif" alt="-- LIVE AND DIRECT FROM THE STREET --" /></p>
+</div>
+</div>
+
+<div id="skip">
+<div id="skipa">
+<div id="skipb">
+<p id="salta"><a href="#content">Vai ai contenuti</a></p>
+</div>
+</div>
+</div>
+
+
+<div id="content">
+
+<div id="sx">
+
+<p id="firstquote">
+<span>Inizio colonna citazioni</span>
+</p>
+
+<div id="quotes">
+
+<h3>Today's Top Quotes #1</h3>
+
+<blockquote>
+<p>&quot;Techno-Slacking is the new trend! It is surely everyone's constitutional right to look at football web sites when they’re at work…&quot;<br />
+<span class="blogAuthor">J.P.LeBoeuf</span> [ webFanatic ] 
+</p>
+</blockquote>
+
+<h3>Today's Top Quotes #2</h3>
+
+<blockquote>
+<p>&quot;Conspiracy theorists will always continue to pedal their wares while foolish minds wander&quot;<br />
+<span class="blogAuthor">Andre</span> [ MineAllMine ]</p>
+</blockquote>
+
+<h3>Today's Top Quotes #3</h3>
+
+<blockquote>
+<p>&quot;Canadian Supreme Court drafts eighth deadly sin: Though shalt not poke fun at those funny French people&quot;<br />
+<span class="blogAuthor">MikeOK</span> [ weloveTomGreen ] 
+</p>
+</blockquote>
+</div>
+
+<p id="lastquote"><span>Fine colonna citazioni</span></p>
+
+
+
+</div>
+
+
+<div id="dx">
+<p id="dxb"><span>Inizio contenuti principali</span></p>
+<p id="dxc"><span>Briciole di pane</span></p>
+<ul id="breadcrumbs">
+<li><strong>You are here:</strong></li>
+<li><a href="#">blogdex</a></li>
+</ul>
+
+<div id="articolo">
+<p id="switch"><a href="#">Feel Like Lynx</a></p>
+<h2>Today's Top Stories</h2>
+<h3>Government think tank looks &quot;Back to the Future&quot; in bid to cut street crime</h3>
+<p>
+In a bid to combat the rising menace of street crime the government think tank N.I.C.C.A. (National Initiative to Combat Criminal Activities) is currently looking at how technology, and in particular old technology, can be used in the fight against crime. Having identified mobile phone thefts as the major cause of street crime the committee has commissioned a series of trials to prove if the appeal of mobile phones can be diminished by supplying people with older 'brick-style' portable telephones  that were briefly popularised by members of the red braces/filofax 'yuppie' community in the 1980s.
+</p>
+<p class="article"> In a series of controlled tests 100 subjects were asked to 
+              carry a briefcase-style unit for one month that contained a handset 
+              and battery pack with a &quot;highly practical&quot; total weight 
+              of 10kgs. Of the 100 subjects only two units were reported stolen, 
+              both of which were later found discarded. Lead chair of the committee 
+              Nigel Whitsworth declared that these early trials had been &quot;very 
+              encouraging&quot; and also commented that as the units were &quot;considerably 
+              more robust&quot; than modern equivalents that &quot;the disaffected 
+              youth of today would aspire to such well-built personal telephonic 
+              devices&quot;. </p>
+
+<h3>Pensioner declares Internet &quot;a load of old rubbish&quot;</h3>
+<p>In a shock announcement Mr Fred Gribley, 84, of Stockport has declared the Internet to be &quot;a load of old rubbish&quot;, also adding that it was &quot;near impossible&quot; to find any pictures or information about top light entertainment performer and former 'Bullseye' host Jim Bowen.</p>
+<p class="article">Interviewed earlier today at his home, Mr Gribley asked our 
+              correspondent to watch as he accessed the Google&#8482; search engine 
+              and entered a random search subject as an example, coincidentally 
+              enough using the key words 'jim bowen' and 'bullseye'. Of the approximately 
+              5 billion pages currently available on the Internet Google&#8482; 
+              returned from these a total of 761 results, while a similar search 
+              on the Google&#8482; Images search service returned &quot;a pitiful&quot; 
+              13 results, the majority of which were, in Mr Gribley's opinion, 
+              nothing more than &quot;second-rate TV grabs&quot;. Mr Gribley added 
+              that he would be closing his Internet account at the first available 
+              opportunity and concluded that he could have spent his time more 
+              constructively &quot;down the pub.&quot;</p>
+			  
+<p id="disclaimer">DISCLAIMER: Stories featured on this page are for entertainment purposes only and any similarity or likeness to any person(s) or event(s) is purely coincidental. Perhaps.</p>
+</div>
+
+
+<div id="fine">
+<p id="fondo">
+<span>Fine dei contenuti</span>
+</p>
+<p id="torna"><a href="#articolo">Torna ai contenuti</a></p>
+</div>
+
+</div>
+
+
+</div>
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+
+	$('a', '#switch').click(function(event) {
+	
+		var $link = '<link rel="stylesheet" href="lynx.css" type="text/css" media="screen" title="FL: Feel Like Lynx"  />';
+		
+		if($('link').length == 0) {
+		
+		    $($link).appendTo('head');
+		    
+		} else {
+		
+			$('link').eq(0).remove();
+		
+		}
+		
+		event.preventDefault();
+	
+	});
+
+});
+</script>
+
+
+
+
+
+</body>
+</html>

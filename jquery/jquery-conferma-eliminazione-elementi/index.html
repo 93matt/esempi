@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: conferma eliminazione elementi</title>
+<meta charset="utf-8" />
+<style type="text/css" media="screen">
+body {
+	margin: 0 auto;
+	width: 470px;
+	padding: 15px 0 10px 0;
+	font: 76% Arial, sans-serif;
+}
+h2 {
+	margin: 0;
+	padding: 0 0 0.3em;
+	font: 1.4em "Trebuchet MS", Trebuchet, sans-serif;
+	color: #080;
+}
+p {
+	margin: 0;
+	padding: 0 0 0.5em;
+}
+.panel {
+	background: #edf5e1;
+	padding: 10px 20px 10px;
+	position: relative;
+	border-top: solid 2px #c4df9b;
+	height: 100%;
+	font-size: 1.1em;
+	margin-bottom: 1em;
+}
+.panel .remove {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	width: 16px;
+	height: 16px;
+	background: url(img/delete.gif) no-repeat;
+	text-indent: -1000em;
+}
+</style>
+</head>
+
+<body>
+
+<div class="panel">
+	<h2>Titolo</h2>
+	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi malesuada, ante at feugiat tincidunt, enim massa gravida metus, commodo lacinia massa diam vel eros. Proin eget urna. Nunc fringilla neque vitae odio. Vivamus vitae ligula.</p>
+</div>
+<div class="panel">
+	<h2>Titolo</h2>
+	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi malesuada, ante at feugiat tincidunt, enim massa gravida metus, commodo lacinia massa diam vel eros. Proin eget urna. Nunc fringilla neque vitae odio. Vivamus vitae ligula.</p>
+</div>
+<div class="panel">
+	<h2>Titolo</h2>
+	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi malesuada, ante at feugiat tincidunt, enim massa gravida metus, commodo lacinia massa diam vel eros. Proin eget urna. Nunc fringilla neque vitae odio. Vivamus vitae ligula.</p>
+
+</div>
+<div class="panel">
+	<h2>Titolo</h2>
+	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi malesuada, ante at feugiat tincidunt, enim massa gravida metus, commodo lacinia massa diam vel eros. Proin eget urna. Nunc fringilla neque vitae odio. Vivamus vitae ligula.</p>
+	
+</div>
+<div class="panel">
+	<h2>Titolo</h2>
+	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi malesuada, ante at feugiat tincidunt, enim massa gravida metus, commodo lacinia massa diam vel eros. Proin eget urna. Nunc fringilla neque vitae odio. Vivamus vitae ligula.</p>
+</div>
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+
+
+    var button = $('<a/>', {'class': 'remove', href: '#', text: 'Rimuovi'});
+    button.appendTo('div.panel');
+    
+    $('a.remove', 'div.panel').each(function() {
+    
+        var $a = $(this);
+	
+        $a.click(function(event) {
+        
+        	var permission = confirm('Sei sicuro di voler eliminare questo elemento?');
+        	
+        	if(permission) {
+	
+				$a.parent().animate({'opacity':'hide'}, 'slow', function() {
+	    			$a.parent().remove();
+	    
+				});
+			
+			} else {
+			
+				return;
+			
+			}
+			
+			event.preventDefault();
+	
+    	});
+    
+    
+    });
+
+
+
+});
+</script>
+
+</body>
+</html>

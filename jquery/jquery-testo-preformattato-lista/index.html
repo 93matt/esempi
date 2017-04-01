@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: trasformare il testo preformattato in una lista</title>
+<meta charset="utf-8" />
+<style type="text/css">
+ol.css {
+	background: #eee;
+	border: 1px solid #999;
+	padding: 0.3em;
+	width: 50%;
+	line-height: 1.4;
+	font: 0.85em Monaco, "Courier New", Courier, monospace;
+	margin-left: 2.5em;
+	border-radius: 6px;
+}
+
+
+ol.css .indent {padding-left: 1em;}
+</style>
+</head>
+
+<body>
+
+<pre class="css">
+body {
+  color: #000;
+}
+</pre>
+
+<pre class="css">
+a {
+  color: blue;
+  text-decoration: none;
+  outline-style: none;
+}
+</pre>
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+$(function() {
+
+    $('pre.css').each(function() {
+    
+        var $html = $(this).html();
+	
+        $(this).replaceWith('<ol class="css">' + $html + '</ol>');
+	
+	
+    });
+    
+    
+    $('ol.css').each(function() {
+    
+       var items = [];
+        var oldHTML = $(this).html();
+	
+        var lines = oldHTML.split(/\r\n|\n/);
+       
+       
+	
+        for(var i=0; i<lines.length; i++) {
+	
+	var item;
+	
+	if(lines[i].indexOf('{') != -1 || lines[i].indexOf('}') != -1) {
+	
+	    item = '<li>'+lines[i]+'</li>';
+	    
+	} else {
+	
+	    item = '<li class="indent">' + lines[i] + '</li>';
+	    
+	}
+	
+	items.push(item);
+	
+	
+        }
+	
+        for(var j=0; j<items.length; j++) {
+	
+	
+	if(items[j] == '<li></li>' || items[j] == '<li class="indent"></li>') {
+	
+	    items.pop(items[j]);
+	    
+	}
+	
+        }
+	
+
+        var newHTML = items.join('');
+	
+         $(this).html(newHTML);
+    
+    
+    });
+    
+    
+
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>$.data()</title>
+<meta charset="utf-8" />
+</head>
+
+<body>
+
+<p><button id="test">$.data()</button> - test: 'Test'</p>
+
+<div id="data"></div>
+
+
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script>
+$(function() {
+
+	$('#test').click(function() {
+	
+	    var $data = $('#data');
+    
+    	$.data($data, 'foo', 'Test');
+    	$data.data('bar', 'Test');
+    	
+    	alert($.data($data, 'foo'));
+    	alert($data.data('bar'));
+    	
+    
+    });
+
+
+});
+</script>
+</body>
+</html>

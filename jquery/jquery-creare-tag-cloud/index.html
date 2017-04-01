@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: creare una tag cloud</title>
+<meta charset="utf-8" />
+<style type="text/css">
+#tag-cloud {
+    padding: 0.5em 0;
+    margin: 0.5em;
+    width: 40%;
+    list-style: none;
+    font: 100% Arial, sans-serif;
+    border: 1px solid gray;
+    border-width: 1px 0 1px 0;
+    line-height: 1.5;
+}
+
+#tag-cloud li {
+  display: inline;
+  text-transform: lowercase;
+  padding: 0 1em;
+}
+
+#tag-cloud li a {
+   text-decoration: none;
+   position: relative;
+}
+</style>
+</head>
+
+<body>
+
+<ul id="tag-cloud">
+<li><a href="http://onwebdev.blogspot.com/search/label/accessibility/">Accessibility</a></li>
+<li><a href="http://onwebdev.blogspot.com/search/label/ajax/">Ajax</a></li>
+<li><a href="http://onwebdev.blogspot.com/search/label/chrome/">Chrome</a></li>
+<li><a href="http://onwebdev.blogspot.com/search/label/css/">CSS</a></li>
+<li><a href="http://onwebdev.blogspot.com/search/label/dom/">DOM</a></li>
+<li><a href="http://onwebdev.blogspot.com/search/label/firefox/">Firefox</a></li>
+<li><a href="http://onwebdev.blogspot.com/search/label/html5/">HTML5</a></li>
+<li><a href="http://onwebdev.blogspot.com/search/label/javascript/">JavaScript</a></li>
+<li><a href="http://onwebdev.blogspot.com/search/label/jquery/">jQuery</a></li>
+<li><a href="http://onwebdev.blogspot.com/search/label/php/">PHP</a></li>
+<li><a href="http://onwebdev.blogspot.com/search/label/python/">Python</a></li>
+<li><a href="http://onwebdev.blogspot.com/search/label/svg/">SVG</a></li>
+<li><a href="http://onwebdev.blogspot.com/search/label/wordpress/">Wordpress</a></li>
+<li><a href="http://onwebdev.blogspot.com/search/label/xhtml/">XHTML</a></li>
+<li><a href="http://onwebdev.blogspot.com/search/label/xml/">XML</a></li>
+<li><a href="http://onwebdev.blogspot.com/search/label/xslt/">XSLT</a></li>
+</ul>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+
+function createRandomColor() { 
+ 
+    var hex = '0123456789ABC'.split(''),  
+    color = '#', i; 
+     
+    for (i = 0; i < 6; i += 1) {  
+        color = color + hex[Math.floor(Math.random() * 13)];  
+    }  
+ 
+    return color;  
+}
+
+function setFontSize() {
+
+
+    var maxFontSize = 30;
+    var fontSize = Math.floor(Math.random() * maxFontSize + 14) + 'px';
+    
+    return fontSize;
+
+   
+
+
+}
+
+
+function setOffsets() {
+
+    var offsets = {};
+    
+    var randTop = Math.floor(Math.random() * 10);
+    var randLeft = Math.floor(Math.random() * 10);
+    
+    var maxTop = Math.floor(Math.random() * randTop) + 'px';
+    var maxLeft = Math.floor(Math.random() * randLeft) + 'px';
+
+   offsets.top = maxTop;
+   offsets.left = maxLeft;
+   
+   return offsets;    
+    
+
+
+
+} 
+
+ 
+
+$(document).ready(function() {
+
+
+    
+    
+    $('#tag-cloud li').each(function() {
+    
+    
+        var $a = $(this).find('a');
+        var cssColor = createRandomColor();
+        var cssFontSize = setFontSize();
+        
+        var linkOffsets = setOffsets();
+        
+        
+        $a.css({color: cssColor, fontSize: cssFontSize, top: linkOffsets.top, left: linkOffsets.left});
+        
+    
+    });
+
+
+});
+</script>
+</body>
+</html>
+

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: dividere il contenuto di un documento in tab</title>
+<meta charset="utf-8" />
+<style type="text/css">
+.tabs {
+	overflow: hidden;
+	border-bottom: 1px solid #ccc;
+	font: 100% Arial, sans-serif;
+	margin: 0 20px;
+	padding: 0;
+}
+
+.tabs li,
+.tabs a {
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+.tabs li {
+	background: #fff;
+	border: 1px solid #ccc;
+	border-bottom-width: 0;
+	display: inline;
+	float: left;
+	list-style: none;
+	margin: 0 5px 0 0;
+	padding: 1px 1px 0 0;
+	text-align: center;
+	width: 120px;
+}
+
+.tabs a {
+	border: 1px solid #eee;
+	border-bottom-width: 0;
+	color: #999;
+	display: block;
+	padding: 5px 0;
+	text-decoration: none;
+}
+
+.tabs a.current {
+	background: #ccc url(gradient.gif) repeat-x;
+	color: #000;
+}
+
+.tabs a:hover {
+	background: #666;
+	border-color: #666;
+	color: #fff;
+}
+
+* html .tabs a {
+	height: 1%;
+}
+
+.tab_content_wrap {
+	margin: 0 0 20px 0;
+	padding: 20px 20px 5px 20px;
+	width: 598px;
+	font-family: Georgia, serif;
+	line-height: 1.4;
+}
+
+.tab_content {
+	display: none;
+}
+</style>
+</head>
+
+<body>
+
+<div id="container">
+	<ul class="tabs">
+		<li>
+			<a href="#tab_content_primary_01" class="current">Tab Link 01</a>
+		</li>
+		<li>
+			<a href="#tab_content_primary_02">Tab Link 02</a>
+		</li>
+		<li>
+			<a href="#tab_content_primary_03">Tab Link 03</a>
+		</li>
+		<li>
+			<a href="#tab_content_primary_04">Tab Link 04</a>
+		</li>
+		<li>
+			<a href="#tab_content_primary_05">Tab Link 05</a>
+		</li>
+	</ul>
+	<div class="tab_content_wrap">
+		<div id="tab_content_primary_01" class="tab_content">
+			<p>
+				<strong>Contenuto 01</strong>
+			</p>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mollis augue cursus augue. Donec nisi mi, consequat vel, faucibus ut, porta ac, pede. Proin interdum pulvinar orci. Etiam magna turpis, lacinia at, sagittis sit amet, convallis eget, lorem. Sed tincidunt adipiscing dolor. Nam pellentesque auctor lacus. Mauris at velit quis tortor scelerisque consectetur. Fusce eu purus ut felis varius tincidunt. Curabitur non odio sit amet nisi semper commodo. Maecenas pede. Nulla aliquet lacinia neque. Ut neque ipsum, imperdiet nec, bibendum a, volutpat vitae, dolor. Mauris eros magna, pharetra lobortis, pretium vel, vehicula a, dui. Aliquam pretium. Aliquam sit amet diam eu erat lacinia viverra. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam ultrices. Maecenas dui nunc, accumsan a, egestas eget, pulvinar ut, enim.
+			</p>
+		</div>
+		<div id="tab_content_primary_02" class="tab_content">
+			<p>
+				<strong>Contenuto 02</strong>
+			</p>
+			<p>
+				Duis ultricies ante. Praesent pulvinar, sapien eget molestie congue, massa sem vehicula nisi, sodales vulputate mi tellus nec massa. Sed aliquet gravida metus. Nulla consequat aliquet pede. Sed massa augue, porta non, ornare ultricies, vestibulum quis, odio. Duis viverra ante et sapien. Fusce gravida ligula eget nibh. Vivamus nec nibh. Maecenas consequat tempor nisi. Etiam dui pede, eleifend ut, ultrices a, eleifend in, leo. Sed ultrices. Ut a diam quis mi rhoncus malesuada. Morbi eros. Donec elit. In hac habitasse platea dictumst.
+			</p>
+		</div>
+		<div id="tab_content_primary_03" class="tab_content">
+			<p>
+				<strong>Contenuto 03</strong>
+			</p>
+			<p>
+				Morbi fringilla felis eu arcu. Sed eleifend lacinia tellus. Phasellus pulvinar sollicitudin sem. Ut ut diam sed quam gravida dignissim. Ut erat tellus, congue suscipit, gravida a, imperdiet vitae, lorem. Ut tincidunt turpis. Integer ut ante vel nibh iaculis posuere. Aliquam erat volutpat. Sed turpis. Duis nec enim vitae sapien hendrerit tincidunt. Sed suscipit nulla nec quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eu dolor vel ante scelerisque lacinia. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc consequat massa a tortor. Maecenas placerat purus in ante. Vivamus suscipit lectus nec tellus. Nullam dictum diam ac elit. Integer semper.
+			</p>
+		</div>
+		<div id="tab_content_primary_04" class="tab_content">
+			<p>
+				<strong>Contenuto 04</strong>
+			</p>
+			<p>
+				Sed tempor neque ac enim. Etiam tincidunt mi eget lacus. Pellentesque in tellus sit amet dui malesuada tincidunt. In lobortis dui eget nunc. Donec ut felis eu magna pretium laoreet. Phasellus nec mi. Curabitur sodales molestie ipsum. Proin viverra malesuada sem. Duis ac lacus. Etiam id eros eu nisl commodo dapibus. Vivamus vehicula pede sed metus. Donec massa. Maecenas sapien. Mauris varius. Sed porttitor ligula molestie purus consequat iaculis. Sed placerat, magna vitae suscipit pharetra, est diam ornare diam, ac vehicula nibh risus vel dolor. Cras massa magna, venenatis ut, tristique eget, auctor et, diam. Etiam sit amet turpis eget mi adipiscing auctor. Nullam commodo volutpat quam.
+			</p>
+		</div>
+		<div id="tab_content_primary_05" class="tab_content">
+			<p>
+				<strong>Contenuto 05</strong>
+			</p>
+			<p>
+				Nulla facilisi. Donec nisi. Nam augue elit, interdum nec, dictum vel, commodo lacinia, velit. Sed dolor. Sed porttitor. Nullam ac libero. Quisque iaculis molestie lectus. Donec posuere tristique nulla. Donec sit amet felis vel quam egestas vestibulum. Cras laoreet nisi sed elit. Sed in neque a magna aliquam adipiscing. Vestibulum eget diam nec justo tempus convallis. Pellentesque purus. Nullam quis turpis id velit mattis commodo. Donec tristique, neque quis volutpat fringilla, massa nulla iaculis lectus, non congue orci mi id felis. Sed est erat, facilisis sit amet, tristique tristique, lobortis at, lectus. Aliquam iaculis lectus ac metus.
+			</p>
+		</div>
+	</div>
+</div>
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+function tabs() {
+
+	if (!$('ul.tabs').length) {
+
+	
+		return;
+	}
+
+	
+	$('div.tab_content_wrap').each(function() {
+		$(this).find('div.tab_content:first').show();
+	});
+
+
+	$('a', 'ul.tabs').click(function(event) {
+
+
+		if (!$(this).hasClass('current')) {
+
+		
+			$(this).addClass('current').parent('li').siblings('li').find('a.current').removeClass('current');
+
+			
+			$($(this).attr('href')).show().siblings('div.tab_content').hide();
+		}
+
+		event.preventDefault();
+	});
+}
+
+$(document).ready(function() {
+	
+	tabs();
+});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: effetto titoli dei film</title>
+<meta charset="utf-8" />
+<style>
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+	min-height: 100%;
+}
+
+body {
+	font: 100% 'Arial Black', Arial, sans-serif;
+	background: #fff;
+	color: #000;
+	position: relative;
+}
+
+#screen {
+	width: 700px;
+	height: 200px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -100px 0 0 -350px;
+}
+
+#screen h1 {
+	width: 100%;
+	height: 172px;
+	background: url(jquery.png) no-repeat;
+	text-indent: -1000em;
+	margin: 0;
+	display: none;
+}
+
+#tagline {
+	margin: 0;
+	color: #d40;
+	font-size: 3em;
+	letter-spacing: 0.2em;
+	text-align: center;
+	display: none;
+}
+
+#screen h2 {
+	font: 6em Impact, sans-serif;
+	letter-spacing: 0.2em;
+	color: #555;
+	margin: 0;
+	text-align: center;
+	position: absolute;
+	top: 0;
+	left: -1000em;
+}
+
+#author {
+	font: italic 3em Georgia, serif;
+	text-align: center;
+	letter-spacing: 0.1em;
+	color: #008;
+	margin: 0;
+	display: none;
+}
+</style>
+</head>
+
+<body>
+
+<div id="screen">
+
+   <h1>jQuery</h1>
+   <p id="tagline">presenta</p>
+   <h2>Write Less, <br/> Do More</h2>
+   <p id="author">Un film di John Resig</p>
+   
+
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+<script type="text/javascript">
+$(function() {
+
+  var title = $('h1', '#screen');
+  var tagline = $('#tagline', '#screen');
+  var subTitle = $('h2', '#screen');
+  var author = $('#author', '#screen');
+  
+  title.fadeIn(2000, function() {
+  
+    tagline.fadeIn(200, function() {
+    
+      $(this).add(title).fadeOut(2000, function() {
+      
+        subTitle.animate({
+          left: 0
+        }, 1000, function() {
+        
+          $(this).fadeOut(2000, function() {
+          
+            author.fadeIn(2000);
+          
+          
+          });
+        
+        });
+      
+      });
+    
+    
+    });
+  
+  
+  });
+
+
+});
+</script>
+
+</body>
+</html>

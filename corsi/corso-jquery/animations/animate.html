@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>animate()</title>
+<meta charset="utf-8" />
+<style type="text/css">
+#test {
+    margin: 2em auto;
+    width: 10em;
+    height: 10em;
+    position: relative;
+    background: gray;
+}​
+</style>
+</head>
+
+<body>
+
+<p><button id="animate">animate()</button></p>
+
+<div id="test"></div>​
+
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script>
+$(function() {
+
+	var test = $('#test'),
+    animate = $('#animate');
+
+animate.click(function() {
+    test.animate({
+        left: 20,
+        padding: '1em',
+        opacity: 0.5,
+        margin: '1em 0',
+        width: '5em',
+        height: '5em'
+    }, 1000, function() {
+        alert('Complete');
+    });
+});		
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+/* FL: Feel Like Lynx - version 1 - */
+/* Author: Gabriele Romanato */
+
+body {
+background-color: #000 !important; 
+background-image: none !important;
+color: #808000 !important;
+font-family: "Lucida Console", Monaco, "Courier New", Courier, monospace !important;
+margin: 8px !important;
+padding: 0 !important;
+font-weight: bold !important;
+}
+
+*, *[id], *[class], *[style], *[bgcolor] {
+	float: none !important;
+	position: static !important;
+	text-align: left !important;
+	background-color: #000 !important;
+	background-image: none !important;
+	color: #808000 !important;
+	border: none !important;
+	font-family: "Lucida Console", Monaco, "Courier New", Courier, monospace !important;
+	width: auto !important;
+	height: auto !important;
+	padding: 0 !important;
+	font-weight: bold !important;
+	font-size: 1em !important;
+}
+
+a:link, a:visited {color: #008000 !important; text-decoration: none !important;}
+a:hover {color: #0f0 !important; background: #800000 !important;}
+a:focus {
+	outline-style: none !important;
+}
+
+h1, h2, h3, h4, h5, h6 {color: #008080 !important; font-size: 1em !important;}
+blockquote {
+	color: #0ff !important; 
+}
+	
+q, cite, em, li {color: #ff40ff !important;}
+	
+code, cite, pre {color: #0ff !important;}
+
+strong, b {
+	color: #008080 !important;
+}
+
+q, cite, em, dfn, var, code, samp, kbd, strong, a, label {
+	display: inline !important;
+}
+
+input[type="text"][class][id],
+input[type="text"][class],
+input[type="text"][id] {
+	border-width: 0 0 2px 0 !important;
+	border-style: solid !important;
+	border-color: #008000 !important;
+	display: inline !important;
+	vertical-align: baseline !important;
+	padding: 0 !important;
+}
+
+input[type="submit"][class][id],
+input[type="submit"][class],
+input[type="submit"][id] {
+	border: none !important;
+	background: transparent !important;
+	color: #008000 !important;
+	display: inline !important;
+	vertical-align: baseline !important;
+	padding: 0 !important;
+	text-transform: none !important;
+	font-weight: bold !important;
+	position: relative !important;
+	top: 0.6em !important;
+}
+
+img {
+	display: inline !important;
+}
+
+img[alt]:after {
+	content: attr(alt) !important;
+	color: #008080 !important;
+	background: transparent !important;
+}
+
+
+ul, ol, dl, ul li {
+	display: block !important;
+}
+
+
+ul li:before {
+	content: "\002A" !important;
+	padding-right: 0.2em !important;
+	color: #808000 !important;
+}
+
+h1, h2, h3, h4, h5, h6, p, dl, ul, ol, address, blockquote, pre {
+	margin-top: 0.5em !important;
+	margin-bottom: 0.5em !important;
+	display: block !important;
+}
+
+div, div[class], div[id] {
+	margin: 0 !important;
+	display: block !important;
+}
+
+ul, ol {
+	margin-left: 2.5em !important;
+	margin-right: 0 !important;
+	padding: 0 !important;
+}
+
+
+form, form[id], form[class], form[class][id] {
+	margin: 0 !important;
+	padding: 0 !important;
+	width: auto !important;
+	height: auto !important;
+}
+
+table, table[border], table[cellspacing], table[cellpadding],
+table[border][cellspacing][cellpadding] {
+	border: none !important;
+	padding: 0 !important;
+	border-spacing: 0 !important;
+	width: auto !important;
+	height: auto !important;
+
+}
+
+td, th {
+	padding: 0 !important;
+	width: auto !important;
+	height: auto !important;
+	border: none !important;
+}
+
+th {
+	text-align: left !important;
+}
+
+caption {
+	text-align: left !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	color: #008080 !important;
+	width: auto !important;
+	height: auto !important;
+	border: none !important;
+
+}
+
+caption:before {
+	content: "CAPTION:" !important;
+	padding-right: 0.4em !important;
+}
+
+hr {
+	display: block !important;
+	color: #808080 !important;
+	background: #808080 !important;
+	height: 1px !important;
+	width: auto !important;
+}
+
+font[face],
+font[size],
+font[color],
+font[face][size][color] {
+	font-size: 1em !important;
+	font-family: "Lucida Console", Monaco, "Courier New", Courier, monospace !important;
+	color: #808000 !important;
+	background: transparent !important;
+}
+
+marquee {
+	-moz-binding: none !important; /* Firefox */
+	overflow: hidden !important;  /* Safari */
+	display: inline !important; /* Opera */
+}
+
+
+blink {
+	text-decoration: none !important;
+}
+
+
+
+
+
+

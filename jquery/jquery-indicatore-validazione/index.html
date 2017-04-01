@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: indicatore di avanzamento della validazione di un form</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	margin: 0 auto;
+	padding: 2em 0;
+	width: 300px;
+	font: 100% Arial, sans-serif;
+	background: #fff;
+	color: #333;
+}
+
+#form {
+	margin: 0;
+	width: 100%;
+}
+
+#form input {
+	font: 1em Arial, sans-serif;
+}
+
+#form ul {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#form li {
+	height: 100%;
+	overflow: hidden;
+	margin-bottom: 0.5em;
+}
+
+#form li label {
+	float: left;
+	width: 6em;
+	padding-right: 0.5em;
+	padding-top: 0.3em;
+	font-weight: bold;
+}
+
+#form li input {
+	float: left;
+	width: 180px;
+	border: 1px solid #999;
+	background: #fff;
+}
+
+#form p input {
+	background: #d34545;
+	color: #fff;
+	border: none;
+	font: bold 1em Arial, sans-serif;
+	padding: 0.4em 1em;
+}
+
+#progress {
+	width: 300px;
+	height: 20px;
+	margin: 0 0 1em 0;
+
+}
+
+#progress span {
+	width: 0px;
+	background: #398235;
+	height: 100%;
+}
+
+div.error {
+	clear: both;
+	height: 100%;
+	margin-left: 6.5em;
+	padding: 4px 0 6px 30px;
+	background: url(warning.png) no-repeat 0 0;
+}
+</style>
+</head>
+
+<body>
+
+<form action="#" method="get" id="form">
+
+    <div id="progress"><span></span></div>
+
+	<ul>
+	
+		<li>
+		
+			<label for="name">Nome:</label>
+			<input type="text" id="name" name="name" />
+		</li>
+		
+		<li>
+		
+			<label for="email">E-mail:</label>
+			<input type="text" id="email" name="email" />
+		
+		</li>
+		
+		<li>
+		
+			<label for="address">Indirizzo:</label>
+			<input type="text" id="address" name="address" />
+		
+		</li>
+	
+	</ul>
+	
+	<p><input type="submit" id="submit" name="submit" value="Send" /></p>
+
+</form>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+
+  var messages = {
+  
+    element: '<div class="error" />',
+    message: 'Valore non valido'
+  
+  
+  };
+  
+  
+  $('li', '#form').each(function() {
+  
+    var $li = $(this);
+    $(messages.element).text(messages.message).
+    appendTo($li).hide();
+    
+  
+  
+  });
+  
+  $('li', '#form').each(function(index) {
+  
+    var $input = $(this).find('input');
+    
+    $input.focus(function() {
+    
+    	$input.next().fadeOut(1000);
+    
+    });
+    
+    $input.blur(function() {
+             
+      var value = $input.val();
+      
+      if(value == '' || value == null) {
+      
+        $input.next().fadeIn(1000);
+      
+      
+      } else {
+      
+         
+        $('span', '#progress').animate({width: '+=100px'}, 'slow');
+      
+      
+      }
+  
+    });
+  
+  });
+
+
+});
+</script>
+
+</body>
+</html>

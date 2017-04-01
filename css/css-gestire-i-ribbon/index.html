@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: gestire i ribbon</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	margin: 0;
+	padding: 0;
+	background: #423e34;
+}
+
+#container {
+	width: 604px;
+	height: 599px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -299px 0 0 -302px;
+	background: url(img/box.png) no-repeat;
+	font: 100% Georgia, serif;
+}
+
+#title {
+	margin: 0;
+	font-weight: normal;
+	font-size: 2.5em;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+	padding-top: 30px;
+	color: #fff;
+}
+
+#navigation {
+	margin: 2em 0 0 0;
+	padding: 0;
+	list-style: none;
+	height: 73px;
+	width: 716px;
+	position: relative;
+	background: url(img/menu.png) no-repeat;
+	left: -56px;
+	text-align: center;
+	line-height: 50px;
+}
+
+#navigation li {
+	display: inline;
+	padding-right: 1em;
+}
+
+#navigation a {
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+	text-shadow: 1px 1px 1px #000;
+}
+
+#navigation a:hover {
+	color: #000;
+	text-shadow: 1px 1px 1px #fff;
+}
+</style>
+</head>
+<body>
+
+<div id="container">
+  <h1 id="title">Titolo</h1>
+  <ul id="navigation">
+  	<li><a href="#">Home</a></li>
+  	<li><a href="#">About</a></li>
+  	<li><a href="#">Servizi</a></li>
+  	<li><a href="#">Prodotti</a></li>
+  	<li><a href="#">Info</a></li>
+  	<li><a href="#">Contatti</a></li>
+  </ul>
+</div>
+
+</body>
+</html>

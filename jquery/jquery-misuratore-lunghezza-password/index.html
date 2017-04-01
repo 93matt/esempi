@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: misuratore della lunghezza di una password</title>
+<meta charset="utf-8" />
+<style type="text/css" media="screen">
+form {
+	margin: 0;
+	padding: 0;
+	font: 85% Arial, sans-serif;
+	color: #333;
+	width: 60%;
+}
+
+form input {
+	font: 1em Arial, sans-serif;
+}
+
+form ul {
+	margin: 0 auto;
+	padding: 1em 0;
+	width: 85%;
+	list-style: none;
+}
+
+form li {
+	height: 100%;
+	margin-bottom: 0.5em;
+	overflow: hidden;
+}
+
+form li label {
+	width: 7em;
+	float: left;
+	display: block;
+	padding-right: 0.4em;
+	font-weight: bold;
+}
+
+form li input {
+	float: left;
+	display: block;
+	width: 150px;
+	border: 1px solid #666;
+}
+
+form p {
+	margin: 0 auto;
+	width: 85%;
+	padding: 5px 0;
+}
+
+form p input {
+	background: #c30;
+	color: #fff;
+	font-weight: bold;
+	border: none;
+	padding: 4px;
+}
+
+div.message {
+    float: left;
+    padding-left: 0.3em;
+    height: 100%;
+    font-weight: bold;
+    color: #393;
+}
+
+#password-checker {
+	clear: both;
+	height: 100%;
+	padding: 4px 0 4px 7.2em;
+}
+
+#password-level {
+	width: 150px;
+	height: 12px;
+	border: 1px solid #666;
+	margin-top: 4px;
+	overflow: hidden;
+	position: relative;
+}
+
+span.level {
+  width: 15px;
+  height: 12px;
+  float: left;
+}
+
+span.mark {
+   color: #393;
+}
+
+
+div.low {
+	color: red;
+	padding: 4px 0;
+}
+
+div.medium {
+	color: orange;
+	padding: 4px 0 4px 52px;
+}
+
+div.high {
+	color: green;
+	padding: 4px 0 4px 91px;
+}
+</style>
+</head>
+<body>
+
+<form action="#" method="post" id="login-form">
+
+    <ul>
+           
+       <li>
+       
+               <label for="password">Password</label>
+	<input type="password" name="password" id="password" class="required" />
+       
+       </li>
+    
+    </ul>
+    
+    <p><input type="submit" name="login" id="login" value="Login" /></p>
+
+</form>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+ var checker = $('<div id="password-checker"></div>').html('Livello di sicurezza' + '<div id="password-level"></div>');
+       
+ checker.insertAfter('input[type=password]');
+ 
+ 
+ $('#login-form').find('input[type=password]').keyup(function(event) {
+	
+	       $('<span class="level"></span>').appendTo('#password-level');
+	       if(event.keyCode == 8 || event.keyCode == 46) {
+	       
+	           $('span.level').remove();
+	           $('input[type=password]').attr('value', '');
+	           $('#password-checker div[class]').remove();
+	          
+	       }
+	       
+	       
+	       var low = $('<div class="low"></div>').text('Basso');
+	       var medium = $('<div class="medium"></div>').text('Medio');
+	       var high = $('<div class="high"></div>').text('Alto');
+	       
+	       
+	       if($('span.level').size() <= 3) {
+	       
+	           $('span.level').css('background', 'red');
+		   
+		   if($('span.level').size() == 1) {
+		     low.appendTo('#password-checker');
+		   }
+		   
+	        }
+		
+		
+		if($('span.level').size() > 3 && $('span.level').size() <= 6) {
+		
+		
+		    $('span.level').css('background', 'orange');
+		    $('#password-checker div.low').remove();
+		    
+		    if($('span.level').size() == 4) {
+		        medium.appendTo('#password-checker');
+		    }
+		}
+		
+		if($('span.level').size() > 6 && $('span.level').size() <= 10) {
+		
+		
+		    $('span.level').css('background', 'green');
+		    $('#password-checker div.medium').remove();
+		    
+		    if($('span.level').size() == 7) {
+		        high.appendTo('#password-checker');
+		    }
+		    
+		    
+		    
+		    
+		}
+		
+				
+		
+	
+	});
+    
+
+
+
+
+});
+</script>
+
+</body>
+</html>

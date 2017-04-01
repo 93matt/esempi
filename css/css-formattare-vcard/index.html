@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS: formattare una vCard</title>
+<meta charset="utf-8" />
+<style type="text/css" media="screen">
+
+body {
+
+    margin: 0 auto;
+    width: 30%;
+    padding: 2em 0;
+    background: #fff;
+    color: #333;
+    font: 80% Arial, sans-serif;
+
+}
+
+
+div.vcard {
+
+    height: 100%;
+    border: 1px solid #ddd;
+    padding: 1em;
+    border-radius: 10px;
+
+}
+
+a.url {
+
+    display: block;
+    height: 100%;
+    color: #339;
+    font-size: 1.3em;
+    color: #d34545;
+    text-decoration: none;
+    background: url(img/warning.png) no-repeat 0 0;
+    padding-left: 19px;
+
+}
+
+div.adr {
+
+    width: 90%;
+    margin: 10px auto;
+    padding: 5px 5px 5px 19px;
+    background: url(img/name.png) no-repeat 0.3em 0.5em;
+
+}
+
+
+.adr span {
+
+    font-style: italic;
+    padding: 0 0.3em;
+
+}
+
+.adr span.type {
+    display: block;
+    height: 100%;
+    font-size: 1.3em;
+    color: #666;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 4px;
+}
+
+.tel {
+
+    height: 100%;
+    margin-bottom: 10px;
+    padding: 10px 0 5px 19px;
+    border-bottom: 1px solid #ddd;
+    background: url(img/subject.png) no-repeat 0 0.5em;
+
+}
+
+.tel .type {
+
+    font-weight: bold;
+
+}
+
+div.tel + div.tel + div {
+
+    height: 100%;
+    margin: 10px 0;
+    padding: 5px 0 5px 19px;
+    border-bottom: 1px solid #ddd;
+    background: url(img/email.png) no-repeat 0 0.4em;
+    font-weight: bold;
+
+}
+
+div.tel + div.tel + div > .email {font-weight: normal;}
+
+#hcard {
+	padding-top: 60px;
+	background: url(img/hcard.png) no-repeat;
+	width: 100%;
+	position: relative;
+}
+
+#social {
+	height: 32px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	position: absolute;
+	top: 10px;
+	right: 0;
+}
+
+#social li {
+	width: 32px;
+	height: 32px;
+	float: left;
+	margin-right: 5px;
+}
+
+#social a {
+	float: left;
+	height: 100%;
+	width: 100%;
+	display: block;
+	text-indent: -1000em;
+	background-repeat: no-repeat;
+}
+
+#social #twitter {
+	background-image: url(img/twitter.png);
+}
+#social #facebook {
+	background-image: url(img/facebook.png);
+}
+#social #linkedin {
+	background-image: url(img/linkedin.png);
+}
+</style>
+</head>
+
+<body>
+
+
+<div id="hcard">
+<ul id="social">
+	<li><a href="http://twitter.com/gabromanato/" id="twitter">Twitter</a></li>
+	<li><a href="http://facebook.com/gabrieleromanato/" id="facebook">Facebook</a></li>
+	<li><a href="http://linkedin.com/in/gabrieleromanato/" id="linkedin">Linkedin</a></li>
+</ul>
+
+<div class="vcard">
+  <a class="fn org url" href="http://gabrieleromanato.com/">Gabriele Romanato</a>
+  <div class="adr">
+    <span class="type">Work:</span>    
+    <span class="street-address">Some address</span>
+    <span class="locality">A City</span>,  
+    <abbr class="region" title="Region">A Region</abbr>
+    <span class="postal-code">000000</span>
+    <span class="country-name">Italy</div>
+  </div>
+  <div class="tel">
+   <span class="type">Work</span> +39-00-00-00
+  </div>
+  <div class="tel">
+    <span class="type">Fax</span> +39-00-00-00
+  </div>
+  <div>Email: 
+   <span class="email">gabriele.romanato[at]gmail.com</span>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

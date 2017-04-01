@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: menu contestuale con il tasto destro del mouse</title>
+<meta charset="utf-8" />
+<style type="text/css">
+
+#gallery {
+    
+    padding: 2em 0;
+    width: 70%;
+    margin: 0 auto;
+    height: 300px;
+    position: relative;
+}
+
+#gallery p {
+    
+    color: #c40;
+    font: 1.5em "Trebuchet MS", Trebuchet, sans-serif;
+    margin: 0;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+#gallery img {
+    
+    float: left;
+    width: 32%;
+    margin-right: 0.5em;
+}
+
+div.context-menu {
+    
+    background: #c40;
+    color: #fff;
+    width: 180px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    position: absolute;
+    font-family: Arial, sans-serif;
+}
+
+div.context-menu a {
+    
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: block;
+}
+div.context-menu a:hover {text-decoration: underline;}
+
+</style>
+</head>
+
+<body>
+    
+<div id="gallery">
+    <p>Clicca con il tasto destro su ogni immagine per scaricarla</p>
+    <img src="http://dev.css-zibaldone.com/onwebdev/post/star-rating/1.jpg" alt="Building 1" />
+    <img src="http://dev.css-zibaldone.com/onwebdev/post/star-rating/2.jpg" alt="Building 2" />
+    <img src="http://dev.css-zibaldone.com/onwebdev/post/star-rating/3.jpg" alt="Building 3" />
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+    
+ 
+   
+   $('img', '#gallery').each(function() {
+    
+        var $img = $(this);
+        var contextMenu = '<div class="context-menu">';
+        var src = $img.attr('src');
+        
+        contextMenu += '<a href="' + src + '">' + 'Download' + '</a></div>';
+        
+        $(contextMenu).insertAfter($img)
+        .hide();
+        
+        
+    
+   });
+   
+   
+   $('img', '#gallery').bind('contextmenu', function(e) {
+    
+    var $img = $(this);
+    var imgLeft = $img.position().left;
+    
+    
+     $img.next().animate({
+        
+        visibility: 'show',
+        bottom: 0,
+        left: imgLeft + 80
+        
+        
+     }, 'slow');
+    
+      e.preventDefault();
+   });
+    
+    
+});
+
+
+</script>
+</body>
+</html>
+

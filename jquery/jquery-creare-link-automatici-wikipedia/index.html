@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: creare link automatici a Wikipedia</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	margin: 2em auto;
+	padding: 0;
+	width: 40em;
+	font: 85%/1.5 Arial, sans-serif;
+}
+
+a {
+	text-decoration: none;
+	color: #06c;
+}
+
+abbr.wiki {
+	border-bottom: 1px dotted;
+}
+</style>
+</head>
+
+<body>
+
+<p>Lorem ipsum dolor sit amet, consectetur <abbr class="wiki" title="Cascading Style Sheets">CSS</abbr> adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> 
+
+<p>Duis aute irure dolor in reprehenderit <abbr class="wiki" title="HyperText Markup Language">HTML</abbr> in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+<script type="text/javascript">
+$(function() {
+
+	$('abbr.wiki', document.body).each(function() {
+	
+		var $abbr = $(this);
+		var text = $abbr.text();
+		var wikiLink = '<a href="http://it.wikipedia.org/wiki/' + text + '"></a>';
+		
+		$abbr.wrap(wikiLink);
+		
+	
+	
+	});
+
+});
+</script>
+</body>
+</html>

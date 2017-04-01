@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>eq() - index()</title>
+<meta charset="utf-8" />
+<style type="text/css">
+.filter {
+    background: yellow;
+}​
+
+</style>
+</head>
+
+<body>
+
+<div>
+	eq(): <select name="eq" id="eq">
+	
+	        <option>Select</option>
+	        <option value="0">1</option>
+	        <option value="1">2</option>
+	        <option value="2">3</option>
+	        <option value="3">4</option>
+	        <option value="4">5</option>
+	
+	        </select>
+	        
+	index(): <select name="index" id="index">
+	
+	        <option>Select</option>
+	        <option value="0">1</option>
+	        <option value="1">2</option>
+	        <option value="2">3</option>
+	        <option value="3">4</option>
+	        <option value="4">5</option>
+	
+	        </select>
+
+	
+</div>
+
+<p>Integer auctor aliquet parturient nascetur et ut aenean. Cursus arcu ac magna auctor vel vel tristique magnis aenean, eu? Lacus @username et habitasse nisi integer penatibus mauris, et, cum ac odio! In scelerisque penatibus tincidunt duis et!</p>
+
+<p>Integer auctor aliquet parturient nascetur et ut aenean. Cursus arcu ac magna auctor vel vel tristique magnis aenean, eu? Lacus et habitasse nisi integer penatibus mauris, et, cum ac odio! In scelerisque penatibus tincidunt duis et!</p>
+
+<p>Integer auctor aliquet parturient nascetur et ut aenean. Cursus arcu ac magna auctor vel vel tristique magnis aenean, eu? Lacus @username et habitasse nisi integer penatibus mauris, et, cum ac odio! In scelerisque penatibus tincidunt duis et!</p>
+
+<p>Integer auctor aliquet parturient nascetur et ut aenean. Cursus arcu ac magna auctor vel vel tristique magnis aenean, eu? Lacus et habitasse nisi integer penatibus mauris, et, cum ac odio! In scelerisque penatibus tincidunt duis et!</p>
+
+<p>Integer auctor aliquet parturient nascetur et ut aenean. Cursus arcu ac magna auctor vel vel tristique magnis aenean, eu? Lacus et habitasse nisi integer penatibus mauris, et, cum ac odio! In scelerisque penatibus tincidunt duis et!</p>
+
+
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script>
+$(function() {
+
+	$('#eq').change(function() {
+	
+		var value = $('option:selected', $(this)).val();
+		$('p').eq(value).addClass('filter').siblings('p').removeClass('filter');
+	
+	
+	});
+	
+	$('#index').change(function() {
+	
+		var value = $('option:selected', $(this)).val();
+		alert($('p').eq(value).index());
+	
+	
+	});
+			
+});
+</script>
+</body>
+</html>

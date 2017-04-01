@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: parsing di un feed JSON di Twitter</title>
+<meta charset="utf-8" />
+<style type="text/css" media="screen">
+#tweets {
+	margin: 0 auto;
+	width: 35em;
+	padding: 2em 0;
+	font: 76% Arial, sans-serif;
+	line-height: 1.4;
+}
+
+div.tweet {
+	background: #f7f7f7;
+	color: #333;
+	font-size: 1.2em;
+	padding: 1em;
+	margin-bottom: 1em;
+	border-left: 1em solid #d34545;
+}
+
+div.tweet a {
+	color: #d34545;
+}
+</style>
+</head>
+
+<body>
+
+<div id="tweets"></div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+
+  var JSONUrl = 'http://twitter.com/status/user_timeline/gabromanato.json?count=5&callback=?';
+  var URLRe = /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+
+  $.getJSON(JSONUrl, function(json) {
+    
+    $.each(json, function(item, value) {
+    
+      if(typeof value === 'object') {
+      
+        $.each(value, function(index, prop) {
+        
+          if(typeof prop === 'string') {
+          
+            if(!/^</.test(prop) && !/^\d+$/.test(prop)) { // link al profilo e ID
+            
+              if(URLRe.test(prop)) {
+              
+                var marked = prop.replace(URLRe, function($1) {
+                
+                
+                  return '<a href="' + $1 + '">' + $1 + '</a>';
+                
+                });
+              
+                $('<div class="tweet"/>').html(marked).appendTo('#tweets');
+              
+              }
+            
+            }
+          
+          }
+        
+        
+        });
+      
+      }
+    
+    
+    });
+    
+  });
+
+
+   
+
+
+});
+</script>
+</body>
+</html>

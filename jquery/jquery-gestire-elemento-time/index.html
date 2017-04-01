@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery: gestire l'elemento time</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+	margin: 0;
+	padding: 2em 0;
+	font: 100% Helvetica, Arial, sans-serif;
+}
+
+article, header, time {
+	display: block;
+}
+
+article {
+	width: 40%;
+	margin: 0 auto;
+	position: relative;
+}
+
+header {
+	border-bottom: 1px dotted #ccc;
+}
+
+article h2 {
+	font-size: 1.8em;
+	font-weight: normal;
+	color: #c30;
+	margin: 0;
+}
+
+article p {
+	line-height: 1.4;
+	font: 1.1em Georgia, serif;
+	color: #333;
+}
+
+.datetime {
+	width: 6em;
+	position: absolute;
+	top: 0;
+	left: -7em;
+}
+
+.datetime .month {
+	display: block;
+	text-align: center;
+	font: 2em Georgia, serif;
+	background: #222;
+	color: #fff;
+	border-radius: 6px 6px 0 0;
+	padding: 6px 0;
+}
+
+.datetime .day {
+	display: block;
+	text-align: center;
+	font-size: 2em;
+	background: #333;
+	color: #fff;
+	padding: 10px 0;
+	letter-spacing: 2px;
+}
+
+.datetime .year {
+	display: block;
+	text-align: center;
+	font: 2em Georgia, serif;
+	background: #222;
+	color: #fff;
+	border-radius: 0 0 6px 6px;
+	padding: 6px 0;
+}
+
+</style>
+</head>
+
+<body>
+
+<article>
+
+	<header>
+		<h2>Titolo Articolo</h2>
+		<time datetime="2011-11-06" pubdate="pubdate">2011-11-06</time>
+	</header>
+	
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+</article>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+function formatMonth(month) {
+
+	var formattedMonth = '';
+	
+	switch(month) {
+	
+		case '01':
+			formattedMonth = 'Gen';
+			break;
+		case '02':
+			formattedMonth = 'Feb';
+			break;
+		case '03':
+			formattedMonth = 'Mar';
+			break;
+		case '04':
+			formattedMonth = 'Apr';
+			break;
+		case '05':
+			formattedMonth = 'Mag';
+			break;
+		case '06':
+			formattedMonth = 'Giu';
+			break;
+		case '07':
+			formattedMonth = 'Lug';
+			break;
+		case '08':
+			formattedMonth = 'Ago';
+			break;
+		case '09':
+			formattedMonth = 'Set';
+			break;
+		case '10':
+			formattedMonth = 'Ott';
+			break;
+		case '11':
+			formattedMonth = 'Nov';
+			break;
+		case '12':
+			formattedMonth = 'Dic';
+			break;
+		default:
+			break;
+		
+	
+	
+	}
+	
+	return formattedMonth;
+
+}
+
+function replaceTime() {
+
+	$('time', 'header').each(function() {
+	
+		var $time = $(this);
+		var text = $time.text();
+		
+		var timeParts = text.split('-');
+		
+		var year = timeParts[0];
+		var month = formatMonth(timeParts[1]);
+		var day = timeParts[2].replace(/^0/, '');
+		
+		var html = '<span class="month">' + month + '</span>' +
+		           '<span class="day">' + day + '</span>' +
+		           '<span class="year">' + year + '</span>';
+		           
+		           
+		$time.addClass('datetime').html(html);
+	
+	});
+
+
+}
+
+$(function() {
+
+	replaceTime();
+
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>CSS: form sperimentali</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css" media="screen">
+
+/* General styles */
+
+body {
+	margin: 2em 0;
+	padding: 0;
+	background: #fff;
+	color: #000;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+#bollettino {
+	font-size: 76%;
+	margin: 0 auto;
+	width: 500px;
+	padding-left: 1em;
+	border-right: 1px solid #000;
+}
+
+
+/* Title */
+
+h2 {
+	margin: 0;
+	font-size: 1em;
+	font-weight: normal;
+	border-bottom: 1px solid;
+}
+
+span.logo {
+	float: right;
+	margin: 0;
+	padding-right: 1em;
+}
+span.logo span {
+	font-weight: bold;
+}
+
+
+/* Form styles */
+
+input {
+	border: 1px solid #c00;
+	vertical-align: 0;
+}
+
+label {
+	font-weight: bold; 
+	vertical-align: 5px;
+}
+
+table {
+	display: inline;
+}
+
+td, td input {
+	width: 18px;
+	height: 22px;
+}
+
+#ccn, #euro, 
+#importo, #intestato, 
+#causa, #eseguito, 
+#via, #caps {
+	padding-top: 0.5em;
+}
+
+
+#importo label, #intestato label, 
+#eseguito label, #via label, 
+#caps label {
+	vertical-align: -4px;
+}
+
+
+
+
+#euro1 {
+	margin-left: 1.1em;
+}
+
+#importo input, #intestato input,
+#eseguito input, #via input, 
+#caps input {
+	border-width: 0 0 1px 0; 
+	border-style: dotted; 
+	border-color: #000;
+}
+
+#causa {
+	margin-top: 0.8em;
+	margin-right: 1em;
+	border: 1px solid #000;
+	padding-bottom: 2em;
+}
+
+#causa input {
+	border-width: 0 0 1px 0;
+	border-style: dotted;
+	border-color: #000;
+	display: block;
+	width: 100%;
+}
+
+#causa label {
+	background: #fff;
+	padding: 3px 3px 3px 0.3em;
+	position: relative;
+	top: -15px;
+	left: 3px;
+}
+
+#bollo {
+	margin: 0 1em 0 0;
+	padding-top: 100px;
+	text-align: right;
+}
+
+#cap {
+	margin-right: 0.2em;
+}
+
+
+</style>
+
+<!--[if IE]>
+<style type="text/css">
+#importo label, #intestato label, #eseguito label, #via label, #caps label {vertical-align: -3px;}
+#causa>input {border-right: 1px solid; position: relative; width: 99.5%;}
+</style>
+<![endif]-->
+
+<script type="text/javascript" src="safari-opera.js"></script>
+
+</head>
+
+<body>
+
+<div id="bollettino">
+
+
+<h2><span class="logo">Banco<span>Posta</span></span> CONTI CORRENTI POSTALI - Ricevuta di versamento</h2>
+
+<form action="#" method="post">
+<div id="ccn">
+<label>sul C/C n.</label>
+<table summary="Numero di conto corrente: riempire i campi con i caratteri necessari" id="numerocc1">
+<tr>
+<td><input type="text" name="char1" id="char1" size="2" /></td>
+<td><input type="text" name="char2" id="char2" size="2" /></td>
+<td><input type="text" name="char3" id="char3" size="2" /></td>
+<td><input type="text" name="char4" id="char4" size="2" /></td>
+<td><input type="text" name="char5" id="char5" size="2" /></td>
+<td><input type="text" name="char6" id="char6" size="2" /></td>
+<td><input type="text" name="char7" id="char7" size="2" /></td>
+<td><input type="text" name="char8" id="char8" size="2" /></td>
+</tr>
+</table>
+</div>
+
+<div id="euro">
+<label>di Euro</label>
+<table summary="Importo da pagare: riempire i campi con le cifre necessarie" id="euro1">
+<tr>
+<td><input type="text" name="cifra1" id="cifra1" size="2" /></td>
+<td><input type="text" name="cifra2" id="cifra2" size="2" /></td>
+<td><input type="text" name="cifra3" id="cifra3" size="2" /></td>
+<td><input type="text" name="cifra4" id="cifra4" size="2" /></td>
+<td><input type="text" name="cifra5" id="cifra5" size="2" /></td>
+<td><input type="text" name="cifra6" id="cifra6" size="2" /></td>
+<td><input type="text" name="cifra7" id="cifra7" size="2" /></td>
+<td><input type="text" name="cifra8" id="cifra8" size="2" /></td>
+<td><input type="text" name="cifra9" id="cifra9" size="2" /></td>
+<td><input type="text" name="cifra10" id="cifra10" size="2" /></td>
+</tr>
+</table>
+</div>
+
+<div id="importo">
+<label for="importolettere">IMPORTO IN LETTERE</label>
+<input type="text" name="importolettere" id="importolettere" />
+</div>
+
+<div id="intestato">
+<label for="intestatoa">INTESTATO A</label>
+<input type="text" name="intestatoa" id="intestatoa" />
+</div>
+
+<div id="causa">
+<label for="causale">CAUSALE</label>
+<input type="text" name="causale" id="causale" />
+</div>
+
+<p id="bollo">BOLLO DELL'UFFICIO POSTALE</p>
+
+<div id="eseguito">
+<label for="eseguitoda">ESEGUITO DA</label>
+<input type="text" name="eseguitoda" id="eseguitoda" />
+</div>
+
+<div id="via">
+<label for="via-piazza">VIA - PIAZZA</label>
+<input type="text" name="via-piazza" id="via-piazza" />
+</div>
+
+<div id="caps">
+<label for="cap">CAP</label>
+<input type="text" name="cap" id="cap" />
+<label for="localita">LOCALIT&Agrave;</label>
+<input type="text" name="localita" id="localita" />
+</div>
+
+
+
+
+</form>
+
+
+</div>
+
+
+</body>
+</html>

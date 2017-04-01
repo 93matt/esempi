@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>CSS: listato di directory</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css" media="screen">
+body {
+	background: #fff;
+	color: #000;
+}
+
+a:link, a:visited {
+	color: blue;
+	background: transparent;
+}
+
+table {
+	font-family: monospace;
+	border: none;
+	width: 90%;
+	border-collapse: collapse;
+}
+
+td, th {
+	width: 25%;
+	vertical-align: top;
+	padding-top: 0.3em;
+	padding-bottom: 0.3em;
+}
+
+th {
+	font-weight: normal;
+	text-align: left;
+}
+
+.bordertop {
+	border-top: 2px outset #ccc;
+}
+
+.borderbottom {
+	border-bottom: 2px outset #ccc;
+}
+
+
+.parent, .text, .pdf, .image, .compressed, .sound, .dir {
+	padding-left: 24px;
+	height: 1.5em;
+}
+
+.parent {
+	background: transparent url("img/back.gif") no-repeat top left;
+}
+
+.text {
+	background: transparent url("img/text.gif") no-repeat top left;
+}
+
+.pdf {
+	background: transparent url("img/pdf.gif") no-repeat top left;
+}
+
+.image {
+	background: transparent url("img/image.gif") no-repeat top left;
+}
+
+.compressed {
+	background: transparent url("img/compressed.gif") no-repeat top left;
+}
+
+.sound {
+	background: transparent url("img/sound.gif") no-repeat top left;
+}
+
+.dir {
+	background: transparent url("img/dir.gif") no-repeat top left;
+}
+
+
+address {
+	margin: 0;
+	padding: 0.5em 0;
+}
+
+.parent, .text, .pdf, .image, .compressed, .sound, .dir {
+	padding-left: 1.8em;
+}
+
+</style>
+</head>
+
+<body>
+<h1>Index of /directory</h1>
+
+<table summary="Directory listing of /directory">
+<tr>
+<th scope="col">Name</th>
+<th scope="col">Last Modified</th>
+<th scope="col">Size</th>
+<th scope="col">Description</th>
+</tr>
+
+<tr>
+<td class="parent bordertop"><a href="#" title="Parent Directory">Parent Directory</a></td>
+<td class="bordertop">22-Dec-2007 05:55</td>
+<td class="bordertop">-</td>
+<td class="bordertop">-</td>
+</tr>
+
+<tr>
+<td class="text"><a href="#">file.html</a></td>
+<td>22-Dec-2007 16:22</td>
+<td>15K</td>
+<td>-</td>
+</tr>
+
+<tr>
+<td class="pdf"><a href="#">file.pdf</a></td>
+<td>12-Dec-2007 12:00</td>
+<td>900K</td>
+<td>-</td>
+</tr>
+
+<tr>
+<td class="image"><a href="#">file.jpg</a></td>
+<td>10-Dec-2007 02:00</td>
+<td>90K</td>
+<td>-</td>
+</tr>
+
+<tr>
+<td class="compressed"><a href="#">file.zip</a></td>
+<td>11-Dec-2007 06:30</td>
+<td>190K</td>
+<td>-</td>
+</tr>
+
+<tr>
+<td class="sound"><a href="#">file.mp3</a></td>
+<td>09-Dec-2007 17:30</td>
+<td>980K</td>
+<td>-</td>
+</tr>
+
+<tr>
+<td class="dir borderbottom"><a href="#" title="Go to 'Documents'">documents</a></td>
+<td class="borderbottom">10-Dec-2007 09:00</td>
+<td class="borderbottom">-</td>
+<td class="borderbottom">-</td>
+</tr>
+
+</table>
+
+<address>My Server at <a href="#">www.mysite.com</a> Port 80</address>
+</body>
+</html>
